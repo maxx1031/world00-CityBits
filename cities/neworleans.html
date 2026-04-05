@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新奥尔良 · CityBits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@300;400;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1008;
+    --paper: #f5efe6;
+    --rust: #c0392b;
+    --gold: #c9922a;
+    --steel: #4a5568;
+    --cream: #faf6ef;
+    --line: rgba(26,16,8,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif SC', serif;
+    overflow-x: hidden;
+  }
+
+  .back-link {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--steel);
+    text-decoration: none;
+    padding: 10px 16px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    transition: all 0.2s;
+    z-index: 100;
+  }
+
+  .back-link:hover {
+    border-color: var(--rust);
+    color: var(--rust);
+  }
+
+  header {
+    position: relative;
+    padding: 80px 60px 60px;
+    border-bottom: 2px solid var(--ink);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 40px;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: repeating-linear-gradient(90deg, var(--rust) 0, var(--rust) 30px, var(--ink) 30px, var(--ink) 60px, var(--gold) 60px, var(--gold) 90px, var(--paper) 90px, var(--paper) 120px);
+  }
+
+  .masthead-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 7vw, 86px);
+    line-height: 0.92;
+    font-weight: 700;
+    letter-spacing: -2px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--rust);
+  }
+
+  .masthead-sub {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--steel);
+    line-height: 1.8;
+    max-width: 280px;
+    text-align: right;
+  }
+
+  .masthead-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 160px;
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--line);
+    line-height: 1;
+    user-select: none;
+  }
+
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px 100px;
+  }
+
+  .category {
+    margin-top: 70px;
+  }
+
+  .cat-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .cat-line {
+    flex: 1;
+    height: 1px;
+    background: var(--ink);
+  }
+
+  .cat-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 6px 16px;
+    border: 1px solid var(--ink);
+  }
+
+  .fact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0;
+    border: 1px solid var(--ink);
+  }
+
+  .fact {
+    padding: 28px 32px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    transition: background 0.2s;
+    cursor: default;
+  }
+
+  .fact:hover {
+    background: rgba(192, 57, 43, 0.04);
+  }
+
+  .fact-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--rust);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .fact-text {
+    font-size: 14px;
+    line-height: 2;
+    font-weight: 300;
+    color: var(--ink);
+  }
+
+  .fact-text strong {
+    font-weight: 600;
+    color: var(--rust);
+  }
+
+  .pullquote {
+    margin: 50px 0;
+    padding: 40px 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    text-align: center;
+  }
+
+  .pullquote p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3vw, 32px);
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--rust);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .fact-wide {
+    grid-column: 1 / -1;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 32px 40px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .fact-wide .fact-num { color: var(--gold); }
+  .fact-wide .fact-text { color: var(--cream); }
+  .fact-wide .fact-text strong { color: var(--gold); }
+
+  footer {
+    border-top: 2px solid var(--ink);
+    padding: 30px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--steel);
+    text-transform: uppercase;
+  }
+
+  .footer-ornament {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--rust);
+  }
+
+  @media (max-width: 600px) {
+    .back-link { position: static; margin: 20px; display: inline-block; }
+    header { padding: 60px 24px 40px; grid-template-columns: 1fr; }
+    .masthead-number { display: none; }
+    main { padding: 0 16px 60px; }
+    .fact-grid { grid-template-columns: 1fr; }
+    footer { padding: 24px; flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="../index.html" class="back-link">← 返回城市列表</a>
+
+<header>
+  <div>
+    <div class="masthead-eyebrow">CityBits · 城市观察</div>
+    <h1>New<br><em>Orleans</em></h1>
+    <p style="margin-top:20px; font-family:'Noto Serif SC'; font-size:15px; font-weight:300; color:var(--steel); line-height:2;">
+      100件你可能不知道的小事<br>关于这座爵士乐的故乡
+    </p>
+  </div>
+  <div style="text-align:right;">
+    <div class="masthead-number">100</div>
+    <div class="masthead-sub">狂欢与忧伤并存<br>克里奥尔的灵魂<br>一座永不停歇的派对</div>
+  </div>
+</header>
+
+<main>
+
+  <!-- CATEGORY 1: 地理 & 城市结构 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">地理 &amp; 城市结构</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">001</span>
+        <p class="fact-text">新奥尔良位于<strong>海平面以下</strong>，城市大部分区域比密西西比河水位还低，完全依赖堤坝和水泵系统维持干燥。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">002</span>
+        <p class="fact-text">新奥尔良的形状像一个<strong>弯月</strong>，因此被称为"Crescent City"（新月之城），密西西比河在此拐弯入海。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">003</span>
+        <p class="fact-text">法语区（French Quarter）是城市<strong>最古老的街区</strong>，但现存建筑大多是西班牙殖民时期的风格，而非法式。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">004</span>
+        <p class="fact-text">新奥尔良的<strong>花园区</strong>（Garden District）以19世纪美国富商的豪宅著称，橡树林荫道和铁艺围栏是标志景观。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">005</span>
+        <p class="fact-text">新奥尔良正在<strong>缓慢下沉</strong>——由于地下水抽取、沼泽地基压缩等原因，城市每年下沉约2-5厘米。加上海平面上升和飓风威胁，这座城市的长期存续面临根本性挑战。很多科学家预测，如果不采取激进措施，新奥尔良可能在本世纪末部分被淹没。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">006</span>
+        <p class="fact-text">新奥尔良被<strong>庞恰特雷恩湖</strong>（Lake Pontchartrain）环抱，这实际上是一个潟湖，与墨西哥湾相连。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">007</span>
+        <p class="fact-text">城市的<strong>街道名</strong>保留了大量法语和西班牙语遗迹：Bourbon（波旁）、Royal（皇家）、Chartres（沙特尔）等。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">008</span>
+        <p class="fact-text">新奥尔良的<strong>墓地</strong>被称为"死亡之城"，由于地下水位高，棺材会浮起，所以全部采用地上墓葬。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PULLQUOTE -->
+  <div class="pullquote">
+    <p>「在新奥尔良，葬礼是一场游行，<br>派对是一种信仰，<br>悲伤和欢乐从来不分家。」</p>
+  </div>
+
+  <!-- CATEGORY 2: 交通 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">交通 &amp; 出行</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">009</span>
+        <p class="fact-text">新奥尔良的<strong>有轨电车</strong>（Streetcar）是全美最古老的公共交通系统之一，圣查尔斯线自1835年运营至今。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">010</span>
+        <p class="fact-text">电车是<strong>田纳西·威廉斯</strong>名剧《欲望号街车》的灵感来源，"Desire"实际上是一条已停运的电车线路名。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">011</span>
+        <p class="fact-text">新奥尔良的<strong>公共交通</strong>整体落后，很多人依赖私家车，这也是卡特里娜飓风时很多穷人无法撤离的原因之一。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">012</span>
+        <p class="fact-text">新奥尔良的<strong>道路状况</strong>极差，坑洼遍地，当地人戏称开车像在月球表面行驶。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">013</span>
+        <p class="fact-text">法语区是<strong>步行者天堂</strong>，大部分景点、酒吧、餐厅都在步行范围内，不需要开车。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">014</span>
+        <p class="fact-text">密西西比河上的<strong>渡轮</strong>免费运营，连接新奥尔良与西岸的阿尔及尔角，是欣赏城市天际线的好方式。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">015</span>
+        <p class="fact-text">新奥尔良机场名为<strong>路易斯·阿姆斯特朗国际机场</strong>，以爵士乐传奇命名，是全美唯一以音乐家命名的主要机场。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">016</span>
+        <p class="fact-text">新奥尔良是美国少数几个<strong>允许在公共场所饮酒</strong>的城市之一，走在街上手拿鸡尾酒完全合法。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 3: 食物 & 饮食文化 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">食物 &amp; 饮食文化</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">017</span>
+        <p class="fact-text">新奥尔良菜融合了<strong>法国、西班牙、非洲、加勒比</strong>多元影响，形成独特的克里奥尔（Creole）和卡津（Cajun）风味。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">018</span>
+        <p class="fact-text">Gumbo是新奥尔良的<strong>招牌菜</strong>，一种浓稠的炖汤，用秋葵、香肠、海鲜或鸡肉熬制，配米饭食用。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">019</span>
+        <p class="fact-text">Jambalaya是另一道<strong>经典料理</strong>，类似西班牙海鲜饭，混合了香肠、虾、蔬菜和米饭。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">020</span>
+        <p class="fact-text">新奥尔良的<strong>Po'boy三明治</strong>是城市灵魂美食——法式面包夹炸虾、炸牡蛎或其他海鲜，起源于1929年大罢工期间，当时有餐厅免费给罢工工人提供食物，称他们为"poor boys"，后简化为Po'boy。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">021</span>
+        <p class="fact-text">Beignet是新奥尔良的<strong>法式甜甜圈</strong>，撒上厚厚的糖粉，Café du Monde的beignet是游客必打卡项目。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">022</span>
+        <p class="fact-text">新奥尔良是<strong>小龙虾之都</strong>，每年消费的小龙虾数以百万磅计，Crawfish Boil（煮小龙虾派对）是当地社交活动。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">023</span>
+        <p class="fact-text">新奥尔良的<strong>鸡尾酒文化</strong>举世闻名，Sazerac被认为是美国第一款鸡尾酒，Hurricane和Hand Grenade是当地特色。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">024</span>
+        <p class="fact-text">新奥尔良每周五<strong>必吃海鲜</strong>，这是天主教斋戒传统的遗留，很多餐厅周五有特别的海鲜套餐。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 4: 历史 & 政治 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">历史 &amp; 政治</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">025</span>
+        <p class="fact-text">新奥尔良由<strong>法国人</strong>建于1718年，以法国摄政王奥尔良公爵命名，后被转让给西班牙，再卖给美国。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">026</span>
+        <p class="fact-text">1803年的<strong>路易斯安那购地案</strong>是美国历史上最划算的交易——美国以1500万美元从拿破仑手中买下整个路易斯安那领地。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">027</span>
+        <p class="fact-text">新奥尔良曾是美国最大的<strong>奴隶市场</strong>，成千上万的非洲奴隶在这里被买卖，这段历史深刻塑造了城市的文化和人口构成。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">028</span>
+        <p class="fact-text">新奥尔良有独特的<strong>"自由有色人"</strong>（Free People of Color）群体，他们在奴隶制时代就是自由身，形成了独特的克里奥尔文化。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">029</span>
+        <p class="fact-text">1815年的<strong>新奥尔良战役</strong>是英美战争的最后一战，安德鲁·杰克逊在此击败英军，成为战争英雄，后当选总统。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">030</span>
+        <p class="fact-text">新奥尔良长期是<strong>腐败之城</strong>，政治机器、黑帮、贿赂是城市政治的常态，"路易斯安那政治"成为美国政治腐败的代名词。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">031</span>
+        <p class="fact-text">2005年的<strong>卡特里娜飓风</strong>是新奥尔良历史上最惨痛的灾难——堤坝决口，80%的城市被淹，1800多人死亡，数十万人流离失所。联邦政府的救援失败暴露了美国体制的深层问题。至今，很多居民仍未返回，城市人口比飓风前减少了约20%。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">032</span>
+        <p class="fact-text">新奥尔良<strong>黑人人口</strong>占总人口约60%，是美国黑人文化最浓郁的城市之一，但种族隔离和不平等问题至今存在。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 5: 建筑 & 空间 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">建筑 &amp; 空间</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">033</span>
+        <p class="fact-text">法语区的<strong>铁艺阳台</strong>是城市标志性景观，实际上是西班牙殖民时期引入的，法国人原本不用铁艺装饰。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">034</span>
+        <p class="fact-text">新奥尔良的房屋有独特的<strong>"Shotgun House"</strong>风格——狭长的单层木屋，据说从前门开枪可以直接穿过后门。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">035</span>
+        <p class="fact-text">圣路易大教堂是美国<strong>最古老的天主教堂</strong>之一，建于1718年，是法语区杰克逊广场的地标。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">036</span>
+        <p class="fact-text">花园区的<strong>橡树林荫道</strong>（Oak Alley）是南方种植园建筑的经典代表，28棵300年橡树形成壮观的隧道。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">037</span>
+        <p class="fact-text">新奥尔良的<strong>超级穹顶体育馆</strong>在卡特里娜飓风期间成为避难所，但条件恶劣，数万人在此度过噩梦般的数天。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">038</span>
+        <p class="fact-text">保存大厅（Preservation Hall）是新奥尔良最著名的<strong>爵士乐酒吧</strong>，自1961年营业至今，没有空调、没有酒水，只有纯粹的音乐。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">039</span>
+        <p class="fact-text">新奥尔良的<strong>拉斐特公墓</strong>是全美最上镜的墓地之一，出现在无数电影和电视剧中，是哥特式浪漫的象征。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">040</span>
+        <p class="fact-text">卡特里娜后的<strong>重建</strong>是一个复杂的故事——一些街区得到修复甚至绅士化，房价飙升，原住民被迫迁出；另一些街区至今仍是废墟，杂草丛生。这种不均衡的复苏反映了美国社会的深层不平等。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 6: 文化 & 社会 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">文化 &amp; 社会</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">041</span>
+        <p class="fact-text">新奥尔良是<strong>爵士乐的诞生地</strong>，19世纪末20世纪初，非洲节奏、欧洲和声和蓝调在这里融合，创造了全新的音乐形式。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">042</span>
+        <p class="fact-text">路易斯·阿姆斯特朗是新奥尔良最伟大的<strong>音乐家</strong>，他从贫民区走出，成为全球爵士乐的象征。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">043</span>
+        <p class="fact-text">狂欢节（Mardi Gras）是新奥尔良最盛大的<strong>年度庆典</strong>，每年吸引数百万游客，持续数周的游行、派对和狂欢。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">044</span>
+        <p class="fact-text">狂欢节的<strong>彩珠</strong>（beads）是标志性元素，游行队伍向人群抛撒彩珠，接到越多越幸运。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">045</span>
+        <p class="fact-text">新奥尔良的<strong>葬礼游行</strong>（Second Line）是独特的文化传统——送葬队伍伴随铜管乐队前行，悲伤的哀乐逐渐转为欢快的爵士乐。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">046</span>
+        <p class="fact-text">新奥尔良有浓厚的<strong>巫毒教</strong>（Voodoo）传统，融合了非洲宗教与天主教元素，玛丽·拉沃是最著名的巫毒女王。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">047</span>
+        <p class="fact-text">新奥尔良人以<strong>"laissez les bons temps rouler"</strong>（让美好时光滚动起来）为座右铭，享乐主义是城市的核心价值。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">048</span>
+        <p class="fact-text">新奥尔良是美国<strong>LGBTQ文化</strong>最开放的南方城市，每年的Southern Decadence是全美最大的同志庆典之一。这种开放态度与天主教传统、南方保守主义并存，形成了新奥尔良独特的"矛盾共存"文化。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">049</span>
+        <p class="fact-text">新奥尔良的<strong>社交俱乐部</strong>（Social Aid and Pleasure Clubs）是非裔社区的重要组织，负责葬礼、游行和社区互助。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">050</span>
+        <p class="fact-text">新奥尔良人对<strong>大学橄榄球</strong>的热情不亚于任何南方城市，LSU（路易斯安那州立大学）的比赛日全城沸腾。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PULLQUOTE 2 -->
+  <div class="pullquote">
+    <p>「新奥尔良是美国最不像美国的城市，<br>这里有自己的时区，<br>自己的规则，自己的灵魂。」</p>
+  </div>
+
+  <!-- CATEGORY 7: 自然 & 动物 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">自然 &amp; 动物</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">051</span>
+        <p class="fact-text">新奥尔良周边是<strong>密西西比河三角洲</strong>湿地，这片沼泽地是美国最重要的生态系统之一，但正在以惊人速度消失。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">052</span>
+        <p class="fact-text">路易斯安那州的<strong>鳄鱼</strong>数量超过200万只，在新奥尔良郊外的沼泽地很容易看到野生鳄鱼。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">053</span>
+        <p class="fact-text">新奥尔良的<strong>飓风季</strong>从6月持续到11月，每年都有多次热带风暴威胁，居民已经习惯了"撤离或硬扛"的生活。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">054</span>
+        <p class="fact-text">新奥尔良的<strong>湿度</strong>极高，夏季闷热难耐，体感温度常常超过40°C，空调是生存必需品。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">055</span>
+        <p class="fact-text">新奥尔良的<strong>蚊子</strong>堪称恐怖，尤其在雨后，户外活动需要大量驱蚊剂保护。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">056</span>
+        <p class="fact-text">路易斯安那的<strong>棕色鹈鹕</strong>是州鸟，也是NBA新奥尔良鹈鹕队的命名来源。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 8: 经济 & 财富 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">经济 &amp; 财富</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">057</span>
+        <p class="fact-text">新奥尔良港是美国<strong>最繁忙的港口之一</strong>，处理大量石油、谷物和集装箱货物。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">058</span>
+        <p class="fact-text">旅游业是新奥尔良<strong>经济支柱</strong>，每年吸引超过1800万游客，贡献数十亿美元收入。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">059</span>
+        <p class="fact-text">新奥尔良的<strong>石油和天然气</strong>产业曾是经济命脉，但随着能源转型，这一产业正在萎缩。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">060</span>
+        <p class="fact-text">新奥尔良的<strong>贫困率</strong>在美国大城市中名列前茅，约25%的居民生活在贫困线以下。卡特里娜后的重建主要惠及了游客区和富人区，而贫困社区的改善有限。这座派对之城的背后是严峻的社会不平等。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">061</span>
+        <p class="fact-text">新奥尔良的<strong>餐饮业</strong>是重要雇主，从高档餐厅到街边小摊，数万人靠食物谋生。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">062</span>
+        <p class="fact-text">新奥尔良的<strong>房价</strong>在卡特里娜后经历了剧烈波动，如今热门街区的价格已超过飓风前，但很多区域仍是空地。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 9: 日常生活 & 城市习惯 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">日常生活 &amp; 城市习惯</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">063</span>
+        <p class="fact-text">新奥尔良人以<strong>"慢"</strong>著称，一切都不着急，约会迟到30分钟被称为"新奥尔良时间"。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">064</span>
+        <p class="fact-text">新奥尔良人的<strong>招呼语</strong>是"Where y'at?"，意思是"你好/怎么样？"，这也是当地人被称为"Yat"的原因。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">065</span>
+        <p class="fact-text">新奥尔良人<strong>爱喝酒</strong>，白天喝酒完全正常，很多人从brunch就开始，持续到深夜。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">066</span>
+        <p class="fact-text">新奥尔良的<strong>酒吧永不关门</strong>——城市没有强制酒吧打烊时间，很多酒吧24小时营业。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">067</span>
+        <p class="fact-text">新奥尔良人<strong>极其友善</strong>，陌生人之间打招呼、聊天是常态，与美国北方的冷漠形成鲜明对比。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">068</span>
+        <p class="fact-text">新奥尔良的<strong>周日</strong>通常从brunch开始，配上血腥玛丽或含羞草鸡尾酒，然后是爵士乐和闲逛。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">069</span>
+        <p class="fact-text">新奥尔良人对<strong>"圣徒队"</strong>（NFL橄榄球队）的热爱近乎宗教——2009年圣徒队首次赢得超级碗时，整座城市陷入狂欢，那一刻被视为卡特里娜后城市复兴的象征。比赛日全城放假，教堂提前结束礼拜，一切为橄榄球让路。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">070</span>
+        <p class="fact-text">新奥尔良人有独特的<strong>"lagniappe"</strong>传统，意思是"多给一点"——商家常常会给顾客额外的小礼物或折扣。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 10: 奇闻 & 冷知识 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">奇闻 &amp; 冷知识</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">071</span>
+        <p class="fact-text">新奥尔良的<strong>波旁街</strong>（Bourbon Street）每天凌晨都会被水枪冲洗，洗掉前一夜的酒精和呕吐物。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">072</span>
+        <p class="fact-text">狂欢节的<strong>国王蛋糕</strong>（King Cake）里藏着一个塑料婴儿，找到的人要负责买下一个蛋糕。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">073</span>
+        <p class="fact-text">新奥尔良的<strong>驱魔仪式</strong>至今仍在进行，天主教会每年处理数十起"驱魔"请求。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">074</span>
+        <p class="fact-text">新奥尔良的<strong>圣约翰前夜</strong>（St. John's Eve）是巫毒教的重要节日，信徒在庞恰特雷恩湖边举行仪式。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">075</span>
+        <p class="fact-text">新奥尔良的<strong>鬼故事</strong>极其丰富，几乎每栋老建筑都有自己的闹鬼传说，鬼魂之旅是热门旅游项目。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">076</span>
+        <p class="fact-text">新奥尔良有全美唯一的<strong>"吸血鬼酒吧"</strong>和"吸血鬼社群"——一群自称吸血鬼的人定期聚会、喝血（自愿捐献）。安妮·赖斯的《夜访吸血鬼》就以新奥尔良为背景，使这座城市成为吸血鬼文化的圣地。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">077</span>
+        <p class="fact-text">新奥尔良的<strong>Krewe</strong>（狂欢节社团）有严格的等级制度，加入顶级Krewe需要数代人的社会地位积累。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">078</span>
+        <p class="fact-text">新奥尔良<strong>没有"last call"</strong>——酒吧不会提前喊"最后一杯"，因为根本不需要关门。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">079</span>
+        <p class="fact-text">新奥尔良的<strong>午夜大弥撒</strong>（Midnight Mass）在圣诞节凌晨举行，是天主教传统与狂欢文化的奇妙融合。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">080</span>
+        <p class="fact-text">新奥尔良人把<strong>"neutral ground"</strong>（马路中央的绿化带）当作聚会场所，野餐、喝酒、听音乐都在这里进行。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 11: 艺术 & 创作社群 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">艺术 &amp; 创作社群</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">081</span>
+        <p class="fact-text">新奥尔良是<strong>爵士乐、布鲁斯、放克、R&B</strong>的发源地或重镇，几乎影响了所有美国流行音乐。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">082</span>
+        <p class="fact-text">Fats Domino、Dr. John、Wynton Marsalis都是<strong>新奥尔良音乐传奇</strong>，他们的音乐定义了城市的声音。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">083</span>
+        <p class="fact-text">新奥尔良的<strong>爵士乐葬礼</strong>不是表演，而是真正的社区传统，至今仍在非裔社区中延续。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">084</span>
+        <p class="fact-text">田纳西·威廉斯在新奥尔良<strong>完成了《欲望号街车》</strong>，剧中的场景就是法语区的街道和公寓。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">085</span>
+        <p class="fact-text">新奥尔良的<strong>Mardi Gras Indians</strong>是独特的文化现象——非裔美国人身着华丽的手工羽毛服装，在狂欢节游行。这一传统源于非洲奴隶对土著印第安人庇护的感恩，如今已成为城市最绚丽的文化表达，每套服装需要一整年手工制作。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">086</span>
+        <p class="fact-text">新奥尔良的<strong>街头艺人</strong>是城市景观的一部分，法语区的街头到处是铜管乐队、塔罗牌占卜师和人体雕塑。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 12: 教育 & 知识 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">教育 &amp; 知识</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">087</span>
+        <p class="fact-text">杜兰大学是新奥尔良最著名的<strong>私立大学</strong>，以医学院和商学院闻名，是"南方常春藤"之一。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">088</span>
+        <p class="fact-text">泽维尔大学是美国唯一的<strong>黑人天主教大学</strong>，培养的非裔医生数量全美第一。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">089</span>
+        <p class="fact-text">卡特里娜后，新奥尔良<strong>公立学校系统</strong>几乎完全转型为特许学校，成为美国教育改革的实验场，争议至今不断。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">090</span>
+        <p class="fact-text">新奥尔良的<strong>国家二战博物馆</strong>被评为全美最佳博物馆之一，是了解二战历史的重要场所。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 13: 身为新奥尔良人 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">身为新奥尔良人</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">091</span>
+        <p class="fact-text">新奥尔良人有一种<strong>独特的韧性</strong>——经历了飓风、洪水、疫情，他们总能在废墟上重建派对。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">092</span>
+        <p class="fact-text">新奥尔良人对<strong>音乐</strong>的热爱是骨子里的，几乎每个人都会某种乐器，或者至少能跳几步。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">093</span>
+        <p class="fact-text">新奥尔良人把<strong>食物</strong>当作一种语言——聊天总是从"你吃了什么？"开始，食谱是家族传承的秘密。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">094</span>
+        <p class="fact-text">新奥尔良人对<strong>邻里关系</strong>极其重视，大家认识彼此的名字，社区意识比美国大多数城市都强。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">095</span>
+        <p class="fact-text">新奥尔良人<strong>不喜欢连锁店</strong>，更愿意支持本地小店，这也是城市保持独特性的原因之一。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">096</span>
+        <p class="fact-text">新奥尔良人对<strong>卡特里娜</strong>有复杂的情感——它是创伤，也是身份的一部分，"你在哪里度过飓风？"是常见的对话开场白。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">097</span>
+        <p class="fact-text">新奥尔良人相信<strong>生活本身就是目的</strong>——不是为了工作、赚钱或成功，而是为了享受当下。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">098</span>
+        <p class="fact-text">新奥尔良人会告诉你：<strong>"我们不是美国的一部分，我们是加勒比海的一部分。"</strong></p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">099</span>
+        <p class="fact-text">新奥尔良是一座<strong>活在当下</strong>的城市——它可能明天就被淹没，可能永远贫穷，可能永远混乱，但它选择了唱歌、跳舞、喝酒、做爱，把每一天都当作最后一天来过。这种态度可能不负责任，但它让新奥尔良成为地球上最有生命力的地方之一。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">100</span>
+        <p class="fact-text">最后，新奥尔良人会用一句话总结这座城市：<strong>"Laissez les bons temps rouler."</strong> 让美好时光滚动起来。</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>CityBits · New Orleans</p>
+  <div class="footer-ornament">✦</div>
+  <p>100 Things · 一百件小事</p>
+</footer>
+
+</body>
+</html>

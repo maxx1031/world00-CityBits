@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CityBits · 城市观察</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@300;400;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1008;
+    --paper: #f5efe6;
+    --rust: #c0392b;
+    --gold: #c9922a;
+    --steel: #4a5568;
+    --cream: #faf6ef;
+    --line: rgba(26,16,8,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif SC', serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* MASTHEAD */
+  header {
+    position: relative;
+    padding: 60px 60px 50px;
+    border-bottom: 2px solid var(--ink);
+    text-align: center;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: repeating-linear-gradient(90deg, var(--rust) 0, var(--rust) 30px, var(--ink) 30px, var(--ink) 60px, var(--gold) 60px, var(--gold) 90px, var(--paper) 90px, var(--paper) 120px);
+  }
+
+  .masthead-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 6vw, 72px);
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--rust);
+  }
+
+  .masthead-sub {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--steel);
+    line-height: 1.8;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* MAIN */
+  main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px 80px;
+    width: 100%;
+  }
+
+  .section-intro {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .section-intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+
+  .section-intro p {
+    font-size: 14px;
+    color: var(--steel);
+    font-weight: 300;
+  }
+
+  /* CITY GRID */
+  .city-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--ink);
+  }
+
+  .city-card {
+    position: relative;
+    padding: 50px 36px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    color: var(--ink);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .city-card:nth-child(3n) {
+    border-right: none;
+  }
+
+  .city-card:nth-child(n+4) {
+    border-bottom: none;
+  }
+
+  .city-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--rust);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+  }
+
+  .city-card:hover::before {
+    opacity: 0.05;
+  }
+
+  .city-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .city-card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .city-region {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 16px;
+  }
+
+  .city-name-en {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .city-name-cn {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    color: var(--steel);
+  }
+
+  .city-desc {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--steel);
+  }
+
+  .city-arrow {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--rust);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .city-card:hover .city-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* NUMBER BADGE */
+  .city-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--line);
+    line-height: 1;
+    user-select: none;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 2px solid var(--ink);
+    padding: 30px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--steel);
+    text-transform: uppercase;
+  }
+
+  .footer-ornament {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--rust);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .city-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .city-card:nth-child(3n) {
+      border-right: 1px solid var(--line);
+    }
+    .city-card:nth-child(2n) {
+      border-right: none;
+    }
+    .city-card:nth-child(n+5) {
+      border-bottom: none;
+    }
+    .city-card:nth-child(-n+4) {
+      border-bottom: 1px solid var(--line);
+    }
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 50px 24px 40px; }
+    main { padding: 40px 16px 60px; }
+    .city-grid { grid-template-columns: 1fr; }
+    .city-card { border-right: none !important; border-bottom: 1px solid var(--line) !important; }
+    .city-card:last-child { border-bottom: none !important; }
+    .city-number { font-size: 48px; }
+    footer { padding: 24px; flex-direction: column; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="masthead-eyebrow">CityBits · 城市观察</div>
+  <h1>City<em>Bits</em></h1>
+  <p class="masthead-sub">
+    100则城市切片与冷知识<br>
+    选择一座城市，开始你的发现之旅
+  </p>
+</header>
+
+<main>
+  <div class="section-intro">
+    <h2>选择你想探索的城市</h2>
+    <p>从地理结构到奇闻冷知识，发现那些藏在日常背后的故事</p>
+  </div>
+
+  <div class="city-grid">
+    <a href="cities/kunming.html" class="city-card">
+      <div class="city-number">01</div>
+      <div class="city-region">China · Yunnan</div>
+      <div class="city-name-en">Kunming</div>
+      <div class="city-name-cn">昆明</div>
+      <p class="city-desc">春城无处不飞花，四季如春的高原明珠，西南边陲的茶马古道枢纽</p>
+      <span class="city-arrow">→</span>
+    </a>
+
+    <a href="cities/shanghai.html" class="city-card">
+      <div class="city-number">02</div>
+      <div class="city-region">China · East Coast</div>
+      <div class="city-name-en">Shanghai</div>
+      <div class="city-name-cn">上海</div>
+      <p class="city-desc">魔都，东方巴黎，百年租界与摩天大楼交织的国际都会</p>
+      <span class="city-arrow">→</span>
+    </a>
+
+    <a href="cities/dali.html" class="city-card">
+      <div class="city-number">03</div>
+      <div class="city-region">China · Yunnan</div>
+      <div class="city-name-en">Dali</div>
+      <div class="city-name-cn">大理</div>
+      <p class="city-desc">风花雪月的白族故里，苍山洱海间的千年古城</p>
+      <span class="city-arrow">→</span>
+    </a>
+
+    <a href="cities/newyork.html" class="city-card">
+      <div class="city-number">04</div>
+      <div class="city-region">USA · East Coast</div>
+      <div class="city-name-en">New York</div>
+      <div class="city-name-cn">纽约</div>
+      <p class="city-desc">永不停歇的世界之都，梦想与现实碰撞的钢铁丛林</p>
+      <span class="city-arrow">→</span>
+    </a>
+
+    <a href="cities/boston.html" class="city-card">
+      <div class="city-number">05</div>
+      <div class="city-region">USA · New England</div>
+      <div class="city-name-en">Boston</div>
+      <div class="city-name-cn">波士顿</div>
+      <p class="city-desc">美国革命的摇篮，学术与历史交融的新英格兰明珠</p>
+      <span class="city-arrow">→</span>
+    </a>
+
+    <a href="cities/neworleans.html" class="city-card">
+      <div class="city-number">06</div>
+      <div class="city-region">USA · Deep South</div>
+      <div class="city-name-en">New Orleans</div>
+      <div class="city-name-cn">新奥尔良</div>
+      <p class="city-desc">爵士乐的故乡，法式风情与克里奥尔文化的狂欢之城</p>
+      <span class="city-arrow">→</span>
+    </a>
+  </div>
+</main>
+
+<footer>
+  <p>CityBits · 城市观察</p>
+  <div class="footer-ornament">✦</div>
+  <p>100 City Notes · 一百则城市切片</p>
+</footer>
+
+</body>
+</html>

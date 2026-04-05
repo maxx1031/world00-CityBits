@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>上海 · CityBits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@300;400;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1008;
+    --paper: #f5efe6;
+    --rust: #c0392b;
+    --gold: #c9922a;
+    --steel: #4a5568;
+    --cream: #faf6ef;
+    --line: rgba(26,16,8,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif SC', serif;
+    overflow-x: hidden;
+  }
+
+  .back-link {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--steel);
+    text-decoration: none;
+    padding: 10px 16px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    transition: all 0.2s;
+    z-index: 100;
+  }
+
+  .back-link:hover {
+    border-color: var(--rust);
+    color: var(--rust);
+  }
+
+  header {
+    position: relative;
+    padding: 80px 60px 60px;
+    border-bottom: 2px solid var(--ink);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 40px;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: repeating-linear-gradient(90deg, var(--rust) 0, var(--rust) 30px, var(--ink) 30px, var(--ink) 60px, var(--gold) 60px, var(--gold) 90px, var(--paper) 90px, var(--paper) 120px);
+  }
+
+  .masthead-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 8vw, 96px);
+    line-height: 0.92;
+    font-weight: 700;
+    letter-spacing: -2px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--rust);
+  }
+
+  .masthead-sub {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--steel);
+    line-height: 1.8;
+    max-width: 280px;
+    text-align: right;
+  }
+
+  .masthead-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 160px;
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--line);
+    line-height: 1;
+    user-select: none;
+  }
+
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px 100px;
+  }
+
+  .category {
+    margin-top: 70px;
+  }
+
+  .cat-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .cat-line {
+    flex: 1;
+    height: 1px;
+    background: var(--ink);
+  }
+
+  .cat-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 6px 16px;
+    border: 1px solid var(--ink);
+  }
+
+  .fact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0;
+    border: 1px solid var(--ink);
+  }
+
+  .fact {
+    padding: 28px 32px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    transition: background 0.2s;
+    cursor: default;
+  }
+
+  .fact:hover {
+    background: rgba(192, 57, 43, 0.04);
+  }
+
+  .fact-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--rust);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .fact-text {
+    font-size: 14px;
+    line-height: 2;
+    font-weight: 300;
+    color: var(--ink);
+  }
+
+  .fact-text strong {
+    font-weight: 600;
+    color: var(--rust);
+  }
+
+  .pullquote {
+    margin: 50px 0;
+    padding: 40px 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    text-align: center;
+  }
+
+  .pullquote p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3vw, 32px);
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--rust);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .fact-wide {
+    grid-column: 1 / -1;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 32px 40px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .fact-wide .fact-num { color: var(--gold); }
+  .fact-wide .fact-text { color: var(--cream); }
+  .fact-wide .fact-text strong { color: var(--gold); }
+
+  footer {
+    border-top: 2px solid var(--ink);
+    padding: 30px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--steel);
+    text-transform: uppercase;
+  }
+
+  .footer-ornament {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--rust);
+  }
+
+  @media (max-width: 600px) {
+    .back-link { position: static; margin: 20px; display: inline-block; }
+    header { padding: 60px 24px 40px; grid-template-columns: 1fr; }
+    .masthead-number { display: none; }
+    main { padding: 0 16px 60px; }
+    .fact-grid { grid-template-columns: 1fr; }
+    footer { padding: 24px; flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="../index.html" class="back-link">← 返回城市列表</a>
+
+<header>
+  <div>
+    <div class="masthead-eyebrow">CityBits · 城市观察</div>
+    <h1>Shang<em>hai</em></h1>
+    <p style="margin-top:20px; font-family:'Noto Serif SC'; font-size:15px; font-weight:300; color:var(--steel); line-height:2;">
+      100件你可能不知道的小事<br>关于这座魔幻的东方都会
+    </p>
+  </div>
+  <div style="text-align:right;">
+    <div class="masthead-number">100</div>
+    <div class="masthead-sub">摩天楼与弄堂<br>咖啡馆与老虎灶<br>所有矛盾共存于此</div>
+  </div>
+</header>
+
+<main>
+
+  <!-- CATEGORY 1: 地理 & 城市结构 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">地理 &amp; 城市结构</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">001</span>
+        <p class="fact-text">上海的平均海拔只有<strong>4米</strong>，是全球海拔最低的超大城市之一，这也是为什么暴雨天容易内涝。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">002</span>
+        <p class="fact-text">黄浦江把上海分成<strong>浦西和浦东</strong>，但"浦东"这个名字直到1990年代开发前，在上海人心中几乎等于"乡下"。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">003</span>
+        <p class="fact-text">上海有超过<strong>6000多条</strong>弄堂，这些狭窄的巷道曾是上海市民最主要的生活空间，如今大部分已被拆除。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">004</span>
+        <p class="fact-text">外滩的那排万国建筑群建于<strong>1868-1937年间</strong>，集合了新古典主义、巴洛克、哥特等52种建筑风格，被称为"万国建筑博览会"。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">005</span>
+        <p class="fact-text">上海的城市轮廓在过去30年发生了剧变——<strong>1990年浦东没有一栋高层建筑</strong>，如今陆家嘴天际线上有超过100栋摩天大楼，包括曾经的中国第一高楼上海中心大厦（632米）。这是人类历史上最快的城市天际线重塑。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">006</span>
+        <p class="fact-text">上海是长江入海口城市，但黄浦江其实是<strong>长江的支流</strong>，苏州河（吴淞江）则是黄浦江的支流。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">007</span>
+        <p class="fact-text">上海市区面积约<strong>6340平方公里</strong>，比整个新加坡还大近9倍，但人口密度最高的静安区超过<strong>每平方公里3万人</strong>。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">008</span>
+        <p class="fact-text">崇明岛是中国第三大岛，也是世界上<strong>最大的河口冲积岛</strong>，面积仍在以每年约5平方公里的速度增长。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PULLQUOTE -->
+  <div class="pullquote">
+    <p>「上海是一座没有历史负担的城市，<br>因为它的历史就是不断重建自己。」</p>
+  </div>
+
+  <!-- CATEGORY 2: 地铁 & 交通 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">地铁 &amp; 交通</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">009</span>
+        <p class="fact-text">上海地铁是全球<strong>运营里程最长</strong>的地铁系统，超过800公里，超过了纽约、伦敦和巴黎。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">010</span>
+        <p class="fact-text">上海地铁1号线开通于<strong>1993年</strong>，当时被认为是"超前建设"，如今日均客流量超过1200万人次。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">011</span>
+        <p class="fact-text">上海拥有全球唯一商业运营的<strong>磁悬浮列车</strong>，从浦东机场到龙阳路，最高时速430公里，但因票价太贵、线路太短，本地人几乎不坐。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">012</span>
+        <p class="fact-text">上海的<strong>车牌拍卖制度</strong>始于1994年，一块沪牌价格长期维持在9万元左右，是全球最昂贵的汽车牌照之一。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">013</span>
+        <p class="fact-text">上海曾有亚洲最早的<strong>有轨电车系统</strong>（1908年），如今已经完全消失，只有老照片和博物馆里的模型留存。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">014</span>
+        <p class="fact-text">上海的<strong>共享单车坟场</strong>曾是城市奇观——数万辆废弃单车堆积如山，后来被逐步清理，但那段疯狂扩张的历史已成传说。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">015</span>
+        <p class="fact-text">上海人把挤地铁叫<strong>"轧闹猛"</strong>，这个词来自吴语，意思是凑热闹或者挤在人群里。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">016</span>
+        <p class="fact-text">上海的<strong>轮渡</strong>至今仍在运营，票价只要2元，是跨越黄浦江最便宜的方式，但大多数年轻人从未坐过。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 3: 食物 & 饮食文化 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">食物 &amp; 饮食文化</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">017</span>
+        <p class="fact-text">上海菜的核心调味是<strong>"浓油赤酱"</strong>，即重油、重酱油、重糖，本帮菜几乎都带甜味，外地人往往不习惯。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">018</span>
+        <p class="fact-text">小笼包不是上海原创——它来自<strong>江苏常州</strong>，但上海南翔小笼包已成为城市名片，皮薄汁多是核心标准。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">019</span>
+        <p class="fact-text">上海是中国<strong>咖啡馆密度最高</strong>的城市，超过8000家，人均咖啡消费量是全国平均水平的数倍。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">020</span>
+        <p class="fact-text">上海人对早餐有独特执念——<strong>"四大金刚"</strong>指的是大饼、油条、粢饭、豆浆，这四样是几代上海人的早餐记忆。但如今街边早餐摊已越来越少，年轻人更多选择便利店或咖啡店。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">021</span>
+        <p class="fact-text">生煎馒头不是馒头，是<strong>带馅的煎包</strong>，底部金黄酥脆、顶部撒芝麻葱花，上海人称之为"生煎"而非"生煎包"。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">022</span>
+        <p class="fact-text">上海曾是中国<strong>西餐文化的发源地</strong>，罗宋汤（源自俄罗斯borscht）、炸猪排、奶油蘑菇汤都是海派西餐的经典。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">023</span>
+        <p class="fact-text">上海人把吃饭叫<strong>"吃大菜"</strong>，把零食叫"小吃"，请客叫"做东道"，这些词汇透露着老上海的讲究。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">024</span>
+        <p class="fact-text">红烧肉在上海叫<strong>"走油肉"</strong>或"东坡肉"，必须用五花肉，要红烧到酱油色泽均匀、肥肉入口即化。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 4: 历史 & 政治 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">历史 &amp; 政治</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">025</span>
+        <p class="fact-text">上海在1842年《南京条约》后成为<strong>通商口岸</strong>，从一个小渔村用不到100年时间崛起为远东第一大都市。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">026</span>
+        <p class="fact-text">老上海的<strong>租界</strong>分为公共租界（英美）和法租界，两个区域有不同的法律、警察和市政系统，如同两个国家。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">027</span>
+        <p class="fact-text">1921年，中国共产党在上海法租界的<strong>一栋石库门里</strong>召开第一次全国代表大会，这栋房子如今是中共一大会址纪念馆。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">028</span>
+        <p class="fact-text">1930年代的上海是<strong>"东方巴黎"</strong>，也是"冒险家的乐园"，黑帮、金融家、革命者、间谍在这里共存，形成独特的城市性格。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">029</span>
+        <p class="fact-text">二战期间，上海是全球唯一<strong>无需签证即可进入</strong>的城市，约3万犹太难民在此避难，虹口提篮桥区至今保留着犹太难民纪念馆。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">030</span>
+        <p class="fact-text">上海是中国近代<strong>工人运动的发源地</strong>，1919年的五四运动、1925年的五卅运动都以上海为中心爆发。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">031</span>
+        <p class="fact-text">1949年后，上海经历了漫长的<strong>"去殖民化"和国有化</strong>改造，私营企业、外资银行、舞厅、赌场全部消失。直到1990年代浦东开发，上海才重新找回"远东金融中心"的野心——这中间隔了整整40年。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">032</span>
+        <p class="fact-text">上海是中国<strong>财政贡献最大</strong>的城市，长期承担全国财政收入的1/8左右，被戏称为"全国的钱袋子"。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 5: 建筑 & 空间 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">建筑 &amp; 空间</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">033</span>
+        <p class="fact-text"><strong>石库门</strong>是上海特有的建筑形式，融合了江南民居与西式联排住宅，门框用条石砌成，是老上海市民生活的载体。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">034</span>
+        <p class="fact-text">东方明珠塔高<strong>468米</strong>，设计灵感来自唐诗"大珠小珠落玉盘"，1994年建成时是亚洲第一高塔。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">035</span>
+        <p class="fact-text">上海中心大厦的外形是<strong>螺旋上升</strong>的，这不仅是美学设计，也能减少24%的风荷载，节省大量建材。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">036</span>
+        <p class="fact-text">武康大楼（原诺曼底公寓）是上海最著名的<strong>网红建筑</strong>，1924年由匈牙利建筑师邬达克设计，外形像一艘巨轮。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">037</span>
+        <p class="fact-text">上海大剧院的屋顶设计灵感来自<strong>"天圆地方"</strong>的中国哲学，弧形屋顶象征天空，方形基座象征大地。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">038</span>
+        <p class="fact-text">和平饭店（原华懋饭店）曾是<strong>远东最豪华的酒店</strong>，其爵士酒吧至今每晚演出，乐队成员平均年龄超过80岁。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">039</span>
+        <p class="fact-text">上海的<strong>"拆迁"</strong>速度曾是全球最快的，整个老城区在20年内几乎被推倒重建，留下的历史建筑不足原来的10%。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">040</span>
+        <p class="fact-text">田子坊、新天地、思南公馆都是<strong>"旧改"（旧区改造）</strong>的产物——将历史建筑保留外壳，内部改造成商业空间。这种模式在保护与商业化之间争议不断，批评者认为它把活的社区变成了死的布景。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 6: 文化 & 社会 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">文化 &amp; 社会</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">041</span>
+        <p class="fact-text">上海话是<strong>吴语</strong>的一种，与普通话差异极大，年轻一代能说流利上海话的人越来越少，语言学家担心其正在消亡。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">042</span>
+        <p class="fact-text">上海人有强烈的<strong>"本地人"意识</strong>，把非上海户籍的居民称为"外地人"或"硬盘"（谐音"硬碰"），这种区分在全国城市中尤为明显。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">043</span>
+        <p class="fact-text">上海是中国<strong>时尚产业的中心</strong>，每年举办上海时装周，是亚洲最重要的时装周之一。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">044</span>
+        <p class="fact-text">上海人的<strong>"腔调"</strong>是一种难以定义的气质——讲究体面、注重细节、追求品质，既是赞美也可能是讽刺。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">045</span>
+        <p class="fact-text">上海的<strong>相亲角</strong>（人民公园）是城市奇观，父母替子女张贴征婚信息，条件写得非常直白：身高、学历、房产、户口一应俱全。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">046</span>
+        <p class="fact-text">上海男人被称为<strong>"小男人"</strong>，因为他们愿意做家务、买菜做饭，这在北方文化中不被理解，但上海女性普遍认为这是优点。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">047</span>
+        <p class="fact-text">上海是中国<strong>LGBT文化</strong>相对开放的城市，曾有多家知名同志酒吧，虽然近年来空间收缩，但社群依然活跃。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">048</span>
+        <p class="fact-text">上海是中国<strong>最"西化"的城市</strong>，这既是褒义也是贬义：支持者认为它代表开放与现代化，批评者认为它"崇洋媚外"。这种张力从租界时代延续至今，是上海城市性格的核心矛盾。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">049</span>
+        <p class="fact-text">上海有超过<strong>20万外国人</strong>常住，是中国外籍人口最多的城市，古北、碧云、联洋等区域形成了"外国人聚居区"。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">050</span>
+        <p class="fact-text">上海人说的<strong>"拎得清"</strong>是一种最高赞美——意思是懂分寸、明事理、不会做出格的事，这是上海人评判他人的核心标准。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PULLQUOTE 2 -->
+  <div class="pullquote">
+    <p>「在上海，精致是一种生存策略，<br>而体面是一种最低标准。」</p>
+  </div>
+
+  <!-- CATEGORY 7: 自然 & 动物 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">自然 &amp; 动物</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">051</span>
+        <p class="fact-text">上海的市花是<strong>白玉兰</strong>，每年三月开花，象征着"开路先锋、奋发向上"的城市精神。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">052</span>
+        <p class="fact-text">上海动物园曾叫<strong>"西郊公园"</strong>，是中国最早的公共动物园之一，很多上海人的童年记忆都与这里有关。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">053</span>
+        <p class="fact-text">黄浦江曾经污染严重到<strong>"连鱼都死光了"</strong>，经过数十年治理，如今已能看到鱼群，偶尔还有江豚出没。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">054</span>
+        <p class="fact-text">上海有<strong>梅花鹿</strong>野生种群存在于崇明岛，这是城市近郊罕见的大型野生哺乳动物。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">055</span>
+        <p class="fact-text">上海的<strong>梧桐树</strong>是城市符号，尤其是法租界区域，但这些树实际上是法国梧桐（悬铃木），由法国人在租界时期种植。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">056</span>
+        <p class="fact-text">崇明东滩是<strong>候鸟迁徙的重要驿站</strong>，每年有数十万只候鸟在此停留，包括濒危的黑脸琵鹭和勺嘴鹬。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 8: 经济 & 财富 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">经济 &amp; 财富</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">057</span>
+        <p class="fact-text">上海GDP超过<strong>4万亿人民币</strong>，如果是独立经济体，将排在全球前20位，超过阿根廷、泰国等国。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">058</span>
+        <p class="fact-text">陆家嘴金融区集中了<strong>中国最重要的金融机构</strong>总部，包括上海证券交易所、中国金融期货交易所等。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">059</span>
+        <p class="fact-text">上海的<strong>房价收入比</strong>长期位居全球前列，普通家庭不吃不喝需要40年以上才能买得起一套房。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">060</span>
+        <p class="fact-text">上海有超过<strong>20万家咖啡馆、酒吧和餐厅</strong>，服务业占GDP比重超过70%，是中国经济结构最"后工业化"的城市。但这也意味着制造业空心化，蓝领工作机会越来越少。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">061</span>
+        <p class="fact-text">上海港是全球<strong>集装箱吞吐量最大的港口</strong>，连续多年超越新加坡，每年处理超过4700万标准箱。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">062</span>
+        <p class="fact-text">上海的<strong>奢侈品消费</strong>占全国的1/4以上，南京路、淮海路、恒隆广场是顶级品牌的必争之地。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 9: 日常生活 & 城市习惯 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">日常生活 &amp; 城市习惯</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">063</span>
+        <p class="fact-text">上海人穿<strong>睡衣上街</strong>曾是城市一景，尤其在老城区，直到世博会前夕被"文明劝导"逐渐消失。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">064</span>
+        <p class="fact-text">上海的<strong>垃圾分类</strong>在2019年成为全国最严格的，"你是什么垃圾"成为当年流行语，居民被迫学习干垃圾、湿垃圾、可回收物、有害垃圾的区别。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">065</span>
+        <p class="fact-text">上海老人喜欢在<strong>早晨抢购特价鸡蛋</strong>，超市开门前排长队是常见景象，哪怕只便宜几毛钱也要去争取。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">066</span>
+        <p class="fact-text">上海人把<strong>"精打细算"</strong>视为美德而非小气，会算账、懂得省钱被认为是聪明的表现。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">067</span>
+        <p class="fact-text">上海的<strong>便利店密度</strong>极高，全家、罗森、7-11遍布街头，很多年轻人的三餐都在便利店解决。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">068</span>
+        <p class="fact-text">上海人说"<strong>侬好</strong>"而不是"你好"，但如今用上海话打招呼的年轻人越来越少。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">069</span>
+        <p class="fact-text">上海的<strong>加班文化</strong>非常严重，互联网、金融行业996是常态，但上海人同时也追求"work-life balance"——这种矛盾体现在他们一边加班一边抱怨，一边熬夜一边购买健康产品。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">070</span>
+        <p class="fact-text">上海的<strong>宠物经济</strong>极其发达，宠物美容、寄养、殡葬服务一应俱全，养一只狗的年花费可能超过万元。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 10: 奇闻 & 冷知识 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">奇闻 &amp; 冷知识</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">071</span>
+        <p class="fact-text">上海曾有一条<strong>地下河</strong>流经市中心，如今已被填埋，只留下"肇嘉浜路"这样的路名作为痕迹。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">072</span>
+        <p class="fact-text">上海的<strong>门牌号</strong>规则复杂，很多弄堂里的地址是"XX路XX弄XX号"，外地人常常找不到。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">073</span>
+        <p class="fact-text">"<strong>阿拉</strong>"是上海话"我们"的意思，但很多外地人以为它是"我"，其实"我"在上海话里是"我"（wo，发音更接近"吾"）。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">074</span>
+        <p class="fact-text">上海的<strong>高架桥龙柱</strong>（延安路高架与南北高架交汇处）有一个都市传说：据说建造时打不下桩，请高僧做法后才成功，柱子上的龙纹就是"镇压"用的。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">075</span>
+        <p class="fact-text">上海人把<strong>可口可乐</strong>叫"荷兰水"，这个叫法来自民国时期，因为洋汽水最早从荷兰进口。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">076</span>
+        <p class="fact-text">上海曾有亚洲最大的<strong>跑马场</strong>，就在今天的人民广场，1862年建成，直到1949年后才拆除。如今人民广场地下的停车场形状还保留着当年跑道的弧线。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">077</span>
+        <p class="fact-text">上海<strong>没有市长信箱</strong>这个说法——官方名称叫"12345市民服务热线"，但效率在全国城市中算是比较高的。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">078</span>
+        <p class="fact-text">上海的<strong>户籍制度</strong>是全国最严格的之一，即使在上海工作生活多年，没有户口也无法享受很多公共服务。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">079</span>
+        <p class="fact-text">上海的<strong>防空警报</strong>每年9月18日上午9:18准时响起，纪念九一八事变，第一次听到的人往往被吓一跳。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">080</span>
+        <p class="fact-text">上海的<strong>小区名字</strong>充满想象力："绿洲香岛"、"汤臣一品"、"翠湖天地"，越是高端小区名字越抽象。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 11: 艺术 & 创作社群 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">艺术 &amp; 创作社群</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">081</span>
+        <p class="fact-text">M50是上海最早的<strong>艺术园区</strong>，前身是纺织厂，如今聚集了数百家画廊和艺术家工作室。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">082</span>
+        <p class="fact-text">上海是中国<strong>当代艺术市场</strong>的中心，龙美术馆、余德耀美术馆等私人美术馆的藏品级别媲美国际顶级机构。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">083</span>
+        <p class="fact-text">上海曾是中国<strong>电影工业的中心</strong>，1930年代的上海电影产量占全国90%以上，阮玲玉、周璇、赵丹都是那个时代的巨星。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">084</span>
+        <p class="fact-text">上海话<strong>流行歌曲</strong>在1990年代曾有过短暂繁荣，代表作《阿拉上海》《上海滩》至今仍是KTV金曲。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">085</span>
+        <p class="fact-text">上海是中国<strong>独立书店</strong>密度最高的城市，从先锋书店到言几又，从茑屋到钟书阁，书店已经不只是卖书的地方，而是城市文化空间的象征。但商业化运营使得很多书店更像咖啡馆，真正的读者越来越少。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">086</span>
+        <p class="fact-text">上海的<strong>脱口秀</strong>（单口喜剧）场景是全国最活跃的，笑果文化总部就在上海，《脱口秀大会》让这个城市成为中国喜剧的新中心。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 12: 教育 & 知识 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">教育 &amp; 知识</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">087</span>
+        <p class="fact-text">上海有<strong>4所985大学</strong>：复旦大学、上海交通大学、同济大学、华东师范大学，高等教育资源密度极高。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">088</span>
+        <p class="fact-text">上海学生在<strong>PISA测试</strong>（国际学生评估项目）中多次获得全球第一，但也因此被批评为"应试教育的典范"。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">089</span>
+        <p class="fact-text">上海的<strong>国际学校</strong>数量超过100所，学费从每年10万到50万不等，形成了一个与公立教育完全平行的世界。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">090</span>
+        <p class="fact-text">上海图书馆是<strong>中国最大的公共图书馆</strong>之一，藏书超过5600万册，新馆（淮海中路）设计获得多项国际建筑奖。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 13: 上海人 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">身为上海人</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">091</span>
+        <p class="fact-text">上海人有一种独特的<strong>优越感</strong>，这种优越感既来自城市的繁华，也来自对"精致生活"的追求——这让他们既被羡慕也被嫌弃。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">092</span>
+        <p class="fact-text">老上海人喜欢说"<strong>上海是上海，中国是中国</strong>"，这句话既是调侃，也反映了上海作为通商口岸的独特历史记忆。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">093</span>
+        <p class="fact-text">上海人对<strong>"乡下人"</strong>这个词的使用范围很广，有时候连苏州、杭州都算"乡下"，这让周边城市居民颇有微词。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">094</span>
+        <p class="fact-text">上海人极其重视<strong>孩子的教育</strong>，从幼儿园开始就卷入激烈竞争，"鸡娃"（给孩子打鸡血式教育）一词就是从上海家长群里流行起来的。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">095</span>
+        <p class="fact-text">上海人<strong>排队</strong>是出了名的，无论是买点心还是看病挂号，队伍整齐有序，插队会被当场指责。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">096</span>
+        <p class="fact-text">上海人喜欢<strong>"讲道理"</strong>，遇到纠纷倾向于讲理而不是动手，这被外地人有时候解读为"事儿多"或"较真"。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">097</span>
+        <p class="fact-text">上海人对<strong>天气的执念</strong>很深，入秋后穿什么、入冬后开不开空调，都可以成为茶余饭后的讨论话题。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">098</span>
+        <p class="fact-text">上海人说"<strong>没有腔调</strong>"是严厉的批评，意思是这个人没有格调、不懂生活、缺乏品味。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">099</span>
+        <p class="fact-text">上海是一座<strong>没有传统根基的城市</strong>——它不像北京有皇城文化，不像广州有宗族传统，上海人的身份认同完全建立在"现代性"之上：时髦、洋气、效率、契约精神。这让上海成为中国最"没有乡愁"的城市。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">100</span>
+        <p class="fact-text">无论你对上海有什么看法，这座城市有一个不可否认的特质：<strong>它永远在向前看</strong>。过去的辉煌只是谈资，未来的可能性才是上海人真正关心的。</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>CityBits · Shanghai</p>
+  <div class="footer-ornament">✦</div>
+  <p>100 Things · 一百件小事</p>
+</footer>
+
+</body>
+</html>

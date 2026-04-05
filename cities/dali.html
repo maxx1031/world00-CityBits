@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大理 · CityBits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@300;400;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1008;
+    --paper: #f5efe6;
+    --rust: #c0392b;
+    --gold: #c9922a;
+    --steel: #4a5568;
+    --cream: #faf6ef;
+    --line: rgba(26,16,8,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif SC', serif;
+    overflow-x: hidden;
+  }
+
+  .back-link {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--steel);
+    text-decoration: none;
+    padding: 10px 16px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    transition: all 0.2s;
+    z-index: 100;
+  }
+
+  .back-link:hover {
+    border-color: var(--rust);
+    color: var(--rust);
+  }
+
+  header {
+    position: relative;
+    padding: 80px 60px 60px;
+    border-bottom: 2px solid var(--ink);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 40px;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: repeating-linear-gradient(90deg, var(--rust) 0, var(--rust) 30px, var(--ink) 30px, var(--ink) 60px, var(--gold) 60px, var(--gold) 90px, var(--paper) 90px, var(--paper) 120px);
+  }
+
+  .masthead-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 8vw, 96px);
+    line-height: 0.92;
+    font-weight: 700;
+    letter-spacing: -2px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--rust);
+  }
+
+  .masthead-sub {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--steel);
+    line-height: 1.8;
+    max-width: 280px;
+    text-align: right;
+  }
+
+  .masthead-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 160px;
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--line);
+    line-height: 1;
+    user-select: none;
+  }
+
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px 100px;
+  }
+
+  .category {
+    margin-top: 70px;
+  }
+
+  .cat-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .cat-line {
+    flex: 1;
+    height: 1px;
+    background: var(--ink);
+  }
+
+  .cat-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 6px 16px;
+    border: 1px solid var(--ink);
+  }
+
+  .fact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0;
+    border: 1px solid var(--ink);
+  }
+
+  .fact {
+    padding: 28px 32px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    transition: background 0.2s;
+    cursor: default;
+  }
+
+  .fact:hover {
+    background: rgba(192, 57, 43, 0.04);
+  }
+
+  .fact-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--rust);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .fact-text {
+    font-size: 14px;
+    line-height: 2;
+    font-weight: 300;
+    color: var(--ink);
+  }
+
+  .fact-text strong {
+    font-weight: 600;
+    color: var(--rust);
+  }
+
+  .pullquote {
+    margin: 50px 0;
+    padding: 40px 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    text-align: center;
+  }
+
+  .pullquote p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3vw, 32px);
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--rust);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .fact-wide {
+    grid-column: 1 / -1;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 32px 40px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .fact-wide .fact-num { color: var(--gold); }
+  .fact-wide .fact-text { color: var(--cream); }
+  .fact-wide .fact-text strong { color: var(--gold); }
+
+  footer {
+    border-top: 2px solid var(--ink);
+    padding: 30px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--steel);
+    text-transform: uppercase;
+  }
+
+  .footer-ornament {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--rust);
+  }
+
+  @media (max-width: 600px) {
+    .back-link { position: static; margin: 20px; display: inline-block; }
+    header { padding: 60px 24px 40px; grid-template-columns: 1fr; }
+    .masthead-number { display: none; }
+    main { padding: 0 16px 60px; }
+    .fact-grid { grid-template-columns: 1fr; }
+    footer { padding: 24px; flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="../index.html" class="back-link">← 返回城市列表</a>
+
+<header>
+  <div>
+    <div class="masthead-eyebrow">CityBits · 城市观察</div>
+    <h1>Da<em>li</em></h1>
+    <p style="margin-top:20px; font-family:'Noto Serif SC'; font-size:15px; font-weight:300; color:var(--steel); line-height:2;">
+      100件你可能不知道的小事<br>关于这座风花雪月的千年古城
+    </p>
+  </div>
+  <div style="text-align:right;">
+    <div class="masthead-number">100</div>
+    <div class="masthead-sub">苍山洱海间<br>白族的故乡<br>一个让人停下来的地方</div>
+  </div>
+</header>
+
+<main>
+
+  <!-- CATEGORY 1: 地理 & 城市结构 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">地理 &amp; 城市结构</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">001</span>
+        <p class="fact-text">大理的"<strong>风花雪月</strong>"是指下关风、上关花、苍山雪、洱海月，这四景构成了大理最经典的自然意象。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">002</span>
+        <p class="fact-text">洱海并不是海，而是一个<strong>高原湖泊</strong>，面积约256平方公里，因形状像耳朵而得名。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">003</span>
+        <p class="fact-text">苍山有<strong>19座山峰</strong>，最高峰马龙峰海拔4122米，山顶终年积雪，山腰云雾缭绕。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">004</span>
+        <p class="fact-text">大理古城建于<strong>明朝</strong>，但城市历史可追溯到唐代南诏国，距今已有1300多年。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">005</span>
+        <p class="fact-text">大理市其实包括两个部分：<strong>大理古城</strong>和<strong>下关</strong>（新城区）。游客口中的"大理"通常指古城，但行政中心、火车站、机场都在下关，两地相距约15公里。很多第一次来的游客会困惑为什么"大理站"离大理那么远。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">006</span>
+        <p class="fact-text">大理位于<strong>横断山脉</strong>南端，地质活动活跃，历史上发生过多次大地震，1925年大理大地震造成数千人死亡。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">007</span>
+        <p class="fact-text">洱海环湖公路全长约<strong>130公里</strong>，是骑行爱好者的天堂，被评为中国最美环湖公路之一。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">008</span>
+        <p class="fact-text">大理海拔约<strong>1972米</strong>，比昆明略高，紫外线同样强烈，但由于靠近洱海，气候更加湿润。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PULLQUOTE -->
+  <div class="pullquote">
+    <p>「大理是一个让人停下来的地方，<br>来了就不想走，<br>走了就一直想回来。」</p>
+  </div>
+
+  <!-- CATEGORY 2: 交通 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">交通 &amp; 出行</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">009</span>
+        <p class="fact-text">大理机场航班有限，大多数游客选择先飞<strong>昆明</strong>再转火车或大巴，全程约4-5小时。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">010</span>
+        <p class="fact-text">大理古城内禁止机动车通行，主要交通工具是<strong>电动车</strong>和步行，这也是古城氛围的重要组成部分。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">011</span>
+        <p class="fact-text">环洱海最流行的交通方式是<strong>租电动车或吉普车</strong>，一天费用约100-300元，可以自由停靠。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">012</span>
+        <p class="fact-text">大理的<strong>苍山索道</strong>有三条，分别通往不同海拔的观景点，洗马潭索道可以直达3900米高处。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">013</span>
+        <p class="fact-text">大理到丽江的<strong>公路</strong>只需2小时车程，很多游客会把两座古城安排在同一趟行程中。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">014</span>
+        <p class="fact-text">大理的<strong>公交系统</strong>不发达，从下关到古城需要坐1个多小时的公交，打车或拼车是更常见的选择。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">015</span>
+        <p class="fact-text">洱海<strong>游船</strong>是传统旅游项目，但近年来为保护水质，游船数量大幅减少，票价也水涨船高。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">016</span>
+        <p class="fact-text">双廊曾经<strong>堵车严重</strong>到寸步难行，后来当地政府限制车辆进入，现在只能步行或骑电动车进镇。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 3: 食物 & 饮食文化 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">食物 &amp; 饮食文化</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">017</span>
+        <p class="fact-text">白族的<strong>"三道茶"</strong>是大理最著名的待客礼仪：一苦、二甜、三回味，象征人生的三个阶段。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">018</span>
+        <p class="fact-text">乳扇是大理特色食品，用<strong>牛奶</strong>制成的薄片，可以烤着吃、炸着吃，撒上玫瑰糖口感独特。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">019</span>
+        <p class="fact-text">饵丝是大理人的日常主食，与米线不同，<strong>饵丝更粗更有嚼劲</strong>，肉酱饵丝是最经典的做法。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">020</span>
+        <p class="fact-text">大理古城内的<strong>餐饮价格</strong>普遍偏高，而且存在"游客价"和"本地价"的双轨制。想吃到正宗又便宜的白族菜，需要去古城外的小村子或者下关的菜市场周边。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">021</span>
+        <p class="fact-text">喜洲粑粑是大理名小吃，<strong>烤制的面饼</strong>有甜咸两种口味，外酥里嫩，是游客必打卡的美食。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">022</span>
+        <p class="fact-text">大理的<strong>野生菌</strong>同样丰富，雨季时松茸、牛肝菌、鸡枞价格比昆明还便宜，当地人直接从山上采回来卖。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">023</span>
+        <p class="fact-text">白族人喜欢吃<strong>酸辣</strong>口味，生皮（生猪肉蘸酸辣酱）是传统美食，但很多外地人不敢尝试。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">024</span>
+        <p class="fact-text">大理的<strong>咖啡文化</strong>极其发达，古城和周边村落有数百家独立咖啡馆，风格各异，是文青聚集地。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 4: 历史 & 政治 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">历史 &amp; 政治</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">025</span>
+        <p class="fact-text">大理曾是<strong>南诏国</strong>（738-902年）的都城，这个强大的西南政权一度与唐朝分庭抗礼。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">026</span>
+        <p class="fact-text">大理国（937-1253年）存续<strong>316年</strong>，是中国历史上存续时间最长的地方政权之一，直到被蒙古灭亡。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">027</span>
+        <p class="fact-text">金庸小说《天龙八部》中的<strong>段誉</strong>原型是大理国皇帝段正淳、段正严父子，大理因此成为武侠迷的朝圣地。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">028</span>
+        <p class="fact-text">崇圣寺三塔建于<strong>唐代</strong>，主塔高69米，是中国现存最高的唐代建筑，历经多次地震屹立不倒。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">029</span>
+        <p class="fact-text">大理是<strong>茶马古道</strong>的重要驿站，马帮从这里出发，翻越苍山，将茶叶运往西藏和东南亚。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">030</span>
+        <p class="fact-text">1956年大理白族自治州成立，是中国<strong>第一批民族自治地方</strong>之一，白族人口占全州总人口的1/3。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">031</span>
+        <p class="fact-text">大理的<strong>"发现"</strong>始于1980年代的背包客和艺术家，他们被廉价的生活成本和自由的氛围吸引。从一个偏远小城到旅游热门目的地，大理只用了30年，但这个过程也带来了商业化、物价上涨和原住民外迁等问题。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">032</span>
+        <p class="fact-text">大理曾是<strong>"嬉皮士"</strong>在中国的聚集地，1990年代这里有大量西方长期居住者，形成了独特的国际化社区。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 5: 建筑 & 空间 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">建筑 &amp; 空间</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">033</span>
+        <p class="fact-text">白族传统建筑讲究"<strong>三坊一照壁</strong>"或"四合五天井"，用白墙青瓦、彩绘装饰，极具辨识度。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">034</span>
+        <p class="fact-text">大理古城的<strong>五华楼</strong>是地标建筑，虽然多次重建，但仍是俯瞰古城的最佳位置。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">035</span>
+        <p class="fact-text">喜洲古镇保留了大量<strong>清末民初</strong>的白族大院，严家大院是其中最具代表性的建筑群。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">036</span>
+        <p class="fact-text">双廊曾是宁静的渔村，如今已变成<strong>网红打卡地</strong>，临海的民宿和咖啡馆密密麻麻，争相抢占"海景位"。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">037</span>
+        <p class="fact-text">大理的<strong>民宿产业</strong>极其发达，从百元青旅到万元海景别墅应有尽有，民宿数量超过5000家。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">038</span>
+        <p class="fact-text">2015年洱海治理后，<strong>大量环海民宿被拆除</strong>，一些业主投资打了水漂，这是大理旅游业的一次重大冲击。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">039</span>
+        <p class="fact-text">大理古城的<strong>人民路</strong>曾是最文艺的街道，手工艺人、流浪歌手、摆摊艺术家聚集于此，如今已被商业店铺取代。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">040</span>
+        <p class="fact-text">大理周边村落正在经历<strong>"绅士化"</strong>进程——外来投资者买下老房子改造成民宿、咖啡馆、艺术空间，原住民则搬到更远的地方。才村、龙龛、银桥等村庄已经面目全非，有人称之为"大理的消亡"。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 6: 文化 & 社会 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">文化 &amp; 社会</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">041</span>
+        <p class="fact-text">白族有自己的<strong>语言</strong>，属于藏缅语族，但如今大多数年轻白族人已不会说，只有老人还在使用。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">042</span>
+        <p class="fact-text">白族女性传统服饰头饰叫<strong>"风花雪月"帽</strong>：垂下的穗子代表下关风，花代表上关花，白色代表苍山雪，弯弯的帽沿代表洱海月。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">043</span>
+        <p class="fact-text">大理三月街是白族最重要的<strong>传统节日</strong>，每年农历三月举行，持续一周，是贸易、社交和娱乐的盛会。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">044</span>
+        <p class="fact-text">大理是中国<strong>"数字游民"</strong>最集中的城市之一，大量远程工作者在这里租房生活，形成了独特的社群文化。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">045</span>
+        <p class="fact-text">大理的<strong>"新移民"</strong>（外来定居者）数量庞大，他们开民宿、做手工、创业，改变了城市的人口结构和文化面貌。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">046</span>
+        <p class="fact-text">大理曾有活跃的<strong>LGBTQ社群</strong>，宽松的氛围吸引了很多"出柜"的年轻人在这里生活。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">047</span>
+        <p class="fact-text">大理是<strong>"躺平文化"</strong>的代名词，很多年轻人辞掉城市的工作，来这里过低欲望、慢节奏的生活。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">048</span>
+        <p class="fact-text">大理存在明显的<strong>"两个世界"</strong>：一个是游客和新移民的世界，喝咖啡、开民宿、谈理想；另一个是本地白族人的世界，种田、做生意、过传统节日。这两个世界交集不多，有时甚至存在摩擦。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">049</span>
+        <p class="fact-text">大理的<strong>扎染</strong>是白族传统工艺，用植物染料和扎结技法制作蓝白相间的图案，已被列为国家非物质文化遗产。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">050</span>
+        <p class="fact-text">大理人说话有独特的<strong>"大理腔"</strong>，尾音上扬，听起来温柔和缓，与昆明话有明显区别。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PULLQUOTE 2 -->
+  <div class="pullquote">
+    <p>「在大理，时间好像不存在了，<br>或者说，时间变成了另一种东西。」</p>
+  </div>
+
+  <!-- CATEGORY 7: 自然 & 动物 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">自然 &amp; 动物</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">051</span>
+        <p class="fact-text">洱海的水质曾经<strong>恶化到三类</strong>，经过严格治理后逐渐恢复，现在大部分区域达到二类水质标准。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">052</span>
+        <p class="fact-text">苍山有<strong>18条溪流</strong>流下山，形成众多瀑布和水潭，蝴蝶泉就是其中最著名的一个。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">053</span>
+        <p class="fact-text">大理的<strong>杜鹃花</strong>品种极其丰富，苍山是世界杜鹃花的起源地之一，每年春天漫山遍野盛开。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">054</span>
+        <p class="fact-text">洱海中曾有大量<strong>弓鱼</strong>（洱海特有鱼种），但由于过度捕捞和环境变化，野生弓鱼已几乎绝迹。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">055</span>
+        <p class="fact-text">大理是<strong>观鸟胜地</strong>，洱海湿地栖息着紫水鸡、白鹭、苍鹭等数十种水鸟，冬季还有候鸟迁徙而来。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">056</span>
+        <p class="fact-text">苍山的<strong>高山植被</strong>呈垂直分布，从山脚到山顶可以看到亚热带、温带、寒带三种不同的植物群落。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 8: 经济 & 财富 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">经济 &amp; 财富</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">057</span>
+        <p class="fact-text">大理的<strong>旅游业</strong>是支柱产业，疫情前年游客量超过5000万人次，旅游收入占GDP比重极高。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">058</span>
+        <p class="fact-text">大理古城的<strong>商铺租金</strong>曾炒到每平方米每月数百元，与一线城市商业区相当，但疫情后大幅下跌。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">059</span>
+        <p class="fact-text">大理的<strong>房价</strong>在云南属于中上水平，尤其是海景房和古城周边，每平方米可达2-3万元。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">060</span>
+        <p class="fact-text">大理的<strong>经济结构单一</strong>是一个隐患——过度依赖旅游业使得城市抗风险能力很弱。疫情三年，大量民宿倒闭、商铺关门，很多"新大理人"被迫离开。这也让人们开始反思：一个只有旅游的城市，是否可持续？</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">061</span>
+        <p class="fact-text">大理的<strong>核桃</strong>是重要农产品，漾濞彝族自治县被称为"中国核桃之乡"，年产量占全国1/10以上。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">062</span>
+        <p class="fact-text">大理的<strong>大理石</strong>因此地而得名，但由于过度开采，苍山大理石矿已被禁止开采，市面上的"大理石"多来自外地。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 9: 日常生活 & 城市习惯 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">日常生活 &amp; 城市习惯</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">063</span>
+        <p class="fact-text">大理人的作息<strong>非常随意</strong>，很多咖啡馆和小店没有固定营业时间，"老板心情好就开门"是常态。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">064</span>
+        <p class="fact-text">大理的<strong>集市文化</strong>丰富，每周都有不同村落的赶集日，本地人买菜、买牲口、社交都在集市完成。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">065</span>
+        <p class="fact-text">大理人喜欢<strong>晒太阳</strong>，无论是本地白族还是新移民，下午坐在院子里晒太阳、发呆是标配生活方式。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">066</span>
+        <p class="fact-text">大理的<strong>"下午茶"</strong>文化浓厚，但喝的不是英式红茶，而是普洱茶、滇红，或者精品咖啡。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">067</span>
+        <p class="fact-text">大理的<strong>夜生活</strong>不算丰富，古城有几家酒吧和Livehouse，但整体氛围以安静为主。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">068</span>
+        <p class="fact-text">大理的<strong>街头艺人</strong>曾是风景之一，弹吉他唱歌的流浪歌手遍布人民路，如今因城市管理收紧，已大为减少。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">069</span>
+        <p class="fact-text">在大理生活有一种独特的<strong>"时间感"</strong>——日出日落、四季更替变得清晰可感，而城市里的时间焦虑则逐渐消失。很多人说在大理待久了，就"废"了——不是真的废了，而是再也无法适应大城市的节奏。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">070</span>
+        <p class="fact-text">大理的<strong>宠物狗</strong>特别多，尤其是新移民群体，几乎家家养狗，环海骑行时经常会遇到狗狗同行的队伍。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 10: 奇闻 & 冷知识 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">奇闻 &amp; 冷知识</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">071</span>
+        <p class="fact-text">大理的<strong>"下关风"</strong>是出了名的大，冬春季节风力可达6-7级，当地人已经习以为常。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">072</span>
+        <p class="fact-text">蝴蝶泉曾经每年有<strong>数万只蝴蝶</strong>聚集，如今因环境变化，蝴蝶数量大减，盛况已难再现。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">073</span>
+        <p class="fact-text">大理有<strong>"本主崇拜"</strong>传统，每个村子都有自己的保护神（本主），有的是历史人物，有的是神话角色。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">074</span>
+        <p class="fact-text">大理的<strong>火把节</strong>是白族最隆重的节日之一，农历六月二十五前后，家家户户点燃火把，场面壮观。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">075</span>
+        <p class="fact-text">大理古城的<strong>城门</strong>曾经夜间会关闭，直到2000年代才取消宵禁，现在24小时敞开。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">076</span>
+        <p class="fact-text">大理有一个<strong>都市传说</strong>：在大理认识的人，不管是朋友还是恋人，离开大理后关系就会淡化甚至断裂。有人把这叫做"大理结界"——在这里建立的一切，似乎只属于这里。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">077</span>
+        <p class="fact-text">大理的<strong>海菜花</strong>是洱海特有的水生植物，只能在清洁的水中生长，被视为洱海水质的"晴雨表"。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">078</span>
+        <p class="fact-text">大理曾有大量<strong>"义工旅行"</strong>机会，用劳动换取食宿，吸引了很多背包客，但近年来这种模式已大为减少。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">079</span>
+        <p class="fact-text">大理的<strong>房东</strong>很多是外地投资者，他们买下老房子改造后出租，形成了独特的"二房东"生态。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">080</span>
+        <p class="fact-text">大理的<strong>星空</strong>曾经非常纯净，但随着城市灯光增多，光污染日益严重，如今只有苍山深处还能看到银河。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 11: 艺术 & 创作社群 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">艺术 &amp; 创作社群</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">081</span>
+        <p class="fact-text">大理有活跃的<strong>独立音乐</strong>场景，很多音乐人选择在这里创作，麻园诗人、蓝调乐队等都曾驻扎大理。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">082</span>
+        <p class="fact-text">大理的<strong>手工艺</strong>文化丰富，扎染、银饰、木雕、陶艺都有专门的工作室和传承人。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">083</span>
+        <p class="fact-text">大理有多家<strong>独立书店</strong>，海豚阿德书店、大理书院等是文艺青年的聚集地。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">084</span>
+        <p class="fact-text">大理的<strong>摄影师</strong>群体庞大，无论是风光摄影还是人像摄影，洱海和苍山提供了绝佳的创作素材。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">085</span>
+        <p class="fact-text">大理曾被称为<strong>"中国的乌托邦"</strong>——艺术家、作家、音乐人、理想主义者聚集于此，试图建立一种不同于主流的生活方式。但商业化的侵蚀让这个乌托邦逐渐褪色，很多早期移民已经离开，去寻找下一个"大理"。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">086</span>
+        <p class="fact-text">大理的<strong>床车营地</strong>和户外社群非常活跃，很多人开着房车或改装车，过着半游牧式的生活。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 12: 教育 & 知识 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">教育 &amp; 知识</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">087</span>
+        <p class="fact-text">大理大学是当地唯一的本科院校，因校园<strong>紧邻洱海</strong>而被称为"中国最美大学"之一。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">088</span>
+        <p class="fact-text">大理有多所<strong>国际学校</strong>和创新教育机构，吸引了追求"另类教育"的家庭定居。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">089</span>
+        <p class="fact-text">大理的<strong>教育资源</strong>相对有限，这也是很多新移民家庭犹豫是否长期定居的重要因素。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">090</span>
+        <p class="fact-text">大理有不少<strong>自然教育</strong>项目，带孩子认识植物、观察鸟类、体验农耕生活。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 13: 身为大理人 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">在大理生活</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">091</span>
+        <p class="fact-text">在大理生活的人分为两类：<strong>"大理人"</strong>（本地白族）和<strong>"新大理人"</strong>（外来定居者），两个群体有不同的生活圈。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">092</span>
+        <p class="fact-text">新大理人选择来这里的原因各异：有人为了<strong>逃离内卷</strong>，有人为了创业，有人为了疗愈，有人只是想换一种活法。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">093</span>
+        <p class="fact-text">在大理待久了，很多人会发现自己的<strong>消费观</strong>变了——不再追求名牌，不再攀比，开始关注真正让自己快乐的事。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">094</span>
+        <p class="fact-text">大理的<strong>社交圈</strong>相对固定，待久了会发现"圈子很小"，到处都能遇到认识的人。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">095</span>
+        <p class="fact-text">很多人来大理是为了<strong>"找自己"</strong>，但也有人发现，逃到这里并不能解决内心的问题。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">096</span>
+        <p class="fact-text">大理的<strong>生活成本</strong>比想象中高，尤其是房租和餐饮，想要"隐居"也需要经济基础。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">097</span>
+        <p class="fact-text">大理让人<strong>慢下来</strong>，但慢下来之后做什么，是每个定居者都要面对的问题。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">098</span>
+        <p class="fact-text">大理人常说的一句话是："<strong>来都来了</strong>"——既是对游客的调侃，也是对自己选择的接纳。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">099</span>
+        <p class="fact-text">大理是一面<strong>镜子</strong>——它会放大你内心的宁静，也会放大你的焦虑和迷茫。那些在大理找到归宿的人，往往不是逃避什么，而是清楚自己想要什么。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">100</span>
+        <p class="fact-text">无论大理如何变化，有一件事始终没变：每天早晨，苍山依旧云雾缭绕，洱海依旧波光粼粼，<strong>日子依旧在缓缓流淌</strong>。</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>CityBits · Dali</p>
+  <div class="footer-ornament">✦</div>
+  <p>100 Things · 一百件小事</p>
+</footer>
+
+</body>
+</html>
