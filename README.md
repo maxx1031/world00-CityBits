@@ -2,12 +2,24 @@
 
 Status: shipped
 
-CityBits is a static editorial-style website that packages city observations into fast, visual reading. The current build includes 6 city pages with 100 facts each.
+CityBits is a static editorial-style website that packages city observations into fast, visual reading. The current build includes 10 city pages with 100 facts each.
+
+## Screenshots
+
+### Landing Page
+![Landing Page](screenshots/landing.png)
+
+### City Pages
+| | |
+|---|---|
+| ![Kunming](screenshots/kunming.png) | ![Shanghai](screenshots/shanghai.png) |
+| ![Dali](screenshots/dali.png) | ![New York](screenshots/newyork.png) |
+| ![Boston](screenshots/boston.png) | ![New Orleans](screenshots/neworleans.png) |
 
 ## What is included
 
 - 1 landing page for city selection
-- 6 city detail pages: Kunming, Dali, Shanghai, Boston, New York, New Orleans
+- 10 city detail pages: Kunming, Dali, Shanghai, Boston, New York, New Orleans, Shenyang, San Francisco, San Diego, Vancouver
 - Editorial visual system inspired by newspaper and magazine layouts
 - Static deployment setup for Vercel
 
@@ -39,7 +51,11 @@ Web01-CityBit/
 │   ├── kunming.html
 │   ├── neworleans.html
 │   ├── newyork.html
-│   └── shanghai.html
+│   ├── sandiego.html
+│   ├── sanfrancisco.html
+│   ├── shanghai.html
+│   ├── shenyang.html
+│   └── vancouver.html
 ├── PROJECT_PROGRESS.md
 └── vercel.json
 ```
@@ -47,7 +63,7 @@ Web01-CityBit/
 ## Suggested GitHub metadata
 
 - Repository name: `WEB01-citybit`
-- Description: `Editorial-style static site with 6 cities and 100 observations each.`
+- Description: `Editorial-style static site with 10 cities and 100 observations each.`
 - Topics: `vibe-coding`, `editorial-design`, `static-site`, `city-guide`, `html`, `css`
 - Homepage: your deployed Vercel URL
 
@@ -56,4 +72,4 @@ Web01-CityBit/
 - Add a repository description and topics on GitHub
 - Set the Vercel deployment URL as the homepage
 - Pin this repo on your profile if you want it to represent your work
-- Add 1-2 screenshots to the repository if you want stronger first-visit impact
+- ~~Add 1-2 screenshots to the repository~~ Done

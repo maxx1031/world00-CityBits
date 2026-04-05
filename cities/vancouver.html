@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>温哥华 · CityBits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@300;400;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #1a1008; --paper: #f5efe6; --rust: #c0392b; --gold: #c9922a; --steel: #4a5568; --cream: #faf6ef; --line: rgba(26,16,8,0.12); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Noto Serif SC', serif; overflow-x: hidden; }
+  .back-link { position: fixed; top: 20px; left: 20px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--steel); text-decoration: none; padding: 10px 16px; border: 1px solid var(--line); background: var(--paper); transition: all 0.2s; z-index: 100; }
+  .back-link:hover { border-color: var(--rust); color: var(--rust); }
+  header { position: relative; padding: 80px 60px 60px; border-bottom: 2px solid var(--ink); display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 40px; }
+  header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: repeating-linear-gradient(90deg, var(--rust) 0, var(--rust) 30px, var(--ink) 30px, var(--ink) 60px, var(--gold) 60px, var(--gold) 90px, var(--paper) 90px, var(--paper) 120px); }
+  .masthead-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--rust); margin-bottom: 16px; }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(48px, 8vw, 96px); line-height: 0.92; font-weight: 700; letter-spacing: -2px; }
+  h1 em { font-style: italic; color: var(--rust); }
+  .masthead-sub { font-family: 'Noto Serif SC', serif; font-size: 15px; font-weight: 300; color: var(--steel); line-height: 1.8; max-width: 280px; text-align: right; }
+  .masthead-number { font-family: 'Playfair Display', serif; font-size: 160px; font-weight: 700; color: transparent; -webkit-text-stroke: 1.5px var(--line); line-height: 1; user-select: none; }
+  main { max-width: 1100px; margin: 0 auto; padding: 0 40px 100px; }
+  .category { margin-top: 70px; }
+  .cat-label { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+  .cat-line { flex: 1; height: 1px; background: var(--ink); }
+  .cat-name { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 6px; text-transform: uppercase; white-space: nowrap; padding: 6px 16px; border: 1px solid var(--ink); }
+  .fact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0; border: 1px solid var(--ink); }
+  .fact { padding: 28px 32px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); position: relative; transition: background 0.2s; cursor: default; }
+  .fact:hover { background: rgba(192, 57, 43, 0.04); }
+  .fact-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--rust); letter-spacing: 2px; margin-bottom: 10px; display: block; }
+  .fact-text { font-size: 14px; line-height: 2; font-weight: 300; color: var(--ink); }
+  .fact-text strong { font-weight: 600; color: var(--rust); }
+  .pullquote { margin: 50px 0; padding: 40px 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); text-align: center; }
+  .pullquote p { font-family: 'Playfair Display', serif; font-size: clamp(20px, 3vw, 32px); font-style: italic; line-height: 1.5; color: var(--rust); max-width: 700px; margin: 0 auto; }
+  .fact-wide { grid-column: 1 / -1; background: var(--ink); color: var(--paper); padding: 32px 40px; display: flex; gap: 24px; align-items: flex-start; }
+  .fact-wide .fact-num { color: var(--gold); }
+  .fact-wide .fact-text { color: var(--cream); }
+  .fact-wide .fact-text strong { color: var(--gold); }
+  footer { border-top: 2px solid var(--ink); padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; }
+  footer p { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--steel); text-transform: uppercase; }
+  .footer-ornament { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--rust); }
+  @media (max-width: 600px) { .back-link { position: static; margin: 20px; display: inline-block; } header { padding: 60px 24px 40px; grid-template-columns: 1fr; } .masthead-number { display: none; } main { padding: 0 16px 60px; } .fact-grid { grid-template-columns: 1fr; } footer { padding: 24px; flex-direction: column; gap: 12px; } }
+</style>
+</head>
+<body>
+
+<a href="../index.html" class="back-link">← 返回城市列表</a>
+
+<header>
+  <div>
+    <div class="masthead-eyebrow">CityBits · 城市观察</div>
+    <h1>Vancou<em>ver</em></h1>
+    <p style="margin-top:20px; font-family:'Noto Serif SC'; font-size:15px; font-weight:300; color:var(--steel); line-height:2;">
+      100件你可能不知道的小事<br>关于这座山海之间的太平洋门户
+    </p>
+  </div>
+  <div style="text-align:right;">
+    <div class="masthead-number">100</div>
+    <div class="masthead-sub">山与海的城市<br>北美的亚洲门户<br>雨林与都市的交汇</div>
+  </div>
+</header>
+
+<main>
+
+  <!-- CATEGORY 1: 地理 & 城市结构 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">地理 &amp; 城市结构</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">001</span>
+        <p class="fact-text">温哥华面积仅<strong>115平方公里</strong>，但大温哥华地区（Metro Vancouver）面积超过2800平方公里，人口约270万。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">002</span>
+        <p class="fact-text">温哥华北靠<strong>北岸山脉</strong>，西临太平洋，三面环水一面靠山的地形使其成为全球最具自然景观的城市之一。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">003</span>
+        <p class="fact-text"><strong>Stanley Park</strong>（斯坦利公园）占地405公顷，几乎与温哥华市中心的面积相当，是北美最大的城市公园之一。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">004</span>
+        <p class="fact-text">温哥华的市中心半岛<strong>三面环水</strong>——北面是Burrard Inlet，南面是False Creek，西面是English Bay，只有东面与大陆相连。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">005</span>
+        <p class="fact-text">温哥华的城市规划在全球独树一帜——它通过<strong>"塔楼+裙楼"模式</strong>（Vancouverism）在市中心建设了大量细长的住宅高楼，底部是商业和公共空间。这种规划既保证了高密度居住，又最大限度地保留了每栋楼的景观视野和街道尺度。这一模式被城市规划界称为"温哥华主义"，被迪拜、墨尔本等城市模仿。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">006</span>
+        <p class="fact-text">温哥华是加拿大唯一一座<strong>没有高速公路穿城</strong>的大城市——1960年代市民成功阻止了一条计划穿过唐人街的高速公路。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">007</span>
+        <p class="fact-text"><strong>Granville Island</strong>原本是一个工业区，1970年代改造为公共市场和艺术区，是城市更新的经典案例。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">008</span>
+        <p class="fact-text">温哥华的<strong>Gastown</strong>是城市发源地，以"Gassy" Jack Deighton命名——他于1867年在此开了第一家酒吧。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PULLQUOTE -->
+  <div class="pullquote">
+    <p>「温哥华是一座你分不清山和城市边界的地方，<br>因为大自然就是城市的一部分。」</p>
+  </div>
+
+  <!-- CATEGORY 2: 地铁 & 交通 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">地铁 &amp; 交通</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">009</span>
+        <p class="fact-text">温哥华的<strong>SkyTrain</strong>是世界上最长的全自动无人驾驶轻轨系统之一，全线无司机，运营超过80公里。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">010</span>
+        <p class="fact-text">SkyTrain于<strong>1985年</strong>为世博会（Expo 86）而建，最初只有一条线路，如今已扩展为三条线路。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">011</span>
+        <p class="fact-text">温哥华的<strong>SeaBus</strong>是一种渡轮公交，横跨Burrard Inlet连接市中心与北温哥华，航程仅12分钟。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">012</span>
+        <p class="fact-text">温哥华是北美<strong>自行车通勤率最高</strong>的城市之一，拥有超过300公里的自行车道网络。城市规划者将自行车基础设施视为优先事项，Hornby Street和Dunsmuir Street的分离式自行车道是北美城市规划的标杆。即使在多雨的冬天，也有大量市民骑车通勤——温哥华人对雨的态度是"我们不用雨伞"。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">013</span>
+        <p class="fact-text">温哥华国际机场（YVR）连续多年被评为<strong>北美最佳机场</strong>，航站楼内展示着大量原住民艺术品。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">014</span>
+        <p class="fact-text">温哥华到惠斯勒的<strong>Sea-to-Sky Highway</strong>全长约120公里，沿途从海岸线攀升至山区，是北美最美的公路之一。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">015</span>
+        <p class="fact-text">温哥华的<strong>Aquabus</strong>是一种彩色小型渡轮，在False Creek上穿梭，连接Granville Island和市中心。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">016</span>
+        <p class="fact-text">温哥华到西雅图的<strong>跨境巴士</strong>全程约4小时，很多温哥华人周末去西雅图购物，因为美国物价更低。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 3: 食物 & 饮食文化 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">食物 &amp; 饮食文化</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">017</span>
+        <p class="fact-text">温哥华被称为<strong>"北美寿司之都"</strong>，寿司店密度和品质在北美首屈一指，大量日本移民带来了正宗的寿司文化。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">018</span>
+        <p class="fact-text">温哥华发明了<strong>BC卷（BC Roll）</strong>——用烤三文鱼皮代替传统的鱼肉做成的寿司卷，是温哥华对世界寿司文化的独特贡献。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">019</span>
+        <p class="fact-text">温哥华的<strong>中餐</strong>水平是北美最高的，Richmond（列治文）被誉为"北美最好的中餐城市"，广式点心和川菜水准直逼大陆一线城市。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">020</span>
+        <p class="fact-text">温哥华的<strong>亚洲美食</strong>之丰富在整个西方世界中几乎无出其右——从正宗的广式早茶到日本居酒屋，从韩国烤肉到越南河粉，从印度咖喱到马来西亚叻沙，几乎亚洲每个国家的料理都能在温哥华找到极高水准的版本。这归功于温哥华超过50%的少数族裔人口，其中亚裔是最大群体。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">021</span>
+        <p class="fact-text"><strong>Granville Island Public Market</strong>是温哥华最著名的公共市场，汇集了新鲜海产、手工面包、本地奶酪和各种小吃。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">022</span>
+        <p class="fact-text">温哥华的<strong>Japadog</strong>（日式热狗）是街头美食传奇——把照烧酱、海苔和日式蛋黄酱加在热狗上，风靡全城。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">023</span>
+        <p class="fact-text">BC省的<strong>三文鱼</strong>种类繁多（五种太平洋三文鱼），每年秋天三文鱼洄游季节是温哥华最重要的自然和美食事件。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">024</span>
+        <p class="fact-text">温哥华的<strong>精品咖啡</strong>文化极为发达，49th Parallel、Revolver Coffee等本地品牌在全加拿大享有盛誉。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 4: 历史 & 政治 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">历史 &amp; 政治</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">025</span>
+        <p class="fact-text">温哥华建立在<strong>Musqueam、Squamish和Tsleil-Waututh</strong>三个原住民族群的传统领地上，他们在此居住了数千年。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">026</span>
+        <p class="fact-text">温哥华城市的历史始于<strong>1867年</strong>Gassy Jack的酒吧，1886年正式建市，同年一场大火几乎烧毁了整座城市。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">027</span>
+        <p class="fact-text"><strong>加拿大太平洋铁路</strong>（CPR）于1887年通车至温哥华，使其从一个小镇迅速发展为太平洋沿岸的重要港口城市。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">028</span>
+        <p class="fact-text">温哥华的<strong>华人移民史</strong>充满了血泪——19世纪末大量华工参与修建太平洋铁路，死亡率极高。1923年加拿大颁布《排华法案》禁止华人入境，直到1947年才废除。如今温哥华的华裔人口超过50万，约占大温地区的20%，唐人街是北美最古老的华埠之一，但也面临着士绅化的威胁。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">029</span>
+        <p class="fact-text"><strong>Expo 86</strong>（1986年世博会）是温哥华现代化的转折点，博览会用地后来发展成为今天繁华的Yaletown社区。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">030</span>
+        <p class="fact-text">温哥华于<strong>2010年</strong>成功举办了冬季奥运会，借此机会大幅改善了城市基础设施和国际知名度。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">031</span>
+        <p class="fact-text">温哥华以<strong>多元文化主义</strong>著称，超过50%的居民母语不是英语，城市拥有全加拿大最高的少数族裔比例。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">032</span>
+        <p class="fact-text">温哥华的<strong>大麻合法化</strong>走在加拿大前列，2018年加拿大全国合法化之前，温哥华已经对大麻店采取了相对宽容的态度。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 5: 建筑 & 空间 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">建筑 &amp; 空间</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">033</span>
+        <p class="fact-text"><strong>Canada Place</strong>是温哥华的标志性建筑，白色帆形屋顶模仿了帆船的造型，是1986年世博会的加拿大馆。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">034</span>
+        <p class="fact-text"><strong>温哥华公共图书馆</strong>中央馆由Moshe Safdie设计，外形酷似罗马斗兽场，是城市最受欢迎的公共建筑之一。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">035</span>
+        <p class="fact-text">Gastown的<strong>蒸汽钟</strong>建于1977年，是世界上少数仍在运行的蒸汽动力时钟之一，每15分钟喷出蒸汽并演奏音乐。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">036</span>
+        <p class="fact-text">温哥华的<strong>玻璃高楼群</strong>是城市天际线的标志——为了最大化山景和海景，大部分住宅高楼都采用全玻璃幕墙设计。这些细长的玻璃塔在阳光下闪闪发光，在阴雨天则与灰色的天空融为一体。批评者认为这些建筑缺乏个性，支持者则赞赏它们与自然景观的和谐关系。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">037</span>
+        <p class="fact-text"><strong>Lions Gate Bridge</strong>建于1938年，横跨Burrard Inlet，其设计灵感来自金门大桥，是进入北温哥华和惠斯勒的必经之路。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">038</span>
+        <p class="fact-text">温哥华的<strong>Robson Square</strong>由著名建筑师Arthur Erickson设计，用屋顶花园覆盖了一整条街道，是城市公共空间的杰作。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">039</span>
+        <p class="fact-text"><strong>Science World</strong>的巨大银色球形建筑原本是Expo 86的展馆，如今是温哥华最受儿童欢迎的科学博物馆。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">040</span>
+        <p class="fact-text">温哥华的<strong>唐人街千禧门</strong>建于2002年，是北美最大的中式牌坊之一，标志着温哥华对华人社区的认可。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 6: 文化 & 社会 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">文化 &amp; 社会</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">041</span>
+        <p class="fact-text">温哥华被称为<strong>"北方好莱坞"（Hollywood North）</strong>，是北美第三大影视制作中心，大量美剧和电影在此取景。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">042</span>
+        <p class="fact-text">《X档案》《超自然》《死侍》《五十度灰》等大量<strong>影视作品</strong>都在温哥华拍摄，街头经常可以遇到剧组在取景。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">043</span>
+        <p class="fact-text">温哥华的<strong>原住民艺术</strong>极具特色，图腾柱、面具和版画是西北海岸原住民文化的代表，Stanley Park内有大量图腾柱展示。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">044</span>
+        <p class="fact-text">温哥华的<strong>多元文化</strong>深度在全球城市中罕见——这里有超过200个民族的居民，使用超过150种语言。Richmond的街道上中文招牌比英文还多，旁遮普语在Surrey区随处可闻，Commercial Drive是意大利文化的据点，Main Street则是新潮文化的前沿。温哥华人的日常就是在不同文化之间自由切换。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">045</span>
+        <p class="fact-text">温哥华的<strong>户外运动</strong>文化极其浓厚，居民可以早上在北岸山脉滑雪，下午到English Bay冲浪，这在全球大城市中极为罕见。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">046</span>
+        <p class="fact-text">温哥华人穿衣风格偏向<strong>休闲户外</strong>——Lululemon（总部在温哥华）瑜伽裤和Arc'teryx冲锋衣是本地人的"制服"。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">047</span>
+        <p class="fact-text"><strong>Lululemon</strong>于1998年在温哥华Kitsilano社区创立，从一家小瑜伽服店发展为全球运动服饰巨头。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">048</span>
+        <p class="fact-text">温哥华的<strong>冰球</strong>是城市最大的体育热情——Canucks（加人队）的比赛日整个城市都沸腾，2011年总决赛失利后甚至引发了骚乱。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">049</span>
+        <p class="fact-text">温哥华是全球<strong>最宜居城市</strong>排行榜的常客，连续多年被《经济学人》评为前五名。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">050</span>
+        <p class="fact-text">温哥华人有一句自嘲名言：<strong>"No fun city"</strong>——抱怨夜生活不够丰富，酒吧关门太早，娱乐场所太少。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">051</span>
+        <p class="fact-text">温哥华的<strong>Wreck Beach</strong>是加拿大最著名的天体海滩，位于UBC校园附近，需要走数百级台阶才能到达。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">052</span>
+        <p class="fact-text">温哥华<strong>4/20大麻日</strong>每年4月20日在Sunset Beach举办大型集会，合法化前就已是北美最大的大麻庆祝活动之一。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 7: 经济 & 产业 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">经济 &amp; 产业</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">053</span>
+        <p class="fact-text">温哥华港是加拿大最大的港口，也是北美<strong>第三大港口</strong>，每年处理超过1.4亿吨货物。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">054</span>
+        <p class="fact-text">温哥华是加拿大<strong>影视制作</strong>产业的中心，每年影视产业为BC省贡献超过30亿加元的收入。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">055</span>
+        <p class="fact-text">温哥华的<strong>科技产业</strong>快速发展，Amazon、Microsoft和Apple在此设立了大型办公室，本地初创公司也层出不穷。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">056</span>
+        <p class="fact-text">温哥华的<strong>房价</strong>是加拿大最高的，也是全球最难负担的城市之一——普通独立屋均价超过200万加元，公寓均价也超过80万加元。大量外国资本（尤其是来自中国的投资）涌入房地产市场，推高了房价，导致本地年轻人几乎无力购房。温哥华成了"百万富翁住不起的城市"。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">057</span>
+        <p class="fact-text">温哥华的<strong>矿业</strong>虽然不在城市范围内，但大量矿业公司总部设在温哥华，使其成为全球矿业资本的重要集散地。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">058</span>
+        <p class="fact-text">温哥华的<strong>旅游业</strong>每年吸引超过1000万游客，邮轮产业也极为发达，是阿拉斯加邮轮航线的主要出发港。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">059</span>
+        <p class="fact-text">温哥华是全球<strong>天然气和清洁能源</strong>产业的重要融资中心，BC省丰富的水电资源是重要优势。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">060</span>
+        <p class="fact-text"><strong>Electronic Arts（EA）</strong>在温哥华设有大型工作室，《FIFA》《NHL》等知名游戏在此开发。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">061</span>
+        <p class="fact-text">温哥华的<strong>林业</strong>是BC省传统支柱产业，但随着环保意识增强和市场变化，产业正在转型。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">062</span>
+        <p class="fact-text">温哥华的<strong>三文鱼养殖</strong>产业规模庞大，但引发了野生三文鱼保护的激烈争论。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">063</span>
+        <p class="fact-text">温哥华证券交易所（现并入TMX集团）曾以<strong>小型矿业和科技股</strong>闻名，也因投机泡沫频发而声名狼藉。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">064</span>
+        <p class="fact-text">温哥华的<strong>Lululemon、Arc'teryx和Herschel</strong>都是本地品牌，从温哥华走向全球，成为城市的商业名片。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 8: 自然 & 气候 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">自然 &amp; 气候</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">065</span>
+        <p class="fact-text">温哥华每年约有<strong>166个降雨天</strong>，年降水量约1200毫米，雨季从10月持续到次年4月。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">066</span>
+        <p class="fact-text">温哥华的冬天<strong>很少下雪</strong>——受太平洋暖流影响，市区冬季平均温度在2-7°C之间，是加拿大最温暖的大城市。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">067</span>
+        <p class="fact-text">温哥华周围被<strong>温带雨林</strong>环绕，Capilano峡谷和Lynn Canyon的古老森林中，有些树木已经生长了800多年。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">068</span>
+        <p class="fact-text">温哥华人对雨有一种独特的<strong>文化认同</strong>——真正的温哥华人从不打伞，只穿防水外套（最好是Gore-Tex材质）。这不是因为雨不大，而是因为打伞被视为一种"外地人行为"。温哥华的毛毛雨甚至有专门的本地术语——"liquid sunshine"（液体阳光），这种乐观的态度帮助居民度过漫长的雨季。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">069</span>
+        <p class="fact-text"><strong>Capilano吊桥</strong>建于1889年，悬挂在70米高的峡谷上方，全长137米，是温哥华最著名的自然景点之一。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">070</span>
+        <p class="fact-text">每年秋天，温哥华周边河流迎来<strong>三文鱼洄游</strong>，成千上万的鱼逆流而上产卵，场面壮观。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">071</span>
+        <p class="fact-text">温哥华的<strong>Grouse Mountain</strong>距市中心仅20分钟车程，冬天可滑雪，夏天可徒步，山顶有两只灰熊作为"常驻居民"。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">072</span>
+        <p class="fact-text">温哥华偶尔能看到<strong>黑熊和郊狼</strong>在城市边缘出没，北温哥华的居民与野生动物共存是日常。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 9: 隐藏细节 & 冷知识 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">隐藏细节 &amp; 冷知识</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">073</span>
+        <p class="fact-text">温哥华的城市名字来自英国<strong>探险家George Vancouver</strong>船长，他于1792年考察了这片海岸。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">074</span>
+        <p class="fact-text">温哥华有一个<strong>"Vancouver Special"</strong>建筑风格——1960-80年代大量建造的两层平顶住宅，曾被嘲笑为丑陋，如今成了被保护的城市遗产。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">075</span>
+        <p class="fact-text">Gastown的蒸汽钟其实<strong>主要靠电力</strong>驱动，蒸汽只负责产生声音效果和白雾——这个"秘密"让很多游客感到失望。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">076</span>
+        <p class="fact-text">温哥华曾在影视作品中<strong>扮演过几乎所有城市</strong>——因为税收优惠和多样化的地形，温哥华在银幕上曾经是纽约、芝加哥、西雅图、东京甚至外星球。本地人开玩笑说温哥华是"世界上演技最好的城市"——它可以是任何地方，除了它自己。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">077</span>
+        <p class="fact-text">温哥华的<strong>English Bay</strong>每年新年举办"北极熊冬泳"活动，数千人跳入冰冷的太平洋，传统始于1920年。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">078</span>
+        <p class="fact-text">温哥华<strong>不属于温哥华岛</strong>——这是很多人常犯的地理错误，温哥华位于大陆，温哥华岛在海峡对面，省会维多利亚在岛上。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">079</span>
+        <p class="fact-text">温哥华的<strong>Stanley Park海堤</strong>（Seawall）全长约10公里，是世界上最长的不间断滨水步道之一。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">080</span>
+        <p class="fact-text">温哥华的<strong>SkyTrain</strong>曾经是一个"世博遗产"，最初很多人认为它会失败，如今已成为城市不可或缺的交通大动脉。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">081</span>
+        <p class="fact-text">温哥华的<strong>Davie Street</strong>是LGBTQ+社区的中心，彩虹人行横道是永久性的城市设施。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">082</span>
+        <p class="fact-text">温哥华曾出台<strong>"空屋税"</strong>（Empty Homes Tax）来打击投机性购房——如果房屋空置超过6个月，需缴纳房价3%的税款。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">083</span>
+        <p class="fact-text">温哥华的<strong>Richmond夜市</strong>是北美最大的亚洲夜市之一，夏季开放，摊位上卖的小吃与台湾夜市几乎无异。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">084</span>
+        <p class="fact-text">温哥华的<strong>房屋编号系统</strong>以Ontario Street为东西分界线，偶数在北侧、奇数在南侧，街道命名从东到西按字母排列。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 10: 未来 & 争议 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">未来 &amp; 争议</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">085</span>
+        <p class="fact-text">温哥华的<strong>住房可负担性</strong>是全市最大的政治议题——一套普通公寓需要不吃不喝攒30年以上的工资。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">086</span>
+        <p class="fact-text">温哥华Downtown Eastside是加拿大<strong>最贫困的社区</strong>之一，药物成瘾和无家可归问题极其严重。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">087</span>
+        <p class="fact-text">温哥华是全球第一个设立<strong>合法安全注射站</strong>（Insite）的城市，试图用减害策略应对阿片类药物危机。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">088</span>
+        <p class="fact-text">温哥华的<strong>"外国买家禁令"</strong>和各种房产税政策引发了激烈争论——支持者认为这是保护本地居民住房权的必要措施，反对者则认为这带有排外色彩且效果有限。温哥华房地产已经不仅是经济问题，更是文化身份和移民政策的交汇点，每次选举都成为核心议题。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">089</span>
+        <p class="fact-text">温哥华计划到2050年成为<strong>全球最绿色的城市</strong>，包括实现零碳排放、100%使用可再生能源。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">090</span>
+        <p class="fact-text">温哥华面临<strong>大地震</strong>的威胁——Cascadia俯冲带每隔约500年发生一次9级大地震，上一次是1700年，下一次随时可能到来。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">091</span>
+        <p class="fact-text">温哥华的<strong>Broadway地铁延长线</strong>正在建设中，将大幅改善UBC和市中心之间的交通，预计2026年通车。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">092</span>
+        <p class="fact-text">温哥华的<strong>天然气管道扩建项目</strong>（Trans Mountain）引发了激烈的环保争议和原住民抗议。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">093</span>
+        <p class="fact-text">温哥华的<strong>唐人街</strong>正在经历快速的士绅化，老建筑被拆除建高楼，传统社区文化面临消失的危险。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">094</span>
+        <p class="fact-text">温哥华大量住宅<strong>面积越来越小</strong>——为了应对高房价，开发商推出了大量300-400平方英尺的微型公寓。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">095</span>
+        <p class="fact-text">温哥华的<strong>气候变化</strong>影响日益明显，2021年的"热穹顶"事件使温度飙升至49.6°C，打破了加拿大历史纪录。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">096</span>
+        <p class="fact-text">尽管房价高企、雨天漫长，温哥华人依然热爱这座城市——<strong>山、海、雨林和多元文化</strong>是他们选择留下的理由。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 11: 本地人才知道的事 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">本地人才知道的事</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">097</span>
+        <p class="fact-text">温哥华本地人<strong>从不打伞</strong>——只穿防水外套。如果你在街上看到有人撑伞，那几乎可以确定是游客。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">098</span>
+        <p class="fact-text">真正的温哥华人知道最好的寿司不在<strong>市中心</strong>，而是在Kingsway大道沿线那些不起眼的小店里。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">099</span>
+        <p class="fact-text">温哥华人衡量距离的方式不是<strong>公里而是时间</strong>——"那个地方大概20分钟"，因为在这座城市里，实际距离和通勤时间完全是两回事。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">100</span>
+        <p class="fact-text">温哥华人最常抱怨的三件事：<strong>房价、雨天和交通</strong>——但如果有人建议他们搬去别的城市，他们会立刻反驳："你疯了吗？这里可是温哥华。"</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>CityBits · 城市观察</p>
+  <div class="footer-ornament">✦</div>
+  <p>温哥华 · 100 City Notes</p>
+</footer>
+
+</body>
+</html>

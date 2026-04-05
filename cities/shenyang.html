@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沈阳 · CityBits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@300;400;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #1a1008; --paper: #f5efe6; --rust: #c0392b; --gold: #c9922a; --steel: #4a5568; --cream: #faf6ef; --line: rgba(26,16,8,0.12); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Noto Serif SC', serif; overflow-x: hidden; }
+  .back-link { position: fixed; top: 20px; left: 20px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--steel); text-decoration: none; padding: 10px 16px; border: 1px solid var(--line); background: var(--paper); transition: all 0.2s; z-index: 100; }
+  .back-link:hover { border-color: var(--rust); color: var(--rust); }
+  header { position: relative; padding: 80px 60px 60px; border-bottom: 2px solid var(--ink); display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 40px; }
+  header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: repeating-linear-gradient(90deg, var(--rust) 0, var(--rust) 30px, var(--ink) 30px, var(--ink) 60px, var(--gold) 60px, var(--gold) 90px, var(--paper) 90px, var(--paper) 120px); }
+  .masthead-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--rust); margin-bottom: 16px; }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(48px, 8vw, 96px); line-height: 0.92; font-weight: 700; letter-spacing: -2px; }
+  h1 em { font-style: italic; color: var(--rust); }
+  .masthead-sub { font-family: 'Noto Serif SC', serif; font-size: 15px; font-weight: 300; color: var(--steel); line-height: 1.8; max-width: 280px; text-align: right; }
+  .masthead-number { font-family: 'Playfair Display', serif; font-size: 160px; font-weight: 700; color: transparent; -webkit-text-stroke: 1.5px var(--line); line-height: 1; user-select: none; }
+  main { max-width: 1100px; margin: 0 auto; padding: 0 40px 100px; }
+  .category { margin-top: 70px; }
+  .cat-label { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+  .cat-line { flex: 1; height: 1px; background: var(--ink); }
+  .cat-name { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 6px; text-transform: uppercase; white-space: nowrap; padding: 6px 16px; border: 1px solid var(--ink); }
+  .fact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0; border: 1px solid var(--ink); }
+  .fact { padding: 28px 32px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); position: relative; transition: background 0.2s; cursor: default; }
+  .fact:hover { background: rgba(192, 57, 43, 0.04); }
+  .fact-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--rust); letter-spacing: 2px; margin-bottom: 10px; display: block; }
+  .fact-text { font-size: 14px; line-height: 2; font-weight: 300; color: var(--ink); }
+  .fact-text strong { font-weight: 600; color: var(--rust); }
+  .pullquote { margin: 50px 0; padding: 40px 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); text-align: center; }
+  .pullquote p { font-family: 'Playfair Display', serif; font-size: clamp(20px, 3vw, 32px); font-style: italic; line-height: 1.5; color: var(--rust); max-width: 700px; margin: 0 auto; }
+  .fact-wide { grid-column: 1 / -1; background: var(--ink); color: var(--paper); padding: 32px 40px; display: flex; gap: 24px; align-items: flex-start; }
+  .fact-wide .fact-num { color: var(--gold); }
+  .fact-wide .fact-text { color: var(--cream); }
+  .fact-wide .fact-text strong { color: var(--gold); }
+  footer { border-top: 2px solid var(--ink); padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; }
+  footer p { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--steel); text-transform: uppercase; }
+  .footer-ornament { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--rust); }
+  @media (max-width: 600px) { .back-link { position: static; margin: 20px; display: inline-block; } header { padding: 60px 24px 40px; grid-template-columns: 1fr; } .masthead-number { display: none; } main { padding: 0 16px 60px; } .fact-grid { grid-template-columns: 1fr; } footer { padding: 24px; flex-direction: column; gap: 12px; } }
+</style>
+</head>
+<body>
+
+<a href="../index.html" class="back-link">← 返回城市列表</a>
+
+<header>
+  <div>
+    <div class="masthead-eyebrow">CityBits · 城市观察</div>
+    <h1>Shen<em>yang</em></h1>
+    <p style="margin-top:20px; font-family:'Noto Serif SC'; font-size:15px; font-weight:300; color:var(--steel); line-height:2;">
+      100件你可能不知道的小事<br>关于这座东北大地的工业之都
+    </p>
+  </div>
+  <div style="text-align:right;">
+    <div class="masthead-number">100</div>
+    <div class="masthead-sub">共和国长子<br>一朝发祥地 两代帝王都<br>东北的心脏</div>
+  </div>
+</header>
+
+<main>
+
+  <!-- CATEGORY 1: 地理 & 城市结构 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">地理 &amp; 城市结构</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">001</span>
+        <p class="fact-text">沈阳位于<strong>辽河平原</strong>中部，地势平坦开阔，平均海拔仅约50米，是中国东北地区最大的城市。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">002</span>
+        <p class="fact-text">沈阳老城区的核心是<strong>"方城"</strong>，即清代盛京城的范围，街道至今保留着棋盘式格局，以沈阳故宫为中心向四面延展。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">003</span>
+        <p class="fact-text"><strong>浑河</strong>穿城而过，全长415公里，是沈阳的母亲河，两岸建成了长达数十公里的滨河景观带。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">004</span>
+        <p class="fact-text">沈阳的城市面积达<strong>12860平方公里</strong>，常住人口超过900万，是东北地区人口最多的城市。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">005</span>
+        <p class="fact-text">沈阳的城市格局极其特殊——它是中国少数拥有<strong>两条中轴线</strong>的城市：一条是清代方城的南北轴线，以沈阳故宫为中心；另一条是日据时期规划的中山路轴线，以中山广场为核心。两个时代的城市规划叠加在一起，形成了独特的双核心结构。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">006</span>
+        <p class="fact-text">沈阳的<strong>铁西区</strong>曾是亚洲最大的工业区之一，鼎盛时期聚集了上千家工厂，烟囱林立，被称为"东方鲁尔"。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">007</span>
+        <p class="fact-text">沈阳拥有<strong>三环</strong>快速路体系，城市扩张速度极快，近20年城区面积扩大了近一倍。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">008</span>
+        <p class="fact-text">沈阳是东北地区的<strong>交通枢纽</strong>，京哈、沈大、沈丹等多条铁路在此交汇，连接关内与东北各地。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PULLQUOTE -->
+  <div class="pullquote">
+    <p>「沈阳是一座铸铁浇筑的城市，<br>骨子里全是钢铁般的硬气。」</p>
+  </div>
+
+  <!-- CATEGORY 2: 地铁 & 交通 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">地铁 &amp; 交通</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">009</span>
+        <p class="fact-text">沈阳地铁于<strong>2010年</strong>开通，是东北地区第一个开通地铁的城市，目前运营线路覆盖主城各区。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">010</span>
+        <p class="fact-text">沈阳桃仙国际机场是东北地区最大的航空港之一，年旅客吞吐量超过<strong>2000万人次</strong>，航线覆盖国内外上百个城市。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">011</span>
+        <p class="fact-text">沈阳北站和沈阳站是城市的两大火车站，<strong>沈阳北站</strong>是东北地区最大的铁路客运站之一。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">012</span>
+        <p class="fact-text">沈阳的<strong>有轨电车</strong>历史可追溯到1925年，是中国最早开通有轨电车的城市之一。日据时期建设的有轨电车线路曾是城市公共交通的骨干，后来逐渐被公交车取代，但近年沈阳又在浑南新区重新建设了现代有轨电车系统，形成历史的有趣呼应。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">013</span>
+        <p class="fact-text">沈阳到大连的<strong>沈大高速公路</strong>是中国最早建成的高速公路之一，1990年全线通车，全长375公里。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">014</span>
+        <p class="fact-text">沈阳冬季路面结冰严重，当地人开车讲究<strong>"慢、稳、让"</strong>，雪天交通事故率是夏天的数倍。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">015</span>
+        <p class="fact-text">哈大高铁经过沈阳，从沈阳到大连只需<strong>1.5小时</strong>，到哈尔滨约2小时，极大缩短了东北三省之间的距离。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">016</span>
+        <p class="fact-text">沈阳的<strong>共享单车</strong>在冬季几乎无人使用，零下二三十度的天气里骑车是一种"极限运动"。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 3: 食物 & 饮食文化 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">食物 &amp; 饮食文化</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">017</span>
+        <p class="fact-text">沈阳人对<strong>鸡架</strong>的热爱令全国惊讶——这种去掉鸡肉后剩下的骨架，在沈阳被炸、烤、熏、拌，吃法多达十几种，是沈阳独有的美食符号。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">018</span>
+        <p class="fact-text">沈阳人喝啤酒首选<strong>老雪花</strong>（雪花啤酒勇闯天涯之前的经典款），一瓶老雪配一盘鸡架是沈阳夜生活的标配。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">019</span>
+        <p class="fact-text"><strong>锅包肉</strong>是东北菜的代表，起源于哈尔滨但在沈阳发扬光大，外酥里嫩、酸甜可口，是每桌必点的硬菜。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">020</span>
+        <p class="fact-text">沈阳的<strong>烧烤文化</strong>堪称全国之最——沈阳人一年四季都吃烧烤，即使零下30度也要在室外支起炉子撸串。烤肉、烤板筋、烤腰子、烤鸡架是标配，配上老雪花和毛豆，这就是沈阳人最质朴的快乐。据统计沈阳每万人拥有的烧烤店数量位居全国前列。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">021</span>
+        <p class="fact-text">沈阳的<strong>东北大拌菜</strong>是一道看似简单却极受欢迎的凉菜，用干豆腐丝、黄瓜、香菜等拌成，几乎每家东北餐馆都有。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">022</span>
+        <p class="fact-text">沈阳冬天家家户户<strong>腌酸菜</strong>，用大白菜腌制一个月以上，酸菜炖粉条、酸菜饺子是冬季的灵魂美食。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">023</span>
+        <p class="fact-text"><strong>老边饺子</strong>是沈阳的百年老字号，创立于1829年，以汤煸馅的独特工艺闻名，被列入国家级非物质文化遗产。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">024</span>
+        <p class="fact-text">沈阳人冬天爱吃<strong>冻梨</strong>和冻柿子，买回来放在冷水里"缓"一下，外面结一层薄冰壳，咬开后里面是冰沙般的果肉，是天然的冬季甜品。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 4: 历史 & 政治 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">历史 &amp; 政治</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">025</span>
+        <p class="fact-text">沈阳古称<strong>"盛京"</strong>，是清朝的发祥地，努尔哈赤于1625年迁都于此，皇太极在此称帝建立大清。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">026</span>
+        <p class="fact-text">1931年9月18日，日本关东军炸毁南满铁路柳条湖段，发动了<strong>"九一八事变"</strong>，沈阳成为中国十四年抗战的起点。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">027</span>
+        <p class="fact-text"><strong>张氏帅府</strong>是奉系军阀张作霖、张学良父子的官邸，占地3.6万平方米，是东北近代史最重要的历史遗迹之一。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">028</span>
+        <p class="fact-text"><strong>九一八历史博物馆</strong>坐落在柳条湖事变原址旁，馆前的残历碑高18米、宽30米，巨大的台历永远定格在1931年9月18日。每年9月18日，沈阳全城鸣响防空警报，持续3分钟，提醒国人勿忘国耻。这是中国最大规模的城市警报纪念活动。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">029</span>
+        <p class="fact-text">1948年的<strong>辽沈战役</strong>是解放战争三大战役之首，沈阳的解放标志着东北全境回归，为新中国成立奠定了基础。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">030</span>
+        <p class="fact-text">新中国成立后，沈阳被誉为<strong>"共和国长子"</strong>，是国家第一个五年计划重点建设的工业城市，为全国提供了大量工业设备和技术人才。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">031</span>
+        <p class="fact-text">张学良在沈阳发动<strong>"东北易帜"</strong>（1928年），宣布东北归附南京国民政府，结束了北洋军阀割据的局面。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">032</span>
+        <p class="fact-text">沈阳的<strong>北大营</strong>是九一八事变中最先遭到攻击的中国军营，如今仅存部分遗址，成为爱国主义教育基地。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 5: 建筑 & 空间 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">建筑 &amp; 空间</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">033</span>
+        <p class="fact-text"><strong>沈阳故宫</strong>始建于1625年，是中国仅存的两座皇家宫殿之一，虽然规模远小于北京故宫，但其满族建筑风格独具特色。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">034</span>
+        <p class="fact-text">中山广场周围保留着<strong>8栋日据时期</strong>的大型建筑，包括原大和旅馆、原朝鲜银行等，是沈阳近代建筑的集中展示区。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">035</span>
+        <p class="fact-text"><strong>北陵</strong>（昭陵）是清太宗皇太极的陵寝，占地330万平方米，是沈阳最大的公园，松柏苍翠，气势恢宏。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">036</span>
+        <p class="fact-text">铁西区的<strong>工人村</strong>建于1952年，是新中国第一个大型工人住宅区，当年被视为"工人天堂"，三层红砖楼整齐排列。随着国企改革和大规模下岗潮，工人村一度成为贫困的代名词。如今部分建筑被改造为"工人村生活馆"，记录了中国工业化进程中工人阶级的兴衰。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">037</span>
+        <p class="fact-text"><strong>东陵</strong>（福陵）是清太祖努尔哈赤的陵寝，依山而建，108级台阶象征36天罡72地煞，建筑与自然融为一体。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">038</span>
+        <p class="fact-text">沈阳的<strong>中街</strong>始建于1625年，是中国最早的商业步行街之一，至今仍是沈阳最繁华的商业区。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">039</span>
+        <p class="fact-text"><strong>刘老根大舞台</strong>位于沈阳中街，是赵本山创办的二人转演出场所，几乎每晚场场爆满。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">040</span>
+        <p class="fact-text">沈阳的<strong>西塔</strong>地区是全国最大的朝鲜族聚居商业区之一，满街韩文招牌，烤肉店和KTV林立，有"小首尔"之称。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 6: 文化 & 社会 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">文化 &amp; 社会</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">041</span>
+        <p class="fact-text">沈阳话属于<strong>东北官话</strong>，语调上扬，带有浓重的"大碴子味儿"，是全国辨识度最高的方言之一。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">042</span>
+        <p class="fact-text"><strong>二人转</strong>是东北最具代表性的民间艺术，沈阳是二人转的重要传播中心，赵本山将其推向了全国。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">043</span>
+        <p class="fact-text">沈阳人性格<strong>豪爽直率</strong>，说话嗓门大、办事讲义气，"老铁没毛病"这句网络流行语就来自东北方言。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">044</span>
+        <p class="fact-text">沈阳的<strong>澡堂文化</strong>在全国独树一帜——沈阳的洗浴中心不只是洗澡的地方，而是集搓澡、汗蒸、自助餐、棋牌、KTV、住宿于一体的"综合娱乐中心"。一些高端洗浴中心占地数千平方米，沈阳人可以在里面待上整整一天，这种文化在南方人看来几乎不可思议。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">045</span>
+        <p class="fact-text">沈阳人管朋友叫<strong>"老铁"</strong>，管吃饭叫"整两口"，管喝酒叫"整一个"，这些词汇已经随着短视频传遍全国。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">046</span>
+        <p class="fact-text">沈阳是中国<strong>相声</strong>的重要阵地之一，相声大师侯宝林曾在沈阳演出多年，沈阳相声以"包袱密、节奏快"著称。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">047</span>
+        <p class="fact-text">沈阳的<strong>广场舞</strong>规模堪称全国之最，夏天傍晚各大广场、公园里都是跳舞的大妈大爷，音箱震天响。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">048</span>
+        <p class="fact-text">沈阳人有句口头禅叫<strong>"你瞅啥"</strong>，对视三秒可能就是一场社交的开始，也可能是一场误会的开端。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">049</span>
+        <p class="fact-text">沈阳的<strong>鲁迅美术学院</strong>（鲁美）是中国八大美院之一，以雕塑和工业设计见长，培养了大量艺术人才。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">050</span>
+        <p class="fact-text">沈阳人过年必看<strong>春晚</strong>和赵本山的小品，大年三十的年夜饭标配是饺子，必须在午夜12点之前包好。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">051</span>
+        <p class="fact-text">沈阳是中国<strong>冰球</strong>运动的重镇，曾培养出大量国家队选手，冬季在室外冰场打冰球是当地少年的日常。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">052</span>
+        <p class="fact-text">沈阳<strong>东北大学</strong>（原东北工学院）是中国最早设立的理工科大学之一，张学良曾担任校长。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 7: 经济 & 产业 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">经济 &amp; 产业</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">053</span>
+        <p class="fact-text">沈阳曾是中国最大的<strong>重工业基地</strong>，生产了新中国第一架喷气式飞机、第一台机床、第一枚导弹用发动机。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">054</span>
+        <p class="fact-text"><strong>沈飞</strong>（沈阳飞机工业集团）是中国最重要的战斗机制造商，歼-5、歼-6、歼-8、歼-11、歼-15等均出自沈飞。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">055</span>
+        <p class="fact-text">沈阳机床集团曾是<strong>世界第一大机床</strong>制造商（按产量计），但后来因经营不善陷入债务危机。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">056</span>
+        <p class="fact-text">上世纪90年代国企改革中，沈阳经历了<strong>大规模下岗潮</strong>，铁西区数十万工人失去工作，一个家庭夫妻双双下岗是常事。这段历史深刻改变了沈阳的城市性格，也催生了东北人"闯关东"式的外出打工潮。导演王兵的纪录片《铁西区》忠实记录了这段阵痛。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">057</span>
+        <p class="fact-text">沈阳的<strong>华晨宝马</strong>工厂是宝马在中国的主要生产基地，年产能超过80万辆，是沈阳现代工业的标杆。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">058</span>
+        <p class="fact-text">沈阳是中国<strong>汽车产业</strong>的重要基地，除华晨宝马外，还有通用、华晨等多家整车厂和上千家零部件企业。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">059</span>
+        <p class="fact-text">铁西区经过<strong>"东搬西建"</strong>城市改造，将工厂搬迁至开发区，原址变成住宅和商业区，是中国最大规模的城市工业用地转型案例。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">060</span>
+        <p class="fact-text">沈阳的房价在省会城市中相对<strong>较低</strong>，核心区均价约每平方米1万元左右，是同级别城市中性价比最高的之一。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">061</span>
+        <p class="fact-text">沈阳的<strong>五爱市场</strong>是东北最大的批发市场之一，经营面积超过60万平方米，辐射整个东三省和内蒙古。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">062</span>
+        <p class="fact-text">沈阳近年大力发展<strong>IC装备制造</strong>和机器人产业，拥有中国科学院沈阳自动化研究所等顶尖科研机构。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">063</span>
+        <p class="fact-text">沈阳曾是<strong>东北亚经济圈</strong>的核心节点城市，与日本、韩国、俄罗斯的经贸往来密切。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">064</span>
+        <p class="fact-text">沈阳的<strong>人口外流</strong>问题持续多年，大量年轻人南下北京、上海、深圳求职，"振兴东北"政策至今仍是热门议题。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 8: 自然 & 气候 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">自然 &amp; 气候</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">065</span>
+        <p class="fact-text">沈阳属<strong>温带季风气候</strong>，四季分明，夏天可达35°C以上，冬天最低可降至零下30°C，年温差超过60度。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">066</span>
+        <p class="fact-text">沈阳的冬天长达<strong>5个月</strong>（11月至次年3月），降雪频繁，积雪可达数十厘米，城市进入"白色模式"。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">067</span>
+        <p class="fact-text">沈阳冬天实行<strong>集中供暖</strong>，每年10月下旬开始供暖至次年4月，供暖费是每户冬季最大的固定开支之一。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">068</span>
+        <p class="fact-text">沈阳的极寒天气催生了独特的<strong>冬季生活方式</strong>：窗户必须装双层玻璃，室内暖气烧到25度以上，出门穿貂皮大衣成为东北人的标志。室外泼出去的热水瞬间变成冰雾，冻梨冻柿子直接放在窗外就是天然冰箱。沈阳人习惯说"猫冬"，意思是像猫一样窝在家里过冬。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">069</span>
+        <p class="fact-text">沈阳的<strong>棋盘山</strong>风景区位于城市东北部，是市民春游和冬季滑雪的热门去处。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">070</span>
+        <p class="fact-text">浑河冬天结冰后，河面上会出现<strong>天然冰场</strong>，市民在上面滑冰、打冰球、甚至开车，场面壮观。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">071</span>
+        <p class="fact-text">沈阳的<strong>春天极短</strong>，常常从冬天直接跳到夏天，当地人开玩笑说"沈阳只有两个季节：冬季和施工季"。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">072</span>
+        <p class="fact-text">沈阳<strong>秋天</strong>是最美的季节，银杏和枫树变色后满城金黄和火红，北陵公园的秋景尤为壮观。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 9: 隐藏细节 & 冷知识 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">隐藏细节 &amp; 冷知识</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">073</span>
+        <p class="fact-text">沈阳故宫的大政殿是<strong>八角形</strong>建筑，周围环绕十座亭子，象征满族八旗制度，这种布局在中国宫殿建筑中绝无仅有。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">074</span>
+        <p class="fact-text">沈阳的<strong>"老北市"</strong>曾是东北最大的民间杂耍和说书场，清末民初时这里聚集了各种江湖艺人，热闹程度不亚于北京天桥。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">075</span>
+        <p class="fact-text">沈阳地铁里的报站使用<strong>普通话、英语和沈阳话</strong>三种语言，沈阳话版本曾在网络上引发热议。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">076</span>
+        <p class="fact-text">沈阳有一个鲜为人知的<strong>"地下城"</strong>——1969年中苏关系紧张时期，沈阳大规模修建防空洞，总长度达数百公里，可容纳上百万人。这些地下工程至今仍然存在，部分被改造为地下商场和仓库，部分则被封闭遗忘在城市地下。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">077</span>
+        <p class="fact-text">沈阳人把厕所叫<strong>"茅楼"</strong>，这个词来自清代满语的音译，是沈阳方言中最具特色的词汇之一。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">078</span>
+        <p class="fact-text">沈阳的<strong>怪坡</strong>位于沈北新区，是一段看似上坡实为下坡的道路，车辆熄火后会"自动上坡"，至今众说纷纭。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">079</span>
+        <p class="fact-text">沈阳的<strong>皇姑区</strong>名字来源于传说中清代一位皇姑（公主）曾在此居住，但历史考证并无确切依据。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">080</span>
+        <p class="fact-text">沈阳是中国<strong>足球</strong>的重要城市，辽宁足球队曾获得"辽小虎"美誉，2001年世界杯预选赛出线的关键比赛就在沈阳五里河体育场举行。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">081</span>
+        <p class="fact-text">沈阳的<strong>太原街</strong>在日据时期叫"春日町"，是当时满铁附属地的商业中心，至今仍是沈阳的核心商圈。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">082</span>
+        <p class="fact-text">沈阳曾有句老话<strong>"先有实胜寺，后有沈阳城"</strong>，实胜寺建于1636年，是清代皇家藏传佛教寺庙。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">083</span>
+        <p class="fact-text">沈阳的<strong>鸡架</strong>消费量大到全国鸡架供应链都受其影响——据说全国每年生产的鸡架有很大比例最终流向了沈阳。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">084</span>
+        <p class="fact-text">沈阳人冬天出门常戴<strong>雷锋帽</strong>（带护耳的棉帽），这个帽子因电影《雷锋》而得名，实际上是东北人的御寒必备品。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 10: 未来 & 争议 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">未来 &amp; 争议</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">085</span>
+        <p class="fact-text"><strong>"振兴东北"</strong>政策自2003年提出至今已超过20年，但沈阳的经济增速始终低于全国平均水平，效果饱受争议。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">086</span>
+        <p class="fact-text">沈阳的<strong>营商环境</strong>长期被诟病，"投资不过山海关"的说法曾广为流传，近年来政府大力推动"放管服"改革。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">087</span>
+        <p class="fact-text">沈阳的<strong>人口老龄化</strong>问题严重，东北三省的生育率全国最低，年轻劳动力持续外流。</p>
+      </div>
+      <div class="fact wide fact-wide">
+        <span class="fact-num">088</span>
+        <p class="fact-text">沈阳面临<strong>"收缩型城市"</strong>的挑战——人口减少、产业空心化、老城区衰落。但与此同时，沈阳也在尝试转型：浑南新区成为科技创新中心，文创产业在老工业区萌芽，华晨宝马持续扩产。沈阳的未来究竟是持续衰退还是触底反弹，是中国城市化进程中最值得关注的议题之一。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">089</span>
+        <p class="fact-text">沈阳近年大力发展<strong>冰雪经济</strong>，利用漫长的冬季打造冰雪旅游和冬季体育产业。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">090</span>
+        <p class="fact-text">沈阳的<strong>直播电商</strong>产业异军突起，大量东北主播凭借幽默感和表现力在全国走红。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">091</span>
+        <p class="fact-text">沈阳故宫和<strong>"一宫两陵"</strong>（故宫、北陵、东陵）被联合国列为世界文化遗产，文旅产业是沈阳转型的重要方向。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">092</span>
+        <p class="fact-text">沈阳的<strong>体制内就业</strong>偏好在全国城市中最为突出，考公务员和进国企是很多沈阳年轻人的首选。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">093</span>
+        <p class="fact-text">沈阳正在推进<strong>沈抚一体化</strong>，将沈阳和抚顺两个城市逐步融合，打造东北城市群的核心区域。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">094</span>
+        <p class="fact-text">沈阳的<strong>烂尾楼</strong>问题曾十分突出，房地产过度开发导致大量楼盘烂尾，近年来政府逐步推动处置。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">095</span>
+        <p class="fact-text">沈阳的<strong>地铁建设</strong>因资金问题多次推迟，部分规划线路至今未能开工，与南方城市的地铁建设速度形成鲜明对比。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">096</span>
+        <p class="fact-text">尽管面临诸多挑战，沈阳人的<strong>幽默感和乐观精神</strong>从未消失——"没有什么是一顿烧烤解决不了的，如果有，那就两顿"。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 11: 本地人才知道的事 -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-line"></div>
+      <div class="cat-name">本地人才知道的事</div>
+      <div class="cat-line"></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact">
+        <span class="fact-num">097</span>
+        <p class="fact-text">沈阳人买菜论<strong>"捆"</strong>不论"棵"——冬天囤大白菜是几百斤地买，整个阳台和楼道都堆满白菜，这是几代人的冬储记忆。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">098</span>
+        <p class="fact-text">真正的沈阳人吃鸡架一定要配<strong>"老雪"</strong>（雪花啤酒经典款），而且要用手撕着吃，用刀叉的一定是外地人。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">099</span>
+        <p class="fact-text">沈阳人冬天进屋第一件事是<strong>开窗通风</strong>——因为暖气太热，室内干燥到鼻子出血，加湿器是每家必备电器。</p>
+      </div>
+      <div class="fact">
+        <span class="fact-num">100</span>
+        <p class="fact-text">沈阳人的终极社交场所不是酒吧也不是咖啡馆，而是<strong>洗浴中心</strong>——搓完澡、蒸完桑拿、穿上浴袍吃自助餐，然后在躺椅上聊到半夜，这才是沈阳人最地道的生活方式。</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>CityBits · 城市观察</p>
+  <div class="footer-ornament">✦</div>
+  <p>沈阳 · 100 City Notes</p>
+</footer>
+
+</body>
+</html>
