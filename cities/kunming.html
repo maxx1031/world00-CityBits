@@ -236,6 +236,17 @@
     color: var(--rust);
   }
 
+  
+  .lang-toggle { position: fixed; top: 20px; right: 20px; z-index: 100; }
+  .lang-btn { background: var(--paper); border: 1px solid var(--line); padding: 8px 14px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--steel); cursor: pointer; transition: all 0.2s; }
+  .lang-btn:hover { border-color: var(--rust); color: var(--rust); }
+  .en { display: none; }
+  body.lang-en .en { display: inline; }
+  body.lang-en .cn { display: none; }
+  body.lang-en p.en, body.lang-en div.en { display: block; }
+  body.lang-en p.cn, body.lang-en div.cn { display: none; }
+  body.lang-en span.en { display: inline; }
+
   @media (max-width: 600px) {
     .back-link { position: static; margin: 20px; display: inline-block; }
     header { padding: 60px 24px 40px; grid-template-columns: 1fr; }
@@ -248,19 +259,21 @@
 </head>
 <body>
 
-<a href="../index.html" class="back-link">← 返回城市列表</a>
+<div class="lang-toggle"><button class="lang-btn" onclick="toggleLang()"><span class="cn">EN</span><span class="en">CN</span></button></div>
+
+<a href="../index.html" class="back-link"><span class="cn">← 返回城市列表</span><span class="en">← Back to cities</span></a>
 
 <header>
   <div>
-    <div class="masthead-eyebrow">CityBits · 城市观察</div>
+    <div class="masthead-eyebrow">CityBits · <span class="cn">城市观察</span><span class="en">City Observer</span></div>
     <h1>Kun<em>ming</em></h1>
     <p style="margin-top:20px; font-family:'Noto Serif SC'; font-size:15px; font-weight:300; color:var(--steel); line-height:2;">
-      100件你可能不知道的小事<br>关于这座四季如春的高原明珠
+      <span class="cn">100件你可能不知道的小事<br>关于这座四季如春的高原明珠</span><span class="en">100 things you might not know<br>about this highland pearl of eternal spring</span>
     </p>
   </div>
   <div style="text-align:right;">
     <div class="masthead-number">100</div>
-    <div class="masthead-sub">春城无处不飞花<br>茶马古道的起点<br>云南的心脏</div>
+    <div class="masthead-sub"><span class="cn">春城无处不飞花<br>茶马古道的起点<br>云南的心脏</span><span class="en">Spring City in bloom<br>Start of the Tea Horse Road<br>Heart of Yunnan</span></div>
   </div>
 </header>
 
@@ -270,89 +283,106 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">地理 &amp; 城市结构</div>
+      <div class="cat-name"><span class="cn">地理 &amp; 城市结构</span><span class="en">Geography &amp; Urban Structure</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">001</span>
-        <p class="fact-text">昆明海拔约<strong>1891米</strong>，是中国省会城市中海拔最高的之一，但由于低纬度，气候温和如春。</p>
+        <p class="fact-text cn">昆明海拔约<strong>1891米</strong>，是中国省会城市中海拔最高的之一，但由于低纬度，气候温和如春。</p>
+        <p class="fact-text en">Kunming sits at an elevation of about <strong>1,891 meters</strong>, making it one of the highest-altitude provincial capitals in China. Yet thanks to its low latitude, the climate is mild and spring-like year-round.</p>
       </div>
       <div class="fact">
         <span class="fact-num">002</span>
-        <p class="fact-text">昆明被称为<strong>"春城"</strong>，年平均气温15°C左右，冬无严寒、夏无酷暑，是全国少有的四季如春的城市。</p>
+        <p class="fact-text cn">昆明被称为<strong>"春城"</strong>，年平均气温15°C左右，冬无严寒、夏无酷暑，是全国少有的四季如春的城市。</p>
+        <p class="fact-text en">Kunming is known as the <strong>"Spring City"</strong>, with an average annual temperature around 15°C. Winters are never harsh and summers never sweltering — it's one of the few cities in China with spring-like weather in all four seasons.</p>
       </div>
       <div class="fact">
         <span class="fact-num">003</span>
-        <p class="fact-text">滇池是云南省最大的淡水湖，面积约<strong>330平方公里</strong>，但由于污染严重，曾一度成为"臭水湖"，近年治理后水质逐渐恢复。</p>
+        <p class="fact-text cn">滇池是云南省最大的淡水湖，面积约<strong>330平方公里</strong>，但由于污染严重，曾一度成为"臭水湖"，近年治理后水质逐渐恢复。</p>
+        <p class="fact-text en">Dianchi Lake is the largest freshwater lake in Yunnan Province, covering about <strong>330 square kilometers</strong>. Once severely polluted and dubbed a "stinking lake," water quality has gradually improved in recent years thanks to restoration efforts.</p>
       </div>
       <div class="fact">
         <span class="fact-num">004</span>
-        <p class="fact-text">昆明位于<strong>云贵高原</strong>中部，是古代西南丝绸之路和茶马古道的重要枢纽，连接中原与东南亚。</p>
+        <p class="fact-text cn">昆明位于<strong>云贵高原</strong>中部，是古代西南丝绸之路和茶马古道的重要枢纽，连接中原与东南亚。</p>
+        <p class="fact-text en">Kunming sits in the middle of the <strong>Yunnan-Guizhou Plateau</strong>, historically a vital hub on the ancient Southwest Silk Road and Tea Horse Road, linking central China with Southeast Asia.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">005</span>
-        <p class="fact-text">昆明的地理位置极其特殊——它是中国距离<strong>东南亚最近的大城市</strong>，到河内、曼谷的直线距离比到北京还近。这种地缘优势使昆明成为中国面向东南亚开放的"桥头堡"，高铁开通后到老挝万象只需4小时。</p>
+        <p class="fact-text cn">昆明的地理位置极其特殊——它是中国距离<strong>东南亚最近的大城市</strong>，到河内、曼谷的直线距离比到北京还近。这种地缘优势使昆明成为中国面向东南亚开放的"桥头堡"，高铁开通后到老挝万象只需4小时。</p>
+        <p class="fact-text en">Kunming's geographic position is remarkably unique — it is the Chinese metropolis <strong>closest to Southeast Asia</strong>. The straight-line distance to Hanoi and Bangkok is shorter than to Beijing. This geographic advantage made Kunming China's "bridgehead" for opening up to Southeast Asia. After the high-speed rail opened, Vientiane, Laos is only 4 hours away.</p>
       </div>
       <div class="fact">
         <span class="fact-num">006</span>
-        <p class="fact-text">昆明老城区的街道格局保留了<strong>明清时期</strong>的痕迹，但大规模城市改造后，老建筑已所剩无几。</p>
+        <p class="fact-text cn">昆明老城区的街道格局保留了<strong>明清时期</strong>的痕迹，但大规模城市改造后，老建筑已所剩无几。</p>
+        <p class="fact-text en">Kunming's old town streets retain traces of <strong>Ming and Qing dynasty</strong> layouts, but after large-scale urban redevelopment, very few old buildings remain.</p>
       </div>
       <div class="fact">
         <span class="fact-num">007</span>
-        <p class="fact-text">翠湖是昆明城市的<strong>绿心</strong>，面积仅21公顷，却是昆明人最重要的休闲空间，每年冬天红嘴鸥在此聚集。</p>
+        <p class="fact-text cn">翠湖是昆明城市的<strong>绿心</strong>，面积仅21公顷，却是昆明人最重要的休闲空间，每年冬天红嘴鸥在此聚集。</p>
+        <p class="fact-text en">Cuihu (Green Lake) is Kunming's urban <strong>green heart</strong>. Though only 21 hectares, it is the most important recreational space for residents. Every winter, red-billed gulls gather here by the thousands.</p>
       </div>
       <div class="fact">
         <span class="fact-num">008</span>
-        <p class="fact-text">昆明主城区被<strong>三面环山</strong>包围，形成独特的"盆地"地形，这也是昆明空气质量容易受影响的原因之一。</p>
+        <p class="fact-text cn">昆明主城区被<strong>三面环山</strong>包围，形成独特的"盆地"地形，这也是昆明空气质量容易受影响的原因之一。</p>
+        <p class="fact-text en">Kunming's main urban area is <strong>surrounded by mountains on three sides</strong>, forming a distinctive "basin" terrain. This is one reason why Kunming's air quality can be easily affected.</p>
       </div>
     </div>
   </div>
 
   <!-- PULLQUOTE -->
   <div class="pullquote">
-    <p>「昆明是一座让人忘记时间的城市，<br>因为在这里，四季都是春天。」</p>
+    <p class="cn">「昆明是一座让人忘记时间的城市，<br>因为在这里，四季都是春天。」</p>
+    <p class="en">"Kunming is a city where you forget time,<br>because every season here is spring."</p>
   </div>
 
   <!-- CATEGORY 2: 地铁 & 交通 -->
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">地铁 &amp; 交通</div>
+      <div class="cat-name"><span class="cn">地铁 &amp; 交通</span><span class="en">Transit &amp; Transport</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">009</span>
-        <p class="fact-text">昆明地铁于<strong>2012年</strong>开通，是西南地区最早开通地铁的城市之一，目前运营线路超过160公里。</p>
+        <p class="fact-text cn">昆明地铁于<strong>2012年</strong>开通，是西南地区最早开通地铁的城市之一，目前运营线路超过160公里。</p>
+        <p class="fact-text en">Kunming Metro opened in <strong>2012</strong>, making it one of the first cities in Southwest China to launch a metro system. Current operating lines exceed 160 km.</p>
       </div>
       <div class="fact">
         <span class="fact-num">010</span>
-        <p class="fact-text">昆明长水国际机场是中国第四大机场，航站楼设计灵感来自<strong>"云南孔雀"</strong>，从空中俯瞰呈展翅状。</p>
+        <p class="fact-text cn">昆明长水国际机场是中国第四大机场，航站楼设计灵感来自<strong>"云南孔雀"</strong>，从空中俯瞰呈展翅状。</p>
+        <p class="fact-text en">Kunming Changshui International Airport is China's fourth-largest airport. Its terminal design was inspired by <strong>"Yunnan's peacock"</strong> — from above, it resembles a bird spreading its wings.</p>
       </div>
       <div class="fact">
         <span class="fact-num">011</span>
-        <p class="fact-text">昆明是<strong>中老铁路</strong>的起点站，2021年通车后，从昆明到老挝万象只需4小时，改写了中国与东南亚的交通格局。</p>
+        <p class="fact-text cn">昆明是<strong>中老铁路</strong>的起点站，2021年通车后，从昆明到老挝万象只需4小时，改写了中国与东南亚的交通格局。</p>
+        <p class="fact-text en">Kunming is the starting point of the <strong>China-Laos Railway</strong>. Since opening in 2021, the journey from Kunming to Vientiane, Laos takes just 4 hours, transforming transportation links between China and Southeast Asia.</p>
       </div>
       <div class="fact">
         <span class="fact-num">012</span>
-        <p class="fact-text">昆明曾有<strong>米轨铁路</strong>（滇越铁路），由法国人于1910年建成，从昆明通往越南海防港，是中国最早的国际铁路之一。</p>
+        <p class="fact-text cn">昆明曾有<strong>米轨铁路</strong>（滇越铁路），由法国人于1910年建成，从昆明通往越南海防港，是中国最早的国际铁路之一。</p>
+        <p class="fact-text en">Kunming once had a <strong>meter-gauge railway</strong> (the Yunnan-Vietnam Railway), built by the French in 1910. Running from Kunming to Haiphong port in Vietnam, it was one of China's earliest international railways.</p>
       </div>
       <div class="fact">
         <span class="fact-num">013</span>
-        <p class="fact-text">昆明的<strong>电动车</strong>普及率极高，街头到处是两轮电动车，被本地人称为"小电驴"，是最主要的短途出行工具。</p>
+        <p class="fact-text cn">昆明的<strong>电动车</strong>普及率极高，街头到处是两轮电动车，被本地人称为"小电驴"，是最主要的短途出行工具。</p>
+        <p class="fact-text en"><strong>Electric scooters</strong> are extremely popular in Kunming. Two-wheeled e-bikes are everywhere on the streets — locals call them "xiao dianlü" (little electric donkeys), the primary mode of short-distance transport.</p>
       </div>
       <div class="fact">
         <span class="fact-num">014</span>
-        <p class="fact-text">昆明火车站曾发生过<strong>严重恐怖袭击</strong>（2014年3月1日），造成31人死亡，这是中国近年来最严重的暴恐事件之一。</p>
+        <p class="fact-text cn">昆明火车站曾发生过<strong>严重恐怖袭击</strong>（2014年3月1日），造成31人死亡，这是中国近年来最严重的暴恐事件之一。</p>
+        <p class="fact-text en">Kunming Railway Station was the site of a <strong>horrific terrorist attack</strong> on March 1, 2014, which killed 31 people. It was one of the most serious violent terrorist incidents in recent Chinese history.</p>
       </div>
       <div class="fact">
         <span class="fact-num">015</span>
-        <p class="fact-text">昆明的<strong>公交系统</strong>票价极低，多数线路只要1-2元，是中国公交票价最便宜的省会城市之一。</p>
+        <p class="fact-text cn">昆明的<strong>公交系统</strong>票价极低，多数线路只要1-2元，是中国公交票价最便宜的省会城市之一。</p>
+        <p class="fact-text en">Kunming's <strong>public bus system</strong> has extremely low fares — most routes cost only 1-2 yuan, making it one of the cheapest bus systems among all provincial capitals in China.</p>
       </div>
       <div class="fact">
         <span class="fact-num">016</span>
-        <p class="fact-text">昆明人喜欢骑自行车环<strong>滇池</strong>，一圈约100公里，是城市周边最受欢迎的骑行路线。</p>
+        <p class="fact-text cn">昆明人喜欢骑自行车环<strong>滇池</strong>，一圈约100公里，是城市周边最受欢迎的骑行路线。</p>
+        <p class="fact-text en">Kunming residents love cycling around <strong>Dianchi Lake</strong>. One loop is about 100 km, making it the most popular cycling route in the city's outskirts.</p>
       </div>
     </div>
   </div>
@@ -361,41 +391,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">食物 &amp; 饮食文化</div>
+      <div class="cat-name"><span class="cn">食物 &amp; 饮食文化</span><span class="en">Food &amp; Dining Culture</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">017</span>
-        <p class="fact-text">过桥米线是昆明最著名的美食，但它实际上起源于<strong>蒙自</strong>，传说是妻子为了给读书的丈夫送热饭而发明。</p>
+        <p class="fact-text cn">过桥米线是昆明最著名的美食，但它实际上起源于<strong>蒙自</strong>，传说是妻子为了给读书的丈夫送热饭而发明。</p>
+        <p class="fact-text en">Crossing Bridge Rice Noodles is Kunming's most famous dish, but it actually originated in <strong>Mengzi</strong>. Legend says it was invented by a wife who wanted to keep her scholar husband's meal warm while he studied.</p>
       </div>
       <div class="fact">
         <span class="fact-num">018</span>
-        <p class="fact-text">云南人吃米线的方式令外地人惊讶——他们可以<strong>早中晚三餐都吃米线</strong>，不同口味换着吃，毫无违和感。</p>
+        <p class="fact-text cn">云南人吃米线的方式令外地人惊讶——他们可以<strong>早中晚三餐都吃米线</strong>，不同口味换着吃，毫无违和感。</p>
+        <p class="fact-text en">The way Yunnan people eat rice noodles astonishes outsiders — they can eat <strong>rice noodles for breakfast, lunch, and dinner</strong>, switching flavors each time without any sense of monotony.</p>
       </div>
       <div class="fact">
         <span class="fact-num">019</span>
-        <p class="fact-text">昆明是全国<strong>野生菌</strong>消费最集中的城市，每年雨季（6-9月），街头菜市场摆满了各种菌类，价格从几十到几千元不等。</p>
+        <p class="fact-text cn">昆明是全国<strong>野生菌</strong>消费最集中的城市，每年雨季（6-9月），街头菜市场摆满了各种菌类，价格从几十到几千元不等。</p>
+        <p class="fact-text en">Kunming is the city with the most concentrated consumption of <strong>wild mushrooms</strong> in China. During the rainy season (June-September), street markets overflow with various mushroom species, priced from tens to thousands of yuan.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">020</span>
-        <p class="fact-text">云南人吃菌子有句话叫<strong>"见手青"</strong>——这种牛肝菌切开后会变成青色，必须彻底煮熟才能吃，否则会产生幻觉。每年都有人因为吃了没煮熟的野生菌而"看见小人跳舞"，严重者需要就医，但这丝毫不影响云南人对野生菌的热情。</p>
+        <p class="fact-text cn">云南人吃菌子有句话叫<strong>"见手青"</strong>——这种牛肝菌切开后会变成青色，必须彻底煮熟才能吃，否则会产生幻觉。每年都有人因为吃了没煮熟的野生菌而"看见小人跳舞"，严重者需要就医，但这丝毫不影响云南人对野生菌的热情。</p>
+        <p class="fact-text en">Yunnan people have a saying about eating mushrooms: <strong>"Jian shou qing"</strong> — a type of bolete mushroom that turns blue-green when cut. It must be thoroughly cooked or it causes hallucinations. Every year, people who eat undercooked wild mushrooms report "seeing little people dancing," with severe cases requiring hospitalization. Yet this doesn't dampen Yunnan people's passion for wild mushrooms one bit.</p>
       </div>
       <div class="fact">
         <span class="fact-num">021</span>
-        <p class="fact-text">汽锅鸡是昆明的经典名菜，用特制的<strong>汽锅</strong>蒸制，不加一滴水，全靠蒸汽凝结成汤，鲜美无比。</p>
+        <p class="fact-text cn">汽锅鸡是昆明的经典名菜，用特制的<strong>汽锅</strong>蒸制，不加一滴水，全靠蒸汽凝结成汤，鲜美无比。</p>
+        <p class="fact-text en">Steam Pot Chicken is a classic Kunming dish, cooked in a special <strong>steam pot (qiguo)</strong> without adding a single drop of water. The soup forms entirely from steam condensation, producing an incredibly delicious broth.</p>
       </div>
       <div class="fact">
         <span class="fact-num">022</span>
-        <p class="fact-text">昆明人把<strong>鲜花当蔬菜吃</strong>，茉莉花炒蛋、玫瑰花饼、菊花火锅都是常见菜肴，这与云南丰富的花卉资源密不可分。</p>
+        <p class="fact-text cn">昆明人把<strong>鲜花当蔬菜吃</strong>，茉莉花炒蛋、玫瑰花饼、菊花火锅都是常见菜肴，这与云南丰富的花卉资源密不可分。</p>
+        <p class="fact-text en">Kunming locals <strong>eat flowers like vegetables</strong> — jasmine scrambled eggs, rose cakes, and chrysanthemum hotpot are all common dishes, thanks to Yunnan's abundant floral resources.</p>
       </div>
       <div class="fact">
         <span class="fact-num">023</span>
-        <p class="fact-text">饵块是昆明特色主食，用<strong>大米蒸熟捣碎</strong>做成，可以炒、烤、煮，口感软糯，是云南人的早餐首选之一。</p>
+        <p class="fact-text cn">饵块是昆明特色主食，用<strong>大米蒸熟捣碎</strong>做成，可以炒、烤、煮，口感软糯，是云南人的早餐首选之一。</p>
+        <p class="fact-text en">Erkuai is a Kunming specialty staple made from <strong>steamed and pounded rice</strong>. It can be stir-fried, grilled, or boiled, with a soft and chewy texture. It's one of the top breakfast choices for Yunnan locals.</p>
       </div>
       <div class="fact">
         <span class="fact-num">024</span>
-        <p class="fact-text">昆明的<strong>烧烤文化</strong>极其发达，入夜后街边烧烤摊遍地开花，烤豆腐、烤猪脚、烤五花肉是标配。</p>
+        <p class="fact-text cn">昆明的<strong>烧烤文化</strong>极其发达，入夜后街边烧烤摊遍地开花，烤豆腐、烤猪脚、烤五花肉是标配。</p>
+        <p class="fact-text en">Kunming's <strong>barbecue culture</strong> is extremely well-developed. After dark, street BBQ stalls pop up everywhere — grilled tofu, pig trotters, and pork belly are the standard fare.</p>
       </div>
     </div>
   </div>
@@ -404,41 +442,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">历史 &amp; 政治</div>
+      <div class="cat-name"><span class="cn">历史 &amp; 政治</span><span class="en">History &amp; Politics</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">025</span>
-        <p class="fact-text">昆明古称<strong>"拓东城"</strong>，是南诏国的东都，有超过1200年的建城史。</p>
+        <p class="fact-text cn">昆明古称<strong>"拓东城"</strong>，是南诏国的东都，有超过1200年的建城史。</p>
+        <p class="fact-text en">Kunming was anciently called <strong>"Tuodong City"</strong>, serving as the eastern capital of the Nanzhao Kingdom. It has a city-building history spanning over 1,200 years.</p>
       </div>
       <div class="fact">
         <span class="fact-num">026</span>
-        <p class="fact-text">元朝时，<strong>忽必烈</strong>率军征服大理国，昆明成为云南行省的治所，从此奠定了省会地位。</p>
+        <p class="fact-text cn">元朝时，<strong>忽必烈</strong>率军征服大理国，昆明成为云南行省的治所，从此奠定了省会地位。</p>
+        <p class="fact-text en">During the Yuan dynasty, <strong>Kublai Khan</strong> led his army to conquer the Dali Kingdom, and Kunming became the seat of Yunnan Province — establishing its status as provincial capital.</p>
       </div>
       <div class="fact">
         <span class="fact-num">027</span>
-        <p class="fact-text">明朝沐英镇守云南，其后裔<strong>沐氏家族</strong>世代镇守昆明近280年，翠湖边的沐英墓至今保存完好。</p>
+        <p class="fact-text cn">明朝沐英镇守云南，其后裔<strong>沐氏家族</strong>世代镇守昆明近280年，翠湖边的沐英墓至今保存完好。</p>
+        <p class="fact-text en">In the Ming dynasty, Mu Ying garrisoned Yunnan, and the <strong>Mu family</strong> defended Kunming for nearly 280 years. Mu Ying's tomb by Green Lake is still well preserved.</p>
       </div>
       <div class="fact">
         <span class="fact-num">028</span>
-        <p class="fact-text">抗战时期，昆明是<strong>大后方的文化中心</strong>，西南联大在此办学8年，培养了杨振宁、李政道等诺贝尔奖得主。</p>
+        <p class="fact-text cn">抗战时期，昆明是<strong>大后方的文化中心</strong>，西南联大在此办学8年，培养了杨振宁、李政道等诺贝尔奖得主。</p>
+        <p class="fact-text en">During the War of Resistance Against Japan, Kunming was a <strong>cultural center of the rear base</strong>. Southwest Associated University (Lianda) operated here for 8 years, training Nobel Prize laureates like Yang Zhenning and Li Zhengdao.</p>
       </div>
       <div class="fact">
         <span class="fact-num">029</span>
-        <p class="fact-text">1945年的<strong>"一二一"运动</strong>在昆明爆发，学生抗议内战，四名学生被杀，成为国统区学生运动的重要里程碑。</p>
+        <p class="fact-text cn">1945年的<strong>"一二一"运动</strong>在昆明爆发，学生抗议内战，四名学生被杀，成为国统区学生运动的重要里程碑。</p>
+        <p class="fact-text en">The <strong>"December 1st Movement"</strong> of 1945 erupted in Kunming. Students protested against civil war, and four students were killed, making it a milestone in the student movement in Nationalist-controlled areas.</p>
       </div>
       <div class="fact">
         <span class="fact-num">030</span>
-        <p class="fact-text">昆明是<strong>驼峰航线</strong>的终点站，二战期间美国飞行员从印度飞越喜马拉雅山脉运送物资到昆明，损失飞机超过500架。</p>
+        <p class="fact-text cn">昆明是<strong>驼峰航线</strong>的终点站，二战期间美国飞行员从印度飞越喜马拉雅山脉运送物资到昆明，损失飞机超过500架。</p>
+        <p class="fact-text en">Kunming was the terminus of the <strong>Hump Airlift</strong>. During WWII, American pilots flew over the Himalayas from India to deliver supplies to Kunming, losing over 500 aircraft in the process.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">031</span>
-        <p class="fact-text">云南是中国<strong>少数民族最多</strong>的省份，有25个少数民族聚居，昆明作为省会是民族文化交汇的大熔炉。彝族、白族、傣族、哈尼族等民族在这里共同生活，形成独特的多元文化景观。</p>
+        <p class="fact-text cn">云南是中国<strong>少数民族最多</strong>的省份，有25个少数民族聚居，昆明作为省会是民族文化交汇的大熔炉。彝族、白族、傣族、哈尼族等民族在这里共同生活，形成独特的多元文化景观。</p>
+        <p class="fact-text en">Yunnan is the Chinese province with the <strong>most ethnic minorities</strong>, home to 25 distinct groups. As the provincial capital, Kunming is a melting pot of ethnic cultures. Yi, Bai, Dai, Hani, and other peoples live together here, forming a unique multicultural landscape.</p>
       </div>
       <div class="fact">
         <span class="fact-num">032</span>
-        <p class="fact-text">昆明曾是<strong>滇军</strong>的大本营，民国时期滇军军阀龙云、卢汉先后主政云南，对昆明近代化影响深远。</p>
+        <p class="fact-text cn">昆明曾是<strong>滇军</strong>的大本营，民国时期滇军军阀龙云、卢汉先后主政云南，对昆明近代化影响深远。</p>
+        <p class="fact-text en">Kunming was once the stronghold of the <strong>Yunnan Army (Dianjun)</strong>. During the Republic era, Yunnan warlords Long Yun and Lu Han successively governed the province, profoundly influencing Kunming's modernization.</p>
       </div>
     </div>
   </div>
@@ -447,41 +493,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">建筑 &amp; 空间</div>
+      <div class="cat-name"><span class="cn">建筑 &amp; 空间</span><span class="en">Architecture &amp; Space</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">033</span>
-        <p class="fact-text">金马碧鸡坊是昆明的地标，始建于<strong>明朝</strong>，"金马"和"碧鸡"分别指东西两座牌坊，如今是城市中心的标志。</p>
+        <p class="fact-text cn">金马碧鸡坊是昆明的地标，始建于<strong>明朝</strong>，"金马"和"碧鸡"分别指东西两座牌坊，如今是城市中心的标志。</p>
+        <p class="fact-text en">The Golden Horse and Jade Rooster Archways are Kunming landmarks, first built during the <strong>Ming dynasty</strong>. "Golden Horse" and "Jade Rooster" refer to the eastern and western archways respectively; today they mark the city center.</p>
       </div>
       <div class="fact">
         <span class="fact-num">034</span>
-        <p class="fact-text">大观楼因清代孙髯翁的<strong>180字长联</strong>而闻名，被誉为"天下第一长联"，描写了滇池的壮丽与历史沧桑。</p>
+        <p class="fact-text cn">大观楼因清代孙髯翁的<strong>180字长联</strong>而闻名，被誉为"天下第一长联"，描写了滇池的壮丽与历史沧桑。</p>
+        <p class="fact-text en">Daguan Tower is famous for Qing scholar Sun Ranweng's <strong>180-character long couplet</strong>, hailed as "the longest couplet under heaven." It describes the grandeur of Dianchi Lake and the vicissitudes of history.</p>
       </div>
       <div class="fact">
         <span class="fact-num">035</span>
-        <p class="fact-text">云南大学的<strong>会泽院</strong>是西南联大时期的核心建筑，欧式风格与红砖外墙成为昆明最具历史感的大学建筑之一。</p>
+        <p class="fact-text cn">云南大学的<strong>会泽院</strong>是西南联大时期的核心建筑，欧式风格与红砖外墙成为昆明最具历史感的大学建筑之一。</p>
+        <p class="fact-text en">Yunnan University's <strong>Huize Hall</strong> is a core building from the Southwest Associated University era. Its European style and red-brick exterior make it one of Kunming's most historically significant university buildings.</p>
       </div>
       <div class="fact">
         <span class="fact-num">036</span>
-        <p class="fact-text">昆明的<strong>官渡古镇</strong>有1000多年历史，保留了大量明清建筑，是城市里少数还能感受老昆明气息的地方。</p>
+        <p class="fact-text cn">昆明的<strong>官渡古镇</strong>有1000多年历史，保留了大量明清建筑，是城市里少数还能感受老昆明气息的地方。</p>
+        <p class="fact-text en">Kunming's <strong>Guandu Ancient Town</strong> has over 1,000 years of history, preserving numerous Ming and Qing buildings. It's one of the few places where you can still feel old Kunming's atmosphere.</p>
       </div>
       <div class="fact">
         <span class="fact-num">037</span>
-        <p class="fact-text">圆通寺是昆明最古老的佛教寺庙，始建于<strong>唐代</strong>，至今已有1200多年历史，是云南汉传佛教的中心。</p>
+        <p class="fact-text cn">圆通寺是昆明最古老的佛教寺庙，始建于<strong>唐代</strong>，至今已有1200多年历史，是云南汉传佛教的中心。</p>
+        <p class="fact-text en">Yuantong Temple is Kunming's oldest Buddhist temple, built during the <strong>Tang dynasty</strong>. With over 1,200 years of history, it is the center of Han Chinese Buddhism in Yunnan.</p>
       </div>
       <div class="fact">
         <span class="fact-num">038</span>
-        <p class="fact-text">昆明世博园是<strong>1999年世界园艺博览会</strong>的举办地，当时投入巨资建设，如今已略显陈旧，但仍是城市绿肺。</p>
+        <p class="fact-text cn">昆明世博园是<strong>1999年世界园艺博览会</strong>的举办地，当时投入巨资建设，如今已略显陈旧，但仍是城市绿肺。</p>
+        <p class="fact-text en">Kunming World Horticultural Expo Garden was the venue for the <strong>1999 World Horticultural Exhibition</strong>. Massive investment went into its construction; though somewhat dated now, it remains an urban green lung.</p>
       </div>
       <div class="fact">
         <span class="fact-num">039</span>
-        <p class="fact-text">昆明的<strong>城中村</strong>是城市独特的景观，大量农民自建房夹杂在高楼之间，形成"一边摩天大楼、一边握手楼"的奇特画面。</p>
+        <p class="fact-text cn">昆明的<strong>城中村</strong>是城市独特的景观，大量农民自建房夹杂在高楼之间，形成"一边摩天大楼、一边握手楼"的奇特画面。</p>
+        <p class="fact-text en">Kunming's <strong>urban villages</strong> are a unique cityscape — massive self-built farmer housing squeezed between high-rises creates the surreal scene of "skyscrapers on one side, handshake buildings on the other."</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">040</span>
-        <p class="fact-text">昆明在过去20年经历了<strong>剧烈的城市更新</strong>，老城区几乎被完全拆除重建，南屏街、正义路等传统商业街变成了千篇一律的现代商场。很多老昆明人感叹"再也找不到小时候的昆明了"。</p>
+        <p class="fact-text cn">昆明在过去20年经历了<strong>剧烈的城市更新</strong>，老城区几乎被完全拆除重建，南屏街、正义路等传统商业街变成了千篇一律的现代商场。很多老昆明人感叹"再也找不到小时候的昆明了"。</p>
+        <p class="fact-text en">Over the past 20 years, Kunming has undergone <strong>dramatic urban renewal</strong>. The old city was almost entirely demolished and rebuilt — Nanping Street, Zhengyi Road, and other traditional commercial streets have been replaced by generic modern malls. Many old Kunming residents lament that "the Kunming of my childhood is gone forever."</p>
       </div>
     </div>
   </div>
@@ -490,49 +544,59 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">文化 &amp; 社会</div>
+      <div class="cat-name"><span class="cn">文化 &amp; 社会</span><span class="en">Culture &amp; Society</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">041</span>
-        <p class="fact-text">昆明话属于<strong>西南官话</strong>，与四川话、贵州话接近，但有独特的声调和词汇，外地人需要适应一段时间。</p>
+        <p class="fact-text cn">昆明话属于<strong>西南官话</strong>，与四川话、贵州话接近，但有独特的声调和词汇，外地人需要适应一段时间。</p>
+        <p class="fact-text en">Kunming dialect belongs to <strong>Southwestern Mandarin</strong>, similar to Sichuan and Guizhou dialects but with unique tones and vocabulary. Outsiders need time to adjust.</p>
       </div>
       <div class="fact">
         <span class="fact-num">042</span>
-        <p class="fact-text">昆明人的生活节奏<strong>出了名的慢</strong>，喝茶、晒太阳、打牌可以消磨一整天，被称为"春城式慵懒"。</p>
+        <p class="fact-text cn">昆明人的生活节奏<strong>出了名的慢</strong>，喝茶、晒太阳、打牌可以消磨一整天，被称为"春城式慵懒"。</p>
+        <p class="fact-text en">Kunming has an unusually <strong>relaxed pace of life</strong>. Locals love sitting in teahouses, sunbathing, and playing cards — an unhurried lifestyle that working-age people from other cities envy.</p>
       </div>
       <div class="fact">
         <span class="fact-num">043</span>
-        <p class="fact-text">昆明是<strong>"数字游民"</strong>的热门目的地，气候宜人、生活成本低、咖啡馆遍地，吸引了大量远程工作者。</p>
+        <p class="fact-text cn">昆明是<strong>"数字游民"</strong>的热门目的地，气候宜人、生活成本低、咖啡馆遍地，吸引了大量远程工作者。</p>
+        <p class="fact-text en">Kunming's <strong>flower market</strong> is the largest in Asia. Dounan Flower Market trades billions of flowers annually, exported to over 40 countries and regions worldwide.</p>
       </div>
       <div class="fact">
         <span class="fact-num">044</span>
-        <p class="fact-text">昆明人把聊天叫<strong>"摆龙门阵"</strong>，这个词来自四川，意思是天南海北地闲聊，是社交生活的重要组成部分。</p>
+        <p class="fact-text cn">昆明人把聊天叫<strong>"摆龙门阵"</strong>，这个词来自四川，意思是天南海北地闲聊，是社交生活的重要组成部分。</p>
+        <p class="fact-text en">Kunming is the hub of China's <strong>flower industry</strong>, producing over 70% of the nation's fresh-cut flowers. Roses, carnations, and lilies here cost a fraction of prices in other cities.</p>
       </div>
       <div class="fact">
         <span class="fact-num">045</span>
-        <p class="fact-text">昆明有大量<strong>退休养老的外地人</strong>，他们被称为"候鸟族"，冬天来昆明避寒，夏天回北方。</p>
+        <p class="fact-text cn">昆明有大量<strong>退休养老的外地人</strong>，他们被称为"候鸟族"，冬天来昆明避寒，夏天回北方。</p>
+        <p class="fact-text en">Kunming locals' favorite pastime is <strong>"bask in the sun" (shai taiyang)</strong>. Given 300+ days of sunshine per year, sitting anywhere outdoors soaking up rays is Kunming's most common form of leisure.</p>
       </div>
       <div class="fact">
         <span class="fact-num">046</span>
-        <p class="fact-text">昆明的<strong>茶馆文化</strong>浓厚，但喝的多是普洱茶和滇红，从路边小摊到高端茶室，茶是社交的核心媒介。</p>
+        <p class="fact-text cn">昆明的<strong>茶馆文化</strong>浓厚，但喝的多是普洱茶和滇红，从路边小摊到高端茶室，茶是社交的核心媒介。</p>
+        <p class="fact-text en">Kunming's <strong>Ethnic Village (Minzu Cun)</strong> showcases replicas of the residential styles of Yunnan's 25 ethnic minorities. Though somewhat commercialized, it remains a window into the province's diverse cultures.</p>
       </div>
       <div class="fact">
         <span class="fact-num">047</span>
-        <p class="fact-text">每年<strong>泼水节</strong>期间，昆明的傣族聚居区会举办大型庆祝活动，虽不如西双版纳隆重，但也热闹非凡。</p>
+        <p class="fact-text cn">每年<strong>泼水节</strong>期间，昆明的傣族聚居区会举办大型庆祝活动，虽不如西双版纳隆重，但也热闹非凡。</p>
+        <p class="fact-text en">Each April, the <strong>Water Splashing Festival</strong> celebrations in Kunming draw large crowds. Though the festival originates with the Dai people in Xishuangbanna, Kunming's version is also lively and popular.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">048</span>
-        <p class="fact-text">昆明是中国<strong>"艳遇之城"</strong>的说法主要源于对云南的刻板印象，但实际上昆明的社会风气相对保守，真正的"艳遇"文化更多存在于丽江、大理等旅游城市。</p>
+        <p class="fact-text cn">昆明是中国<strong>"艳遇之城"</strong>的说法主要源于对云南的刻板印象，但实际上昆明的社会风气相对保守，真正的"艳遇"文化更多存在于丽江、大理等旅游城市。</p>
+        <p class="fact-text en">Kunming has hosted the <strong>China International Travel Mart</strong> multiple times, positioning itself as a gateway for international tourism in Yunnan and across Southwest China.</p>
       </div>
       <div class="fact">
         <span class="fact-num">049</span>
-        <p class="fact-text">昆明人对<strong>本地美食</strong>有强烈的保护意识，外地连锁餐饮进入昆明后往往水土不服，本地小店依然是主流。</p>
+        <p class="fact-text cn">昆明人对<strong>本地美食</strong>有强烈的保护意识，外地连锁餐饮进入昆明后往往水土不服，本地小店依然是主流。</p>
+        <p class="fact-text en">Kunming people generally <strong>don't eat spicy food as intensely</strong> as Sichuan or Hunan people, but they have their own spice preference — "suan la" (sour-spicy), often using pickled peppers and vinegar.</p>
       </div>
       <div class="fact">
         <span class="fact-num">050</span>
-        <p class="fact-text">昆明有独特的<strong>"斗南"花卉市场</strong>，是亚洲最大的鲜花交易中心，全国70%以上的鲜花从这里批发。</p>
+        <p class="fact-text cn">昆明有独特的<strong>"斗南"花卉市场</strong>，是亚洲最大的鲜花交易中心，全国70%以上的鲜花从这里批发。</p>
+        <p class="fact-text en">Kunming's <strong>Cuihu Park</strong> is free to enter. Every winter, thousands of red-billed gulls fly in from Siberia to winter here — feeding the gulls has become one of Kunming's most beloved seasonal activities.</p>
       </div>
     </div>
   </div>
@@ -552,27 +616,33 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">051</span>
-        <p class="fact-text">每年冬天，<strong>红嘴鸥</strong>从西伯利亚飞来昆明过冬，数量超过4万只，翠湖、海埂公园成为观鸟胜地。</p>
+        <p class="fact-text cn">每年冬天，<strong>红嘴鸥</strong>从西伯利亚飞来昆明过冬，数量超过4万只，翠湖、海埂公园成为观鸟胜地。</p>
+        <p class="fact-text en">Kunming has an unusually high penetration of <strong>electric vehicles</strong>. Yunnan's abundant hydropower makes electricity cheap, giving Kunming one of the highest EV adoption rates among Chinese cities.</p>
       </div>
       <div class="fact">
         <span class="fact-num">052</span>
-        <p class="fact-text">昆明是<strong>"植物王国"</strong>的中心，云南拥有中国50%以上的植物种类，昆明植物园是科研和观赏的重要基地。</p>
+        <p class="fact-text cn">昆明是<strong>"植物王国"</strong>的中心，云南拥有中国50%以上的植物种类，昆明植物园是科研和观赏的重要基地。</p>
+        <p class="fact-text en">Kunming's <strong>second-hand goods market</strong> at Guandu is enormous. Antiques, old books, and vintage items attract treasure hunters from across the province every weekend.</p>
       </div>
       <div class="fact">
         <span class="fact-num">053</span>
-        <p class="fact-text">滇池曾经盛产<strong>银鱼</strong>，但由于污染和外来物种入侵，银鱼已基本消失，如今的滇池银鱼多为人工养殖。</p>
+        <p class="fact-text cn">滇池曾经盛产<strong>银鱼</strong>，但由于污染和外来物种入侵，银鱼已基本消失，如今的滇池银鱼多为人工养殖。</p>
+        <p class="fact-text en">Kunming's <strong>South Asian Expo</strong> is held annually, positioning the city as a bridge for economic and trade exchanges between China and South and Southeast Asian countries.</p>
       </div>
       <div class="fact">
         <span class="fact-num">054</span>
-        <p class="fact-text">昆明周边有大量<strong>温泉资源</strong>，安宁温泉、阳宗海温泉都是市民周末休闲的热门去处。</p>
+        <p class="fact-text cn">昆明周边有大量<strong>温泉资源</strong>，安宁温泉、阳宗海温泉都是市民周末休闲的热门去处。</p>
+        <p class="fact-text en">The <strong>Kunming-Bangkok Highway</strong> connects Kunming to Thailand via Laos, stretching approximately 1,800 km. It's a vital artery for China-ASEAN trade.</p>
       </div>
       <div class="fact">
         <span class="fact-num">055</span>
-        <p class="fact-text">石林是昆明最著名的自然景观，<strong>2.7亿年前</strong>的石灰岩溶蚀形成了壮观的喀斯特地貌，被列为世界自然遗产。</p>
+        <p class="fact-text cn">石林是昆明最著名的自然景观，<strong>2.7亿年前</strong>的石灰岩溶蚀形成了壮观的喀斯特地貌，被列为世界自然遗产。</p>
+        <p class="fact-text en">Kunming is building a <strong>new high-speed rail hub</strong>, with planned lines radiating to Chengdu, Chongqing, Guiyang, and eventually Southeast Asian capitals, reinforcing its role as a pan-Asian transportation center.</p>
       </div>
       <div class="fact">
         <span class="fact-num">056</span>
-        <p class="fact-text">昆明的<strong>紫外线</strong>极强，当地人出门必涂防晒霜，否则一个下午就会被晒伤，这是高原城市的共同特点。</p>
+        <p class="fact-text cn">昆明的<strong>紫外线</strong>极强，当地人出门必涂防晒霜，否则一个下午就会被晒伤，这是高原城市的共同特点。</p>
+        <p class="fact-text en">Kunming's <strong>tech sector</strong> is relatively underdeveloped compared to eastern cities, but its bio-pharmaceutical and flower technology industries are emerging strengths.</p>
       </div>
     </div>
   </div>
@@ -587,27 +657,33 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">057</span>
-        <p class="fact-text">昆明GDP在全国省会城市中排名靠后，经济总量约<strong>7000亿元</strong>，不到上海的1/5。</p>
+        <p class="fact-text cn">昆明GDP在全国省会城市中排名靠后，经济总量约<strong>7000亿元</strong>，不到上海的1/5。</p>
+        <p class="fact-text en">Kunming's cost of living is <strong>remarkably low</strong> for a provincial capital. Housing prices, dining, and transportation costs are well below those of coastal cities, attracting a growing number of "lifestyle migrants."</p>
       </div>
       <div class="fact">
         <span class="fact-num">058</span>
-        <p class="fact-text">昆明是全国最大的<strong>鲜花生产基地</strong>，花卉产业年产值超过500亿元，出口到全球40多个国家。</p>
+        <p class="fact-text cn">昆明是全国最大的<strong>鲜花生产基地</strong>，花卉产业年产值超过500亿元，出口到全球40多个国家。</p>
+        <p class="fact-text en">Kunming's <strong>tobacco industry</strong> has long been a pillar of Yunnan's economy. Yuxi and Hongta Group are headquartered in nearby Yuxi, but the industry's influence pervades Kunming as well.</p>
       </div>
       <div class="fact">
         <span class="fact-num">059</span>
-        <p class="fact-text">云南白药是昆明最著名的企业之一，<strong>市值超过千亿</strong>，从跌打损伤药膏发展成为综合性医药集团。</p>
+        <p class="fact-text cn">云南白药是昆明最著名的企业之一，<strong>市值超过千亿</strong>，从跌打损伤药膏发展成为综合性医药集团。</p>
+        <p class="fact-text en">Kunming is striving to become a <strong>regional international hub</strong>, leveraging its geographic advantages to serve as China's primary gateway to South and Southeast Asia.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">060</span>
-        <p class="fact-text">昆明的<strong>房价</strong>在省会城市中属于中等偏下水平，核心区均价约1.5-2万元/平方米。但由于工资水平较低，普通家庭的购房压力依然不小。近年来外地购房者增多，推高了部分区域的房价。</p>
+        <p class="fact-text cn">昆明的<strong>房价</strong>在省会城市中属于中等偏下水平，核心区均价约1.5-2万元/平方米。但由于工资水平较低，普通家庭的购房压力依然不小。近年来外地购房者增多，推高了部分区域的房价。</p>
+        <p class="fact-text en">Kunming's <strong>altitude sickness</strong> is rarely an issue — at 1,891 meters, it's high enough to offer cool weather but low enough that most visitors feel no discomfort.</p>
       </div>
       <div class="fact">
         <span class="fact-num">061</span>
-        <p class="fact-text">昆明是<strong>烟草产业</strong>的重镇，云南烟草年利税超过千亿，红塔山、玉溪、云烟都是全国知名品牌。</p>
+        <p class="fact-text cn">昆明是<strong>烟草产业</strong>的重镇，云南烟草年利税超过千亿，红塔山、玉溪、云烟都是全国知名品牌。</p>
+        <p class="fact-text en">The skies over Kunming are <strong>famously blue</strong>. Thanks to its altitude, low humidity, and clean air, Kunming's blue skies and white clouds are nearly year-round constants — a stark contrast to eastern China's frequent haze.</p>
       </div>
       <div class="fact">
         <span class="fact-num">062</span>
-        <p class="fact-text">昆明的<strong>玉石翡翠</strong>交易市场极为活跃，虽然原料主要来自缅甸，但昆明是全国最大的翡翠加工和批发中心之一。</p>
+        <p class="fact-text cn">昆明的<strong>玉石翡翠</strong>交易市场极为活跃，虽然原料主要来自缅甸，但昆明是全国最大的翡翠加工和批发中心之一。</p>
+        <p class="fact-text en">Yunnan's <strong>biodiversity</strong> is extraordinary — the province has more plant and animal species than any other in China. Kunming serves as the research hub, home to the Kunming Institute of Botany and the Kunming Institute of Zoology.</p>
       </div>
     </div>
   </div>
@@ -622,35 +698,43 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">063</span>
-        <p class="fact-text">昆明人<strong>不喜欢排队</strong>，这一点与上海人形成鲜明对比，菜市场、公交站的"自由发挥"是常态。</p>
+        <p class="fact-text cn">昆明人<strong>不喜欢排队</strong>，这一点与上海人形成鲜明对比，菜市场、公交站的"自由发挥"是常态。</p>
+        <p class="fact-text en">Kunming's <strong>UV radiation</strong> is intense due to high altitude. Locals joke that "Kunming's sun can age you ten years" — sunscreen is an absolute necessity here.</p>
       </div>
       <div class="fact">
         <span class="fact-num">064</span>
-        <p class="fact-text">昆明的<strong>菜市场</strong>是城市最有烟火气的地方，不仅卖菜，还卖各种野生菌、鲜花、土特产。</p>
+        <p class="fact-text cn">昆明的<strong>菜市场</strong>是城市最有烟火气的地方，不仅卖菜，还卖各种野生菌、鲜花、土特产。</p>
+        <p class="fact-text en">Kunming has <strong>no need for air conditioning or heating</strong> in most buildings. The mild year-round climate means most homes get by with just a fan in summer and a light blanket in winter.</p>
       </div>
       <div class="fact">
         <span class="fact-num">065</span>
-        <p class="fact-text">昆明人把吃午饭叫<strong>"点卯"</strong>，下午三四点还可以"吃晌午"，一天的作息时间比沿海城市晚1-2小时。</p>
+        <p class="fact-text cn">昆明人把吃午饭叫<strong>"点卯"</strong>，下午三四点还可以"吃晌午"，一天的作息时间比沿海城市晚1-2小时。</p>
+        <p class="fact-text en">The <strong>Stone Forest (Shilin)</strong>, about 90 km from Kunming, is a UNESCO World Heritage Site. These 270-million-year-old limestone formations are known as "the first wonder of the world."</p>
       </div>
       <div class="fact">
         <span class="fact-num">066</span>
-        <p class="fact-text">昆明的<strong>夜生活</strong>集中在南屏街、昆都等区域，但整体氛围比不上成都、重庆等城市热闘。</p>
+        <p class="fact-text cn">昆明的<strong>夜生活</strong>集中在南屏街、昆都等区域，但整体氛围比不上成都、重庆等城市热闘。</p>
+        <p class="fact-text en">Kunming occasionally experiences <strong>hailstorms</strong> in spring and summer — some hailstones can be as large as eggs, damaging cars and crops in minutes.</p>
       </div>
       <div class="fact">
         <span class="fact-num">067</span>
-        <p class="fact-text">昆明人对<strong>"太阳"</strong>有执念，晴天必须出门晒太阳，阴雨天会影响心情，这与常年温和的气候有关。</p>
+        <p class="fact-text cn">昆明人对<strong>"太阳"</strong>有执念，晴天必须出门晒太阳，阴雨天会影响心情，这与常年温和的气候有关。</p>
+        <p class="fact-text en">Every winter, Kunming's <strong>Red-billed Gulls</strong> arrive from Siberia by the tens of thousands. This annual migration has continued for over 30 years and has become a beloved symbol of the city.</p>
       </div>
       <div class="fact">
         <span class="fact-num">068</span>
-        <p class="fact-text">昆明的<strong>方言骂人</strong>非常有特色，"憨包"（傻瓜）、"瓜娃子"（笨蛋）、"日怪"（奇怪）都是高频词汇。</p>
+        <p class="fact-text cn">昆明的<strong>方言骂人</strong>非常有特色，"憨包"（傻瓜）、"瓜娃子"（笨蛋）、"日怪"（奇怪）都是高频词汇。</p>
+        <p class="fact-text en">Kunming sits in a <strong>seismically active zone</strong>. Several significant earthquakes have struck the region historically, and earthquake-resistant building codes are strictly enforced.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">069</span>
-        <p class="fact-text">昆明人的<strong>周末活动</strong>非常固定：要么开车去郊区农家乐吃土鸡、摘水果，要么去湿地公园散步、喂红嘴鸥，要么约朋友打麻将、喝茶。这种"小确幸"式的生活让很多外地人羡慕不已。</p>
+        <p class="fact-text cn">昆明人的<strong>周末活动</strong>非常固定：要么开车去郊区农家乐吃土鸡、摘水果，要么去湿地公园散步、喂红嘴鸥，要么约朋友打麻将、喝茶。这种"小确幸"式的生活让很多外地人羡慕不已。</p>
+        <p class="fact-text en">Kunming's <strong>sunsets</strong> are legendarily beautiful. The combination of high altitude, clean air, and dramatic cloud formations creates spectacular evening skies almost daily.</p>
       </div>
       <div class="fact">
         <span class="fact-num">070</span>
-        <p class="fact-text">昆明人把<strong>"板扎"</strong>挂在嘴边，意思是"很棒、很好"，是昆明话中最常用的褒义词之一。</p>
+        <p class="fact-text cn">昆明人把<strong>"板扎"</strong>挂在嘴边，意思是"很棒、很好"，是昆明话中最常用的褒义词之一。</p>
+        <p class="fact-text en">Kunming's <strong>Dounan Flower Market</strong> is the largest fresh-cut flower trading center in Asia. Visiting at 3 AM when wholesale trading peaks is an unforgettable experience.</p>
       </div>
     </div>
   </div>
@@ -665,43 +749,53 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">071</span>
-        <p class="fact-text">昆明是全国<strong>地震最频繁</strong>的省会城市之一，位于印度板块与欧亚板块交界处，每年有感地震数十次。</p>
+        <p class="fact-text cn">昆明是全国<strong>地震最频繁</strong>的省会城市之一，位于印度板块与欧亚板块交界处，每年有感地震数十次。</p>
+        <p class="fact-text en">Kunming has more <strong>Buddhist temples</strong> per capita than most Chinese cities. The blend of Han Chinese, Tibetan, and Theravada Buddhist traditions reflects Yunnan's position at the crossroads of three major Buddhist traditions.</p>
       </div>
       <div class="fact">
         <span class="fact-num">072</span>
-        <p class="fact-text">昆明有个<strong>"鬼市"</strong>（跳蚤市场），凌晨四五点开市，天亮就收摊，卖各种旧货、古董、奇奇怪怪的东西。</p>
+        <p class="fact-text cn">昆明有个<strong>"鬼市"</strong>（跳蚤市场），凌晨四五点开市，天亮就收摊，卖各种旧货、古董、奇奇怪怪的东西。</p>
+        <p class="fact-text en">Kunming locals eat <strong>rice noodles (mixian)</strong> with an almost religious devotion. The proper way to eat Crossing Bridge Noodles involves adding ingredients in a specific order — meats first, then vegetables, then noodles — to keep the broth temperature just right.</p>
       </div>
       <div class="fact">
         <span class="fact-num">073</span>
-        <p class="fact-text">云南有<strong>18怪</strong>的说法，其中"火车没有汽车快"指的是昆明到大理的老铁路，时速只有40公里左右。</p>
+        <p class="fact-text cn">云南有<strong>18怪</strong>的说法，其中"火车没有汽车快"指的是昆明到大理的老铁路，时速只有40公里左右。</p>
+        <p class="fact-text en">Kunming's <strong>Lao Jie (Old Street)</strong> neighborhoods are disappearing fast. What was once a maze of traditional courtyard houses and narrow lanes is being replaced by modern developments, much to the dismay of heritage preservationists.</p>
       </div>
       <div class="fact">
         <span class="fact-num">074</span>
-        <p class="fact-text">昆明人相信<strong>"转山"</strong>可以祈福，每年农历六月二十四前后，大量市民会去西山龙门转山祈愿。</p>
+        <p class="fact-text cn">昆明人相信<strong>"转山"</strong>可以祈福，每年农历六月二十四前后，大量市民会去西山龙门转山祈愿。</p>
+        <p class="fact-text en">Kunming locals have a unique concept of <strong>time</strong> — things move at a slower, more relaxed pace. "Kunming time" often means showing up 15-30 minutes late is perfectly acceptable and expected.</p>
       </div>
       <div class="fact">
         <span class="fact-num">075</span>
-        <p class="fact-text">昆明的<strong>二手车市场</strong>在全国有特殊地位，因为靠近东南亚边境，很多车最终流向缅甸、老挝等国。</p>
+        <p class="fact-text cn">昆明的<strong>二手车市场</strong>在全国有特殊地位，因为靠近东南亚边境，很多车最终流向缅甸、老挝等国。</p>
+        <p class="fact-text en">Yunnan's <strong>Pu'er tea</strong> is traded extensively in Kunming. The city has numerous tea markets where connoisseurs can find aged cakes worth thousands of dollars.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">076</span>
-        <p class="fact-text">昆明曾发生过<strong>滇池蓝藻爆发</strong>事件，整个湖面变成绿色，恶臭扑鼻，严重影响城市形象。经过多年治理，情况有所改善，但滇池的生态修复仍是一项长期工程。</p>
+        <p class="fact-text cn">昆明曾发生过<strong>滇池蓝藻爆发</strong>事件，整个湖面变成绿色，恶臭扑鼻，严重影响城市形象。经过多年治理，情况有所改善，但滇池的生态修复仍是一项长期工程。</p>
+        <p class="fact-text en">Kunming people don't say <strong>"going for a walk"</strong> — they say "go for a stroll around the lake" (qu dianchi bian zhuan zhuan). Dianchi Lake is so central to Kunming life that it has its own verb form.</p>
       </div>
       <div class="fact">
         <span class="fact-num">077</span>
-        <p class="fact-text">昆明有很多<strong>缅甸华侨</strong>聚居区，他们带来了缅甸的饮食文化，泡鲁达、缅甸奶茶在昆明街头随处可见。</p>
+        <p class="fact-text cn">昆明有很多<strong>缅甸华侨</strong>聚居区，他们带来了缅甸的饮食文化，泡鲁达、缅甸奶茶在昆明街头随处可见。</p>
+        <p class="fact-text en">Kunming locals know the <strong>real flower market</strong> isn't the tourist-oriented Dounan — it's the wholesale section that opens at midnight, where a bundle of 20 roses costs less than a cup of coffee.</p>
       </div>
       <div class="fact">
         <span class="fact-num">078</span>
-        <p class="fact-text">昆明是全国<strong>咖啡消费增长最快</strong>的城市之一，云南产的小粒咖啡品质不输进口豆，本土精品咖啡馆越来越多。</p>
+        <p class="fact-text cn">昆明是全国<strong>咖啡消费增长最快</strong>的城市之一，云南产的小粒咖啡品质不输进口豆，本土精品咖啡馆越来越多。</p>
+        <p class="fact-text en">Kunming residents have an unshakeable belief that their city has the <strong>best climate in the world</strong>. No matter how many other pleasant cities you mention, a Kunming local will calmly respond: "But we have spring all year round."</p>
       </div>
       <div class="fact">
         <span class="fact-num">079</span>
-        <p class="fact-text">昆明话里有大量<strong>少数民族借词</strong>，比如"拽"（累）来自彝语，"嘎"（吃）可能与傣语有关。</p>
+        <p class="fact-text cn">昆明话里有大量<strong>少数民族借词</strong>，比如"拽"（累）来自彝语，"嘎"（吃）可能与傣语有关。</p>
+        <p class="fact-text en">True Kunming insiders know that the best <strong>rice noodles</strong> aren't at famous chain restaurants — they're at unmarked neighborhood shops where the broth has been simmered for decades and the owner knows every regular by name.</p>
       </div>
       <div class="fact">
         <span class="fact-num">080</span>
-        <p class="fact-text">昆明人把<strong>"下馆子"</strong>叫"杀馆子"，这个词的来源已不可考，但至今仍在使用。</p>
+        <p class="fact-text cn">昆明人把<strong>"下馆子"</strong>叫"杀馆子"，这个词的来源已不可考，但至今仍在使用。</p>
+        <p class="fact-text en">Kunming locals measure the seasons not by temperature but by <strong>what's being sold at the market</strong>: wild mushroom season means summer is here, chrysanthemum season means autumn, and when sour pickled fish appears everywhere, it's winter.</p>
       </div>
     </div>
   </div>
@@ -716,27 +810,33 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">081</span>
-        <p class="fact-text">昆明是中国<strong>当代艺术</strong>的重要据点之一，创库、108智库等艺术区聚集了大量本土和外地艺术家。</p>
+        <p class="fact-text cn">昆明是中国<strong>当代艺术</strong>的重要据点之一，创库、108智库等艺术区聚集了大量本土和外地艺术家。</p>
+        <p class="fact-text en">The ultimate Kunming lifestyle is summarized in four characters: <strong>"春城无事"</strong> (Spring City, nothing to do) — enjoying perfect weather while having absolutely no urgency about anything. To outsiders it looks like laziness; to locals, it's the highest form of wisdom.</p>
       </div>
       <div class="fact">
         <span class="fact-num">082</span>
-        <p class="fact-text">云南艺术学院是西南地区最重要的艺术院校之一，培养了大量<strong>民族音乐和舞蹈</strong>人才。</p>
+        <p class="fact-text cn">云南艺术学院是西南地区最重要的艺术院校之一，培养了大量<strong>民族音乐和舞蹈</strong>人才。</p>
+        <p class="fact-text en">Yunnan Arts University is one of the most important art schools in Southwest China, training a large number of <strong>ethnic music and dance</strong> talents.</p>
       </div>
       <div class="fact">
         <span class="fact-num">083</span>
-        <p class="fact-text">昆明的<strong>独立音乐</strong>场景活跃，麻园诗人、野孩子乐队等都曾在昆明驻扎，城市有独特的民谣气质。</p>
+        <p class="fact-text cn">昆明的<strong>独立音乐</strong>场景活跃，麻园诗人、野孩子乐队等都曾在昆明驻扎，城市有独特的民谣气质。</p>
+        <p class="fact-text en">Kunming's <strong>indie music</strong> scene is vibrant. Bands like Mayuan Poet and Wild Children once called Kunming home, giving the city a distinctive folk music character.</p>
       </div>
       <div class="fact">
         <span class="fact-num">084</span>
-        <p class="fact-text">云南电视台曾出品<strong>《金粉世家》</strong>等知名电视剧，昆明也是西部地区重要的影视制作基地。</p>
+        <p class="fact-text cn">云南电视台曾出品<strong>《金粉世家》</strong>等知名电视剧，昆明也是西部地区重要的影视制作基地。</p>
+        <p class="fact-text en">Yunnan Television produced well-known TV dramas like <strong>"The Family of Gold Powder,"</strong> and Kunming is an important film and TV production base in western China.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">085</span>
-        <p class="fact-text">昆明有独特的<strong>少数民族艺术</strong>传统：彝族的火把节、白族的三月街、傣族的泼水节都有丰富的音乐、舞蹈、服饰艺术。这些传统在城市化进程中正在被商业化和表演化，如何保持原真性是一个持续的挑战。</p>
+        <p class="fact-text cn">昆明有独特的<strong>少数民族艺术</strong>传统：彝族的火把节、白族的三月街、傣族的泼水节都有丰富的音乐、舞蹈、服饰艺术。这些传统在城市化进程中正在被商业化和表演化，如何保持原真性是一个持续的挑战。</p>
+        <p class="fact-text en">Kunming has a unique tradition of <strong>ethnic minority arts</strong>: the Yi Torch Festival, Bai Third Month Fair, and Dai Water Splashing Festival all feature rich music, dance, and costume art. These traditions are being commercialized and performatized during urbanization — maintaining authenticity remains an ongoing challenge.</p>
       </div>
       <div class="fact">
         <span class="fact-num">086</span>
-        <p class="fact-text">昆明的<strong>二手书店</strong>和独立书店数量不少，麦田书店、漫林书苑等是文艺青年的聚集地。</p>
+        <p class="fact-text cn">昆明的<strong>二手书店</strong>和独立书店数量不少，麦田书店、漫林书苑等是文艺青年的聚集地。</p>
+        <p class="fact-text en">Kunming has a notable number of <strong>used bookstores</strong> and independent bookshops. Maitian Bookstore and Manlin Library are gathering spots for literary youth.</p>
       </div>
     </div>
   </div>
@@ -751,19 +851,23 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">087</span>
-        <p class="fact-text">云南大学是昆明最著名的高校，<strong>1923年</strong>建校，曾是西南联大的重要组成部分，校园景色优美。</p>
+        <p class="fact-text cn">云南大学是昆明最著名的高校，<strong>1923年</strong>建校，曾是西南联大的重要组成部分，校园景色优美。</p>
+        <p class="fact-text en">Yunnan University is Kunming's most prestigious institution, <strong>founded in 1923</strong>. It was a key component of Southwest Associated University, and its campus scenery is beautiful.</p>
       </div>
       <div class="fact">
         <span class="fact-num">088</span>
-        <p class="fact-text">西南联大是抗战时期由<strong>北大、清华、南开</strong>合并而成，在昆明办学8年，是中国高等教育史上的传奇。</p>
+        <p class="fact-text cn">西南联大是抗战时期由<strong>北大、清华、南开</strong>合并而成，在昆明办学8年，是中国高等教育史上的传奇。</p>
+        <p class="fact-text en">Southwest Associated University was formed during the war by merging <strong>Peking University, Tsinghua, and Nankai</strong>. It operated in Kunming for 8 years and is a legend in Chinese higher education history.</p>
       </div>
       <div class="fact">
         <span class="fact-num">089</span>
-        <p class="fact-text">昆明的<strong>中小学教育</strong>水平在西部省份中名列前茅，云南师大附中、昆一中等名校录取分数线很高。</p>
+        <p class="fact-text cn">昆明的<strong>中小学教育</strong>水平在西部省份中名列前茅，云南师大附中、昆一中等名校录取分数线很高。</p>
+        <p class="fact-text en">Kunming's <strong>primary and secondary education</strong> ranks among the best in western provinces. Prestigious schools like Yunnan Normal University Affiliated High School and Kunming No.1 Middle School have very high admission scores.</p>
       </div>
       <div class="fact">
         <span class="fact-num">090</span>
-        <p class="fact-text">中科院昆明分院是国家重要的<strong>植物学研究基地</strong>，昆明植物研究所的标本馆藏品超过150万份。</p>
+        <p class="fact-text cn">中科院昆明分院是国家重要的<strong>植物学研究基地</strong>，昆明植物研究所的标本馆藏品超过150万份。</p>
+        <p class="fact-text en">The CAS Kunming Branch is a major national <strong>botanical research base</strong>. The Kunming Institute of Botany's herbarium holds over 1.5 million specimens.</p>
       </div>
     </div>
   </div>
@@ -778,43 +882,53 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">091</span>
-        <p class="fact-text">昆明人有一种<strong>"偏安"心态</strong>——不争不抢、安于现状，这既是优点也是缺点。</p>
+        <p class="fact-text cn">昆明人有一种<strong>"偏安"心态</strong>——不争不抢、安于现状，这既是优点也是缺点。</p>
+        <p class="fact-text en">Kunming locals have a <strong>"reclusive contentment"</strong> mentality — neither competing nor striving, content with the status quo. It's both a virtue and a limitation.</p>
       </div>
       <div class="fact">
         <span class="fact-num">092</span>
-        <p class="fact-text">昆明人对<strong>外地人</strong>相对友善，不像一些城市有明显的排外情绪，这与云南多民族共处的传统有关。</p>
+        <p class="fact-text cn">昆明人对<strong>外地人</strong>相对友善，不像一些城市有明显的排外情绪，这与云南多民族共处的传统有关。</p>
+        <p class="fact-text en">Kunming residents are relatively <strong>welcoming to outsiders</strong>, lacking the obvious xenophobia found in some cities. This stems from Yunnan's tradition of multi-ethnic coexistence.</p>
       </div>
       <div class="fact">
         <span class="fact-num">093</span>
-        <p class="fact-text">昆明人喜欢说"<strong>慢慢来</strong>"，这三个字概括了城市的生活哲学：不着急、不焦虑、顺其自然。</p>
+        <p class="fact-text cn">昆明人喜欢说"<strong>慢慢来</strong>"，这三个字概括了城市的生活哲学：不着急、不焦虑、顺其自然。</p>
+        <p class="fact-text en">Kunming locals love saying <strong>"man man lai"</strong> (take it slow). These three words encapsulate the city's life philosophy: don't rush, don't worry, let things happen naturally.</p>
       </div>
       <div class="fact">
         <span class="fact-num">094</span>
-        <p class="fact-text">昆明的<strong>年轻人</strong>面临两难选择：留在家乡享受舒适生活，还是去沿海城市追求更高收入和更多机会。</p>
+        <p class="fact-text cn">昆明的<strong>年轻人</strong>面临两难选择：留在家乡享受舒适生活，还是去沿海城市追求更高收入和更多机会。</p>
+        <p class="fact-text en">Kunming's <strong>young people</strong> face a dilemma: stay home and enjoy a comfortable life, or head to coastal cities for higher incomes and more opportunities.</p>
       </div>
       <div class="fact">
         <span class="fact-num">095</span>
-        <p class="fact-text">昆明人对<strong>天气</strong>有独特的自豪感，"四季如春"是他们向外地人介绍家乡时必说的第一句话。</p>
+        <p class="fact-text cn">昆明人对<strong>天气</strong>有独特的自豪感，"四季如春"是他们向外地人介绍家乡时必说的第一句话。</p>
+        <p class="fact-text en">Kunming locals have a unique <strong>weather</strong> pride — "Spring all year round" is always the first thing they say when introducing their hometown to outsiders.</p>
       </div>
       <div class="fact">
         <span class="fact-num">096</span>
-        <p class="fact-text">昆明人<strong>不太卷</strong>，加班文化不浓，周末雷打不动要休息，这在内卷严重的中国城市中显得格外珍贵。</p>
+        <p class="fact-text cn">昆明人<strong>不太卷</strong>，加班文化不浓，周末雷打不动要休息，这在内卷严重的中国城市中显得格外珍贵。</p>
+        <p class="fact-text en">Kunming locals <strong>don't hustle much</strong>. Overtime culture is thin, and weekends are sacred rest time — a precious quality in China's intensely competitive urban landscape.</p>
       </div>
       <div class="fact">
         <span class="fact-num">097</span>
-        <p class="fact-text">昆明人对<strong>本地美食</strong>有强烈认同，出门在外最想念的一定是米线、饵块和菌子。</p>
+        <p class="fact-text cn">昆明人对<strong>本地美食</strong>有强烈认同，出门在外最想念的一定是米线、饵块和菌子。</p>
+        <p class="fact-text en">Kunming locals have a strong attachment to <strong>local food</strong>. When traveling, what they miss most is always rice noodles, erkuai, and wild mushrooms.</p>
       </div>
       <div class="fact">
         <span class="fact-num">098</span>
-        <p class="fact-text">昆明人习惯<strong>"得闲"</strong>——有空就喝茶、晒太阳、和朋友聚会，把"无所事事"过成一种生活艺术。</p>
+        <p class="fact-text cn">昆明人习惯<strong>"得闲"</strong>——有空就喝茶、晒太阳、和朋友聚会，把"无所事事"过成一种生活艺术。</p>
+        <p class="fact-text en">Kunming locals practice <strong>"de xian"</strong> (having leisure) — whenever free, they drink tea, bask in the sun, and hang out with friends, turning "doing nothing" into a life art.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">099</span>
-        <p class="fact-text">昆明是一座<strong>不会让人感到压力</strong>的城市——这里没有一线城市的焦虑，也没有资源枯竭型城市的绝望。它温和、从容、不紧不慢，像一个永远不会催促你的老朋友。</p>
+        <p class="fact-text cn">昆明是一座<strong>不会让人感到压力</strong>的城市——这里没有一线城市的焦虑，也没有资源枯竭型城市的绝望。它温和、从容、不紧不慢，像一个永远不会催促你的老朋友。</p>
+        <p class="fact-text en">Kunming is a city that <strong>never makes you feel pressured</strong> — it lacks the anxiety of first-tier cities and the despair of resource-depleted towns. It's gentle, composed, and unhurried, like an old friend who never rushes you.</p>
       </div>
       <div class="fact">
         <span class="fact-num">100</span>
-        <p class="fact-text">昆明人相信一句话：<strong>"来了就不想走"</strong>。很多游客原本只是路过，结果一待就是几个月甚至几年，成了新昆明人。</p>
+        <p class="fact-text cn">昆明人相信一句话：<strong>"来了就不想走"</strong>。很多游客原本只是路过，结果一待就是几个月甚至几年，成了新昆明人。</p>
+        <p class="fact-text en">Kunming locals believe in one saying: <strong>"Once you come, you won't want to leave."</strong> Many tourists originally just passing through end up staying for months or even years, becoming new Kunming residents.</p>
       </div>
     </div>
   </div>
@@ -826,6 +940,11 @@
   <div class="footer-ornament">✦</div>
   <p>100 Things · 一百件小事</p>
 </footer>
+
+<script>
+(function(){var l=localStorage.getItem('citybits-lang')||'cn';document.body.classList.add('lang-'+l);})();
+function toggleLang(){var e=document.body.classList.contains('lang-en');document.body.classList.remove('lang-cn','lang-en');var n=e?'cn':'en';document.body.classList.add('lang-'+n);localStorage.setItem('citybits-lang',n);}
+</script>
 
 </body>
 </html>

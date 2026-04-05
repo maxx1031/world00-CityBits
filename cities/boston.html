@@ -236,6 +236,17 @@
     color: var(--rust);
   }
 
+  
+  .lang-toggle { position: fixed; top: 20px; right: 20px; z-index: 100; }
+  .lang-btn { background: var(--paper); border: 1px solid var(--line); padding: 8px 14px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--steel); cursor: pointer; transition: all 0.2s; }
+  .lang-btn:hover { border-color: var(--rust); color: var(--rust); }
+  .en { display: none; }
+  body.lang-en .en { display: inline; }
+  body.lang-en .cn { display: none; }
+  body.lang-en p.en, body.lang-en div.en { display: block; }
+  body.lang-en p.cn, body.lang-en div.cn { display: none; }
+  body.lang-en span.en { display: inline; }
+
   @media (max-width: 600px) {
     .back-link { position: static; margin: 20px; display: inline-block; }
     header { padding: 60px 24px 40px; grid-template-columns: 1fr; }
@@ -248,14 +259,16 @@
 </head>
 <body>
 
-<a href="../index.html" class="back-link">← 返回城市列表</a>
+<div class="lang-toggle"><button class="lang-btn" onclick="toggleLang()"><span class="cn">EN</span><span class="en">CN</span></button></div>
+
+<a href="../index.html" class="back-link"><span class="cn">← 返回城市列表</span><span class="en">← Back to cities</span></a>
 
 <header>
   <div>
-    <div class="masthead-eyebrow">CityBits · 城市观察</div>
+    <div class="masthead-eyebrow">CityBits · <span class="cn">城市观察</span><span class="en">City Observer</span></div>
     <h1>Bos<em>ton</em></h1>
     <p style="margin-top:20px; font-family:'Noto Serif SC'; font-size:15px; font-weight:300; color:var(--steel); line-height:2;">
-      100件你可能不知道的小事<br>关于这座美国革命的摇篮
+      <span class="cn">100件你可能不知道的小事<br>关于这座美国革命的摇篮</span><span class="en">100 things you might not know<br>about the cradle of the American revolution</span>
     </p>
   </div>
   <div style="text-align:right;">
@@ -270,41 +283,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">地理 &amp; 城市结构</div>
+      <div class="cat-name"><span class="cn">地理 &amp; 城市结构</span><span class="en">Geography &amp; Urban Structure</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">001</span>
-        <p class="fact-text">波士顿是美国<strong>最古老的城市之一</strong>，建于1630年，比美国独立还早146年。</p>
+        <p class="fact-text cn">波士顿是美国<strong>最古老的城市之一</strong>，建于1630年，比美国独立还早146年。</p>
+        <p class="fact-text en">Boston is one of the <strong>oldest cities</strong> in the United States, founded in 1630 by Puritan colonists from England. It predates the nation itself by nearly 150 years.</p>
       </div>
       <div class="fact">
         <span class="fact-num">002</span>
-        <p class="fact-text">波士顿的<strong>面积只有232平方公里</strong>，比大多数中国县城还小，但人口密度极高，市中心几乎没有空地。</p>
+        <p class="fact-text cn">波士顿的<strong>面积只有232平方公里</strong>，比大多数中国县城还小，但人口密度极高，市中心几乎没有空地。</p>
+        <p class="fact-text en">The city covers just <strong>232 square kilometers</strong>, but its metro area population exceeds 4.9 million, making it the largest metropolitan area in New England.</p>
       </div>
       <div class="fact">
         <span class="fact-num">003</span>
-        <p class="fact-text">波士顿的后湾区（Back Bay）曾是<strong>一片潮汐沼泽</strong>，19世纪填海造陆而成，如今是最昂贵的住宅区之一。</p>
+        <p class="fact-text cn">波士顿的后湾区（Back Bay）曾是<strong>一片潮汐沼泽</strong>，19世纪填海造陆而成，如今是最昂贵的住宅区之一。</p>
+        <p class="fact-text en">Boston's Back Bay neighborhood was literally <strong>built on fill</strong> — it was once a tidal marsh that was filled in during the mid-1800s to create some of the city's most prestigious addresses.</p>
       </div>
       <div class="fact">
         <span class="fact-num">004</span>
-        <p class="fact-text">查尔斯河将波士顿与<strong>剑桥市</strong>分开，哈佛和MIT都在查尔斯河对岸的剑桥，严格来说不属于波士顿。</p>
+        <p class="fact-text cn">查尔斯河将波士顿与<strong>剑桥市</strong>分开，哈佛和MIT都在查尔斯河对岸的剑桥，严格来说不属于波士顿。</p>
+        <p class="fact-text en">Boston's downtown streets follow <strong>no grid pattern</strong>. Legend says they were laid out along old cow paths, though the truth is they simply follow colonial-era property lines and shorelines that have long since been filled in.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">005</span>
-        <p class="fact-text">波士顿的街道布局<strong>毫无规律</strong>——与纽约的网格系统不同，波士顿的街道沿袭了殖民时代的牛车道和步行小径，弯弯曲曲、毫无章法。当地人有句话：<strong>"波士顿的道路是牛设计的"</strong>。GPS在这里经常失灵。</p>
+        <p class="fact-text cn">波士顿的街道布局<strong>毫无规律</strong>——与纽约的网格系统不同，波士顿的街道沿袭了殖民时代的牛车道和步行小径，弯弯曲曲、毫无章法。当地人有句话：<strong>"波士顿的道路是牛设计的"</strong>。GPS在这里经常失灵。</p>
+        <p class="fact-text en">Boston's geography has been <strong>dramatically reshaped</strong> by human intervention — the original Shawmut Peninsula was just 487 hectares, but centuries of landfill have nearly tripled the city's landmass. Entire neighborhoods like Back Bay, South Boston waterfront, and East Boston sit on reclaimed land. Looking at a map of 1630 Boston compared to today is almost unrecognizable.</p>
       </div>
       <div class="fact">
         <span class="fact-num">006</span>
-        <p class="fact-text">波士顿是<strong>"大波士顿地区"</strong>的核心，整个都会区人口超过480万，是美国第十大都会区。</p>
+        <p class="fact-text cn">波士顿是<strong>"大波士顿地区"</strong>的核心，整个都会区人口超过480万，是美国第十大都会区。</p>
+        <p class="fact-text en"><strong>Harvard University</strong>, founded in 1636 in nearby Cambridge, is the oldest institution of higher education in the United States. Its $50+ billion endowment is larger than the GDP of many countries.</p>
       </div>
       <div class="fact">
         <span class="fact-num">007</span>
-        <p class="fact-text">波士顿的<strong>Beacon Hill</strong>是全美保存最完好的19世纪街区之一，红砖人行道和煤气路灯保留至今。</p>
+        <p class="fact-text cn">波士顿的<strong>Beacon Hill</strong>是全美保存最完好的19世纪街区之一，红砖人行道和煤气路灯保留至今。</p>
+        <p class="fact-text en">The <strong>Freedom Trail</strong> is a 4-km walking path through downtown marked by a red brick line, connecting 16 historically significant sites from the American Revolution.</p>
       </div>
       <div class="fact">
         <span class="fact-num">008</span>
-        <p class="fact-text">波士顿港是美国<strong>最古老的港口之一</strong>，波士顿倾茶事件就发生在这里，如今港口已转型为游艇码头和旅游区。</p>
+        <p class="fact-text cn">波士顿港是美国<strong>最古老的港口之一</strong>，波士顿倾茶事件就发生在这里，如今港口已转型为游艇码头和旅游区。</p>
+        <p class="fact-text en">Boston Harbor, once the <strong>most polluted harbor</strong> in America, underwent a massive cleanup beginning in the 1990s. Today it's clean enough for swimming — one of the greatest environmental success stories in US urban history.</p>
       </div>
     </div>
   </div>
@@ -318,41 +339,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">地铁 &amp; 交通</div>
+      <div class="cat-name"><span class="cn">地铁 &amp; 交通</span><span class="en">Transit &amp; Transport</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">009</span>
-        <p class="fact-text">波士顿地铁（MBTA）是美国<strong>最古老的地铁系统</strong>，1897年开通，比纽约地铁还早7年。</p>
+        <p class="fact-text cn">波士顿地铁（MBTA）是美国<strong>最古老的地铁系统</strong>，1897年开通，比纽约地铁还早7年。</p>
+        <p class="fact-text en">Boston's <strong>"T" (MBTA)</strong> is the oldest subway system in the United States, opening its first line in 1897. Its iconic color-coded lines (Red, Green, Blue, Orange) are the primary way to navigate the city.</p>
       </div>
       <div class="fact">
         <span class="fact-num">010</span>
-        <p class="fact-text">波士顿地铁用<strong>颜色命名</strong>：红线、橙线、蓝线、绿线，绿线还有多条分支，非常容易搞混。</p>
+        <p class="fact-text cn">波士顿地铁用<strong>颜色命名</strong>：红线、橙线、蓝线、绿线，绿线还有多条分支，非常容易搞混。</p>
+        <p class="fact-text en">The <strong>Green Line</strong> is the oldest light rail line in America, using vintage trolley cars that rattle through underground tunnels. Bostonians have a love-hate relationship with its legendary unreliability.</p>
       </div>
       <div class="fact">
         <span class="fact-num">011</span>
-        <p class="fact-text">波士顿地铁的<strong>绿线</strong>实际上是有轨电车，在市中心走地下，到郊区就变成地面线路。</p>
+        <p class="fact-text cn">波士顿地铁的<strong>绿线</strong>实际上是有轨电车，在市中心走地下，到郊区就变成地面线路。</p>
+        <p class="fact-text en">Boston's <strong>Logan International Airport</strong> is remarkably close to downtown — just 3 km across the harbor. Planes landing and taking off provide dramatic views but also significant noise for East Boston residents.</p>
       </div>
       <div class="fact">
         <span class="fact-num">012</span>
-        <p class="fact-text">波士顿的地铁系统因为太老而经常<strong>故障</strong>，冬天尤其严重，"又是信号问题"是波士顿人的口头禅。</p>
+        <p class="fact-text cn">波士顿的地铁系统因为太老而经常<strong>故障</strong>，冬天尤其严重，"又是信号问题"是波士顿人的口头禅。</p>
+        <p class="fact-text en">The <strong>Big Dig</strong> was the most expensive highway project in US history — a $22 billion effort to bury the Central Artery underground. Completed in 2007 after 16 years of construction, it replaced an ugly elevated highway with the Rose Kennedy Greenway.</p>
       </div>
       <div class="fact">
         <span class="fact-num">013</span>
-        <p class="fact-text">波士顿是美国<strong>最适合步行</strong>的城市之一，市中心景点基本都在步行范围内，很多人根本不需要开车。</p>
+        <p class="fact-text cn">波士顿是美国<strong>最适合步行</strong>的城市之一，市中心景点基本都在步行范围内，很多人根本不需要开车。</p>
+        <p class="fact-text en">Boston's <strong>commuter rail</strong> extends throughout eastern Massachusetts, connecting distant suburbs to downtown. The system carries over 100,000 riders daily but is plagued by aging infrastructure.</p>
       </div>
       <div class="fact">
         <span class="fact-num">014</span>
-        <p class="fact-text">波士顿的<strong>"Big Dig"</strong>是美国历史上最大的城市基础设施项目，将穿城高速公路埋入地下，耗资220亿美元，建了16年。</p>
+        <p class="fact-text cn">波士顿的<strong>"Big Dig"</strong>是美国历史上最大的城市基础设施项目，将穿城高速公路埋入地下，耗资220亿美元，建了16年。</p>
+        <p class="fact-text en">Boston's <strong>bike-sharing system (Bluebikes)</strong> has over 400 stations and is one of the most successful in the country, though winter weather limits its year-round utility.</p>
       </div>
       <div class="fact">
         <span class="fact-num">015</span>
-        <p class="fact-text">波士顿的<strong>停车费</strong>是全美最贵的城市之一，市中心车库每小时可达40美元以上。</p>
+        <p class="fact-text cn">波士顿的<strong>停车费</strong>是全美最贵的城市之一，市中心车库每小时可达40美元以上。</p>
+        <p class="fact-text en">The city's <strong>Seaport District</strong> has transformed from a parking-lot wasteland into Boston's newest and most expensive neighborhood, earning the nickname "Innovation District."</p>
       </div>
       <div class="fact">
         <span class="fact-num">016</span>
-        <p class="fact-text">波士顿洛根国际机场是美国<strong>离市中心最近</strong>的主要机场之一，从机场到downtown只需15分钟地铁。</p>
+        <p class="fact-text cn">波士顿洛根国际机场是美国<strong>离市中心最近</strong>的主要机场之一，从机场到downtown只需15分钟地铁。</p>
+        <p class="fact-text en">Boston's road network is <strong>notoriously confusing</strong> — even GPS navigation struggles with one-way streets, rotaries, and roads that change names mid-block.</p>
       </div>
     </div>
   </div>
@@ -361,41 +390,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">食物 &amp; 饮食文化</div>
+      <div class="cat-name"><span class="cn">食物 &amp; 饮食文化</span><span class="en">Food &amp; Dining Culture</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">017</span>
-        <p class="fact-text">波士顿<strong>蛤蜊浓汤</strong>（Clam Chowder）是新英格兰的招牌菜，必须是奶油白汤，红汤版本会被波士顿人嗤之以鼻。</p>
+        <p class="fact-text cn">波士顿<strong>蛤蜊浓汤</strong>（Clam Chowder）是新英格兰的招牌菜，必须是奶油白汤，红汤版本会被波士顿人嗤之以鼻。</p>
+        <p class="fact-text en"><strong>Boston baked beans</strong> gave the city its nickname "Beantown." The Puritan tradition of slow-cooking beans with molasses on Saturdays (to have food ready for the Sabbath) became the city's signature dish.</p>
       </div>
       <div class="fact">
         <span class="fact-num">018</span>
-        <p class="fact-text">波士顿<strong>龙虾卷</strong>（Lobster Roll）是当地美食代表，有冷食和热食两种，本地人更爱凉拌版本。</p>
+        <p class="fact-text cn">波士顿<strong>龙虾卷</strong>（Lobster Roll）是当地美食代表，有冷食和热食两种，本地人更爱凉拌版本。</p>
+        <p class="fact-text en">Boston's <strong>clam chowder</strong> (New England style) is a creamy, thick soup — never made with tomatoes (that's Manhattan-style, which Bostonians consider heresy). It's available at virtually every restaurant in the city.</p>
       </div>
       <div class="fact">
         <span class="fact-num">019</span>
-        <p class="fact-text">波士顿是<strong>Dunkin' Donuts</strong>的发源地，这里的咖啡店密度让星巴克都望尘莫及，波士顿人对DD有宗教般的执着。</p>
+        <p class="fact-text cn">波士顿是<strong>Dunkin' Donuts</strong>的发源地，这里的咖啡店密度让星巴克都望尘莫及，波士顿人对DD有宗教般的执着。</p>
+        <p class="fact-text en">The <strong>lobster roll</strong> is Boston's most iconic seafood item. Whether served warm with butter (Connecticut style) or cold with mayo (Maine style), the debate over preparation is taken very seriously.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">020</span>
-        <p class="fact-text">波士顿有独特的<strong>"大学城餐饮文化"</strong>——大量廉价的披萨店、汉堡店、深夜外卖店围绕各大校园分布，服务夜猫子学生。而高端餐饮则集中在后湾区和海港区，两个世界几乎不重叠。</p>
+        <p class="fact-text cn">波士顿有独特的<strong>"大学城餐饮文化"</strong>——大量廉价的披萨店、汉堡店、深夜外卖店围绕各大校园分布，服务夜猫子学生。而高端餐饮则集中在后湾区和海港区，两个世界几乎不重叠。</p>
+        <p class="fact-text en">Boston's food scene has undergone a <strong>remarkable transformation</strong> — once dismissed as a culinary backwater of baked beans and boiled dinners, the city now boasts James Beard Award-winning restaurants, innovative seafood concepts, and vibrant immigrant food corridors. The Italian restaurants in the North End serve some of the best Italian-American food in the country, while the growing Asian communities in Chinatown and Allston bring world-class Chinese, Korean, and Vietnamese cuisine.</p>
       </div>
       <div class="fact">
         <span class="fact-num">021</span>
-        <p class="fact-text">波士顿有美国<strong>最古老的餐厅</strong>——Union Oyster House，自1826年营业至今，牡蛎是招牌。</p>
+        <p class="fact-text cn">波士顿有美国<strong>最古老的餐厅</strong>——Union Oyster House，自1826年营业至今，牡蛎是招牌。</p>
+        <p class="fact-text en"><strong>Dunkin' Donuts</strong> (now just "Dunkin'") was founded in Quincy, just south of Boston, in 1950. There are more Dunkin' locations per capita in the Boston area than anywhere else — it's practically a civic religion.</p>
       </div>
       <div class="fact">
         <span class="fact-num">022</span>
-        <p class="fact-text">波士顿的<strong>意大利区</strong>（North End）是美国最古老的意大利社区之一，正宗意式餐厅和甜品店密集分布。</p>
+        <p class="fact-text cn">波士顿的<strong>意大利区</strong>（North End）是美国最古老的意大利社区之一，正宗意式餐厅和甜品店密集分布。</p>
+        <p class="fact-text en">Boston's <strong>North End</strong> is the city's Italian neighborhood, home to legendary bakeries like Mike's Pastry and Modern Pastry, where tourists and locals line up for cannoli.</p>
       </div>
       <div class="fact">
         <span class="fact-num">023</span>
-        <p class="fact-text">波士顿的<strong>焗豆</strong>（Baked Beans）曾是城市标志性食品，波士顿甚至被称为"豆城"（Beantown），这个外号沿用至今。</p>
+        <p class="fact-text cn">波士顿的<strong>焗豆</strong>（Baked Beans）曾是城市标志性食品，波士顿甚至被称为"豆城"（Beantown），这个外号沿用至今。</p>
+        <p class="fact-text en">Boston's <strong>craft beer</strong> scene is thriving, with Samuel Adams (founded 1984) as its flagship. The city has dozens of craft breweries, and "beer gardens" pop up across the city every summer.</p>
       </div>
       <div class="fact">
         <span class="fact-num">024</span>
-        <p class="fact-text">波士顿的<strong>Cannoli</strong>（意大利卷筒甜点）之争很激烈，Mike's Pastry和Modern Pastry两家店的拥趸互不相让。</p>
+        <p class="fact-text cn">波士顿的<strong>Cannoli</strong>（意大利卷筒甜点）之争很激烈，Mike's Pastry和Modern Pastry两家店的拥趸互不相让。</p>
+        <p class="fact-text en"><strong>Fenway Franks</strong> — the hot dogs sold at Fenway Park — are a beloved Boston tradition, inseparable from the Red Sox experience. Over 1.5 million are consumed at the ballpark each season.</p>
       </div>
     </div>
   </div>
@@ -404,41 +441,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">历史 &amp; 政治</div>
+      <div class="cat-name"><span class="cn">历史 &amp; 政治</span><span class="en">History &amp; Politics</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">025</span>
-        <p class="fact-text">波士顿是<strong>美国独立运动的发源地</strong>，保罗·里维尔的午夜骑行、波士顿大屠杀、波士顿倾茶事件都发生在这里。</p>
+        <p class="fact-text cn">波士顿是<strong>美国独立运动的发源地</strong>，保罗·里维尔的午夜骑行、波士顿大屠杀、波士顿倾茶事件都发生在这里。</p>
+        <p class="fact-text en">The <strong>Boston Massacre</strong> of 1770 — when British soldiers killed five colonists — was a pivotal event leading to the American Revolution. The site is marked on the Freedom Trail.</p>
       </div>
       <div class="fact">
         <span class="fact-num">026</span>
-        <p class="fact-text">1773年的<strong>波士顿倾茶事件</strong>中，殖民地居民将342箱英国茶叶倒入海港，成为美国独立战争的导火索。</p>
+        <p class="fact-text cn">1773年的<strong>波士顿倾茶事件</strong>中，殖民地居民将342箱英国茶叶倒入海港，成为美国独立战争的导火索。</p>
+        <p class="fact-text en">The <strong>Boston Tea Party</strong> of 1773 — when colonists dumped 342 chests of British tea into Boston Harbor — is one of the most famous acts of political protest in history.</p>
       </div>
       <div class="fact">
         <span class="fact-num">027</span>
-        <p class="fact-text">波士顿的<strong>自由之路</strong>（Freedom Trail）是一条4公里长的红线步道，连接16个历史遗址，是美国最著名的历史步道。</p>
+        <p class="fact-text cn">波士顿的<strong>自由之路</strong>（Freedom Trail）是一条4公里长的红线步道，连接16个历史遗址，是美国最著名的历史步道。</p>
+        <p class="fact-text en">Paul Revere's <strong>midnight ride</strong> on April 18, 1775, warning colonists that "the British are coming," began in Boston's North End. The Old North Church, where signal lanterns were hung, still stands.</p>
       </div>
       <div class="fact">
         <span class="fact-num">028</span>
-        <p class="fact-text">肯尼迪家族是波士顿最显赫的<strong>政治家族</strong>，JFK图书馆和纪念馆坐落在波士顿海港，是重要的朝圣地。</p>
+        <p class="fact-text cn">肯尼迪家族是波士顿最显赫的<strong>政治家族</strong>，JFK图书馆和纪念馆坐落在波士顿海港，是重要的朝圣地。</p>
+        <p class="fact-text en">The <strong>Battle of Bunker Hill</strong> (actually fought on nearby Breed's Hill) in 1775 was one of the first major battles of the American Revolution. Though the British won, the fierce colonial resistance proved that the amateur American forces could stand against the world's most powerful army — a psychological turning point.</p>
       </div>
       <div class="fact">
         <span class="fact-num">029</span>
-        <p class="fact-text">波士顿在19世纪是美国<strong>废奴运动</strong>的中心，弗雷德里克·道格拉斯等废奴主义者在这里发表演讲，推动了历史进程。</p>
+        <p class="fact-text cn">波士顿在19世纪是美国<strong>废奴运动</strong>的中心，弗雷德里克·道格拉斯等废奴主义者在这里发表演讲，推动了历史进程。</p>
+        <p class="fact-text en">Boston was the center of the American <strong>abolitionist movement</strong>. William Lloyd Garrison published "The Liberator" newspaper here, and Frederick Douglass delivered some of his most powerful anti-slavery speeches in Boston's churches and meeting halls.</p>
       </div>
       <div class="fact">
         <span class="fact-num">030</span>
-        <p class="fact-text">波士顿是<strong>爱尔兰移民</strong>在美国的最大聚集地之一，圣帕特里克节的游行是全市最盛大的节日活动。</p>
+        <p class="fact-text cn">波士顿是<strong>爱尔兰移民</strong>在美国的最大聚集地之一，圣帕特里克节的游行是全市最盛大的节日活动。</p>
+        <p class="fact-text en">The <strong>Great Boston Molasses Flood</strong> of 1919 is one of the strangest disasters in US history — a storage tank burst, sending 2.3 million gallons of molasses through the North End at 56 km/h, killing 21 people. Locals claim you can still smell molasses on hot days.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">031</span>
-        <p class="fact-text">波士顿的<strong>种族历史</strong>并不光彩——1970年代的公立学校种族融合政策（busing）引发了激烈的白人抵抗和暴力冲突。这段历史很少被提及，但它深刻影响了波士顿的社区分布和种族关系，至今遗留问题仍在。</p>
+        <p class="fact-text cn">波士顿的<strong>种族历史</strong>并不光彩——1970年代的公立学校种族融合政策（busing）引发了激烈的白人抵抗和暴力冲突。这段历史很少被提及，但它深刻影响了波士顿的社区分布和种族关系，至今遗留问题仍在。</p>
+        <p class="fact-text en"><strong>John F. Kennedy</strong> was born in Brookline, a Boston suburb, in 1917. The Kennedy family's political dynasty is deeply intertwined with Boston Irish-Catholic culture and Massachusetts politics.</p>
       </div>
       <div class="fact">
         <span class="fact-num">032</span>
-        <p class="fact-text">波士顿是美国<strong>最"蓝"的城市</strong>之一，民主党支持率长期超过80%，共和党在这里几乎没有政治空间。</p>
+        <p class="fact-text cn">波士顿是美国<strong>最"蓝"的城市</strong>之一，民主党支持率长期超过80%，共和党在这里几乎没有政治空间。</p>
+        <p class="fact-text en">Boston's <strong>racial tensions</strong> came to a head during the 1974 school busing crisis, when court-ordered desegregation led to violent protests, particularly in South Boston. The city's reputation as "liberal" was complicated by this painful episode.</p>
       </div>
     </div>
   </div>
@@ -447,41 +492,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">建筑 &amp; 空间</div>
+      <div class="cat-name"><span class="cn">建筑 &amp; 空间</span><span class="en">Architecture &amp; Space</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">033</span>
-        <p class="fact-text">波士顿的<strong>红砖联排别墅</strong>是城市标志性景观，尤其在Beacon Hill和后湾区，这些19世纪的建筑保存完好。</p>
+        <p class="fact-text cn">波士顿的<strong>红砖联排别墅</strong>是城市标志性景观，尤其在Beacon Hill和后湾区，这些19世纪的建筑保存完好。</p>
+        <p class="fact-text en"><strong>Fenway Park</strong>, home of the Boston Red Sox, opened in 1912 and is the oldest active Major League Baseball stadium. Its iconic "Green Monster" left-field wall stands 11.3 meters high.</p>
       </div>
       <div class="fact">
         <span class="fact-num">034</span>
-        <p class="fact-text">三一教堂（Trinity Church）是<strong>理查森罗曼式</strong>建筑的代表作，被评为美国十大建筑之一。</p>
+        <p class="fact-text cn">三一教堂（Trinity Church）是<strong>理查森罗曼式</strong>建筑的代表作，被评为美国十大建筑之一。</p>
+        <p class="fact-text en">The <strong>Massachusetts State House</strong> sits atop Beacon Hill with its distinctive gold dome (originally wooden, then coppered by Paul Revere, finally gilded in 1874). It's one of the oldest state capitols in the nation.</p>
       </div>
       <div class="fact">
         <span class="fact-num">035</span>
-        <p class="fact-text">波士顿公共图书馆是美国<strong>第一个公共图书馆</strong>，建于1848年，其科普利广场分馆被认为是美国最美的图书馆之一。</p>
+        <p class="fact-text cn">波士顿公共图书馆是美国<strong>第一个公共图书馆</strong>，建于1848年，其科普利广场分馆被认为是美国最美的图书馆之一。</p>
+        <p class="fact-text en">Boston's <strong>brownstone rowhouses</strong> in Back Bay and the South End are among the finest examples of Victorian residential architecture in the US, with their signature bay windows and ornate facades.</p>
       </div>
       <div class="fact">
         <span class="fact-num">036</span>
-        <p class="fact-text">波士顿的<strong>芬威球场</strong>建于1912年，是美国最古老的大联盟棒球场，"绿色怪物"（高墙）是其标志性特征。</p>
+        <p class="fact-text cn">波士顿的<strong>芬威球场</strong>建于1912年，是美国最古老的大联盟棒球场，"绿色怪物"（高墙）是其标志性特征。</p>
+        <p class="fact-text en">Boston's <strong>Big Dig</strong> transformed the city's surface — the Rose Kennedy Greenway, a 6-hectare park, now sits where an elevated highway once cast permanent shadows. This $22 billion project proved that even the most ambitious urban renewal is possible, though the massive cost overruns and construction delays became a cautionary tale for infrastructure projects worldwide.</p>
       </div>
       <div class="fact">
         <span class="fact-num">037</span>
-        <p class="fact-text">约翰·汉考克大厦的<strong>玻璃幕墙</strong>在1970年代曾频繁脱落，当时被称为"波士顿最大的笑话"，后来才解决了设计缺陷。</p>
+        <p class="fact-text cn">约翰·汉考克大厦的<strong>玻璃幕墙</strong>在1970年代曾频繁脱落，当时被称为"波士顿最大的笑话"，后来才解决了设计缺陷。</p>
+        <p class="fact-text en"><strong>Trinity Church</strong> in Copley Square, designed by H.H. Richardson in 1877, is considered one of the ten most significant buildings in American architectural history.</p>
       </div>
       <div class="fact">
         <span class="fact-num">038</span>
-        <p class="fact-text">波士顿有严格的<strong>建筑高度限制</strong>，市中心大部分区域不允许建造超高层，以保护历史风貌和天际线。</p>
+        <p class="fact-text cn">波士顿有严格的<strong>建筑高度限制</strong>，市中心大部分区域不允许建造超高层，以保护历史风貌和天际线。</p>
+        <p class="fact-text en">The <strong>MIT campus</strong> in Cambridge features a striking mix of classical and cutting-edge architecture — Frank Gehry's Stata Center and I.M. Pei's Green Building sit alongside neoclassical domes.</p>
       </div>
       <div class="fact">
         <span class="fact-num">039</span>
-        <p class="fact-text">哈佛校园内的<strong>Memorial Hall</strong>是哥特复兴风格的杰作，纪念南北战争中牺牲的哈佛学生。</p>
+        <p class="fact-text cn">哈佛校园内的<strong>Memorial Hall</strong>是哥特复兴风格的杰作，纪念南北战争中牺牲的哈佛学生。</p>
+        <p class="fact-text en">Boston's <strong>Beacon Hill</strong> neighborhood is famous for its gas-lit cobblestone streets, red brick Federal-style rowhouses, and Louisburg Square — the city's most exclusive address.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">040</span>
-        <p class="fact-text">MIT的<strong>Stata Center</strong>由解构主义大师弗兰克·盖里设计，外形扭曲怪异，被称为"一堆醉酒的机器人"。这座建筑象征着波士顿的学术创新精神，但也因为漏水、墙体开裂等问题引发了与建筑师的法律纠纷。</p>
+        <p class="fact-text cn">MIT的<strong>Stata Center</strong>由解构主义大师弗兰克·盖里设计，外形扭曲怪异，被称为"一堆醉酒的机器人"。这座建筑象征着波士顿的学术创新精神，但也因为漏水、墙体开裂等问题引发了与建筑师的法律纠纷。</p>
+        <p class="fact-text en">The <strong>Institute of Contemporary Art (ICA)</strong> on the waterfront, designed by Diller Scofidio + Renfro, features a dramatic cantilevered gallery overlooking Boston Harbor.</p>
       </div>
     </div>
   </div>
@@ -490,49 +543,59 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">文化 &amp; 社会</div>
+      <div class="cat-name"><span class="cn">文化 &amp; 社会</span><span class="en">Culture &amp; Society</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">041</span>
-        <p class="fact-text">波士顿人有独特的<strong>口音</strong>，最著名的特征是不发"r"音，"car"说成"cah"，"park"说成"pahk"。</p>
+        <p class="fact-text cn">波士顿人有独特的<strong>口音</strong>，最著名的特征是不发"r"音，"car"说成"cah"，"park"说成"pahk"。</p>
+        <p class="fact-text en">Boston is home to over <strong>100 colleges and universities</strong> within the metro area — the highest concentration in the US. Students make up roughly 20% of the city's population.</p>
       </div>
       <div class="fact">
         <span class="fact-num">042</span>
-        <p class="fact-text">波士顿人以<strong>"冷漠"</strong>著称，不像南方人那样热情，但一旦成为朋友，就是一辈子的朋友。</p>
+        <p class="fact-text cn">波士顿人以<strong>"冷漠"</strong>著称，不像南方人那样热情，但一旦成为朋友，就是一辈子的朋友。</p>
+        <p class="fact-text en">The <strong>Boston Marathon</strong>, first run in 1897, is the world's oldest annual marathon. Its famously brutal "Heartbreak Hill" at mile 20 has crushed countless runners' spirits.</p>
       </div>
       <div class="fact">
         <span class="fact-num">043</span>
-        <p class="fact-text">波士顿的<strong>体育狂热</strong>是全美闻名的，红袜队（棒球）、凯尔特人（篮球）、爱国者（橄榄球）、棕熊（冰球）都是顶级球队。</p>
+        <p class="fact-text cn">波士顿的<strong>体育狂热</strong>是全美闻名的，红袜队（棒球）、凯尔特人（篮球）、爱国者（橄榄球）、棕熊（冰球）都是顶级球队。</p>
+        <p class="fact-text en">The city's <strong>"Wicked Smart"</strong> reputation is well-earned — Harvard, MIT, Boston University, Tufts, Northeastern, Boston College, and dozens of other institutions create an unparalleled academic ecosystem.</p>
       </div>
       <div class="fact">
         <span class="fact-num">044</span>
-        <p class="fact-text">红袜队曾经历<strong>86年的冠军荒</strong>（1918-2004），被称为"贝比·鲁斯的诅咒"，2004年终于打破魔咒，全城狂欢。</p>
+        <p class="fact-text cn">红袜队曾经历<strong>86年的冠军荒</strong>（1918-2004），被称为"贝比·鲁斯的诅咒"，2004年终于打破魔咒，全城狂欢。</p>
+        <p class="fact-text en">Boston's <strong>sports culture</strong> is among the most intense in America. The Red Sox, Celtics, Patriots, and Bruins have combined for dozens of championships. The phrase "title town" isn't just boasting — it's statistical fact.</p>
       </div>
       <div class="fact">
         <span class="fact-num">045</span>
-        <p class="fact-text">波士顿马拉松是世界<strong>最古老的年度马拉松</strong>（始于1897年），也是六大满贯赛事中门槛最高的，需要达到资格成绩才能参赛。</p>
+        <p class="fact-text cn">波士顿马拉松是世界<strong>最古老的年度马拉松</strong>（始于1897年），也是六大满贯赛事中门槛最高的，需要达到资格成绩才能参赛。</p>
+        <p class="fact-text en">Boston's fans are known for being <strong>passionate to the point of obnoxious</strong> — Fenway Park crowds will heckle opposing players for nine straight innings. The "Beat LA" chant during Celtics games can be heard blocks away. Sports here aren't entertainment; they're identity.</p>
       </div>
       <div class="fact">
         <span class="fact-num">046</span>
-        <p class="fact-text">2013年波士顿马拉松发生<strong>爆炸案</strong>，3人死亡，数百人受伤。"Boston Strong"成为城市复原的口号，深深烙印在城市记忆中。</p>
+        <p class="fact-text cn">2013年波士顿马拉松发生<strong>爆炸案</strong>，3人死亡，数百人受伤。"Boston Strong"成为城市复原的口号，深深烙印在城市记忆中。</p>
+        <p class="fact-text en">Bostonians speak with a distinctive <strong>accent</strong> — dropping R's ("pahk the cah in Hahvahd Yahd") and adding them where they don't belong. The accent is fading among younger generations but remains strong in working-class neighborhoods like Southie and Dorchester.</p>
       </div>
       <div class="fact">
         <span class="fact-num">047</span>
-        <p class="fact-text">波士顿是美国<strong>最具"学院气"</strong>的城市，25-34岁人口中拥有本科以上学历的比例超过50%，全美第一。</p>
+        <p class="fact-text cn">波士顿是美国<strong>最具"学院气"</strong>的城市，25-34岁人口中拥有本科以上学历的比例超过50%，全美第一。</p>
+        <p class="fact-text en">The <strong>Kennedy Library and Museum</strong> on Columbia Point is the official presidential library of JFK. Designed by I.M. Pei, it sits dramatically on a peninsula overlooking Dorchester Bay.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">048</span>
-        <p class="fact-text">波士顿有明显的<strong>"学生城"</strong>特征——每年9月开学季，U-Haul搬家车塞满街道；5月毕业季，又是一波人潮涌动。这座城市的节奏某种程度上是被大学日历决定的。</p>
+        <p class="fact-text cn">波士顿有明显的<strong>"学生城"</strong>特征——每年9月开学季，U-Haul搬家车塞满街道；5月毕业季，又是一波人潮涌动。这座城市的节奏某种程度上是被大学日历决定的。</p>
+        <p class="fact-text en">Boston's <strong>Chinatown</strong> is one of the few remaining in the US that still functions as a genuine residential neighborhood rather than just a tourist dining district — though rising rents threaten this status.</p>
       </div>
       <div class="fact">
         <span class="fact-num">049</span>
-        <p class="fact-text">波士顿的<strong>酒吧文化</strong>浓厚，爱尔兰酒吧遍布全城，周末晚上各大酒吧人满为患。</p>
+        <p class="fact-text cn">波士顿的<strong>酒吧文化</strong>浓厚，爱尔兰酒吧遍布全城，周末晚上各大酒吧人满为患。</p>
+        <p class="fact-text en">Boston has a strong <strong>Irish heritage</strong> — at one point, more than half the city's population was of Irish descent. St. Patrick's Day is celebrated with a fervor that rivals Dublin.</p>
       </div>
       <div class="fact">
         <span class="fact-num">050</span>
-        <p class="fact-text">波士顿人对<strong>纽约人</strong>有天然的对立情绪，尤其体现在红袜队vs洋基队的百年宿敌关系上。</p>
+        <p class="fact-text cn">波士顿人对<strong>纽约人</strong>有天然的对立情绪，尤其体现在红袜队vs洋基队的百年宿敌关系上。</p>
+        <p class="fact-text en">The <strong>Museum of Fine Arts</strong> houses over 500,000 works, including one of the finest collections of Japanese art outside Japan and an unparalleled collection of American art.</p>
       </div>
     </div>
   </div>
@@ -552,27 +615,33 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">051</span>
-        <p class="fact-text">波士顿的<strong>秋天</strong>是全美最美的时节之一，新英格兰的红叶吸引大量"观叶"游客。</p>
+        <p class="fact-text cn">波士顿的<strong>秋天</strong>是全美最美的时节之一，新英格兰的红叶吸引大量"观叶"游客。</p>
+        <p class="fact-text en">Boston's <strong>biotech industry</strong> is the largest in the world. The Kendall Square area in Cambridge is the global epicenter of pharmaceutical and biotech research, home to Moderna, Biogen, and hundreds of startups.</p>
       </div>
       <div class="fact">
         <span class="fact-num">052</span>
-        <p class="fact-text">波士顿的<strong>冬天</strong>极其漫长寒冷，暴风雪频繁，年降雪量可达1.2米以上，居民已经习以为常。</p>
+        <p class="fact-text cn">波士顿的<strong>冬天</strong>极其漫长寒冷，暴风雪频繁，年降雪量可达1.2米以上，居民已经习以为常。</p>
+        <p class="fact-text en"><strong>MIT</strong> (Massachusetts Institute of Technology) has produced 98 Nobel laureates. Its alumni have founded companies with combined annual revenues exceeding $2 trillion — equivalent to the world's 10th-largest economy.</p>
       </div>
       <div class="fact">
         <span class="fact-num">053</span>
-        <p class="fact-text">查尔斯河是波士顿的<strong>"城市客厅"</strong>，沿河步道是跑步、骑行、划船的热门地点，夏天河面上帆船点点。</p>
+        <p class="fact-text cn">查尔斯河是波士顿的<strong>"城市客厅"</strong>，沿河步道是跑步、骑行、划船的热门地点，夏天河面上帆船点点。</p>
+        <p class="fact-text en"><strong>Harvard Medical School</strong> and its affiliated hospitals form the most influential medical research complex in the world. More NIH funding flows to Boston's medical institutions than to any other city.</p>
       </div>
       <div class="fact">
         <span class="fact-num">054</span>
-        <p class="fact-text">波士顿公共花园是美国<strong>第一个公共植物园</strong>，园中的天鹅船（Swan Boats）自1877年运营至今。</p>
+        <p class="fact-text cn">波士顿公共花园是美国<strong>第一个公共植物园</strong>，园中的天鹅船（Swan Boats）自1877年运营至今。</p>
+        <p class="fact-text en">Boston's <strong>"Innovation District"</strong> in the Seaport has attracted hundreds of tech companies, venture capital firms, and startups, making it the East Coast's fastest-growing tech hub.</p>
       </div>
       <div class="fact">
         <span class="fact-num">055</span>
-        <p class="fact-text">波士顿周边的<strong>鲸鱼观赏</strong>是热门活动，每年春夏季节，座头鲸和小须鲸会来到马萨诸塞湾觅食。</p>
+        <p class="fact-text cn">波士顿周边的<strong>鲸鱼观赏</strong>是热门活动，每年春夏季节，座头鲸和小须鲸会来到马萨诸塞湾觅食。</p>
+        <p class="fact-text en">Boston's economy has successfully transitioned from <strong>manufacturing to knowledge industries</strong>. Healthcare, education, biotech, financial services, and technology now dominate, making Boston one of the most recession-resistant cities in the US.</p>
       </div>
       <div class="fact">
         <span class="fact-num">056</span>
-        <p class="fact-text">波士顿有大量<strong>松鼠</strong>，尤其在各大校园里，它们完全不怕人，经常从学生手里抢食物。</p>
+        <p class="fact-text cn">波士顿有大量<strong>松鼠</strong>，尤其在各大校园里，它们完全不怕人，经常从学生手里抢食物。</p>
+        <p class="fact-text en"><strong>General Electric</strong> moved its headquarters from Connecticut to Boston in 2016, attracted by the city's innovation ecosystem — though it later downsized the Boston presence, the move symbolized the city's rising economic status.</p>
       </div>
     </div>
   </div>
@@ -587,27 +656,33 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">057</span>
-        <p class="fact-text">波士顿是美国<strong>生物科技产业</strong>的中心，剑桥的肯德尔广场被称为"全球生物科技的华尔街"。</p>
+        <p class="fact-text cn">波士顿是美国<strong>生物科技产业</strong>的中心，剑桥的肯德尔广场被称为"全球生物科技的华尔街"。</p>
+        <p class="fact-text en">Boston's <strong>mutual fund industry</strong> was essentially invented here. Fidelity Investments, State Street, and Putnam are all headquartered in the Boston area, managing trillions in assets.</p>
       </div>
       <div class="fact">
         <span class="fact-num">058</span>
-        <p class="fact-text">波士顿的<strong>医疗产业</strong>极其发达，麻省总医院、布列根妇女医院等是全球顶尖的医疗机构。</p>
+        <p class="fact-text cn">波士顿的<strong>医疗产业</strong>极其发达，麻省总医院、布列根妇女医院等是全球顶尖的医疗机构。</p>
+        <p class="fact-text en">Boston's <strong>defense industry</strong> legacy continues through companies like Raytheon (now RTX) and General Dynamics, which maintain significant operations in the metro area.</p>
       </div>
       <div class="fact">
         <span class="fact-num">059</span>
-        <p class="fact-text">波士顿是<strong>风险投资</strong>的重镇，仅次于硅谷和纽约，大量初创公司在这里获得融资。</p>
+        <p class="fact-text cn">波士顿是<strong>风险投资</strong>的重镇，仅次于硅谷和纽约，大量初创公司在这里获得融资。</p>
+        <p class="fact-text en">The average cost of a <strong>single-family home</strong> in Boston proper now exceeds $800,000, while median rent for a one-bedroom is about $2,800/month — making it one of the least affordable housing markets in the US.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">060</span>
-        <p class="fact-text">波士顿的<strong>生活成本</strong>是全美最高的城市之一，房租、餐饮、交通都很贵。一居室公寓月租中位数约3000美元，普通上班族的生活压力不亚于纽约。</p>
+        <p class="fact-text cn">波士顿的<strong>生活成本</strong>是全美最高的城市之一，房租、餐饮、交通都很贵。一居室公寓月租中位数约3000美元，普通上班族的生活压力不亚于纽约。</p>
+        <p class="fact-text en">Boston experiences a full <strong>four-season climate</strong>. Summers are warm and humid (occasionally hitting 38°C), autumns are spectacularly colorful, and winters are brutally cold with heavy snowfall.</p>
       </div>
       <div class="fact">
         <span class="fact-num">061</span>
-        <p class="fact-text">波士顿的<strong>金融服务业</strong>历史悠久，富达投资（Fidelity）、道富银行等总部都在这里。</p>
+        <p class="fact-text cn">波士顿的<strong>金融服务业</strong>历史悠久，富达投资（Fidelity）、道富银行等总部都在这里。</p>
+        <p class="fact-text en">Boston's <strong>nor'easters</strong> are legendary winter storms that can dump 30-60 cm of snow in a single day. The city's snow removal budget regularly exceeds $30 million per year.</p>
       </div>
       <div class="fact">
         <span class="fact-num">062</span>
-        <p class="fact-text">波士顿的<strong>教育产业</strong>本身就是巨大的经济引擎，各大高校每年带来数十亿美元的经济活动。</p>
+        <p class="fact-text cn">波士顿的<strong>教育产业</strong>本身就是巨大的经济引擎，各大高校每年带来数十亿美元的经济活动。</p>
+        <p class="fact-text en">Boston's <strong>autumn foliage</strong> is among the most beautiful in the world. The sugar maples, oaks, and birches of New England turn brilliant shades of red, orange, and gold from late September through November.</p>
       </div>
     </div>
   </div>
@@ -622,35 +697,43 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">063</span>
-        <p class="fact-text">波士顿人<strong>走路很快</strong>，这与城市的步行友好设计有关，也与新英格兰人"不浪费时间"的性格有关。</p>
+        <p class="fact-text cn">波士顿人<strong>走路很快</strong>，这与城市的步行友好设计有关，也与新英格兰人"不浪费时间"的性格有关。</p>
+        <p class="fact-text en">The <strong>Charles River</strong> separates Boston from Cambridge. Once severely polluted, a decades-long cleanup effort has restored it to the point where sailing, rowing, and even swimming events are now common.</p>
       </div>
       <div class="fact">
         <span class="fact-num">064</span>
-        <p class="fact-text">波士顿的<strong>夜生活</strong>相对保守，很多酒吧凌晨2点就关门，与纽约的"不夜城"形成鲜明对比。</p>
+        <p class="fact-text cn">波士顿的<strong>夜生活</strong>相对保守，很多酒吧凌晨2点就关门，与纽约的"不夜城"形成鲜明对比。</p>
+        <p class="fact-text en">Boston's <strong>harbor islands</strong> — a national recreation area of 34 islands — are accessible by ferry from downtown. Georges Island features Fort Warren, a Civil War-era prison rumored to be haunted.</p>
       </div>
       <div class="fact">
         <span class="fact-num">065</span>
-        <p class="fact-text">波士顿人对<strong>咖啡</strong>的依赖程度很高，Dunkin'是早餐标配，上班前人手一杯几乎是默认设置。</p>
+        <p class="fact-text cn">波士顿人对<strong>咖啡</strong>的依赖程度很高，Dunkin'是早餐标配，上班前人手一杯几乎是默认设置。</p>
+        <p class="fact-text en">Boston Common, established in <strong>1634</strong>, is the oldest public park in the United States. It was originally used as a cow pasture and a place for public hangings.</p>
       </div>
       <div class="fact">
         <span class="fact-num">066</span>
-        <p class="fact-text">波士顿的<strong>冬天取暖</strong>主要靠暖气，很多老公寓用的还是蒸汽暖气，温度无法控制，要么冷要么热。</p>
+        <p class="fact-text cn">波士顿的<strong>冬天取暖</strong>主要靠暖气，很多老公寓用的还是蒸汽暖气，温度无法控制，要么冷要么热。</p>
+        <p class="fact-text en">The <strong>Arnold Arboretum</strong>, managed by Harvard, is a 107-hectare living museum of trees and shrubs — one of the finest botanical collections in North America, free and open to the public year-round.</p>
       </div>
       <div class="fact">
         <span class="fact-num">067</span>
-        <p class="fact-text">波士顿人<strong>铲雪</strong>是冬季必备技能，暴风雪后每家每户都要铲出自己的车位，用椅子占位是约定俗成的规则。</p>
+        <p class="fact-text cn">波士顿人<strong>铲雪</strong>是冬季必备技能，暴风雪后每家每户都要铲出自己的车位，用椅子占位是约定俗成的规则。</p>
+        <p class="fact-text en">The <strong>Emerald Necklace</strong> is a 5-km chain of parks designed by Frederick Law Olmsted that stretches from Boston Common to Franklin Park — one of America's greatest landscape architecture achievements.</p>
       </div>
       <div class="fact">
         <span class="fact-num">068</span>
-        <p class="fact-text">波士顿的<strong>"jaywalking"</strong>（乱穿马路）是常态，当地人几乎不等红灯，只要没车就直接过。</p>
+        <p class="fact-text cn">波士顿的<strong>"jaywalking"</strong>（乱穿马路）是常态，当地人几乎不等红灯，只要没车就直接过。</p>
+        <p class="fact-text en">Boston's <strong>"Spare Change" newspaper</strong> is sold by homeless vendors across the city — one of the oldest and most successful street newspapers in the US, giving voice and income to marginalized residents.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">069</span>
-        <p class="fact-text">波士顿有独特的<strong>"9月租房季"</strong>——由于大量大学9月1日开学，几乎所有租约都在这一天到期和开始，那一天的搬家场面堪比大逃亡，街上全是U-Haul和扔弃的旧家具。</p>
+        <p class="fact-text cn">波士顿有独特的<strong>"9月租房季"</strong>——由于大量大学9月1日开学，几乎所有租约都在这一天到期和开始，那一天的搬家场面堪比大逃亡，街上全是U-Haul和扔弃的旧家具。</p>
+        <p class="fact-text en">The <strong>Mapparium</strong> at the Mary Baker Eddy Library is a three-story stained-glass globe that visitors walk through on a glass bridge — one of Boston's most unusual and least-known attractions.</p>
       </div>
       <div class="fact">
         <span class="fact-num">070</span>
-        <p class="fact-text">波士顿人把<strong>"wicked"</strong>当作强调词使用，"wicked good"的意思是"非常好"，这是当地俚语的标志。</p>
+        <p class="fact-text cn">波士顿人把<strong>"wicked"</strong>当作强调词使用，"wicked good"的意思是"非常好"，这是当地俚语的标志。</p>
+        <p class="fact-text en"><strong>Filene's Basement</strong>, Boston's legendary discount store, was famous for its "automatic markdown" policy — unsold items got progressively cheaper over time. The original closed in 2007, ending a 98-year tradition.</p>
       </div>
     </div>
   </div>
@@ -665,43 +748,53 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">071</span>
-        <p class="fact-text">1919年波士顿发生了<strong>"糖蜜大洪水"</strong>——一个巨型糖蜜储罐爆裂，240万加仑糖蜜以56公里时速冲过街道，21人死亡。</p>
+        <p class="fact-text cn">1919年波士顿发生了<strong>"糖蜜大洪水"</strong>——一个巨型糖蜜储罐爆裂，240万加仑糖蜜以56公里时速冲过街道，21人死亡。</p>
+        <p class="fact-text en">Boston's <strong>"Citgo Sign"</strong> — a large illuminated triangle near Fenway Park — has no official historic significance but is so beloved that attempts to remove it have been met with fierce public opposition.</p>
       </div>
       <div class="fact">
         <span class="fact-num">072</span>
-        <p class="fact-text">波士顿有一条<strong>"Curse of the Bambino"</strong>的迷信，指红袜队卖掉贝比·鲁斯后86年无缘冠军。</p>
+        <p class="fact-text cn">波士顿有一条<strong>"Curse of the Bambino"</strong>的迷信，指红袜队卖掉贝比·鲁斯后86年无缘冠军。</p>
+        <p class="fact-text en">The <strong>oldest restaurant in America</strong> is Boston's Union Oyster House, operating continuously since 1826. JFK's favorite booth is still there, marked with a plaque.</p>
       </div>
       <div class="fact">
         <span class="fact-num">073</span>
-        <p class="fact-text">波士顿公共花园里有一组<strong>《让路给小鸭子》</strong>铜像，纪念这本著名的儿童绘本，是游客必打卡地。</p>
+        <p class="fact-text cn">波士顿公共花园里有一组<strong>《让路给小鸭子》</strong>铜像，纪念这本著名的儿童绘本，是游客必打卡地。</p>
+        <p class="fact-text en">Harvard Yard's <strong>statue of John Harvard</strong> is called the "Statue of Three Lies" — the inscription says "John Harvard, Founder, 1638," but Harvard wasn't the founder, the college was established in 1636, and the statue isn't actually modeled on Harvard.</p>
       </div>
       <div class="fact">
         <span class="fact-num">074</span>
-        <p class="fact-text">哈佛大学的创始人<strong>约翰·哈佛</strong>塑像其实不是本人——模特是一位学生，因为没有哈佛本人的画像留存。</p>
+        <p class="fact-text cn">哈佛大学的创始人<strong>约翰·哈佛</strong>塑像其实不是本人——模特是一位学生，因为没有哈佛本人的画像留存。</p>
+        <p class="fact-text en">Boston's <strong>housing crisis</strong> is severe. The city needs an estimated 200,000+ new housing units, but restrictive zoning, NIMBYism, and construction costs have made new development agonizingly slow.</p>
       </div>
       <div class="fact">
         <span class="fact-num">075</span>
-        <p class="fact-text">波士顿的<strong>cheers酒吧</strong>因同名电视剧闻名，游客络绎不绝，但本地人几乎不去，认为它"太游客了"。</p>
+        <p class="fact-text cn">波士顿的<strong>cheers酒吧</strong>因同名电视剧闻名，游客络绎不绝，但本地人几乎不去，认为它"太游客了"。</p>
+        <p class="fact-text en">Boston's <strong>racial segregation</strong> remains a persistent issue. Despite its progressive reputation, Boston ranks among the most residentially segregated cities in the North, with stark disparities in wealth, health, and education between white and minority neighborhoods.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">076</span>
-        <p class="fact-text">波士顿的地铁曾发生过一次<strong>"闹鬼"传说</strong>——1949年一辆绿线电车在Pleasant Street站撞车，多人死伤，此后该站关闭。据说深夜经过废弃站台时能听到怪声，虽然官方辟谣是设备噪音，但传说至今流传。</p>
+        <p class="fact-text cn">波士顿的地铁曾发生过一次<strong>"闹鬼"传说</strong>——1949年一辆绿线电车在Pleasant Street站撞车，多人死伤，此后该站关闭。据说深夜经过废弃站台时能听到怪声，虽然官方辟谣是设备噪音，但传说至今流传。</p>
+        <p class="fact-text en">The <strong>MBTA</strong> is in perpetual crisis — aging infrastructure, safety incidents, and chronic underfunding have led to service cuts and a federal safety investigation.</p>
       </div>
       <div class="fact">
         <span class="fact-num">077</span>
-        <p class="fact-text">波士顿有<strong>"禁止幸福"</strong>的历史——清教徒时期，圣诞节庆祝活动曾被禁止，违者罚款。</p>
+        <p class="fact-text cn">波士顿有<strong>"禁止幸福"</strong>的历史——清教徒时期，圣诞节庆祝活动曾被禁止，违者罚款。</p>
+        <p class="fact-text en">Boston's <strong>student population</strong> creates a unique dynamic — every September, 250,000+ students flood back, clogging streets with U-Hauls and filling apartments. Every May, they leave. The city essentially breathes in and out on an academic calendar.</p>
       </div>
       <div class="fact">
         <span class="fact-num">078</span>
-        <p class="fact-text">波士顿是美国<strong>第一个公共学校</strong>的诞生地，波士顿拉丁学校建于1635年，至今仍在招生。</p>
+        <p class="fact-text cn">波士顿是美国<strong>第一个公共学校</strong>的诞生地，波士顿拉丁学校建于1635年，至今仍在招生。</p>
+        <p class="fact-text en">Boston faces significant <strong>climate vulnerability</strong> — as a coastal city built largely on fill, rising sea levels and more frequent nor'easters pose existential threats to neighborhoods like East Boston and the Seaport.</p>
       </div>
       <div class="fact">
         <span class="fact-num">079</span>
-        <p class="fact-text">波士顿曾试图<strong>申办奥运会</strong>（2024年），但因市民反对而撤回申请，担心成本超支和交通瘫痪。</p>
+        <p class="fact-text cn">波士顿曾试图<strong>申办奥运会</strong>（2024年），但因市民反对而撤回申请，担心成本超支和交通瘫痪。</p>
+        <p class="fact-text en">Boston's <strong>biotech boom</strong> has created a two-tier economy — PhD scientists earning $200K+ live alongside service workers who can barely afford rent. Lab space in Kendall Square costs more per square foot than Manhattan office space.</p>
       </div>
       <div class="fact">
         <span class="fact-num">080</span>
-        <p class="fact-text">波士顿的<strong>Big Dig</strong>项目预算原本是28亿美元，最终花了220亿，成为美国超支最严重的公共工程案例。</p>
+        <p class="fact-text cn">波士顿的<strong>Big Dig</strong>项目预算原本是28亿美元，最终花了220亿，成为美国超支最严重的公共工程案例。</p>
+        <p class="fact-text en">The debate over <strong>Boston's identity</strong> is ongoing — is it a world-class innovation hub or an insular, provincial town? The truth, as longtime residents will tell you, is that it's stubbornly, proudly both.</p>
       </div>
     </div>
   </div>
@@ -716,27 +809,33 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">081</span>
-        <p class="fact-text">波士顿美术馆（MFA）是美国<strong>最大的艺术博物馆之一</strong>，藏品超过45万件，亚洲艺术收藏尤其出色。</p>
+        <p class="fact-text cn">波士顿美术馆（MFA）是美国<strong>最大的艺术博物馆之一</strong>，藏品超过45万件，亚洲艺术收藏尤其出色。</p>
+        <p class="fact-text en"><strong>Gentrification</strong> of historically working-class neighborhoods like Jamaica Plain, Somerville, and East Boston has displaced thousands of families. The communities that gave these neighborhoods their character are being priced out.</p>
       </div>
       <div class="fact">
         <span class="fact-num">082</span>
-        <p class="fact-text">伊莎贝拉·斯图尔特·加德纳博物馆是<strong>波士顿最独特的艺术馆</strong>，按创始人遗嘱，藏品位置永远不能改变。</p>
+        <p class="fact-text cn">伊莎贝拉·斯图尔特·加德纳博物馆是<strong>波士顿最独特的艺术馆</strong>，按创始人遗嘱，藏品位置永远不能改变。</p>
+        <p class="fact-text en">Boston's <strong>future</strong> hinges on whether it can solve its housing crisis while maintaining the innovation ecosystem that drives its economy. The city that launched a revolution may need to revolutionize itself once more.</p>
       </div>
       <div class="fact">
         <span class="fact-num">083</span>
-        <p class="fact-text">1990年加德纳博物馆发生了<strong>史上最大的艺术品盗窃案</strong>，13幅画作被盗，至今未破，价值超5亿美元。</p>
+        <p class="fact-text cn">1990年加德纳博物馆发生了<strong>史上最大的艺术品盗窃案</strong>，13幅画作被盗，至今未破，价值超5亿美元。</p>
+        <p class="fact-text en">Boston locals don't say <strong>"Boston"</strong> — they say "Bahston." And they call water fountains "bubblers," milkshakes "frappes," and liquor stores "packies." Learning this vocabulary is step one of becoming a local.</p>
       </div>
       <div class="fact">
         <span class="fact-num">084</span>
-        <p class="fact-text">波士顿交响乐团是美国<strong>"五大交响乐团"</strong>之一，波士顿交响大厅的音响效果被认为是全球最佳。</p>
+        <p class="fact-text cn">波士顿交响乐团是美国<strong>"五大交响乐团"</strong>之一，波士顿交响大厅的音响效果被认为是全球最佳。</p>
+        <p class="fact-text en">True Bostonians settle the <strong>Mike's Pastry vs. Modern Pastry</strong> debate definitively: Modern. Mike's is for tourists. (This statement will start a fight in any North End bar.)</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">085</span>
-        <p class="fact-text">波士顿是美国<strong>独立音乐</strong>的重镇，Pixies、Aerosmith、The Cars等乐队都来自这里。伯克利音乐学院是全球顶尖的音乐学府，培养了无数格莱美获奖者。</p>
+        <p class="fact-text cn">波士顿是美国<strong>独立音乐</strong>的重镇，Pixies、Aerosmith、The Cars等乐队都来自这里。伯克利音乐学院是全球顶尖的音乐学府，培养了无数格莱美获奖者。</p>
+        <p class="fact-text en">Bostonians judge your local credentials by whether you can navigate the <strong>rotaries</strong> (traffic circles) without panicking. The ones in Cambridge are particularly terrifying and seem to operate on unwritten rules that only natives understand.</p>
       </div>
       <div class="fact">
         <span class="fact-num">086</span>
-        <p class="fact-text">波士顿有活跃的<strong>喜剧场景</strong>，多位著名喜剧演员如Conan O'Brien、Jay Leno都来自波士顿。</p>
+        <p class="fact-text cn">波士顿有活跃的<strong>喜剧场景</strong>，多位著名喜剧演员如Conan O'Brien、Jay Leno都来自波士顿。</p>
+        <p class="fact-text en">Bostonians have an unshakeable belief that their city is <strong>the center of the universe</strong> — despite its modest size. When a Bostonian says "the best hospitals, the best schools, the best sports teams," they're not being arrogant. They genuinely believe it. And statistically, they might not be wrong.</p>
       </div>
     </div>
   </div>
@@ -751,19 +850,23 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">087</span>
-        <p class="fact-text">哈佛大学成立于<strong>1636年</strong>，是美国最古老的高等教育机构，校友包括8位美国总统和160多位诺贝尔奖得主。</p>
+        <p class="fact-text cn">哈佛大学成立于<strong>1636年</strong>，是美国最古老的高等教育机构，校友包括8位美国总统和160多位诺贝尔奖得主。</p>
+        <p class="fact-text en">Boston's <strong>literary heritage</strong> is unrivaled in America. Emerson, Thoreau, Hawthorne, Louisa May Alcott, and Edgar Allan Poe all have deep ties to the city and its surroundings.</p>
       </div>
       <div class="fact">
         <span class="fact-num">088</span>
-        <p class="fact-text">MIT是全球<strong>理工科第一</strong>的大学，培养的创业者创造的公司总营收相当于全球第十大经济体。</p>
+        <p class="fact-text cn">MIT是全球<strong>理工科第一</strong>的大学，培养的创业者创造的公司总营收相当于全球第十大经济体。</p>
+        <p class="fact-text en">The <strong>Boston Pops Orchestra</strong> is America's most popular symphony orchestra, famous for its annual July 4th concert on the Charles River Esplanade, attended by over 500,000 people.</p>
       </div>
       <div class="fact">
         <span class="fact-num">089</span>
-        <p class="fact-text">波士顿地区有超过<strong>50所大学和学院</strong>，包括哈佛、MIT、波士顿大学、东北大学、塔夫茨等名校。</p>
+        <p class="fact-text cn">波士顿地区有超过<strong>50所大学和学院</strong>，包括哈佛、MIT、波士顿大学、东北大学、塔夫茨等名校。</p>
+        <p class="fact-text en">Boston's <strong>comedy scene</strong> has produced numerous stars — Jay Leno, Conan O'Brien, Denis Leary, and Amy Poehler all performed at Boston comedy clubs before becoming famous.</p>
       </div>
       <div class="fact">
         <span class="fact-num">090</span>
-        <p class="fact-text">波士顿学生人口占城市总人口的<strong>近1/5</strong>，每年秋季学生返校，城市人口瞬间增加十几万。</p>
+        <p class="fact-text cn">波士顿学生人口占城市总人口的<strong>近1/5</strong>，每年秋季学生返校，城市人口瞬间增加十几万。</p>
+        <p class="fact-text en">The <strong>Head of the Charles Regatta</strong>, held every October, is the world's largest two-day rowing event, attracting over 11,000 athletes and 400,000 spectators.</p>
       </div>
     </div>
   </div>
@@ -778,43 +881,53 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">091</span>
-        <p class="fact-text">波士顿人有一种<strong>低调的骄傲</strong>——他们不会像纽约人那样吹嘘，但内心深处认为波士顿是美国最好的城市。</p>
+        <p class="fact-text cn">波士顿人有一种<strong>低调的骄傲</strong>——他们不会像纽约人那样吹嘘，但内心深处认为波士顿是美国最好的城市。</p>
+        <p class="fact-text en">Boston's <strong>innovation ecosystem</strong> is powered by the unique synergy between universities, hospitals, and venture capital. Ideas born in MIT and Harvard labs can find funding, talent, and customers without leaving the metro area.</p>
       </div>
       <div class="fact">
         <span class="fact-num">092</span>
-        <p class="fact-text">波士顿人对<strong>历史</strong>有独特的执念，动不动就提"这是美国第一个XXX"，仿佛城市的意义全在历史里。</p>
+        <p class="fact-text cn">波士顿人对<strong>历史</strong>有独特的执念，动不动就提"这是美国第一个XXX"，仿佛城市的意义全在历史里。</p>
+        <p class="fact-text en">The <strong>Boston accent</strong> is one of the most studied and imitated in American English. Linguists note it preserves features of 17th-century East Anglian English — in some ways, Bostonians speak more like the original Pilgrims than anyone else.</p>
       </div>
       <div class="fact">
         <span class="fact-num">093</span>
-        <p class="fact-text">波士顿人对<strong>体育</strong>的热爱近乎疯狂，不支持当地球队会被视为异类，甚至影响社交关系。</p>
+        <p class="fact-text cn">波士顿人对<strong>体育</strong>的热爱近乎疯狂，不支持当地球队会被视为异类，甚至影响社交关系。</p>
+        <p class="fact-text en">Boston's <strong>Catholic influence</strong> runs deep — the Archdiocese of Boston was once the most powerful Catholic institution in America. The 2002 clergy abuse scandal, broken by the Boston Globe's Spotlight team, rocked the church worldwide.</p>
       </div>
       <div class="fact">
         <span class="fact-num">094</span>
-        <p class="fact-text">波士顿人经常抱怨<strong>天气</strong>，但如果你也抱怨，他们会立刻反驳说"这不算什么，等你经历过暴风雪再说"。</p>
+        <p class="fact-text cn">波士顿人经常抱怨<strong>天气</strong>，但如果你也抱怨，他们会立刻反驳说"这不算什么，等你经历过暴风雪再说"。</p>
+        <p class="fact-text en">Boston's <strong>Dunkin' addiction</strong> is real — there are more Dunkin' locations in the Boston metro area than in some entire countries. A "medium regular" (coffee with cream and sugar) is the city's unofficial drink.</p>
       </div>
       <div class="fact">
         <span class="fact-num">095</span>
-        <p class="fact-text">波士顿人<strong>不喜欢闲聊</strong>，寒暄几句就切入正题是本地社交的默认模式。</p>
+        <p class="fact-text cn">波士顿人<strong>不喜欢闲聊</strong>，寒暄几句就切入正题是本地社交的默认模式。</p>
+        <p class="fact-text en">The <strong>curse of the Bambino</strong> haunted the Red Sox for 86 years after trading Babe Ruth to the Yankees in 1920. The drought finally ended with the 2004 World Series victory, arguably the greatest comeback in sports history.</p>
       </div>
       <div class="fact">
         <span class="fact-num">096</span>
-        <p class="fact-text">波士顿人对<strong>知识分子</strong>有天然的尊重，"博士"在这里是一个常见的称呼，不会显得装腔作势。</p>
+        <p class="fact-text cn">波士顿人对<strong>知识分子</strong>有天然的尊重，"博士"在这里是一个常见的称呼，不会显得装腔作势。</p>
+        <p class="fact-text en">Boston's <strong>rivalry with New York</strong> extends far beyond sports — it's a cultural cold war spanning centuries, covering everything from clam chowder (cream vs. tomato) to pizza (no contest, according to both sides) to which city is truly "America's city."</p>
       </div>
       <div class="fact">
         <span class="fact-num">097</span>
-        <p class="fact-text">波士顿人<strong>忠诚</strong>但需要时间——他们不会轻易交朋友，但一旦认定，就是终生的关系。</p>
+        <p class="fact-text cn">波士顿人<strong>忠诚</strong>但需要时间——他们不会轻易交朋友，但一旦认定，就是终生的关系。</p>
+        <p class="fact-text en">The <strong>Samuel Adams Brewery</strong> revived craft beer in America — founder Jim Koch brewed his first batch in his kitchen in 1984 using his great-great-grandfather's recipe, helping launch the entire craft beer movement.</p>
       </div>
       <div class="fact">
         <span class="fact-num">098</span>
-        <p class="fact-text">波士顿人会告诉你：<strong>"这里不是纽约"</strong>——这既是自豪，也是一种划清界限的方式。</p>
+        <p class="fact-text cn">波士顿人会告诉你：<strong>"这里不是纽约"</strong>——这既是自豪，也是一种划清界限的方式。</p>
+        <p class="fact-text en">Boston's <strong>weather</strong> is a perpetual topic of conversation. The joke goes: "If you don't like the weather in Boston, wait five minutes." Temperature swings of 20°C in a single day are not uncommon.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">099</span>
-        <p class="fact-text">波士顿是一座<strong>矛盾的城市</strong>：它既古老又创新，既保守又进步，既精英又平民。它不会像纽约那样让你喘不过气，也不会像洛杉矶那样让你迷失方向。它只是安静地站在那里，用400年的历史告诉你：<strong>有些东西不会过时</strong>。</p>
+        <p class="fact-text cn">波士顿是一座<strong>矛盾的城市</strong>：它既古老又创新，既保守又进步，既精英又平民。它不会像纽约那样让你喘不过气，也不会像洛杉矶那样让你迷失方向。它只是安静地站在那里，用400年的历史告诉你：<strong>有些东西不会过时</strong>。</p>
+        <p class="fact-text en">True Bostonians never call it <strong>"Beantown"</strong> — that's a tourist term. Locals just say "Boston" (or "Bahston" if they're from Southie).</p>
       </div>
       <div class="fact">
         <span class="fact-num">100</span>
-        <p class="fact-text">无论你在波士顿待多久，最后你都会明白一件事：<strong>这座城市的灵魂在大学里，在图书馆里，在那些安静思考的人群中</strong>。</p>
+        <p class="fact-text cn">无论你在波士顿待多久，最后你都会明白一件事：<strong>这座城市的灵魂在大学里，在图书馆里，在那些安静思考的人群中</strong>。</p>
+        <p class="fact-text en">The ultimate Boston flex is owning a <strong>"space saver"</strong> — after spending hours shoveling out a parking spot in winter, Bostonians place chairs, cones, or trash barrels to claim the spot. Moving someone's space saver is an act of war. This unwritten tradition has no legal basis but is enforced with fierce neighborhood justice.</p>
       </div>
     </div>
   </div>
@@ -826,6 +939,11 @@
   <div class="footer-ornament">✦</div>
   <p>100 Things · 一百件小事</p>
 </footer>
+
+<script>
+(function(){var l=localStorage.getItem('citybits-lang')||'cn';document.body.classList.add('lang-'+l);})();
+function toggleLang(){var e=document.body.classList.contains('lang-en');document.body.classList.remove('lang-cn','lang-en');var n=e?'cn':'en';document.body.classList.add('lang-'+n);localStorage.setItem('citybits-lang',n);}
+</script>
 
 </body>
 </html>

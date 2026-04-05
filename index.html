@@ -263,6 +263,41 @@
     }
   }
 
+  /* LANGUAGE TOGGLE */
+  .lang-toggle {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    z-index: 100;
+  }
+  .lang-btn {
+    background: none;
+    border: 1px solid var(--line);
+    padding: 8px 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--steel);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .lang-btn:hover {
+    border-color: var(--rust);
+    color: var(--rust);
+  }
+
+  /* BILINGUAL */
+  .en { display: none; }
+  body.lang-en .en { display: inline; }
+  body.lang-en .cn { display: none; }
+  body.lang-en p.en, body.lang-en div.en { display: block; }
+  body.lang-en p.cn, body.lang-en div.cn { display: none; }
+  body.lang-en .city-name-cn { display: none; }
+  body.lang-cn .city-name-cn { display: block; }
+
   @media (max-width: 600px) {
     header { padding: 50px 24px 40px; }
     main { padding: 40px 16px 60px; }
@@ -277,18 +312,27 @@
 <body>
 
 <header>
-  <div class="masthead-eyebrow">CityBits · 城市观察</div>
+  <div class="lang-toggle">
+    <button class="lang-btn" onclick="toggleLang()">
+      <span class="cn">EN</span><span class="en">CN</span>
+    </button>
+  </div>
+  <div class="masthead-eyebrow">CityBits · <span class="cn">城市观察</span><span class="en">City Observer</span></div>
   <h1>City<em>Bits</em></h1>
-  <p class="masthead-sub">
+  <p class="masthead-sub cn">
     100则城市切片与冷知识<br>
     选择一座城市，开始你的发现之旅
+  </p>
+  <p class="masthead-sub en">
+    100 city slices &amp; cool facts<br>
+    Pick a city, start your discovery
   </p>
 </header>
 
 <main>
   <div class="section-intro">
-    <h2>选择你想探索的城市</h2>
-    <p>从地理结构到奇闻冷知识，发现那些藏在日常背后的故事</p>
+    <h2><span class="cn">选择你想探索的城市</span><span class="en">Choose a city to explore</span></h2>
+    <p><span class="cn">从地理结构到奇闻冷知识，发现那些藏在日常背后的故事</span><span class="en">From geography to hidden trivia, discover the stories behind everyday life</span></p>
   </div>
 
   <div class="city-grid">
@@ -297,7 +341,8 @@
       <div class="city-region">China · Yunnan</div>
       <div class="city-name-en">Kunming</div>
       <div class="city-name-cn">昆明</div>
-      <p class="city-desc">春城无处不飞花，四季如春的高原明珠，西南边陲的茶马古道枢纽</p>
+      <p class="city-desc cn">春城无处不飞花，四季如春的高原明珠，西南边陲的茶马古道枢纽</p>
+      <p class="city-desc en">City of eternal spring, a highland pearl where flowers bloom year-round</p>
       <span class="city-arrow">→</span>
     </a>
 
@@ -306,7 +351,8 @@
       <div class="city-region">China · East Coast</div>
       <div class="city-name-en">Shanghai</div>
       <div class="city-name-cn">上海</div>
-      <p class="city-desc">魔都，东方巴黎，百年租界与摩天大楼交织的国际都会</p>
+      <p class="city-desc cn">魔都，东方巴黎，百年租界与摩天大楼交织的国际都会</p>
+      <p class="city-desc en">The magic city where century-old concessions meet soaring skyscrapers</p>
       <span class="city-arrow">→</span>
     </a>
 
@@ -315,7 +361,8 @@
       <div class="city-region">China · Yunnan</div>
       <div class="city-name-en">Dali</div>
       <div class="city-name-cn">大理</div>
-      <p class="city-desc">风花雪月的白族故里，苍山洱海间的千年古城</p>
+      <p class="city-desc cn">风花雪月的白族故里，苍山洱海间的千年古城</p>
+      <p class="city-desc en">Ancient Bai homeland between Cangshan peaks and Erhai Lake</p>
       <span class="city-arrow">→</span>
     </a>
 
@@ -324,7 +371,8 @@
       <div class="city-region">USA · East Coast</div>
       <div class="city-name-en">New York</div>
       <div class="city-name-cn">纽约</div>
-      <p class="city-desc">永不停歇的世界之都，梦想与现实碰撞的钢铁丛林</p>
+      <p class="city-desc cn">永不停歇的世界之都，梦想与现实碰撞的钢铁丛林</p>
+      <p class="city-desc en">The city that never sleeps, a steel jungle where dreams collide with reality</p>
       <span class="city-arrow">→</span>
     </a>
 
@@ -333,7 +381,8 @@
       <div class="city-region">USA · New England</div>
       <div class="city-name-en">Boston</div>
       <div class="city-name-cn">波士顿</div>
-      <p class="city-desc">美国革命的摇篮，学术与历史交融的新英格兰明珠</p>
+      <p class="city-desc cn">美国革命的摇篮，学术与历史交融的新英格兰明珠</p>
+      <p class="city-desc en">Cradle of the American revolution, where academia meets history</p>
       <span class="city-arrow">→</span>
     </a>
 
@@ -342,7 +391,8 @@
       <div class="city-region">USA · Deep South</div>
       <div class="city-name-en">New Orleans</div>
       <div class="city-name-cn">新奥尔良</div>
-      <p class="city-desc">爵士乐的故乡，法式风情与克里奥尔文化的狂欢之城</p>
+      <p class="city-desc cn">爵士乐的故乡，法式风情与克里奥尔文化的狂欢之城</p>
+      <p class="city-desc en">Birthplace of jazz, where French flair meets Creole soul</p>
       <span class="city-arrow">→</span>
     </a>
 
@@ -351,7 +401,8 @@
       <div class="city-region">China · Northeast</div>
       <div class="city-name-en">Shenyang</div>
       <div class="city-name-cn">沈阳</div>
-      <p class="city-desc">共和国长子，一朝发祥地两代帝王都，铸铁浇筑的东北心脏</p>
+      <p class="city-desc cn">共和国长子，一朝发祥地两代帝王都，铸铁浇筑的东北心脏</p>
+      <p class="city-desc en">China's industrial firstborn, birthplace of the Qing dynasty</p>
       <span class="city-arrow">→</span>
     </a>
 
@@ -360,7 +411,8 @@
       <div class="city-region">USA · West Coast</div>
       <div class="city-name-en">San Francisco</div>
       <div class="city-name-cn">旧金山</div>
-      <p class="city-desc">金门之城，雾与自由的交汇，硅谷科技浪潮的心脏</p>
+      <p class="city-desc cn">金门之城，雾与自由的交汇，硅谷科技浪潮的心脏</p>
+      <p class="city-desc en">City of the Golden Gate, where fog, freedom, and tech collide</p>
       <span class="city-arrow">→</span>
     </a>
 
@@ -369,7 +421,8 @@
       <div class="city-region">USA · West Coast</div>
       <div class="city-name-en">San Diego</div>
       <div class="city-name-cn">圣地亚哥</div>
-      <p class="city-desc">加州的诞生地，阳光与海浪的国度，美墨边境的交汇点</p>
+      <p class="city-desc cn">加州的诞生地，阳光与海浪的国度，美墨边境的交汇点</p>
+      <p class="city-desc en">Where California began — sun, surf, and the US-Mexico border</p>
       <span class="city-arrow">→</span>
     </a>
 
@@ -378,17 +431,32 @@
       <div class="city-region">Canada · British Columbia</div>
       <div class="city-name-en">Vancouver</div>
       <div class="city-name-cn">温哥华</div>
-      <p class="city-desc">山与海的城市，北美的亚洲门户，雨林与都市的交汇</p>
+      <p class="city-desc cn">山与海的城市，北美的亚洲门户，雨林与都市的交汇</p>
+      <p class="city-desc en">A city between mountains and sea, North America's gateway to Asia</p>
       <span class="city-arrow">→</span>
     </a>
   </div>
 </main>
 
 <footer>
-  <p>CityBits · 城市观察</p>
+  <p>CityBits · <span class="cn">城市观察</span><span class="en">City Observer</span></p>
   <div class="footer-ornament">✦</div>
-  <p>100 City Notes · 一百则城市切片</p>
+  <p><span class="cn">100 City Notes · 一百则城市切片</span><span class="en">100 City Notes · One Hundred Urban Slices</span></p>
 </footer>
+
+<script>
+(function(){
+  var lang = localStorage.getItem('citybits-lang') || 'cn';
+  document.body.classList.add('lang-' + lang);
+})();
+function toggleLang(){
+  var isEn = document.body.classList.contains('lang-en');
+  document.body.classList.remove('lang-cn','lang-en');
+  var next = isEn ? 'cn' : 'en';
+  document.body.classList.add('lang-' + next);
+  localStorage.setItem('citybits-lang', next);
+}
+</script>
 
 </body>
 </html>

@@ -39,24 +39,37 @@
   footer { border-top: 2px solid var(--ink); padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; }
   footer p { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--steel); text-transform: uppercase; }
   .footer-ornament { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--rust); }
+  
+  .lang-toggle { position: fixed; top: 20px; right: 20px; z-index: 100; }
+  .lang-btn { background: var(--paper); border: 1px solid var(--line); padding: 8px 14px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--steel); cursor: pointer; transition: all 0.2s; }
+  .lang-btn:hover { border-color: var(--rust); color: var(--rust); }
+  .en { display: none; }
+  body.lang-en .en { display: inline; }
+  body.lang-en .cn { display: none; }
+  body.lang-en p.en, body.lang-en div.en { display: block; }
+  body.lang-en p.cn, body.lang-en div.cn { display: none; }
+  body.lang-en span.en { display: inline; }
+
   @media (max-width: 600px) { .back-link { position: static; margin: 20px; display: inline-block; } header { padding: 60px 24px 40px; grid-template-columns: 1fr; } .masthead-number { display: none; } main { padding: 0 16px 60px; } .fact-grid { grid-template-columns: 1fr; } footer { padding: 24px; flex-direction: column; gap: 12px; } }
 </style>
 </head>
 <body>
 
-<a href="../index.html" class="back-link">← 返回城市列表</a>
+<div class="lang-toggle"><button class="lang-btn" onclick="toggleLang()"><span class="cn">EN</span><span class="en">CN</span></button></div>
+
+<a href="../index.html" class="back-link"><span class="cn">← 返回城市列表</span><span class="en">← Back to cities</span></a>
 
 <header>
   <div>
-    <div class="masthead-eyebrow">CityBits · 城市观察</div>
+    <div class="masthead-eyebrow">CityBits · <span class="cn">城市观察</span><span class="en">City Observer</span></div>
     <h1>San Fran<em>cisco</em></h1>
     <p style="margin-top:20px; font-family:'Noto Serif SC'; font-size:15px; font-weight:300; color:var(--steel); line-height:2;">
-      100件你可能不知道的小事<br>关于这座太平洋畔的科技与自由之城
+      <span class="cn">100件你可能不知道的小事<br>关于这座太平洋畔的科技与自由之城</span><span class="en">100 things you might not know<br>about this city of tech and freedom on the Pacific</span>
     </p>
   </div>
   <div style="text-align:right;">
     <div class="masthead-number">100</div>
-    <div class="masthead-sub">金门之城<br>硅谷的心脏<br>雾与自由的交汇</div>
+    <div class="masthead-sub"><span class="cn">金门之城<br>硅谷的心脏<br>雾与自由的交汇</span><span class="en">City of the Golden Gate<br>Heart of Silicon Valley<br>Where fog meets freedom</span></div>
   </div>
 </header>
 
@@ -66,89 +79,106 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">地理 &amp; 城市结构</div>
+      <div class="cat-name"><span class="cn">地理 &amp; 城市结构</span><span class="en">Geography &amp; Urban Structure</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">001</span>
-        <p class="fact-text">旧金山面积仅<strong>121平方公里</strong>，是美国面积最小的大城市之一，但人口密度极高，每平方公里超过7000人。</p>
+        <p class="fact-text cn">旧金山面积仅<strong>121平方公里</strong>，是美国面积最小的大城市之一，但人口密度极高，每平方公里超过7000人。</p>
+        <p class="fact-text en">San Francisco covers only <strong>121 square kilometers</strong>, making it one of the smallest major cities in the US, yet it has extremely high population density — over 7,000 people per square kilometer.</p>
       </div>
       <div class="fact">
         <span class="fact-num">002</span>
-        <p class="fact-text">旧金山建在<strong>43座山丘</strong>之上，街道随地形起伏，形成了标志性的陡坡景观，部分街道坡度超过30%。</p>
+        <p class="fact-text cn">旧金山建在<strong>43座山丘</strong>之上，街道随地形起伏，形成了标志性的陡坡景观，部分街道坡度超过30%。</p>
+        <p class="fact-text en">San Francisco is built on <strong>43 hills</strong>. Streets rise and fall with the terrain, creating the city's iconic steep slopes, some exceeding 30% grade.</p>
       </div>
       <div class="fact">
         <span class="fact-num">003</span>
-        <p class="fact-text"><strong>Lombard Street</strong>（九曲花街）是世界上最弯曲的街道之一，短短180米内有8个急转弯，每年吸引200万游客。</p>
+        <p class="fact-text cn"><strong>Lombard Street</strong>（九曲花街）是世界上最弯曲的街道之一，短短180米内有8个急转弯，每年吸引200万游客。</p>
+        <p class="fact-text en"><strong>Lombard Street</strong> is one of the crookedest streets in the world, with 8 sharp turns in just 180 meters, attracting 2 million visitors each year.</p>
       </div>
       <div class="fact">
         <span class="fact-num">004</span>
-        <p class="fact-text">旧金山三面环水，东临<strong>旧金山湾</strong>，西靠太平洋，北隔金门海峡与马林县相望，地理位置极其独特。</p>
+        <p class="fact-text cn">旧金山三面环水，东临<strong>旧金山湾</strong>，西靠太平洋，北隔金门海峡与马林县相望，地理位置极其独特。</p>
+        <p class="fact-text en">San Francisco is surrounded by water on three sides: <strong>San Francisco Bay</strong> to the east, the Pacific Ocean to the west, and the Golden Gate Strait to the north — a remarkably unique geography.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">005</span>
-        <p class="fact-text">旧金山的城市格局是一个<strong>严格的网格系统</strong>强行覆盖在起伏的山丘上——这意味着很多街道直接"翻山越岭"，形成近乎垂直的陡坡。这种规划在平地城市很常见，但用在旧金山的地形上显得极其荒谬又极具魅力，成就了这座城市最经典的视觉符号。</p>
+        <p class="fact-text cn">旧金山的城市格局是一个<strong>严格的网格系统</strong>强行覆盖在起伏的山丘上——这意味着很多街道直接"翻山越岭"，形成近乎垂直的陡坡。这种规划在平地城市很常见，但用在旧金山的地形上显得极其荒谬又极具魅力，成就了这座城市最经典的视觉符号。</p>
+        <p class="fact-text en">San Francisco's urban layout is a <strong>rigid grid system</strong> imposed over rolling hills — meaning many streets go straight "over the mountain," creating nearly vertical slopes. This kind of planning is common in flat cities but looks absurdly charming on San Francisco's terrain, producing the city's most iconic visual signature.</p>
       </div>
       <div class="fact">
         <span class="fact-num">006</span>
-        <p class="fact-text">旧金山由<strong>36个不同社区</strong>组成，每个社区风格迥异：Mission是拉丁文化区，Castro是LGBTQ+圣地，Chinatown是北美最古老的华埠。</p>
+        <p class="fact-text cn">旧金山由<strong>36个不同社区</strong>组成，每个社区风格迥异：Mission是拉丁文化区，Castro是LGBTQ+圣地，Chinatown是北美最古老的华埠。</p>
+        <p class="fact-text en">San Francisco comprises <strong>36 distinct neighborhoods</strong>, each with its own character: Mission is the Latin cultural hub, Castro is an LGBTQ+ landmark, and Chinatown is North America's oldest Chinese quarter.</p>
       </div>
       <div class="fact">
         <span class="fact-num">007</span>
-        <p class="fact-text"><strong>金门公园</strong>面积超过400公顷，比纽约中央公园还大20%，从市中心一直延伸到太平洋海岸。</p>
+        <p class="fact-text cn"><strong>金门公园</strong>面积超过400公顷，比纽约中央公园还大20%，从市中心一直延伸到太平洋海岸。</p>
+        <p class="fact-text en"><strong>Golden Gate Park</strong> covers over 400 hectares — 20% larger than New York's Central Park — stretching from the city center all the way to the Pacific coast.</p>
       </div>
       <div class="fact">
         <span class="fact-num">008</span>
-        <p class="fact-text">旧金山的<strong>渔人码头</strong>曾是真正的渔港，如今虽然已成为旅游区，但仍有少量渔船在此停靠作业。</p>
+        <p class="fact-text cn">旧金山的<strong>渔人码头</strong>曾是真正的渔港，如今虽然已成为旅游区，但仍有少量渔船在此停靠作业。</p>
+        <p class="fact-text en">San Francisco's <strong>Fisherman's Wharf</strong> was once a real working port. Though it's now a tourist area, a handful of fishing boats still dock and operate here.</p>
       </div>
     </div>
   </div>
 
   <!-- PULLQUOTE -->
   <div class="pullquote">
-    <p>「最冷的冬天，是我在旧金山度过的夏天。」<br>—— 常被误认为马克·吐温所说</p>
+    <p class="cn">「最冷的冬天，是我在旧金山度过的夏天。」<br>—— 常被误认为马克·吐温所说</p>
+    <p class="en">"The coldest winter I ever spent<br>was a summer in San Francisco."<br>— Often misattributed to Mark Twain</p>
   </div>
 
   <!-- CATEGORY 2: 地铁 & 交通 -->
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">地铁 &amp; 交通</div>
+      <div class="cat-name"><span class="cn">地铁 &amp; 交通</span><span class="en">Transit &amp; Transport</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">009</span>
-        <p class="fact-text">旧金山的<strong>缆车（Cable Car）</strong>是世界上最后一个仍在运营的手动缆车系统，自1873年运行至今，是美国国家历史地标。</p>
+        <p class="fact-text cn">旧金山的<strong>缆车（Cable Car）</strong>是世界上最后一个仍在运营的手动缆车系统，自1873年运行至今，是美国国家历史地标。</p>
+        <p class="fact-text en">San Francisco's <strong>cable cars</strong> are the last manually operated cable car system in the world, running since 1873 and designated a US National Historic Landmark.</p>
       </div>
       <div class="fact">
         <span class="fact-num">010</span>
-        <p class="fact-text"><strong>BART</strong>（湾区捷运）是旧金山的地铁系统，连接旧金山与东湾、南湾，其跨海隧道深入海底40米，全长5.8公里。</p>
+        <p class="fact-text cn"><strong>BART</strong>（湾区捷运）是旧金山的地铁系统，连接旧金山与东湾、南湾，其跨海隧道深入海底40米，全长5.8公里。</p>
+        <p class="fact-text en"><strong>BART</strong> (Bay Area Rapid Transit) is San Francisco's metro system, connecting the city with the East Bay and South Bay. Its transbay tube runs 40 meters below the seabed and stretches 5.8 km.</p>
       </div>
       <div class="fact">
         <span class="fact-num">011</span>
-        <p class="fact-text"><strong>金门大桥</strong>全长2737米，1937年建成时是世界上最长的悬索桥，其标志性的"国际橙"颜色实际上是防锈底漆的颜色。</p>
+        <p class="fact-text cn"><strong>金门大桥</strong>全长2737米，1937年建成时是世界上最长的悬索桥，其标志性的"国际橙"颜色实际上是防锈底漆的颜色。</p>
+        <p class="fact-text en">The <strong>Golden Gate Bridge</strong> spans 2,737 meters. When completed in 1937, it was the longest suspension bridge in the world. Its signature "International Orange" color was actually the color of the anti-rust primer.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">012</span>
-        <p class="fact-text">金门大桥原本计划漆成<strong>黑黄条纹</strong>——美国海军希望它涂成高可见度的颜色以保障航行安全。建筑师Irving Morrow坚持使用防锈底漆的橙红色，最终说服了各方。这个"意外"的颜色选择成就了世界上最具辨识度的桥梁，每年吸引超过1000万游客。</p>
+        <p class="fact-text cn">金门大桥原本计划漆成<strong>黑黄条纹</strong>——美国海军希望它涂成高可见度的颜色以保障航行安全。建筑师Irving Morrow坚持使用防锈底漆的橙红色，最终说服了各方。这个"意外"的颜色选择成就了世界上最具辨识度的桥梁，每年吸引超过1000万游客。</p>
+        <p class="fact-text en">The Golden Gate Bridge was originally planned to be painted in <strong>black-and-yellow stripes</strong> — the US Navy wanted high-visibility colors for navigation safety. Architect Irving Morrow insisted on keeping the rust-primer orange-red and eventually convinced everyone. This "accidental" color choice created the world's most recognizable bridge, attracting over 10 million visitors annually.</p>
       </div>
       <div class="fact">
         <span class="fact-num">013</span>
-        <p class="fact-text">旧金山的<strong>Muni</strong>公交系统拥有全美最古老的公共交通线路之一，至今仍在使用1930年代的古董电车。</p>
+        <p class="fact-text cn">旧金山的<strong>Muni</strong>公交系统拥有全美最古老的公共交通线路之一，至今仍在使用1930年代的古董电车。</p>
+        <p class="fact-text en">San Francisco's <strong>Muni</strong> transit system operates one of the oldest public transportation lines in the US, still running vintage streetcars from the 1930s.</p>
       </div>
       <div class="fact">
         <span class="fact-num">014</span>
-        <p class="fact-text">旧金山湾大桥（Bay Bridge）的东段在<strong>2013年</strong>完成重建，新桥造价64亿美元，是世界上最贵的桥梁工程之一。</p>
+        <p class="fact-text cn">旧金山湾大桥（Bay Bridge）的东段在<strong>2013年</strong>完成重建，新桥造价64亿美元，是世界上最贵的桥梁工程之一。</p>
+        <p class="fact-text en">The eastern span of the Bay Bridge was rebuilt in <strong>2013</strong> at a cost of $6.4 billion, making it one of the most expensive bridge projects in the world.</p>
       </div>
       <div class="fact">
         <span class="fact-num">015</span>
-        <p class="fact-text">旧金山的<strong>停车</strong>堪称噩梦，市区停车位极其稀缺，路边停车每小时可达8美元，很多人因为坡道停车忘拉手刹导致事故。</p>
+        <p class="fact-text cn">旧金山的<strong>停车</strong>堪称噩梦，市区停车位极其稀缺，路边停车每小时可达8美元，很多人因为坡道停车忘拉手刹导致事故。</p>
+        <p class="fact-text en"><strong>Parking</strong> in San Francisco is a nightmare. Street parking in the city is extremely scarce, costing up to $8 per hour. Many accidents occur when people forget to engage the handbrake on steep hills.</p>
       </div>
       <div class="fact">
         <span class="fact-num">016</span>
-        <p class="fact-text">旧金山是<strong>Uber和Lyft</strong>的诞生地，网约车在这里普及率极高，很多居民完全放弃了私家车。</p>
+        <p class="fact-text cn">旧金山是<strong>Uber和Lyft</strong>的诞生地，网约车在这里普及率极高，很多居民完全放弃了私家车。</p>
+        <p class="fact-text en">San Francisco is the birthplace of <strong>Uber and Lyft</strong>. Ride-sharing adoption here is extremely high, and many residents have given up owning cars entirely.</p>
       </div>
     </div>
   </div>
@@ -157,41 +187,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">食物 &amp; 饮食文化</div>
+      <div class="cat-name"><span class="cn">食物 &amp; 饮食文化</span><span class="en">Food &amp; Dining Culture</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">017</span>
-        <p class="fact-text">旧金山的<strong>酸面包（Sourdough）</strong>有超过170年的历史，淘金热时期矿工用天然酵母发酵面团，这一传统延续至今。</p>
+        <p class="fact-text cn">旧金山的<strong>酸面包（Sourdough）</strong>有超过170年的历史，淘金热时期矿工用天然酵母发酵面团，这一传统延续至今。</p>
+        <p class="fact-text en">San Francisco's <strong>sourdough bread</strong> has a history spanning over 170 years. Gold Rush miners used wild yeast to ferment their dough — a tradition that continues to this day.</p>
       </div>
       <div class="fact">
         <span class="fact-num">018</span>
-        <p class="fact-text"><strong>Boudin Bakery</strong>自1849年起使用同一份酵母菌种制作酸面包，这份"母种"已经传承了170多年。</p>
+        <p class="fact-text cn"><strong>Boudin Bakery</strong>自1849年起使用同一份酵母菌种制作酸面包，这份"母种"已经传承了170多年。</p>
+        <p class="fact-text en"><strong>Boudin Bakery</strong> has been using the same yeast culture to make sourdough since 1849 — this "mother dough" has been passed down for over 170 years.</p>
       </div>
       <div class="fact">
         <span class="fact-num">019</span>
-        <p class="fact-text">旧金山的<strong>Ghirardelli巧克力</strong>创立于1852年，是美国最古老的巧克力制造商之一，工厂旧址已改造为巧克力广场。</p>
+        <p class="fact-text cn">旧金山的<strong>Ghirardelli巧克力</strong>创立于1852年，是美国最古老的巧克力制造商之一，工厂旧址已改造为巧克力广场。</p>
+        <p class="fact-text en">San Francisco's <strong>Ghirardelli Chocolate</strong> was founded in 1852, making it one of the oldest chocolate manufacturers in America. The former factory has been converted into Ghirardelli Square.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">020</span>
-        <p class="fact-text">旧金山的<strong>中国城</strong>是北美最古老、亚洲以外最大的华埠之一，始建于1848年，至今仍有超过15000名居民。这里的点心、烧腊和中药铺几乎与香港无异，但也面临着士绅化和租金上涨的严峻挑战，老一代华人商户正在逐渐消失。</p>
+        <p class="fact-text cn">旧金山的<strong>中国城</strong>是北美最古老、亚洲以外最大的华埠之一，始建于1848年，至今仍有超过15000名居民。这里的点心、烧腊和中药铺几乎与香港无异，但也面临着士绅化和租金上涨的严峻挑战，老一代华人商户正在逐渐消失。</p>
+        <p class="fact-text en">San Francisco's <strong>Chinatown</strong> is one of the oldest in North America and the largest Chinese quarter outside Asia, established in 1848 and still home to over 15,000 residents. Its dim sum, roast meats, and herbal medicine shops rival those in Hong Kong, yet it faces severe gentrification and rising rents, with old-generation Chinese merchants gradually disappearing.</p>
       </div>
       <div class="fact">
         <span class="fact-num">021</span>
-        <p class="fact-text">旧金山的<strong>Mission卷饼</strong>（Mission Burrito）是一种巨大的墨西哥卷饼，用锡纸包裹，一个就能当一顿饭，是旧金山的平民美食代表。</p>
+        <p class="fact-text cn">旧金山的<strong>Mission卷饼</strong>（Mission Burrito）是一种巨大的墨西哥卷饼，用锡纸包裹，一个就能当一顿饭，是旧金山的平民美食代表。</p>
+        <p class="fact-text en">San Francisco's <strong>Mission Burrito</strong> is an enormous Mexican burrito wrapped in foil — one is a full meal. It's the city's quintessential working-class food.</p>
       </div>
       <div class="fact">
         <span class="fact-num">022</span>
-        <p class="fact-text">旧金山是美国<strong>精品咖啡</strong>运动的发源地之一，Blue Bottle Coffee就诞生于此，被称为"咖啡界的苹果"。</p>
+        <p class="fact-text cn">旧金山是美国<strong>精品咖啡</strong>运动的发源地之一，Blue Bottle Coffee就诞生于此，被称为"咖啡界的苹果"。</p>
+        <p class="fact-text en">San Francisco is one of the birthplaces of America's <strong>specialty coffee</strong> movement. Blue Bottle Coffee was born here, often called "the Apple of coffee."</p>
       </div>
       <div class="fact">
         <span class="fact-num">023</span>
-        <p class="fact-text">渔人码头的<strong>Dungeness螃蟹</strong>季节（11月至次年6月）是旧金山人最期待的美食时刻，路边摊现煮的螃蟹是当地特色。</p>
+        <p class="fact-text cn">渔人码头的<strong>Dungeness螃蟹</strong>季节（11月至次年6月）是旧金山人最期待的美食时刻，路边摊现煮的螃蟹是当地特色。</p>
+        <p class="fact-text en"><strong>Dungeness crab</strong> season (November through June) at Fisherman's Wharf is the most anticipated food event for San Franciscans. Fresh-boiled crab from street stalls is a local specialty.</p>
       </div>
       <div class="fact">
         <span class="fact-num">024</span>
-        <p class="fact-text">旧金山拥有全美最高密度的<strong>米其林餐厅</strong>之一，从高端法餐到街边小吃，美食水准在美国城市中名列前茅。</p>
+        <p class="fact-text cn">旧金山拥有全美最高密度的<strong>米其林餐厅</strong>之一，从高端法餐到街边小吃，美食水准在美国城市中名列前茅。</p>
+        <p class="fact-text en">San Francisco boasts one of the highest densities of <strong>Michelin-starred restaurants</strong> in the US, with culinary excellence spanning from fine French dining to street food.</p>
       </div>
     </div>
   </div>
@@ -200,41 +238,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">历史 &amp; 政治</div>
+      <div class="cat-name"><span class="cn">历史 &amp; 政治</span><span class="en">History &amp; Politics</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">025</span>
-        <p class="fact-text">1848年加州发现黄金，<strong>淘金热</strong>让旧金山在两年内从一个小渔村膨胀为拥有数万人口的城市，"San Francisco"之名也因此传遍世界。</p>
+        <p class="fact-text cn">1848年加州发现黄金，<strong>淘金热</strong>让旧金山在两年内从一个小渔村膨胀为拥有数万人口的城市，"San Francisco"之名也因此传遍世界。</p>
+        <p class="fact-text en">The 1848 California Gold Rush transformed San Francisco from a small fishing village into a city of tens of thousands in just two years. The <strong>Gold Rush</strong> spread the name "San Francisco" worldwide.</p>
       </div>
       <div class="fact">
         <span class="fact-num">026</span>
-        <p class="fact-text">1906年的<strong>大地震</strong>和随后的大火摧毁了旧金山80%的建筑，造成超过3000人死亡，是美国历史上最严重的自然灾害之一。</p>
+        <p class="fact-text cn">1906年的<strong>大地震</strong>和随后的大火摧毁了旧金山80%的建筑，造成超过3000人死亡，是美国历史上最严重的自然灾害之一。</p>
+        <p class="fact-text en">The <strong>1906 earthquake</strong> and subsequent fires destroyed 80% of San Francisco's buildings and killed over 3,000 people — one of the worst natural disasters in American history.</p>
       </div>
       <div class="fact">
         <span class="fact-num">027</span>
-        <p class="fact-text"><strong>恶魔岛（Alcatraz）</strong>曾是美国最著名的联邦监狱，关押过阿尔·卡彭等重犯，1963年关闭后成为旅游景点。</p>
+        <p class="fact-text cn"><strong>恶魔岛（Alcatraz）</strong>曾是美国最著名的联邦监狱，关押过阿尔·卡彭等重犯，1963年关闭后成为旅游景点。</p>
+        <p class="fact-text en"><strong>Alcatraz</strong> was America's most famous federal prison, housing notorious inmates like Al Capone. Closed in 1963, it is now a tourist attraction.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">028</span>
-        <p class="fact-text">1945年，<strong>联合国宪章</strong>在旧金山签署，标志着联合国的正式成立。来自50个国家的代表在旧金山战争纪念歌剧院举行了签字仪式。这一事件让旧金山在国际政治史上占据了永久的地位——它不仅是淘金热的城市，更是战后国际秩序的诞生地。</p>
+        <p class="fact-text cn">1945年，<strong>联合国宪章</strong>在旧金山签署，标志着联合国的正式成立。来自50个国家的代表在旧金山战争纪念歌剧院举行了签字仪式。这一事件让旧金山在国际政治史上占据了永久的地位——它不仅是淘金热的城市，更是战后国际秩序的诞生地。</p>
+        <p class="fact-text en">In 1945, the <strong>United Nations Charter</strong> was signed in San Francisco, marking the formal establishment of the UN. Delegates from 50 nations gathered at the War Memorial Opera House for the signing ceremony. This event gave San Francisco a permanent place in international political history — it's not just a Gold Rush city but also the birthplace of the postwar international order.</p>
       </div>
       <div class="fact">
         <span class="fact-num">029</span>
-        <p class="fact-text">1967年的<strong>"爱之夏"（Summer of Love）</strong>在旧金山Haight-Ashbury区爆发，10万年轻人涌入，成为嬉皮运动的巅峰。</p>
+        <p class="fact-text cn">1967年的<strong>"爱之夏"（Summer of Love）</strong>在旧金山Haight-Ashbury区爆发，10万年轻人涌入，成为嬉皮运动的巅峰。</p>
+        <p class="fact-text en">The <strong>"Summer of Love"</strong> erupted in San Francisco's Haight-Ashbury district in 1967, as 100,000 young people flooded in, marking the peak of the hippie movement.</p>
       </div>
       <div class="fact">
         <span class="fact-num">030</span>
-        <p class="fact-text"><strong>Harvey Milk</strong>于1977年当选旧金山市议员，成为美国第一位公开同性恋身份的民选官员，次年遇刺身亡。</p>
+        <p class="fact-text cn"><strong>Harvey Milk</strong>于1977年当选旧金山市议员，成为美国第一位公开同性恋身份的民选官员，次年遇刺身亡。</p>
+        <p class="fact-text en"><strong>Harvey Milk</strong> was elected to the San Francisco Board of Supervisors in 1977, becoming the first openly gay elected official in the US. He was assassinated the following year.</p>
       </div>
       <div class="fact">
         <span class="fact-num">031</span>
-        <p class="fact-text">1989年的<strong>Loma Prieta地震</strong>（6.9级）发生在世界大赛棒球赛期间，导致高速公路坍塌，67人死亡。</p>
+        <p class="fact-text cn">1989年的<strong>Loma Prieta地震</strong>（6.9级）发生在世界大赛棒球赛期间，导致高速公路坍塌，67人死亡。</p>
+        <p class="fact-text en">The <strong>1989 Loma Prieta earthquake</strong> (magnitude 6.9) struck during the World Series, causing freeway collapses and killing 67 people.</p>
       </div>
       <div class="fact">
         <span class="fact-num">032</span>
-        <p class="fact-text">旧金山的<strong>"旧金山"</strong>中文名来自淘金热时期华人矿工，他们称这里为"金山"，后来澳大利亚墨尔本也发现金矿被称为"新金山"，此地便改称"旧金山"。</p>
+        <p class="fact-text cn">旧金山的<strong>"旧金山"</strong>中文名来自淘金热时期华人矿工，他们称这里为"金山"，后来澳大利亚墨尔本也发现金矿被称为"新金山"，此地便改称"旧金山"。</p>
+        <p class="fact-text en">The Chinese name <strong>"旧金山" (Old Gold Mountain)</strong> dates back to Gold Rush-era Chinese miners who called this place "Gold Mountain." When gold was later discovered in Melbourne, Australia, it was dubbed "New Gold Mountain," so San Francisco became "Old Gold Mountain."</p>
       </div>
     </div>
   </div>
@@ -243,41 +289,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">建筑 &amp; 空间</div>
+      <div class="cat-name"><span class="cn">建筑 &amp; 空间</span><span class="en">Architecture &amp; Space</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">033</span>
-        <p class="fact-text"><strong>彩绘女士（Painted Ladies）</strong>是一排维多利亚式排屋，以鲜艳的多色涂装闻名，背景是旧金山天际线，是全球最经典的城市明信片之一。</p>
+        <p class="fact-text cn"><strong>彩绘女士（Painted Ladies）</strong>是一排维多利亚式排屋，以鲜艳的多色涂装闻名，背景是旧金山天际线，是全球最经典的城市明信片之一。</p>
+        <p class="fact-text en">The <strong>Painted Ladies</strong> are a row of Victorian houses famous for their colorful multi-tone paintwork. Set against the San Francisco skyline, they form one of the world's most iconic city postcards.</p>
       </div>
       <div class="fact">
         <span class="fact-num">034</span>
-        <p class="fact-text">旧金山保留了约<strong>48000栋</strong>维多利亚和爱德华时代的房屋，是全美此类建筑保存最完好的城市。</p>
+        <p class="fact-text cn">旧金山保留了约<strong>48000栋</strong>维多利亚和爱德华时代的房屋，是全美此类建筑保存最完好的城市。</p>
+        <p class="fact-text en">San Francisco has preserved approximately <strong>48,000</strong> Victorian and Edwardian-era houses — the best-preserved collection of such architecture in the entire US.</p>
       </div>
       <div class="fact">
         <span class="fact-num">035</span>
-        <p class="fact-text"><strong>泛美金字塔（Transamerica Pyramid）</strong>高260米，1972年建成时曾引发巨大争议，如今已成为旧金山天际线的标志。</p>
+        <p class="fact-text cn"><strong>泛美金字塔（Transamerica Pyramid）</strong>高260米，1972年建成时曾引发巨大争议，如今已成为旧金山天际线的标志。</p>
+        <p class="fact-text en">The <strong>Transamerica Pyramid</strong> stands 260 meters tall. When completed in 1972, it was hugely controversial; it has since become an icon of the San Francisco skyline.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">036</span>
-        <p class="fact-text"><strong>Salesforce Tower</strong>于2018年落成，高326米，取代泛美金字塔成为旧金山最高建筑。它的顶部装有一块巨大的LED屏幕，夜晚会播放艺术作品，但许多旧金山人认为这座大楼破坏了城市的天际线美感，称其为"巨大的USB充电器"。</p>
+        <p class="fact-text cn"><strong>Salesforce Tower</strong>于2018年落成，高326米，取代泛美金字塔成为旧金山最高建筑。它的顶部装有一块巨大的LED屏幕，夜晚会播放艺术作品，但许多旧金山人认为这座大楼破坏了城市的天际线美感，称其为"巨大的USB充电器"。</p>
+        <p class="fact-text en"><strong>Salesforce Tower</strong>, completed in 2018 at 326 meters, replaced the Transamerica Pyramid as San Francisco's tallest building. Its top features a massive LED screen displaying art at night, though many locals feel it ruins the skyline, calling it a "giant USB charger."</p>
       </div>
       <div class="fact">
         <span class="fact-num">037</span>
-        <p class="fact-text"><strong>艺术宫（Palace of Fine Arts）</strong>建于1915年世博会，是一座罗马式圆顶建筑，原本是临时建筑，因太受欢迎而被保留至今。</p>
+        <p class="fact-text cn"><strong>艺术宫（Palace of Fine Arts）</strong>建于1915年世博会，是一座罗马式圆顶建筑，原本是临时建筑，因太受欢迎而被保留至今。</p>
+        <p class="fact-text en">The <strong>Palace of Fine Arts</strong> was built for the 1915 World's Fair as a temporary Romanesque-domed structure. It proved so popular that it was preserved permanently.</p>
       </div>
       <div class="fact">
         <span class="fact-num">038</span>
-        <p class="fact-text">旧金山的<strong>Ferry Building</strong>建于1898年，曾是世界第二繁忙的交通枢纽，现在是高端农夫市场和美食殿堂。</p>
+        <p class="fact-text cn">旧金山的<strong>Ferry Building</strong>建于1898年，曾是世界第二繁忙的交通枢纽，现在是高端农夫市场和美食殿堂。</p>
+        <p class="fact-text en">San Francisco's <strong>Ferry Building</strong>, built in 1898, was once the world's second-busiest transit hub. Today it's a premium farmers' market and food hall.</p>
       </div>
       <div class="fact">
         <span class="fact-num">039</span>
-        <p class="fact-text"><strong>科伊特塔（Coit Tower）</strong>建于1933年，内部壁画描绘了大萧条时期加州劳工的生活，是WPA公共艺术项目的杰作。</p>
+        <p class="fact-text cn"><strong>科伊特塔（Coit Tower）</strong>建于1933年，内部壁画描绘了大萧条时期加州劳工的生活，是WPA公共艺术项目的杰作。</p>
+        <p class="fact-text en"><strong>Coit Tower</strong>, built in 1933, features interior murals depicting California workers' lives during the Great Depression — a masterpiece of WPA public art.</p>
       </div>
       <div class="fact">
         <span class="fact-num">040</span>
-        <p class="fact-text">旧金山对新建筑有严格的<strong>高度限制</strong>，大部分住宅区限高12米（约4层），这既保护了城市风貌，也加剧了住房短缺。</p>
+        <p class="fact-text cn">旧金山对新建筑有严格的<strong>高度限制</strong>，大部分住宅区限高12米（约4层），这既保护了城市风貌，也加剧了住房短缺。</p>
+        <p class="fact-text en">San Francisco enforces strict <strong>height limits</strong> on new buildings. Most residential areas are capped at 12 meters (about 4 stories), which preserves the cityscape but worsens the housing shortage.</p>
       </div>
     </div>
   </div>
@@ -286,57 +340,69 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">文化 &amp; 社会</div>
+      <div class="cat-name"><span class="cn">文化 &amp; 社会</span><span class="en">Culture &amp; Society</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">041</span>
-        <p class="fact-text"><strong>Castro区</strong>是全球LGBTQ+运动的圣地，彩虹旗在这里诞生——1978年Gilbert Baker设计了第一面彩虹旗。</p>
+        <p class="fact-text cn"><strong>Castro区</strong>是全球LGBTQ+运动的圣地，彩虹旗在这里诞生——1978年Gilbert Baker设计了第一面彩虹旗。</p>
+        <p class="fact-text en">The <strong>Castro District</strong> is a global LGBTQ+ landmark. The rainbow flag was born here — Gilbert Baker designed the first one in 1978.</p>
       </div>
       <div class="fact">
         <span class="fact-num">042</span>
-        <p class="fact-text">旧金山是<strong>"垮掉的一代"（Beat Generation）</strong>的发源地，杰克·凯鲁亚克和艾伦·金斯堡在北滩的City Lights书店聚会创作。</p>
+        <p class="fact-text cn">旧金山是<strong>"垮掉的一代"（Beat Generation）</strong>的发源地，杰克·凯鲁亚克和艾伦·金斯堡在北滩的City Lights书店聚会创作。</p>
+        <p class="fact-text en">San Francisco is the birthplace of the <strong>Beat Generation</strong>. Jack Kerouac and Allen Ginsberg gathered and wrote at City Lights Bookstore in North Beach.</p>
       </div>
       <div class="fact">
         <span class="fact-num">043</span>
-        <p class="fact-text"><strong>City Lights</strong>书店创立于1953年，是美国第一家全部销售平装书的书店，至今仍是旧金山最重要的文化地标之一。</p>
+        <p class="fact-text cn"><strong>City Lights</strong>书店创立于1953年，是美国第一家全部销售平装书的书店，至今仍是旧金山最重要的文化地标之一。</p>
+        <p class="fact-text en"><strong>City Lights</strong> bookstore, founded in 1953, was America's first all-paperback bookstore and remains one of San Francisco's most important cultural landmarks.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">044</span>
-        <p class="fact-text">旧金山的<strong>多元文化</strong>程度在全美首屈一指——白人、亚裔、拉丁裔各占约三分之一，没有任何一个族群占据绝对多数。这里有全美最大的华埠、最大的日本城，Mission区是拉丁文化的中心，North Beach是小意大利。走几个街区就像穿越了半个地球。</p>
+        <p class="fact-text cn">旧金山的<strong>多元文化</strong>程度在全美首屈一指——白人、亚裔、拉丁裔各占约三分之一，没有任何一个族群占据绝对多数。这里有全美最大的华埠、最大的日本城，Mission区是拉丁文化的中心，North Beach是小意大利。走几个街区就像穿越了半个地球。</p>
+        <p class="fact-text en">San Francisco's <strong>diversity</strong> is unrivaled in the US — White, Asian, and Latino populations each make up roughly one-third, with no single group holding an absolute majority. It has the largest Chinatown, the largest Japantown, a Latin cultural center in the Mission, and a Little Italy in North Beach. Walking a few blocks feels like crossing half the globe.</p>
       </div>
       <div class="fact">
         <span class="fact-num">045</span>
-        <p class="fact-text">旧金山的<strong>Pride游行</strong>是全球最大的LGBTQ+庆典之一，每年6月吸引超过100万参与者。</p>
+        <p class="fact-text cn">旧金山的<strong>Pride游行</strong>是全球最大的LGBTQ+庆典之一，每年6月吸引超过100万参与者。</p>
+        <p class="fact-text en">San Francisco's <strong>Pride Parade</strong> is one of the world's largest LGBTQ+ celebrations, drawing over 1 million participants every June.</p>
       </div>
       <div class="fact">
         <span class="fact-num">046</span>
-        <p class="fact-text">旧金山居民的<strong>政治倾向</strong>极为自由派，民主党在市级选举中通常获得超过80%的选票。</p>
+        <p class="fact-text cn">旧金山居民的<strong>政治倾向</strong>极为自由派，民主党在市级选举中通常获得超过80%的选票。</p>
+        <p class="fact-text en">San Francisco residents lean <strong>extremely liberal</strong> politically. Democrats typically receive over 80% of the vote in city elections.</p>
       </div>
       <div class="fact">
         <span class="fact-num">047</span>
-        <p class="fact-text"><strong>Burning Man</strong>节虽然在内华达沙漠举行，但组织者和大部分参与者来自旧金山，它被视为旧金山反主流文化的延续。</p>
+        <p class="fact-text cn"><strong>Burning Man</strong>节虽然在内华达沙漠举行，但组织者和大部分参与者来自旧金山，它被视为旧金山反主流文化的延续。</p>
+        <p class="fact-text en">Though <strong>Burning Man</strong> takes place in the Nevada desert, its organizers and most participants are from San Francisco. It's seen as an extension of San Francisco's counterculture.</p>
       </div>
       <div class="fact">
         <span class="fact-num">048</span>
-        <p class="fact-text">旧金山的<strong>壁画文化</strong>闻名世界，Mission区的Clarion Alley和Balmy Alley布满了数百幅街头壁画。</p>
+        <p class="fact-text cn">旧金山的<strong>壁画文化</strong>闻名世界，Mission区的Clarion Alley和Balmy Alley布满了数百幅街头壁画。</p>
+        <p class="fact-text en">San Francisco's <strong>mural culture</strong> is world-famous. Clarion Alley and Balmy Alley in the Mission District are covered with hundreds of street murals.</p>
       </div>
       <div class="fact">
         <span class="fact-num">049</span>
-        <p class="fact-text">旧金山是美国第一个<strong>禁止塑料袋</strong>的城市（2007年），也是环保和可持续生活方式的先锋。</p>
+        <p class="fact-text cn">旧金山是美国第一个<strong>禁止塑料袋</strong>的城市（2007年），也是环保和可持续生活方式的先锋。</p>
+        <p class="fact-text en">San Francisco was the first US city to <strong>ban plastic bags</strong> (2007) and is a pioneer in environmentalism and sustainable living.</p>
       </div>
       <div class="fact">
         <span class="fact-num">050</span>
-        <p class="fact-text">旧金山人穿衣讲究<strong>"层叠穿搭"</strong>——因为一天之内气温可能变化15度，出门必须带外套。</p>
+        <p class="fact-text cn">旧金山人穿衣讲究<strong>"层叠穿搭"</strong>——因为一天之内气温可能变化15度，出门必须带外套。</p>
+        <p class="fact-text en">San Francisco locals master the art of <strong>layered dressing</strong> — temperatures can swing 15 degrees in a single day, so going out without a jacket is never an option.</p>
       </div>
       <div class="fact">
         <span class="fact-num">051</span>
-        <p class="fact-text">旧金山拥有全美密度最高的<strong>独立书店</strong>和独立咖啡馆，连锁品牌在这里反而不太受欢迎。</p>
+        <p class="fact-text cn">旧金山拥有全美密度最高的<strong>独立书店</strong>和独立咖啡馆，连锁品牌在这里反而不太受欢迎。</p>
+        <p class="fact-text en">San Francisco has the highest concentration of <strong>independent bookstores</strong> and coffee shops in the US. Chain brands are actually less popular here.</p>
       </div>
       <div class="fact">
         <span class="fact-num">052</span>
-        <p class="fact-text"><strong>旧金山交响乐团</strong>和旧金山歌剧院在古典音乐界享有盛誉，Davies Symphony Hall每年举办超过200场演出。</p>
+        <p class="fact-text cn"><strong>旧金山交响乐团</strong>和旧金山歌剧院在古典音乐界享有盛誉，Davies Symphony Hall每年举办超过200场演出。</p>
+        <p class="fact-text en">The <strong>San Francisco Symphony</strong> and San Francisco Opera are highly regarded in classical music. Davies Symphony Hall hosts over 200 performances annually.</p>
       </div>
     </div>
   </div>
@@ -345,57 +411,69 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">经济 &amp; 产业</div>
+      <div class="cat-name"><span class="cn">经济 &amp; 产业</span><span class="en">Economy &amp; Industry</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">053</span>
-        <p class="fact-text">旧金山及湾区是全球<strong>科技产业</strong>的心脏，苹果、谷歌、Meta、Salesforce等巨头的总部都在这一区域。</p>
+        <p class="fact-text cn">旧金山及湾区是全球<strong>科技产业</strong>的心脏，苹果、谷歌、Meta、Salesforce等巨头的总部都在这一区域。</p>
+        <p class="fact-text en">San Francisco and the Bay Area are the global <strong>tech industry</strong> heartland. Apple, Google, Meta, and Salesforce are all headquartered in the region.</p>
       </div>
       <div class="fact">
         <span class="fact-num">054</span>
-        <p class="fact-text">旧金山的<strong>SoMa区</strong>（South of Market）是初创公司的聚集地，Twitter、Airbnb、Dropbox等独角兽都诞生于此。</p>
+        <p class="fact-text cn">旧金山的<strong>SoMa区</strong>（South of Market）是初创公司的聚集地，Twitter、Airbnb、Dropbox等独角兽都诞生于此。</p>
+        <p class="fact-text en">San Francisco's <strong>SoMa</strong> (South of Market) district is the epicenter of startups. Twitter, Airbnb, and Dropbox — all unicorns — were born here.</p>
       </div>
       <div class="fact">
         <span class="fact-num">055</span>
-        <p class="fact-text">旧金山的<strong>人均GDP</strong>超过13万美元，位居全美大城市前列，但极端的贫富分化也让这里成为"不平等的样本城市"。</p>
+        <p class="fact-text cn">旧金山的<strong>人均GDP</strong>超过13万美元，位居全美大城市前列，但极端的贫富分化也让这里成为"不平等的样本城市"。</p>
+        <p class="fact-text en">San Francisco's <strong>GDP per capita</strong> exceeds $130,000, among the highest of major US cities. Yet extreme wealth inequality makes it a "sample city of inequality."</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">056</span>
-        <p class="fact-text">旧金山的<strong>房价</strong>是全美最高之一——市区一套普通公寓的中位价超过100万美元，一居室月租金中位数约3500美元。科技公司的高薪推高了房价，但也让教师、护士、服务业工人几乎无法在城市中生存。旧金山的住房危机已成为美国城市不平等的缩影。</p>
+        <p class="fact-text cn">旧金山的<strong>房价</strong>是全美最高之一——市区一套普通公寓的中位价超过100万美元，一居室月租金中位数约3500美元。科技公司的高薪推高了房价，但也让教师、护士、服务业工人几乎无法在城市中生存。旧金山的住房危机已成为美国城市不平等的缩影。</p>
+        <p class="fact-text en">San Francisco's <strong>housing prices</strong> are among the highest in the US — a typical apartment's median price exceeds $1 million, and median rent for a one-bedroom is about $3,500/month. Tech salaries have driven up prices, making it nearly impossible for teachers, nurses, and service workers to survive in the city. San Francisco's housing crisis has become a microcosm of American urban inequality.</p>
       </div>
       <div class="fact">
         <span class="fact-num">057</span>
-        <p class="fact-text">旧金山的<strong>风险投资</strong>总额占全美的三分之一以上，Sand Hill Road上的VC公司掌控着全球科技创新的资金命脉。</p>
+        <p class="fact-text cn">旧金山的<strong>风险投资</strong>总额占全美的三分之一以上，Sand Hill Road上的VC公司掌控着全球科技创新的资金命脉。</p>
+        <p class="fact-text en">San Francisco's <strong>venture capital</strong> accounts for over a third of all US VC funding. Firms on Sand Hill Road control the financial lifeline of global tech innovation.</p>
       </div>
       <div class="fact">
         <span class="fact-num">058</span>
-        <p class="fact-text">旧金山是<strong>AI热潮</strong>的中心，OpenAI、Anthropic等头部AI公司总部设在旧金山，吸引了全球顶尖AI人才。</p>
+        <p class="fact-text cn">旧金山是<strong>AI热潮</strong>的中心，OpenAI、Anthropic等头部AI公司总部设在旧金山，吸引了全球顶尖AI人才。</p>
+        <p class="fact-text en">San Francisco is the epicenter of the <strong>AI boom</strong>. OpenAI, Anthropic, and other leading AI companies are headquartered here, attracting the world's top AI talent.</p>
       </div>
       <div class="fact">
         <span class="fact-num">059</span>
-        <p class="fact-text">旧金山的<strong>科技巴士</strong>（Google Bus等）曾引发巨大争议，被视为科技精英与普通居民之间日益加深的鸿沟的象征。</p>
+        <p class="fact-text cn">旧金山的<strong>科技巴士</strong>（Google Bus等）曾引发巨大争议，被视为科技精英与普通居民之间日益加深的鸿沟的象征。</p>
+        <p class="fact-text en">San Francisco's <strong>tech buses</strong> (Google Bus, etc.) have sparked major controversy, seen as a symbol of the deepening divide between tech elites and ordinary residents.</p>
       </div>
       <div class="fact">
         <span class="fact-num">060</span>
-        <p class="fact-text">旧金山是全球最早开展<strong>无人驾驶出租车</strong>商业运营的城市之一，Waymo和Cruise的自动驾驶车在市区随处可见。</p>
+        <p class="fact-text cn">旧金山是全球最早开展<strong>无人驾驶出租车</strong>商业运营的城市之一，Waymo和Cruise的自动驾驶车在市区随处可见。</p>
+        <p class="fact-text en">San Francisco was one of the first cities in the world to launch commercial <strong>self-driving taxi</strong> services. Waymo and Cruise autonomous vehicles are a common sight on city streets.</p>
       </div>
       <div class="fact">
         <span class="fact-num">061</span>
-        <p class="fact-text">旧金山曾是美国<strong>金融中心</strong>之一，美国银行（Bank of America）就创立于此，Wells Fargo总部至今仍在旧金山。</p>
+        <p class="fact-text cn">旧金山曾是美国<strong>金融中心</strong>之一，美国银行（Bank of America）就创立于此，Wells Fargo总部至今仍在旧金山。</p>
+        <p class="fact-text en">San Francisco was once a major US <strong>financial center</strong>. Bank of America was founded here, and Wells Fargo's headquarters remains in San Francisco.</p>
       </div>
       <div class="fact">
         <span class="fact-num">062</span>
-        <p class="fact-text">旧金山港口曾是<strong>太平洋航运</strong>的枢纽，淘金热和二战期间是美国西海岸最繁忙的港口。</p>
+        <p class="fact-text cn">旧金山港口曾是<strong>太平洋航运</strong>的枢纽，淘金热和二战期间是美国西海岸最繁忙的港口。</p>
+        <p class="fact-text en">San Francisco's port was once a hub for <strong>Pacific shipping</strong>, serving as the busiest port on the US West Coast during the Gold Rush and World War II.</p>
       </div>
       <div class="fact">
         <span class="fact-num">063</span>
-        <p class="fact-text">旧金山的<strong>旅游业</strong>每年贡献超过100亿美元收入，是城市第二大经济支柱，仅次于科技产业。</p>
+        <p class="fact-text cn">旧金山的<strong>旅游业</strong>每年贡献超过100亿美元收入，是城市第二大经济支柱，仅次于科技产业。</p>
+        <p class="fact-text en">San Francisco's <strong>tourism industry</strong> generates over $10 billion annually, making it the city's second-largest economic pillar after tech.</p>
       </div>
       <div class="fact">
         <span class="fact-num">064</span>
-        <p class="fact-text">旧金山的<strong>生活成本</strong>指数约为全美平均水平的两倍，一杯咖啡5-7美元，一份午餐15-25美元是常态。</p>
+        <p class="fact-text cn">旧金山的<strong>生活成本</strong>指数约为全美平均水平的两倍，一杯咖啡5-7美元，一份午餐15-25美元是常态。</p>
+        <p class="fact-text en">San Francisco's <strong>cost of living</strong> index is roughly double the national average. A cup of coffee costs $5-7, and a lunch runs $15-25 — that's just normal here.</p>
       </div>
     </div>
   </div>
@@ -404,41 +482,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">自然 &amp; 气候</div>
+      <div class="cat-name"><span class="cn">自然 &amp; 气候</span><span class="en">Nature &amp; Climate</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">065</span>
-        <p class="fact-text">旧金山的<strong>雾</strong>被居民亲切地命名为"Karl"，拥有自己的Twitter账号，夏天几乎每天傍晚都会从太平洋涌入城市。</p>
+        <p class="fact-text cn">旧金山的<strong>雾</strong>被居民亲切地命名为"Karl"，拥有自己的Twitter账号，夏天几乎每天傍晚都会从太平洋涌入城市。</p>
+        <p class="fact-text en">San Francisco's <strong>fog</strong> has been affectionately named "Karl" by locals. It has its own Twitter account, and in summer it rolls in from the Pacific almost every evening.</p>
       </div>
       <div class="fact">
         <span class="fact-num">066</span>
-        <p class="fact-text">旧金山的年均温度在<strong>10-17°C</strong>之间，几乎不需要空调，但夏天也几乎没有真正的"热天"。</p>
+        <p class="fact-text cn">旧金山的年均温度在<strong>10-17°C</strong>之间，几乎不需要空调，但夏天也几乎没有真正的"热天"。</p>
+        <p class="fact-text en">San Francisco's average annual temperature stays between <strong>10-17°C</strong>. Air conditioning is virtually unnecessary, but there are almost no truly "hot" days either.</p>
       </div>
       <div class="fact">
         <span class="fact-num">067</span>
-        <p class="fact-text">旧金山的<strong>微气候</strong>极其复杂，同一时间不同社区的温差可达10°C——Mission区阳光明媚时，Sunset区可能大雾弥漫。</p>
+        <p class="fact-text cn">旧金山的<strong>微气候</strong>极其复杂，同一时间不同社区的温差可达10°C——Mission区阳光明媚时，Sunset区可能大雾弥漫。</p>
+        <p class="fact-text en">San Francisco's <strong>microclimates</strong> are extraordinarily complex. At any given time, temperatures between neighborhoods can differ by 10°C — the Mission may be sunny while the Sunset is shrouded in fog.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">068</span>
-        <p class="fact-text">旧金山位于<strong>圣安德烈亚斯断层</strong>上，是全美地震风险最高的城市之一。地质学家预测未来30年内该地区发生7级以上大地震的概率超过60%。城市为此制定了严格的抗震建筑规范，但仍有大量老旧建筑未经加固，被称为"软楼"（soft-story buildings）。</p>
+        <p class="fact-text cn">旧金山位于<strong>圣安德烈亚斯断层</strong>上，是全美地震风险最高的城市之一。地质学家预测未来30年内该地区发生7级以上大地震的概率超过60%。城市为此制定了严格的抗震建筑规范，但仍有大量老旧建筑未经加固，被称为"软楼"（soft-story buildings）。</p>
+        <p class="fact-text en">San Francisco sits on the <strong>San Andreas Fault</strong>, making it one of the highest earthquake-risk cities in the US. Geologists predict a 60%+ probability of a magnitude 7+ quake in the next 30 years. The city has strict seismic building codes, but many older buildings remain unreinforced — known as "soft-story buildings."</p>
       </div>
       <div class="fact">
         <span class="fact-num">069</span>
-        <p class="fact-text">旧金山的<strong>海狮</strong>从1990年起占据了渔人码头39号码头的浮动码头，最多时超过1700只，成为意外的旅游景点。</p>
+        <p class="fact-text cn">旧金山的<strong>海狮</strong>从1990年起占据了渔人码头39号码头的浮动码头，最多时超过1700只，成为意外的旅游景点。</p>
+        <p class="fact-text en">San Francisco's <strong>sea lions</strong> have occupied Pier 39's floating docks since 1990. At their peak, over 1,700 gathered there, becoming an unexpected tourist attraction.</p>
       </div>
       <div class="fact">
         <span class="fact-num">070</span>
-        <p class="fact-text"><strong>Muir Woods</strong>位于旧金山北部，保存着世界上最后一片古老的海岸红杉林，部分树木高度超过75米，树龄超过1000年。</p>
+        <p class="fact-text cn"><strong>Muir Woods</strong>位于旧金山北部，保存着世界上最后一片古老的海岸红杉林，部分树木高度超过75米，树龄超过1000年。</p>
+        <p class="fact-text en"><strong>Muir Woods</strong>, north of San Francisco, preserves one of the world's last old-growth coastal redwood forests, with trees over 75 meters tall and some over 1,000 years old.</p>
       </div>
       <div class="fact">
         <span class="fact-num">071</span>
-        <p class="fact-text">旧金山9月和10月是一年中<strong>最温暖的月份</strong>，被称为"印第安夏天"，与大多数北半球城市的气候规律完全相反。</p>
+        <p class="fact-text cn">旧金山9月和10月是一年中<strong>最温暖的月份</strong>，被称为"印第安夏天"，与大多数北半球城市的气候规律完全相反。</p>
+        <p class="fact-text en">September and October are San Francisco's <strong>warmest months</strong>, known as "Indian Summer" — the complete opposite of typical Northern Hemisphere weather patterns.</p>
       </div>
       <div class="fact">
         <span class="fact-num">072</span>
-        <p class="fact-text">旧金山全年<strong>降雨量</strong>仅约500毫米，几乎所有降雨都集中在11月至3月，夏天几乎不下雨。</p>
+        <p class="fact-text cn">旧金山全年<strong>降雨量</strong>仅约500毫米，几乎所有降雨都集中在11月至3月，夏天几乎不下雨。</p>
+        <p class="fact-text en">San Francisco receives only about <strong>500mm of rainfall</strong> annually. Nearly all rain falls between November and March; summers are virtually rain-free.</p>
       </div>
     </div>
   </div>
@@ -447,57 +533,69 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">隐藏细节 &amp; 冷知识</div>
+      <div class="cat-name"><span class="cn">隐藏细节 &amp; 冷知识</span><span class="en">Hidden Details &amp; Trivia</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">073</span>
-        <p class="fact-text">旧金山本地人从不把这座城市简称为<strong>"Frisco"</strong>——用这个词是暴露外地人身份的最快方式，本地人只说"SF"或"The City"。</p>
+        <p class="fact-text cn">旧金山本地人从不把这座城市简称为<strong>"Frisco"</strong>——用这个词是暴露外地人身份的最快方式，本地人只说"SF"或"The City"。</p>
+        <p class="fact-text en">San Francisco locals never abbreviate the city as <strong>"Frisco"</strong> — using that word is the fastest way to reveal yourself as a tourist. Locals say "SF" or "The City."</p>
       </div>
       <div class="fact">
         <span class="fact-num">074</span>
-        <p class="fact-text">恶魔岛监狱历史上有过<strong>36名囚犯</strong>尝试越狱，其中1962年三名囚犯用勺子挖洞、用雨衣做皮筏逃出，至今下落不明。</p>
+        <p class="fact-text cn">恶魔岛监狱历史上有过<strong>36名囚犯</strong>尝试越狱，其中1962年三名囚犯用勺子挖洞、用雨衣做皮筏逃出，至今下落不明。</p>
+        <p class="fact-text en">Throughout Alcatraz prison's history, <strong>36 inmates</strong> attempted escape. In 1962, three prisoners dug out with spoons and made a raft from raincoats. Their fate remains unknown to this day.</p>
       </div>
       <div class="fact">
         <span class="fact-num">075</span>
-        <p class="fact-text">金门大桥每天由<strong>38名油漆工</strong>维护，他们的工作永远不会结束——刚刷完一端，另一端就需要重新涂刷。</p>
+        <p class="fact-text cn">金门大桥每天由<strong>38名油漆工</strong>维护，他们的工作永远不会结束——刚刷完一端，另一端就需要重新涂刷。</p>
+        <p class="fact-text en">The Golden Gate Bridge is maintained by <strong>38 painters</strong> whose work never ends — by the time they finish one end, the other needs repainting.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">076</span>
-        <p class="fact-text">旧金山地下藏着一支<strong>"沉船舰队"</strong>——淘金热时期，大量船只被遗弃在海湾，后来城市填海扩建时直接将这些船埋在了地下。如今金融区的地基下至少埋着70多艘19世纪的木船，每次施工挖地基时偶尔还会挖出船骸。</p>
+        <p class="fact-text cn">旧金山地下藏着一支<strong>"沉船舰队"</strong>——淘金热时期，大量船只被遗弃在海湾，后来城市填海扩建时直接将这些船埋在了地下。如今金融区的地基下至少埋着70多艘19世纪的木船，每次施工挖地基时偶尔还会挖出船骸。</p>
+        <p class="fact-text en">Beneath San Francisco lies a <strong>"sunken fleet"</strong> — during the Gold Rush, hundreds of ships were abandoned in the bay. When the city later filled in the waterfront, these ships were buried underground. At least 70 19th-century wooden vessels lie beneath the Financial District today, and construction crews occasionally dig up ship remains.</p>
       </div>
       <div class="fact">
         <span class="fact-num">077</span>
-        <p class="fact-text">旧金山的<strong>幸运饼干（Fortune Cookie）</strong>并非来自中国，而是由日裔美国人在旧金山发明的，后来被中餐馆广泛采用。</p>
+        <p class="fact-text cn">旧金山的<strong>幸运饼干（Fortune Cookie）</strong>并非来自中国，而是由日裔美国人在旧金山发明的，后来被中餐馆广泛采用。</p>
+        <p class="fact-text en">San Francisco's <strong>fortune cookie</strong> did not come from China — it was invented by Japanese Americans in San Francisco and later widely adopted by Chinese restaurants.</p>
       </div>
       <div class="fact">
         <span class="fact-num">078</span>
-        <p class="fact-text">旧金山是<strong>牛仔裤</strong>的诞生地——Levi Strauss于1853年在旧金山创立了李维斯公司，为淘金矿工生产耐用工装裤。</p>
+        <p class="fact-text cn">旧金山是<strong>牛仔裤</strong>的诞生地——Levi Strauss于1853年在旧金山创立了李维斯公司，为淘金矿工生产耐用工装裤。</p>
+        <p class="fact-text en">San Francisco is the <strong>birthplace of blue jeans</strong> — Levi Strauss founded his company here in 1853 to produce durable work pants for gold miners.</p>
       </div>
       <div class="fact">
         <span class="fact-num">079</span>
-        <p class="fact-text">旧金山的<strong>缆车</strong>运行时会发出独特的铃声，每年还举办"缆车铃声比赛"，司机们比拼谁能敲出最动听的节奏。</p>
+        <p class="fact-text cn">旧金山的<strong>缆车</strong>运行时会发出独特的铃声，每年还举办"缆车铃声比赛"，司机们比拼谁能敲出最动听的节奏。</p>
+        <p class="fact-text en">San Francisco's <strong>cable cars</strong> produce a distinctive bell sound. The city holds an annual "Cable Car Bell Ringing Contest" where drivers compete to ring the most tuneful rhythm.</p>
       </div>
       <div class="fact">
         <span class="fact-num">080</span>
-        <p class="fact-text">旧金山规定所有新建筑必须将建造费用的<strong>1%</strong>用于公共艺术，这使得城市各处散布着大量雕塑和艺术装置。</p>
+        <p class="fact-text cn">旧金山规定所有新建筑必须将建造费用的<strong>1%</strong>用于公共艺术，这使得城市各处散布着大量雕塑和艺术装置。</p>
+        <p class="fact-text en">San Francisco requires all new buildings to spend <strong>1%</strong> of construction costs on public art, resulting in sculptures and art installations scattered throughout the city.</p>
       </div>
       <div class="fact">
         <span class="fact-num">081</span>
-        <p class="fact-text">旧金山的<strong>Twin Peaks</strong>（双子峰）海拔282米，是市区最佳观景点，天气晴朗时可以俯瞰整个湾区。</p>
+        <p class="fact-text cn">旧金山的<strong>Twin Peaks</strong>（双子峰）海拔282米，是市区最佳观景点，天气晴朗时可以俯瞰整个湾区。</p>
+        <p class="fact-text en">San Francisco's <strong>Twin Peaks</strong> rise 282 meters above sea level, offering the best viewpoint in the city. On clear days, the entire Bay Area stretches out below.</p>
       </div>
       <div class="fact">
         <span class="fact-num">082</span>
-        <p class="fact-text">旧金山有一条<strong>隐藏的滑梯</strong>——位于Esmeralda Avenue的Seward Street Slides是一对水泥滑梯，藏在居民区中，需要自带纸板才能滑得快。</p>
+        <p class="fact-text cn">旧金山有一条<strong>隐藏的滑梯</strong>——位于Esmeralda Avenue的Seward Street Slides是一对水泥滑梯，藏在居民区中，需要自带纸板才能滑得快。</p>
+        <p class="fact-text en">San Francisco has a <strong>hidden slide</strong> — the Seward Street Slides on Esmeralda Avenue are a pair of concrete slides tucked into a residential area. You need to bring your own cardboard to slide fast.</p>
       </div>
       <div class="fact">
         <span class="fact-num">083</span>
-        <p class="fact-text">旧金山的<strong>日本城（Japantown）</strong>是美国仅存的三个日本城之一，但面积在不断缩小，面临士绅化威胁。</p>
+        <p class="fact-text cn">旧金山的<strong>日本城（Japantown）</strong>是美国仅存的三个日本城之一，但面积在不断缩小，面临士绅化威胁。</p>
+        <p class="fact-text en">San Francisco's <strong>Japantown</strong> is one of only three remaining in the US, but its area is steadily shrinking under gentrification pressure.</p>
       </div>
       <div class="fact">
         <span class="fact-num">084</span>
-        <p class="fact-text">旧金山在1971年拍摄了经典电影<strong>《肮脏的哈利》</strong>，此后成为好莱坞最爱取景的城市之一，超过300部电影在此拍摄。</p>
+        <p class="fact-text cn">旧金山在1971年拍摄了经典电影<strong>《肮脏的哈利》</strong>，此后成为好莱坞最爱取景的城市之一，超过300部电影在此拍摄。</p>
+        <p class="fact-text en">San Francisco served as the filming location for the 1971 classic <strong>"Dirty Harry,"</strong> and has since become one of Hollywood's favorite shooting locations, with over 300 films shot here.</p>
       </div>
     </div>
   </div>
@@ -506,57 +604,69 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">未来 &amp; 争议</div>
+      <div class="cat-name"><span class="cn">未来 &amp; 争议</span><span class="en">Future &amp; Controversies</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">085</span>
-        <p class="fact-text">旧金山的<strong>无家可归者</strong>问题极为严重，约有8000人露宿街头，Tenderloin区的帐篷营地是美国城市贫困的缩影。</p>
+        <p class="fact-text cn">旧金山的<strong>无家可归者</strong>问题极为严重，约有8000人露宿街头，Tenderloin区的帐篷营地是美国城市贫困的缩影。</p>
+        <p class="fact-text en">San Francisco's <strong>homelessness</strong> crisis is severe. Approximately 8,000 people sleep on the streets, and tent encampments in the Tenderloin are a stark image of urban poverty in America.</p>
       </div>
       <div class="fact">
         <span class="fact-num">086</span>
-        <p class="fact-text">旧金山的<strong>车窗被砸</strong>事件每年超过2万起，旅客被警告不要在车内留任何可见物品，很多人甚至不锁车门以避免车窗被砸。</p>
+        <p class="fact-text cn">旧金山的<strong>车窗被砸</strong>事件每年超过2万起，旅客被警告不要在车内留任何可见物品，很多人甚至不锁车门以避免车窗被砸。</p>
+        <p class="fact-text en">San Francisco sees over 20,000 <strong>car break-ins</strong> annually. Visitors are warned never to leave anything visible inside vehicles. Many people don't even lock their doors to avoid having their windows smashed.</p>
       </div>
       <div class="fact">
         <span class="fact-num">087</span>
-        <p class="fact-text">COVID疫情后，旧金山市中心的<strong>办公室空置率</strong>飙升至约30%，远程办公文化导致大量科技公司缩减办公面积。</p>
+        <p class="fact-text cn">COVID疫情后，旧金山市中心的<strong>办公室空置率</strong>飙升至约30%，远程办公文化导致大量科技公司缩减办公面积。</p>
+        <p class="fact-text en">After COVID, San Francisco's downtown <strong>office vacancy rate</strong> surged to roughly 30%, as remote work culture led many tech companies to downsize their office space.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">088</span>
-        <p class="fact-text">旧金山正经历<strong>"科技反噬"</strong>的复杂局面——科技产业带来了巨额财富和全球影响力，但也造成了极端的房价飙升、社区瓦解和文化同质化。大量艺术家、音乐人和蓝领工人被迫迁离，曾经多元叛逆的旧金山正在变成一个昂贵而单一的"科技城邦"。如何在创新与公平之间找到平衡，是这座城市最核心的挑战。</p>
+        <p class="fact-text cn">旧金山正经历<strong>"科技反噬"</strong>的复杂局面——科技产业带来了巨额财富和全球影响力，但也造成了极端的房价飙升、社区瓦解和文化同质化。大量艺术家、音乐人和蓝领工人被迫迁离，曾经多元叛逆的旧金山正在变成一个昂贵而单一的"科技城邦"。如何在创新与公平之间找到平衡，是这座城市最核心的挑战。</p>
+        <p class="fact-text en">San Francisco is experiencing a complex <strong>"tech backlash"</strong> — the tech industry brought enormous wealth and global influence but also extreme housing price spikes, community displacement, and cultural homogenization. Artists, musicians, and blue-collar workers have been forced out. The once diverse and rebellious San Francisco is becoming an expensive, monolithic "tech city-state." Finding balance between innovation and equity is the city's core challenge.</p>
       </div>
       <div class="fact">
         <span class="fact-num">089</span>
-        <p class="fact-text">旧金山市政府每年在无家可归者问题上花费超过<strong>11亿美元</strong>，但问题依然严峻，资金使用效率饱受质疑。</p>
+        <p class="fact-text cn">旧金山市政府每年在无家可归者问题上花费超过<strong>11亿美元</strong>，但问题依然严峻，资金使用效率饱受质疑。</p>
+        <p class="fact-text en">San Francisco's city government spends over <strong>$1.1 billion</strong> annually on homelessness, yet the problem remains severe and the efficiency of spending is heavily questioned.</p>
       </div>
       <div class="fact">
         <span class="fact-num">090</span>
-        <p class="fact-text">旧金山的<strong>芬太尼危机</strong>在近年急剧恶化，Tenderloin和SoMa区的街头药物泛滥问题成为全美关注的焦点。</p>
+        <p class="fact-text cn">旧金山的<strong>芬太尼危机</strong>在近年急剧恶化，Tenderloin和SoMa区的街头药物泛滥问题成为全美关注的焦点。</p>
+        <p class="fact-text en">San Francisco's <strong>fentanyl crisis</strong> has worsened sharply in recent years. Street-level drug abuse in the Tenderloin and SoMa has become a national focal point.</p>
       </div>
       <div class="fact">
         <span class="fact-num">091</span>
-        <p class="fact-text">旧金山的<strong>海平面上升</strong>威胁日益严峻，预计到2100年海平面可能上升60厘米以上，机场和部分沿海社区面临被淹没的风险。</p>
+        <p class="fact-text cn">旧金山的<strong>海平面上升</strong>威胁日益严峻，预计到2100年海平面可能上升60厘米以上，机场和部分沿海社区面临被淹没的风险。</p>
+        <p class="fact-text en">San Francisco's <strong>sea level rise</strong> threat is growing. By 2100, sea levels may rise over 60 cm, putting the airport and coastal communities at risk of flooding.</p>
       </div>
       <div class="fact">
         <span class="fact-num">092</span>
-        <p class="fact-text">旧金山是<strong>无人驾驶汽车</strong>的试验场，Waymo的无人出租车已在市区商业运营，但交通事故引发了监管争议。</p>
+        <p class="fact-text cn">旧金山是<strong>无人驾驶汽车</strong>的试验场，Waymo的无人出租车已在市区商业运营，但交通事故引发了监管争议。</p>
+        <p class="fact-text en">San Francisco is a testing ground for <strong>autonomous vehicles</strong>. Waymo's robotaxis already operate commercially in the city, though accidents have sparked regulatory debates.</p>
       </div>
       <div class="fact">
         <span class="fact-num">093</span>
-        <p class="fact-text">旧金山的<strong>NIMBY vs YIMBY</strong>之争激烈——反对建房的居民与支持增加住房供应的活动人士之间的矛盾是城市政治的核心议题。</p>
+        <p class="fact-text cn">旧金山的<strong>NIMBY vs YIMBY</strong>之争激烈——反对建房的居民与支持增加住房供应的活动人士之间的矛盾是城市政治的核心议题。</p>
+        <p class="fact-text en">The <strong>NIMBY vs YIMBY</strong> battle rages in San Francisco — residents who oppose new housing clash with activists who support increasing supply, making it the core issue of city politics.</p>
       </div>
       <div class="fact">
         <span class="fact-num">094</span>
-        <p class="fact-text">近年来大量居民和企业<strong>逃离旧金山</strong>，搬往奥斯汀、迈阿密等生活成本较低的城市，形成了"加州出走潮"。</p>
+        <p class="fact-text cn">近年来大量居民和企业<strong>逃离旧金山</strong>，搬往奥斯汀、迈阿密等生活成本较低的城市，形成了"加州出走潮"。</p>
+        <p class="fact-text en">In recent years, many residents and businesses have <strong>fled San Francisco</strong>, relocating to lower-cost cities like Austin and Miami, forming the "California Exodus."</p>
       </div>
       <div class="fact">
         <span class="fact-num">095</span>
-        <p class="fact-text">旧金山的<strong>零售业</strong>遭受重创，Union Square周边大量品牌店铺关闭，偷窃泛滥是重要原因之一。</p>
+        <p class="fact-text cn">旧金山的<strong>零售业</strong>遭受重创，Union Square周边大量品牌店铺关闭，偷窃泛滥是重要原因之一。</p>
+        <p class="fact-text en">San Francisco's <strong>retail sector</strong> has been devastated. Numerous brand stores around Union Square have closed, with rampant shoplifting cited as a major cause.</p>
       </div>
       <div class="fact">
         <span class="fact-num">096</span>
-        <p class="fact-text">尽管面临诸多挑战，旧金山仍是全球最具<strong>创新精神</strong>的城市之一——AI革命的下一章正在这里书写。</p>
+        <p class="fact-text cn">尽管面临诸多挑战，旧金山仍是全球最具<strong>创新精神</strong>的城市之一——AI革命的下一章正在这里书写。</p>
+        <p class="fact-text en">Despite all its challenges, San Francisco remains one of the world's most <strong>innovative</strong> cities — the next chapter of the AI revolution is being written here.</p>
       </div>
     </div>
   </div>
@@ -565,25 +675,29 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">本地人才知道的事</div>
+      <div class="cat-name"><span class="cn">本地人才知道的事</span><span class="en">Only Locals Know</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">097</span>
-        <p class="fact-text">旧金山人出门永远<strong>带一件外套</strong>——即使是8月，日落后气温可能骤降到12°C，不带外套是新手才犯的错。</p>
+        <p class="fact-text cn">旧金山人出门永远<strong>带一件外套</strong>——即使是8月，日落后气温可能骤降到12°C，不带外套是新手才犯的错。</p>
+        <p class="fact-text en">San Francisco locals always <strong>carry a jacket</strong> — even in August, temperatures can plunge to 12°C after sunset. Going out without one is a rookie mistake.</p>
       </div>
       <div class="fact">
         <span class="fact-num">098</span>
-        <p class="fact-text">真正的旧金山人从不去<strong>渔人码头</strong>吃海鲜——本地人去Sunset区的小店或者自己在家做Dungeness蟹。</p>
+        <p class="fact-text cn">真正的旧金山人从不去<strong>渔人码头</strong>吃海鲜——本地人去Sunset区的小店或者自己在家做Dungeness蟹。</p>
+        <p class="fact-text en">True San Franciscans never eat seafood at <strong>Fisherman's Wharf</strong> — locals go to small spots in the Sunset District or cook Dungeness crab at home.</p>
       </div>
       <div class="fact">
         <span class="fact-num">099</span>
-        <p class="fact-text">旧金山人判断一个人是否是本地人的方式：看他走<strong>陡坡</strong>时喘不喘气——真正的旧金山人爬坡面不改色。</p>
+        <p class="fact-text cn">旧金山人判断一个人是否是本地人的方式：看他走<strong>陡坡</strong>时喘不喘气——真正的旧金山人爬坡面不改色。</p>
+        <p class="fact-text en">San Franciscans judge whether someone is local by watching them walk up a <strong>steep hill</strong> — a true local climbs without breaking a sweat.</p>
       </div>
       <div class="fact">
         <span class="fact-num">100</span>
-        <p class="fact-text">旧金山人有一种独特的<strong>城市自豪感</strong>——他们可以无休止地抱怨房价、无家可归者和雾天，但绝不允许外地人说旧金山的坏话。</p>
+        <p class="fact-text cn">旧金山人有一种独特的<strong>城市自豪感</strong>——他们可以无休止地抱怨房价、无家可归者和雾天，但绝不允许外地人说旧金山的坏话。</p>
+        <p class="fact-text en">San Franciscans have a unique sense of <strong>civic pride</strong> — they can endlessly complain about housing costs, homelessness, and the fog, but they will never let an outsider badmouth San Francisco.</p>
       </div>
     </div>
   </div>
@@ -591,10 +705,15 @@
 </main>
 
 <footer>
-  <p>CityBits · 城市观察</p>
+  <p>CityBits · <span class="cn">城市观察</span><span class="en">City Observer</span></p>
   <div class="footer-ornament">✦</div>
-  <p>旧金山 · 100 City Notes</p>
+  <p><span class="cn">旧金山 · 100 City Notes</span><span class="en">旧金山 · 100 City Notes</span></p>
 </footer>
+
+<script>
+(function(){var l=localStorage.getItem('citybits-lang')||'cn';document.body.classList.add('lang-'+l);})();
+function toggleLang(){var e=document.body.classList.contains('lang-en');document.body.classList.remove('lang-cn','lang-en');var n=e?'cn':'en';document.body.classList.add('lang-'+n);localStorage.setItem('citybits-lang',n);}
+</script>
 
 </body>
 </html>

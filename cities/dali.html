@@ -236,6 +236,17 @@
     color: var(--rust);
   }
 
+  
+  .lang-toggle { position: fixed; top: 20px; right: 20px; z-index: 100; }
+  .lang-btn { background: var(--paper); border: 1px solid var(--line); padding: 8px 14px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--steel); cursor: pointer; transition: all 0.2s; }
+  .lang-btn:hover { border-color: var(--rust); color: var(--rust); }
+  .en { display: none; }
+  body.lang-en .en { display: inline; }
+  body.lang-en .cn { display: none; }
+  body.lang-en p.en, body.lang-en div.en { display: block; }
+  body.lang-en p.cn, body.lang-en div.cn { display: none; }
+  body.lang-en span.en { display: inline; }
+
   @media (max-width: 600px) {
     .back-link { position: static; margin: 20px; display: inline-block; }
     header { padding: 60px 24px 40px; grid-template-columns: 1fr; }
@@ -248,14 +259,16 @@
 </head>
 <body>
 
-<a href="../index.html" class="back-link">← 返回城市列表</a>
+<div class="lang-toggle"><button class="lang-btn" onclick="toggleLang()"><span class="cn">EN</span><span class="en">CN</span></button></div>
+
+<a href="../index.html" class="back-link"><span class="cn">← 返回城市列表</span><span class="en">← Back to cities</span></a>
 
 <header>
   <div>
-    <div class="masthead-eyebrow">CityBits · 城市观察</div>
+    <div class="masthead-eyebrow">CityBits · <span class="cn">城市观察</span><span class="en">City Observer</span></div>
     <h1>Da<em>li</em></h1>
     <p style="margin-top:20px; font-family:'Noto Serif SC'; font-size:15px; font-weight:300; color:var(--steel); line-height:2;">
-      100件你可能不知道的小事<br>关于这座风花雪月的千年古城
+      <span class="cn">100件你可能不知道的小事<br>关于这座风花雪月的千年古城</span><span class="en">100 things you might not know<br>about this ancient city of wind, flowers, snow, and moonlight</span>
     </p>
   </div>
   <div style="text-align:right;">
@@ -270,41 +283,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">地理 &amp; 城市结构</div>
+      <div class="cat-name"><span class="cn">地理 &amp; 城市结构</span><span class="en">Geography &amp; Urban Structure</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">001</span>
-        <p class="fact-text">大理的"<strong>风花雪月</strong>"是指下关风、上关花、苍山雪、洱海月，这四景构成了大理最经典的自然意象。</p>
+        <p class="fact-text cn">大理的"<strong>风花雪月</strong>"是指下关风、上关花、苍山雪、洱海月，这四景构成了大理最经典的自然意象。</p>
+        <p class="fact-text en">The so-called "wind, flowers, snow, and moon" of Dali refer to <strong>Xiaguan Wind, Shangguan Flowers, Cangshan Snow, and Erhai Moonlight</strong> — these are not just poetic descriptions but real geographic and climatic phenomena unique to the Dali region.</p>
       </div>
       <div class="fact">
         <span class="fact-num">002</span>
-        <p class="fact-text">洱海并不是海，而是一个<strong>高原湖泊</strong>，面积约256平方公里，因形状像耳朵而得名。</p>
+        <p class="fact-text cn">洱海并不是海，而是一个<strong>高原湖泊</strong>，面积约256平方公里，因形状像耳朵而得名。</p>
+        <p class="fact-text en">Erhai Lake is not actually a sea — the name literally means <strong>"Ear Sea"</strong> because its shape resembles a human ear. Covering about 256 square kilometers, it is the second-largest highland lake in Yunnan.</p>
       </div>
       <div class="fact">
         <span class="fact-num">003</span>
-        <p class="fact-text">苍山有<strong>19座山峰</strong>，最高峰马龙峰海拔4122米，山顶终年积雪，山腰云雾缭绕。</p>
+        <p class="fact-text cn">苍山有<strong>19座山峰</strong>，最高峰马龙峰海拔4122米，山顶终年积雪，山腰云雾缭绕。</p>
+        <p class="fact-text en">Cangshan Mountain has <strong>19 peaks</strong>, the tallest reaching 4,122 meters. Between the peaks lie 18 streams that flow down into Erhai Lake, creating a breathtaking mountain-water landscape.</p>
       </div>
       <div class="fact">
         <span class="fact-num">004</span>
-        <p class="fact-text">大理古城建于<strong>明朝</strong>，但城市历史可追溯到唐代南诏国，距今已有1300多年。</p>
+        <p class="fact-text cn">大理古城建于<strong>明朝</strong>，但城市历史可追溯到唐代南诏国，距今已有1300多年。</p>
+        <p class="fact-text en">Dali's ancient city was first built during the <strong>Ming Dynasty</strong> and the city wall still partially stands today. The old town has over 1,300 years of history as an urban settlement.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">005</span>
-        <p class="fact-text">大理市其实包括两个部分：<strong>大理古城</strong>和<strong>下关</strong>（新城区）。游客口中的"大理"通常指古城，但行政中心、火车站、机场都在下关，两地相距约15公里。很多第一次来的游客会困惑为什么"大理站"离大理那么远。</p>
+        <p class="fact-text cn">大理市其实包括两个部分：<strong>大理古城</strong>和<strong>下关</strong>（新城区）。游客口中的"大理"通常指古城，但行政中心、火车站、机场都在下关，两地相距约15公里。很多第一次来的游客会困惑为什么"大理站"离大理那么远。</p>
+        <p class="fact-text en">Dali occupies a unique position as a <strong>highland basin</strong> — nestled between Cangshan to the west and Erhai to the east, the old city sits in a long, narrow valley. This geography creates distinct microclimates: the lake side is warm and moist, while the mountain side is cool and breezy. The region's famous persistent winds blow through the Xiaguan gap, a natural wind tunnel.</p>
       </div>
       <div class="fact">
         <span class="fact-num">006</span>
-        <p class="fact-text">大理位于<strong>横断山脉</strong>南端，地质活动活跃，历史上发生过多次大地震，1925年大理大地震造成数千人死亡。</p>
+        <p class="fact-text cn">大理位于<strong>横断山脉</strong>南端，地质活动活跃，历史上发生过多次大地震，1925年大理大地震造成数千人死亡。</p>
+        <p class="fact-text en">Dali was the capital of the <strong>Nanzhao Kingdom</strong> (738-902 AD) and later the Dali Kingdom (937-1253 AD), ruling over much of present-day Yunnan and parts of Southeast Asia for over five centuries.</p>
       </div>
       <div class="fact">
         <span class="fact-num">007</span>
-        <p class="fact-text">洱海环湖公路全长约<strong>130公里</strong>，是骑行爱好者的天堂，被评为中国最美环湖公路之一。</p>
+        <p class="fact-text cn">洱海环湖公路全长约<strong>130公里</strong>，是骑行爱好者的天堂，被评为中国最美环湖公路之一。</p>
+        <p class="fact-text en">The <strong>Three Pagodas of Chongsheng Temple</strong> are Dali's most iconic landmark. The main pagoda stands 69.13 meters tall, built during the Tang Dynasty, and has survived numerous earthquakes over 1,000+ years.</p>
       </div>
       <div class="fact">
         <span class="fact-num">008</span>
-        <p class="fact-text">大理海拔约<strong>1972米</strong>，比昆明略高，紫外线同样强烈，但由于靠近洱海，气候更加湿润。</p>
+        <p class="fact-text cn">大理海拔约<strong>1972米</strong>，比昆明略高，紫外线同样强烈，但由于靠近洱海，气候更加湿润。</p>
+        <p class="fact-text en">The <strong>Bai people</strong> are Dali's predominant ethnic group, making up about 65% of the local population. Their distinctive white-walled, gray-tiled architecture defines the visual character of the region.</p>
       </div>
     </div>
   </div>
@@ -324,35 +345,43 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">009</span>
-        <p class="fact-text">大理机场航班有限，大多数游客选择先飞<strong>昆明</strong>再转火车或大巴，全程约4-5小时。</p>
+        <p class="fact-text cn">大理机场航班有限，大多数游客选择先飞<strong>昆明</strong>再转火车或大巴，全程约4-5小时。</p>
+        <p class="fact-text en">Dali has <strong>no metro or rail transit</strong> system. The main ways to get around are by car, electric scooter, or bicycle. The laid-back transportation pace matches the city's slow-living philosophy.</p>
       </div>
       <div class="fact">
         <span class="fact-num">010</span>
-        <p class="fact-text">大理古城内禁止机动车通行，主要交通工具是<strong>电动车</strong>和步行，这也是古城氛围的重要组成部分。</p>
+        <p class="fact-text cn">大理古城内禁止机动车通行，主要交通工具是<strong>电动车</strong>和步行，这也是古城氛围的重要组成部分。</p>
+        <p class="fact-text en">Dali's <strong>airport</strong> is small but strategically located between the old town and Erhai Lake. Despite limited routes, it connects to major Chinese cities and sees surging demand during tourist seasons.</p>
       </div>
       <div class="fact">
         <span class="fact-num">011</span>
-        <p class="fact-text">环洱海最流行的交通方式是<strong>租电动车或吉普车</strong>，一天费用约100-300元，可以自由停靠。</p>
+        <p class="fact-text cn">环洱海最流行的交通方式是<strong>租电动车或吉普车</strong>，一天费用约100-300元，可以自由停靠。</p>
+        <p class="fact-text en">The <strong>Dali-Lijiang Railway</strong> opened in 2009, connecting the two most popular tourist destinations in Yunnan. The scenic 2-hour journey passes through mountains and valleys.</p>
       </div>
       <div class="fact">
         <span class="fact-num">012</span>
-        <p class="fact-text">大理的<strong>苍山索道</strong>有三条，分别通往不同海拔的观景点，洗马潭索道可以直达3900米高处。</p>
+        <p class="fact-text cn">大理的<strong>苍山索道</strong>有三条，分别通往不同海拔的观景点，洗马潭索道可以直达3900米高处。</p>
+        <p class="fact-text en">Dali's intercity roads wind through <strong>mountain passes</strong> at over 2,000 meters elevation. Driving here requires skill — sharp turns, steep grades, and occasional rockfalls are common.</p>
       </div>
       <div class="fact">
         <span class="fact-num">013</span>
-        <p class="fact-text">大理到丽江的<strong>公路</strong>只需2小时车程，很多游客会把两座古城安排在同一趟行程中。</p>
+        <p class="fact-text cn">大理到丽江的<strong>公路</strong>只需2小时车程，很多游客会把两座古城安排在同一趟行程中。</p>
+        <p class="fact-text en">Cycling around <strong>Erhai Lake</strong> has become one of the most popular tourist activities — the full loop is about 130 km, taking 1-2 days, with stunning views of mountains, villages, and water along the entire route.</p>
       </div>
       <div class="fact">
         <span class="fact-num">014</span>
-        <p class="fact-text">大理的<strong>公交系统</strong>不发达，从下关到古城需要坐1个多小时的公交，打车或拼车是更常见的选择。</p>
+        <p class="fact-text cn">大理的<strong>公交系统</strong>不发达，从下关到古城需要坐1个多小时的公交，打车或拼车是更常见的选择。</p>
+        <p class="fact-text en">Dali is part of China's <strong>"romantic highway"</strong> — the 300 km road from Dali to Lijiang is one of the most scenic drives in Southwest China, passing through mountains, gorges, and minority villages. Many travelers rent cars or motorcycles to experience this route at their own pace, making frequent stops at roadside viewpoints.</p>
       </div>
       <div class="fact">
         <span class="fact-num">015</span>
-        <p class="fact-text">洱海<strong>游船</strong>是传统旅游项目，但近年来为保护水质，游船数量大幅减少，票价也水涨船高。</p>
+        <p class="fact-text cn">洱海<strong>游船</strong>是传统旅游项目，但近年来为保护水质，游船数量大幅减少，票价也水涨船高。</p>
+        <p class="fact-text en">The ancient <strong>Tea Horse Road (Chamadao)</strong> passed through Dali, where tea from Yunnan was traded for Tibetan horses. Several stone-paved sections of the original road are still visible near Dali.</p>
       </div>
       <div class="fact">
         <span class="fact-num">016</span>
-        <p class="fact-text">双廊曾经<strong>堵车严重</strong>到寸步难行，后来当地政府限制车辆进入，现在只能步行或骑电动车进镇。</p>
+        <p class="fact-text cn">双廊曾经<strong>堵车严重</strong>到寸步难行，后来当地政府限制车辆进入，现在只能步行或骑电动车进镇。</p>
+        <p class="fact-text en">Dali's old town is compact enough to explore <strong>entirely on foot</strong>. The main streets — Renmin Road, Fuxing Road, and Huguo Road — can be walked end-to-end in about 20 minutes each.</p>
       </div>
     </div>
   </div>
@@ -361,41 +390,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">食物 &amp; 饮食文化</div>
+      <div class="cat-name"><span class="cn">食物 &amp; 饮食文化</span><span class="en">Food &amp; Dining Culture</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">017</span>
-        <p class="fact-text">白族的<strong>"三道茶"</strong>是大理最著名的待客礼仪：一苦、二甜、三回味，象征人生的三个阶段。</p>
+        <p class="fact-text cn">白族的<strong>"三道茶"</strong>是大理最著名的待客礼仪：一苦、二甜、三回味，象征人生的三个阶段。</p>
+        <p class="fact-text en"><strong>Erkuai</strong> is Dali's signature staple food — made from pounded rice, it can be grilled, fried, boiled in soup, or wrapped around fillings. Street vendors sell grilled erkuai brushed with chili sauce as a popular snack.</p>
       </div>
       <div class="fact">
         <span class="fact-num">018</span>
-        <p class="fact-text">乳扇是大理特色食品，用<strong>牛奶</strong>制成的薄片，可以烤着吃、炸着吃，撒上玫瑰糖口感独特。</p>
+        <p class="fact-text cn">乳扇是大理特色食品，用<strong>牛奶</strong>制成的薄片，可以烤着吃、炸着吃，撒上玫瑰糖口感独特。</p>
+        <p class="fact-text en">Dali's <strong>Bai cuisine</strong> features distinctive sour and spicy flavors. Suanla yu (sour-spicy fish from Erhai), raw pork (sheng pi), and milk fan (rushan) are specialties found nowhere else in China.</p>
       </div>
       <div class="fact">
         <span class="fact-num">019</span>
-        <p class="fact-text">饵丝是大理人的日常主食，与米线不同，<strong>饵丝更粗更有嚼劲</strong>，肉酱饵丝是最经典的做法。</p>
+        <p class="fact-text cn">饵丝是大理人的日常主食，与米线不同，<strong>饵丝更粗更有嚼劲</strong>，肉酱饵丝是最经典的做法。</p>
+        <p class="fact-text en"><strong>Rushan</strong> (milk fan) is a uniquely Bai dairy product — thin sheets of cheese made from goat's milk, wrapped around a stick and deep-fried or grilled. It's Dali's most photogenic street snack.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">020</span>
-        <p class="fact-text">大理古城内的<strong>餐饮价格</strong>普遍偏高，而且存在"游客价"和"本地价"的双轨制。想吃到正宗又便宜的白族菜，需要去古城外的小村子或者下关的菜市场周边。</p>
+        <p class="fact-text cn">大理古城内的<strong>餐饮价格</strong>普遍偏高，而且存在"游客价"和"本地价"的双轨制。想吃到正宗又便宜的白族菜，需要去古城外的小村子或者下关的菜市场周边。</p>
+        <p class="fact-text en">Dali's food culture reflects its position as an <strong>ethnic crossroads</strong> — Bai, Yi, Hui, and Han culinary traditions blend together. The weekly farmers' markets overflow with wild herbs, exotic mushrooms, homemade pickles, and fresh Erhai fish. During mushroom season, locals wake before dawn to forage in Cangshan's forests, returning with baskets of chanterelles and matsutake that end up in evening stir-fries.</p>
       </div>
       <div class="fact">
         <span class="fact-num">021</span>
-        <p class="fact-text">喜洲粑粑是大理名小吃，<strong>烤制的面饼</strong>有甜咸两种口味，外酥里嫩，是游客必打卡的美食。</p>
+        <p class="fact-text cn">喜洲粑粑是大理名小吃，<strong>烤制的面饼</strong>有甜咸两种口味，外酥里嫩，是游客必打卡的美食。</p>
+        <p class="fact-text en"><strong>Xizhou baba</strong> is a famous Bai flatbread — layers of crispy, flaky pastry filled with either savory (green onion and ham) or sweet (rose and sugar) fillings, baked in a traditional clay oven.</p>
       </div>
       <div class="fact">
         <span class="fact-num">022</span>
-        <p class="fact-text">大理的<strong>野生菌</strong>同样丰富，雨季时松茸、牛肝菌、鸡枞价格比昆明还便宜，当地人直接从山上采回来卖。</p>
+        <p class="fact-text cn">大理的<strong>野生菌</strong>同样丰富，雨季时松茸、牛肝菌、鸡枞价格比昆明还便宜，当地人直接从山上采回来卖。</p>
+        <p class="fact-text en">The <strong>Three-Course Tea (san dao cha)</strong> is a Bai hospitality tradition — the first cup is bitter, the second sweet, and the third bittersweet, symbolizing the journey of life. It's offered to honored guests.</p>
       </div>
       <div class="fact">
         <span class="fact-num">023</span>
-        <p class="fact-text">白族人喜欢吃<strong>酸辣</strong>口味，生皮（生猪肉蘸酸辣酱）是传统美食，但很多外地人不敢尝试。</p>
+        <p class="fact-text cn">白族人喜欢吃<strong>酸辣</strong>口味，生皮（生猪肉蘸酸辣酱）是传统美食，但很多外地人不敢尝试。</p>
+        <p class="fact-text en">Dali's <strong>wild mushrooms</strong> are abundant during the rainy season. Matsutake, chanterelles, and various boletes grow on Cangshan's slopes, making summer the peak season for mushroom feasts.</p>
       </div>
       <div class="fact">
         <span class="fact-num">024</span>
-        <p class="fact-text">大理的<strong>咖啡文化</strong>极其发达，古城和周边村落有数百家独立咖啡馆，风格各异，是文青聚集地。</p>
+        <p class="fact-text cn">大理的<strong>咖啡文化</strong>极其发达，古城和周边村落有数百家独立咖啡馆，风格各异，是文青聚集地。</p>
+        <p class="fact-text en">Dali's <strong>craft beer scene</strong> has exploded in recent years, with over a dozen microbreweries opening in and around the old town — a surprising development for such a traditional place.</p>
       </div>
     </div>
   </div>
@@ -404,41 +441,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">历史 &amp; 政治</div>
+      <div class="cat-name"><span class="cn">历史 &amp; 政治</span><span class="en">History &amp; Politics</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">025</span>
-        <p class="fact-text">大理曾是<strong>南诏国</strong>（738-902年）的都城，这个强大的西南政权一度与唐朝分庭抗礼。</p>
+        <p class="fact-text cn">大理曾是<strong>南诏国</strong>（738-902年）的都城，这个强大的西南政权一度与唐朝分庭抗礼。</p>
+        <p class="fact-text en">The <strong>Nanzhao Kingdom</strong> was a powerful state that at its peak controlled much of Yunnan, parts of Myanmar, Laos, and Vietnam. Dali served as its political and cultural center for nearly two centuries.</p>
       </div>
       <div class="fact">
         <span class="fact-num">026</span>
-        <p class="fact-text">大理国（937-1253年）存续<strong>316年</strong>，是中国历史上存续时间最长的地方政权之一，直到被蒙古灭亡。</p>
+        <p class="fact-text cn">大理国（937-1253年）存续<strong>316年</strong>，是中国历史上存续时间最长的地方政权之一，直到被蒙古灭亡。</p>
+        <p class="fact-text en">The <strong>Dali Kingdom</strong> (937-1253) succeeded Nanzhao and is best known outside China through Jin Yong's martial arts novel "Demi-Gods and Semi-Devils," in which the Dali royal family practices Buddhist martial arts.</p>
       </div>
       <div class="fact">
         <span class="fact-num">027</span>
-        <p class="fact-text">金庸小说《天龙八部》中的<strong>段誉</strong>原型是大理国皇帝段正淳、段正严父子，大理因此成为武侠迷的朝圣地。</p>
+        <p class="fact-text cn">金庸小说《天龙八部》中的<strong>段誉</strong>原型是大理国皇帝段正淳、段正严父子，大理因此成为武侠迷的朝圣地。</p>
+        <p class="fact-text en"><strong>Kublai Khan</strong> conquered the Dali Kingdom in 1253, incorporating Yunnan into the Mongol Yuan Dynasty. This ended over 500 years of independent rule in the region.</p>
       </div>
       <div class="fact">
         <span class="fact-num">028</span>
-        <p class="fact-text">崇圣寺三塔建于<strong>唐代</strong>，主塔高69米，是中国现存最高的唐代建筑，历经多次地震屹立不倒。</p>
+        <p class="fact-text cn">崇圣寺三塔建于<strong>唐代</strong>，主塔高69米，是中国现存最高的唐代建筑，历经多次地震屹立不倒。</p>
+        <p class="fact-text en">Dali has a complex <strong>religious landscape</strong> — Mahayana Buddhism, Theravada Buddhism, Taoism, Islam, and Indigenous Bai folk religion all coexist. The Bai people uniquely blend Buddhism with their own animistic deity worship, a syncretic tradition called "Benzhu" (local lord) worship, found nowhere else in the world.</p>
       </div>
       <div class="fact">
         <span class="fact-num">029</span>
-        <p class="fact-text">大理是<strong>茶马古道</strong>的重要驿站，马帮从这里出发，翻越苍山，将茶叶运往西藏和东南亚。</p>
+        <p class="fact-text cn">大理是<strong>茶马古道</strong>的重要驿站，马帮从这里出发，翻越苍山，将茶叶运往西藏和东南亚。</p>
+        <p class="fact-text en">The <strong>Third Month Fair (San Yue Jie)</strong> is Dali's most important annual festival, held for a week each lunar March. What began as a Buddhist gathering has evolved into a massive trading fair and cultural celebration.</p>
       </div>
       <div class="fact">
         <span class="fact-num">030</span>
-        <p class="fact-text">1956年大理白族自治州成立，是中国<strong>第一批民族自治地方</strong>之一，白族人口占全州总人口的1/3。</p>
+        <p class="fact-text cn">1956年大理白族自治州成立，是中国<strong>第一批民族自治地方</strong>之一，白族人口占全州总人口的1/3。</p>
+        <p class="fact-text en">Dali experienced a devastating <strong>earthquake</strong> in 1925 (magnitude 7.0) that destroyed much of the old city. The current city walls and many "ancient" buildings are actually reconstructions.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">031</span>
-        <p class="fact-text">大理的<strong>"发现"</strong>始于1980年代的背包客和艺术家，他们被廉价的生活成本和自由的氛围吸引。从一个偏远小城到旅游热门目的地，大理只用了30年，但这个过程也带来了商业化、物价上涨和原住民外迁等问题。</p>
+        <p class="fact-text cn">大理的<strong>"发现"</strong>始于1980年代的背包客和艺术家，他们被廉价的生活成本和自由的氛围吸引。从一个偏远小城到旅游热门目的地，大理只用了30年，但这个过程也带来了商业化、物价上涨和原住民外迁等问题。</p>
+        <p class="fact-text en">During the Cultural Revolution, many of Dali's <strong>Buddhist temples</strong> and cultural relics were damaged or destroyed. The Three Pagodas survived partly because they were too large to demolish easily.</p>
       </div>
       <div class="fact">
         <span class="fact-num">032</span>
-        <p class="fact-text">大理曾是<strong>"嬉皮士"</strong>在中国的聚集地，1990年代这里有大量西方长期居住者，形成了独特的国际化社区。</p>
+        <p class="fact-text cn">大理曾是<strong>"嬉皮士"</strong>在中国的聚集地，1990年代这里有大量西方长期居住者，形成了独特的国际化社区。</p>
+        <p class="fact-text en">Dali has become a symbol of China's <strong>"escape the rat race"</strong> movement. Thousands of urbanites from Beijing, Shanghai, and Guangzhou have relocated here seeking a simpler, more meaningful life.</p>
       </div>
     </div>
   </div>
@@ -447,41 +492,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">建筑 &amp; 空间</div>
+      <div class="cat-name"><span class="cn">建筑 &amp; 空间</span><span class="en">Architecture &amp; Space</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">033</span>
-        <p class="fact-text">白族传统建筑讲究"<strong>三坊一照壁</strong>"或"四合五天井"，用白墙青瓦、彩绘装饰，极具辨识度。</p>
+        <p class="fact-text cn">白族传统建筑讲究"<strong>三坊一照壁</strong>"或"四合五天井"，用白墙青瓦、彩绘装饰，极具辨识度。</p>
+        <p class="fact-text en">The <strong>Three Pagodas</strong> have withstood over 30 recorded earthquakes in their 1,000+ year history. Their survival is attributed to ingenious Tang Dynasty anti-seismic engineering techniques.</p>
       </div>
       <div class="fact">
         <span class="fact-num">034</span>
-        <p class="fact-text">大理古城的<strong>五华楼</strong>是地标建筑，虽然多次重建，但仍是俯瞰古城的最佳位置。</p>
+        <p class="fact-text cn">大理古城的<strong>五华楼</strong>是地标建筑，虽然多次重建，但仍是俯瞰古城的最佳位置。</p>
+        <p class="fact-text en">Dali's <strong>Bai-style architecture</strong> follows a traditional pattern: white walls, gray tiles, and elaborately painted eaves. The "three rooms and one screen wall" (san fang yi zhao bi) layout is unique to the Bai people.</p>
       </div>
       <div class="fact">
         <span class="fact-num">035</span>
-        <p class="fact-text">喜洲古镇保留了大量<strong>清末民初</strong>的白族大院，严家大院是其中最具代表性的建筑群。</p>
+        <p class="fact-text cn">喜洲古镇保留了大量<strong>清末民初</strong>的白族大院，严家大院是其中最具代表性的建筑群。</p>
+        <p class="fact-text en"><strong>Xizhou</strong>, a town about 20 km north of Dali old city, preserves the finest collection of Bai merchant mansions, some dating back over 200 years, with exquisite woodcarving and painted decorations.</p>
       </div>
       <div class="fact">
         <span class="fact-num">036</span>
-        <p class="fact-text">双廊曾是宁静的渔村，如今已变成<strong>网红打卡地</strong>，临海的民宿和咖啡馆密密麻麻，争相抢占"海景位"。</p>
+        <p class="fact-text cn">双廊曾是宁静的渔村，如今已变成<strong>网红打卡地</strong>，临海的民宿和咖啡馆密密麻麻，争相抢占"海景位"。</p>
+        <p class="fact-text en">Dali's old city has been increasingly <strong>commercialized</strong> — souvenir shops, bars, and guesthouses have replaced many traditional residences. Longtime locals complain that the old town has lost its authentic character and become a "theme park version" of itself.</p>
       </div>
       <div class="fact">
         <span class="fact-num">037</span>
-        <p class="fact-text">大理的<strong>民宿产业</strong>极其发达，从百元青旅到万元海景别墅应有尽有，民宿数量超过5000家。</p>
+        <p class="fact-text cn">大理的<strong>民宿产业</strong>极其发达，从百元青旅到万元海景别墅应有尽有，民宿数量超过5000家。</p>
+        <p class="fact-text en">The <strong>Catholic Church</strong> in Dali old city is an unexpected sight — a European-style church built by French missionaries in the early 20th century, complete with Bai architectural elements.</p>
       </div>
       <div class="fact">
         <span class="fact-num">038</span>
-        <p class="fact-text">2015年洱海治理后，<strong>大量环海民宿被拆除</strong>，一些业主投资打了水漂，这是大理旅游业的一次重大冲击。</p>
+        <p class="fact-text cn">2015年洱海治理后，<strong>大量环海民宿被拆除</strong>，一些业主投资打了水漂，这是大理旅游业的一次重大冲击。</p>
+        <p class="fact-text en">Dali's <strong>Erhai lakeside</strong> is lined with traditional fishing villages that have been converted into boutique inns and cafés. Shuanglang and Caicun are particularly popular, offering stunning sunrise views over the lake.</p>
       </div>
       <div class="fact">
         <span class="fact-num">039</span>
-        <p class="fact-text">大理古城的<strong>人民路</strong>曾是最文艺的街道，手工艺人、流浪歌手、摆摊艺术家聚集于此，如今已被商业店铺取代。</p>
+        <p class="fact-text cn">大理古城的<strong>人民路</strong>曾是最文艺的街道，手工艺人、流浪歌手、摆摊艺术家聚集于此，如今已被商业店铺取代。</p>
+        <p class="fact-text en">The <strong>former US consulate</strong> building in Xizhou is now a heritage site. During WWII, American forces used this base in operations along the Burma Road.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">040</span>
-        <p class="fact-text">大理周边村落正在经历<strong>"绅士化"</strong>进程——外来投资者买下老房子改造成民宿、咖啡馆、艺术空间，原住民则搬到更远的地方。才村、龙龛、银桥等村庄已经面目全非，有人称之为"大理的消亡"。</p>
+        <p class="fact-text cn">大理周边村落正在经历<strong>"绅士化"</strong>进程——外来投资者买下老房子改造成民宿、咖啡馆、艺术空间，原住民则搬到更远的地方。才村、龙龛、银桥等村庄已经面目全非，有人称之为"大理的消亡"。</p>
+        <p class="fact-text en">Dali's <strong>Guanyin Temple</strong> at the foot of Cangshan is significant for the Bai people — Guanyin (Avalokiteshvara) occupies a uniquely central role in Bai Buddhist practice, more so than in other Chinese Buddhist traditions.</p>
       </div>
     </div>
   </div>
@@ -490,49 +543,59 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">文化 &amp; 社会</div>
+      <div class="cat-name"><span class="cn">文化 &amp; 社会</span><span class="en">Culture &amp; Society</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">041</span>
-        <p class="fact-text">白族有自己的<strong>语言</strong>，属于藏缅语族，但如今大多数年轻白族人已不会说，只有老人还在使用。</p>
+        <p class="fact-text cn">白族有自己的<strong>语言</strong>，属于藏缅语族，但如今大多数年轻白族人已不会说，只有老人还在使用。</p>
+        <p class="fact-text en">Dali has become one of China's <strong>most popular digital nomad</strong> destinations. Fast internet, low living costs, and beautiful scenery attract remote workers, freelancers, and startup founders from across the country.</p>
       </div>
       <div class="fact">
         <span class="fact-num">042</span>
-        <p class="fact-text">白族女性传统服饰头饰叫<strong>"风花雪月"帽</strong>：垂下的穗子代表下关风，花代表上关花，白色代表苍山雪，弯弯的帽沿代表洱海月。</p>
+        <p class="fact-text cn">白族女性传统服饰头饰叫<strong>"风花雪月"帽</strong>：垂下的穗子代表下关风，花代表上关花，白色代表苍山雪，弯弯的帽沿代表洱海月。</p>
+        <p class="fact-text en">The <strong>Bai tie-dye (zharan)</strong> craft from Zhoucheng village near Dali is a national intangible cultural heritage. Artisans use natural indigo dye to create intricate patterns on white cloth by tying knots.</p>
       </div>
       <div class="fact">
         <span class="fact-num">043</span>
-        <p class="fact-text">大理三月街是白族最重要的<strong>传统节日</strong>，每年农历三月举行，持续一周，是贸易、社交和娱乐的盛会。</p>
+        <p class="fact-text cn">大理三月街是白族最重要的<strong>传统节日</strong>，每年农历三月举行，持续一周，是贸易、社交和娱乐的盛会。</p>
+        <p class="fact-text en">Dali's old town hosts a thriving <strong>live music</strong> scene. Bars along Renmin Road feature folk, rock, and world music performances nightly, drawing both tourists and resident musicians.</p>
       </div>
       <div class="fact">
         <span class="fact-num">044</span>
-        <p class="fact-text">大理是中国<strong>"数字游民"</strong>最集中的城市之一，大量远程工作者在这里租房生活，形成了独特的社群文化。</p>
+        <p class="fact-text cn">大理是中国<strong>"数字游民"</strong>最集中的城市之一，大量远程工作者在这里租房生活，形成了独特的社群文化。</p>
+        <p class="fact-text en">Dali has attracted a large community of <strong>artists, writers, and musicians</strong> who form an informal creative colony. Painters set up studios overlooking Erhai, writers retreat to mountain cabins, and musicians play in old-town courtyards — the landscape itself seems to inspire creative work.</p>
       </div>
       <div class="fact">
         <span class="fact-num">045</span>
-        <p class="fact-text">大理的<strong>"新移民"</strong>（外来定居者）数量庞大，他们开民宿、做手工、创业，改变了城市的人口结构和文化面貌。</p>
+        <p class="fact-text cn">大理的<strong>"新移民"</strong>（外来定居者）数量庞大，他们开民宿、做手工、创业，改变了城市的人口结构和文化面貌。</p>
+        <p class="fact-text en">The <strong>"Dali lifestyle"</strong> has become a social media phenomenon in China — images of Erhai sunsets, Cangshan clouds, coffee shops in ancient buildings, and carefree days have made Dali synonymous with the Chinese version of "la dolce vita."</p>
       </div>
       <div class="fact">
         <span class="fact-num">046</span>
-        <p class="fact-text">大理曾有活跃的<strong>LGBTQ社群</strong>，宽松的氛围吸引了很多"出柜"的年轻人在这里生活。</p>
+        <p class="fact-text cn">大理曾有活跃的<strong>LGBTQ社群</strong>，宽松的氛围吸引了很多"出柜"的年轻人在这里生活。</p>
+        <p class="fact-text en">Dali's <strong>LGBTQ+ community</strong> is surprisingly visible for a small Chinese city. The tolerant, bohemian atmosphere has made it a haven for people seeking acceptance outside of judgmental big-city environments.</p>
       </div>
       <div class="fact">
         <span class="fact-num">047</span>
-        <p class="fact-text">大理是<strong>"躺平文化"</strong>的代名词，很多年轻人辞掉城市的工作，来这里过低欲望、慢节奏的生活。</p>
+        <p class="fact-text cn">大理是<strong>"躺平文化"</strong>的代名词，很多年轻人辞掉城市的工作，来这里过低欲望、慢节奏的生活。</p>
+        <p class="fact-text en">Dali's old town <strong>Foreigner Street (Yangren Jie)</strong>, now officially called Huguo Road, was named for the backpackers and hippies who gathered here in the 1990s. It remains a hub for international travelers.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">048</span>
-        <p class="fact-text">大理存在明显的<strong>"两个世界"</strong>：一个是游客和新移民的世界，喝咖啡、开民宿、谈理想；另一个是本地白族人的世界，种田、做生意、过传统节日。这两个世界交集不多，有时甚至存在摩擦。</p>
+        <p class="fact-text cn">大理存在明显的<strong>"两个世界"</strong>：一个是游客和新移民的世界，喝咖啡、开民宿、谈理想；另一个是本地白族人的世界，种田、做生意、过传统节日。这两个世界交集不多，有时甚至存在摩擦。</p>
+        <p class="fact-text en">The <strong>Butterfly Spring (Hudie Quan)</strong> near Dali is a famous scenic spot where, according to legend, butterflies swarm by the thousands each April. The reality is less dramatic than the myth, but the spring itself is a beautiful natural pool.</p>
       </div>
       <div class="fact">
         <span class="fact-num">049</span>
-        <p class="fact-text">大理的<strong>扎染</strong>是白族传统工艺，用植物染料和扎结技法制作蓝白相间的图案，已被列为国家非物质文化遗产。</p>
+        <p class="fact-text cn">大理的<strong>扎染</strong>是白族传统工艺，用植物染料和扎结技法制作蓝白相间的图案，已被列为国家非物质文化遗产。</p>
+        <p class="fact-text en">Dali's <strong>Cangshan hiking trails</strong> range from easy lakeside walks to challenging alpine routes. The Jade Belt Path, midway up the mountain, offers a 17-km walk through cloud forests with sweeping views of Erhai below.</p>
       </div>
       <div class="fact">
         <span class="fact-num">050</span>
-        <p class="fact-text">大理人说话有独特的<strong>"大理腔"</strong>，尾音上扬，听起来温柔和缓，与昆明话有明显区别。</p>
+        <p class="fact-text cn">大理人说话有独特的<strong>"大理腔"</strong>，尾音上扬，听起来温柔和缓，与昆明话有明显区别。</p>
+        <p class="fact-text en">Dali receives about <strong>2,400 hours of sunshine</strong> per year, earning it the nickname "City of Sunshine." Unlike Kunming's uniformly mild climate, Dali has more dramatic temperature swings between day and night.</p>
       </div>
     </div>
   </div>
@@ -552,27 +615,33 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">051</span>
-        <p class="fact-text">洱海的水质曾经<strong>恶化到三类</strong>，经过严格治理后逐渐恢复，现在大部分区域达到二类水质标准。</p>
+        <p class="fact-text cn">洱海的水质曾经<strong>恶化到三类</strong>，经过严格治理后逐渐恢复，现在大部分区域达到二类水质标准。</p>
+        <p class="fact-text en">Dali's <strong>rainy season</strong> runs from June to October, with July and August being the wettest months. Afternoon thunderstorms are common but usually brief — locals say "Dali rain comes and goes like a guest."</p>
       </div>
       <div class="fact">
         <span class="fact-num">052</span>
-        <p class="fact-text">苍山有<strong>18条溪流</strong>流下山，形成众多瀑布和水潭，蝴蝶泉就是其中最著名的一个。</p>
+        <p class="fact-text cn">苍山有<strong>18条溪流</strong>流下山，形成众多瀑布和水潭，蝴蝶泉就是其中最著名的一个。</p>
+        <p class="fact-text en">Cangshan's peaks are dusted with <strong>snow from November through April</strong>. The combination of snowy mountains, blooming flowers, and lake reflections creates landscapes that look almost artificially beautiful.</p>
       </div>
       <div class="fact">
         <span class="fact-num">053</span>
-        <p class="fact-text">大理的<strong>杜鹃花</strong>品种极其丰富，苍山是世界杜鹃花的起源地之一，每年春天漫山遍野盛开。</p>
+        <p class="fact-text cn">大理的<strong>杜鹃花</strong>品种极其丰富，苍山是世界杜鹃花的起源地之一，每年春天漫山遍野盛开。</p>
+        <p class="fact-text en">Dali's <strong>Erhai Lake</strong> has faced serious pollution in recent years due to agricultural runoff and tourism development. In 2017, the government shut down hundreds of lakeside guesthouses and restaurants in a dramatic cleanup effort, sparking heated debate between economic and environmental priorities.</p>
       </div>
       <div class="fact">
         <span class="fact-num">054</span>
-        <p class="fact-text">洱海中曾有大量<strong>弓鱼</strong>（洱海特有鱼种），但由于过度捕捞和环境变化，野生弓鱼已几乎绝迹。</p>
+        <p class="fact-text cn">洱海中曾有大量<strong>弓鱼</strong>（洱海特有鱼种），但由于过度捕捞和环境变化，野生弓鱼已几乎绝迹。</p>
+        <p class="fact-text en">The <strong>alpine meadows</strong> above Cangshan's tree line, at about 3,500+ meters, are home to rare wildflowers and medicinal plants, including several species found nowhere else on Earth.</p>
       </div>
       <div class="fact">
         <span class="fact-num">055</span>
-        <p class="fact-text">大理是<strong>观鸟胜地</strong>，洱海湿地栖息着紫水鸡、白鹭、苍鹭等数十种水鸟，冬季还有候鸟迁徙而来。</p>
+        <p class="fact-text cn">大理是<strong>观鸟胜地</strong>，洱海湿地栖息着紫水鸡、白鹭、苍鹭等数十种水鸟，冬季还有候鸟迁徙而来。</p>
+        <p class="fact-text en">The winds at Xiaguan (the southern end of Dali) can reach <strong>speeds of 40-60 km/h</strong>, especially in winter and spring. The wind is so constant and powerful that wind turbines have been installed to generate electricity.</p>
       </div>
       <div class="fact">
         <span class="fact-num">056</span>
-        <p class="fact-text">苍山的<strong>高山植被</strong>呈垂直分布，从山脚到山顶可以看到亚热带、温带、寒带三种不同的植物群落。</p>
+        <p class="fact-text cn">苍山的<strong>高山植被</strong>呈垂直分布，从山脚到山顶可以看到亚热带、温带、寒带三种不同的植物群落。</p>
+        <p class="fact-text en">Erhai Lake is home to a unique species of <strong>endemic fish (Schizothorax)</strong> found only in this lake. Overfishing and pollution have pushed several Erhai-specific species to the brink of extinction.</p>
       </div>
     </div>
   </div>
@@ -587,27 +656,33 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">057</span>
-        <p class="fact-text">大理的<strong>旅游业</strong>是支柱产业，疫情前年游客量超过5000万人次，旅游收入占GDP比重极高。</p>
+        <p class="fact-text cn">大理的<strong>旅游业</strong>是支柱产业，疫情前年游客量超过5000万人次，旅游收入占GDP比重极高。</p>
+        <p class="fact-text en">Dali's night sky is remarkably <strong>star-filled</strong> — at 1,900 meters elevation with relatively little light pollution, stargazing from the Erhai lakeshore or Cangshan slopes is spectacular, especially during new moon phases.</p>
       </div>
       <div class="fact">
         <span class="fact-num">058</span>
-        <p class="fact-text">大理古城的<strong>商铺租金</strong>曾炒到每平方米每月数百元，与一线城市商业区相当，但疫情后大幅下跌。</p>
+        <p class="fact-text cn">大理古城的<strong>商铺租金</strong>曾炒到每平方米每月数百元，与一线城市商业区相当，但疫情后大幅下跌。</p>
+        <p class="fact-text en">Dali's Chinese name <strong>"大理"</strong> means "great governance" or "great order." Despite this orderly name, the city today attracts people who are deliberately seeking disorder — dropouts, dreamers, and those fleeing conventional life paths.</p>
       </div>
       <div class="fact">
         <span class="fact-num">059</span>
-        <p class="fact-text">大理的<strong>房价</strong>在云南属于中上水平，尤其是海景房和古城周边，每平方米可达2-3万元。</p>
+        <p class="fact-text cn">大理的<strong>房价</strong>在云南属于中上水平，尤其是海景房和古城周边，每平方米可达2-3万元。</p>
+        <p class="fact-text en">The <strong>Dali marble (dali shi)</strong> gave its name to marble worldwide — "marble" is literally called "Dali stone" in Chinese. The distinctive swirled stone from Cangshan has been prized for centuries.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">060</span>
-        <p class="fact-text">大理的<strong>经济结构单一</strong>是一个隐患——过度依赖旅游业使得城市抗风险能力很弱。疫情三年，大量民宿倒闭、商铺关门，很多"新大理人"被迫离开。这也让人们开始反思：一个只有旅游的城市，是否可持续？</p>
+        <p class="fact-text cn">大理的<strong>经济结构单一</strong>是一个隐患——过度依赖旅游业使得城市抗风险能力很弱。疫情三年，大量民宿倒闭、商铺关门，很多"新大理人"被迫离开。这也让人们开始反思：一个只有旅游的城市，是否可持续？</p>
+        <p class="fact-text en">The <strong>Bai calendar</strong> traditionally divides the year into periods based on agricultural activities and natural phenomena rather than following the standard Chinese lunar calendar. Some elderly Bai people still use this system.</p>
       </div>
       <div class="fact">
         <span class="fact-num">061</span>
-        <p class="fact-text">大理的<strong>核桃</strong>是重要农产品，漾濞彝族自治县被称为"中国核桃之乡"，年产量占全国1/10以上。</p>
+        <p class="fact-text cn">大理的<strong>核桃</strong>是重要农产品，漾濞彝族自治县被称为"中国核桃之乡"，年产量占全国1/10以上。</p>
+        <p class="fact-text en">The <strong>cormorant fishing</strong> tradition on Erhai Lake dates back centuries — fishermen train cormorants to catch fish by tying a ring around their necks to prevent swallowing large catches. While mostly performed for tourists now, a few elderly fishermen still practice it as their livelihood.</p>
       </div>
       <div class="fact">
         <span class="fact-num">062</span>
-        <p class="fact-text">大理的<strong>大理石</strong>因此地而得名，但由于过度开采，苍山大理石矿已被禁止开采，市面上的"大理石"多来自外地。</p>
+        <p class="fact-text cn">大理的<strong>大理石</strong>因此地而得名，但由于过度开采，苍山大理石矿已被禁止开采，市面上的"大理石"多来自外地。</p>
+        <p class="fact-text en">Dali's old town has a <strong>secret tunnel network</strong> beneath its streets, originally built for military purposes during the Ming Dynasty. Most tunnels are now sealed, but locals occasionally discover new passages during construction.</p>
       </div>
     </div>
   </div>
@@ -622,35 +697,43 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">063</span>
-        <p class="fact-text">大理人的作息<strong>非常随意</strong>，很多咖啡馆和小店没有固定营业时间，"老板心情好就开门"是常态。</p>
+        <p class="fact-text cn">大理人的作息<strong>非常随意</strong>，很多咖啡馆和小店没有固定营业时间，"老板心情好就开门"是常态。</p>
+        <p class="fact-text en">Dali's altitude of 1,900 meters means <strong>UV radiation is intense</strong>. Visitors from lowland cities often get sunburned within hours. The Bai people's traditional white clothing partly evolved as sun protection.</p>
       </div>
       <div class="fact">
         <span class="fact-num">064</span>
-        <p class="fact-text">大理的<strong>集市文化</strong>丰富，每周都有不同村落的赶集日，本地人买菜、买牲口、社交都在集市完成。</p>
+        <p class="fact-text cn">大理的<strong>集市文化</strong>丰富，每周都有不同村落的赶集日，本地人买菜、买牲口、社交都在集市完成。</p>
+        <p class="fact-text en">The <strong>Chongsheng Temple</strong> behind the Three Pagodas was the royal temple of the Dali Kingdom, where several kings abdicated their thrones to become monks — a unique tradition of "monk-kings" not found elsewhere in Chinese history.</p>
       </div>
       <div class="fact">
         <span class="fact-num">065</span>
-        <p class="fact-text">大理人喜欢<strong>晒太阳</strong>，无论是本地白族还是新移民，下午坐在院子里晒太阳、发呆是标配生活方式。</p>
+        <p class="fact-text cn">大理人喜欢<strong>晒太阳</strong>，无论是本地白族还是新移民，下午坐在院子里晒太阳、发呆是标配生活方式。</p>
+        <p class="fact-text en">Dali old town's <strong>street layout</strong> follows the ancient Chinese principle of sitting north facing south, with main streets running east-west and narrow alleys running north-south, channeling Cangshan's cool mountain breezes through the town.</p>
       </div>
       <div class="fact">
         <span class="fact-num">066</span>
-        <p class="fact-text">大理的<strong>"下午茶"</strong>文化浓厚，但喝的不是英式红茶，而是普洱茶、滇红，或者精品咖啡。</p>
+        <p class="fact-text cn">大理的<strong>"下午茶"</strong>文化浓厚，但喝的不是英式红茶，而是普洱茶、滇红，或者精品咖啡。</p>
+        <p class="fact-text en">The <strong>Shibaoshan Grottoes</strong> near Dali contain Buddhist cave carvings from the Nanzhao and Dali Kingdom periods. Some carvings depict a female fertility figure that suggests pre-Buddhist religious practices persisted alongside Buddhism.</p>
       </div>
       <div class="fact">
         <span class="fact-num">067</span>
-        <p class="fact-text">大理的<strong>夜生活</strong>不算丰富，古城有几家酒吧和Livehouse，但整体氛围以安静为主。</p>
+        <p class="fact-text cn">大理的<strong>夜生活</strong>不算丰富，古城有几家酒吧和Livehouse，但整体氛围以安静为主。</p>
+        <p class="fact-text en">A little-known fact: during the <strong>Nanzhao period</strong>, Dali had diplomatic relations with the Tang Dynasty, Tibet, and various Southeast Asian kingdoms simultaneously, playing them against each other to maintain independence.</p>
       </div>
       <div class="fact">
         <span class="fact-num">068</span>
-        <p class="fact-text">大理的<strong>街头艺人</strong>曾是风景之一，弹吉他唱歌的流浪歌手遍布人民路，如今因城市管理收紧，已大为减少。</p>
+        <p class="fact-text cn">大理的<strong>街头艺人</strong>曾是风景之一，弹吉他唱歌的流浪歌手遍布人民路，如今因城市管理收紧，已大为减少。</p>
+        <p class="fact-text en">Dali's <strong>"neo-hippie" community</strong> is a modern phenomenon — Chinese millennials who reject the 996 work culture and choose to live on modest savings, growing vegetables, making handicrafts, and hosting small gatherings.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">069</span>
-        <p class="fact-text">在大理生活有一种独特的<strong>"时间感"</strong>——日出日落、四季更替变得清晰可感，而城市里的时间焦虑则逐渐消失。很多人说在大理待久了，就"废"了——不是真的废了，而是再也无法适应大城市的节奏。</p>
+        <p class="fact-text cn">在大理生活有一种独特的<strong>"时间感"</strong>——日出日落、四季更替变得清晰可感，而城市里的时间焦虑则逐渐消失。很多人说在大理待久了，就"废"了——不是真的废了，而是再也无法适应大城市的节奏。</p>
+        <p class="fact-text en">Dali's local government has tried to balance <strong>tourism revenue</strong> with heritage preservation by limiting new construction within the old town walls and restricting building heights. Enforcement, however, remains inconsistent.</p>
       </div>
       <div class="fact">
         <span class="fact-num">070</span>
-        <p class="fact-text">大理的<strong>宠物狗</strong>特别多，尤其是新移民群体，几乎家家养狗，环海骑行时经常会遇到狗狗同行的队伍。</p>
+        <p class="fact-text cn">大理的<strong>宠物狗</strong>特别多，尤其是新移民群体，几乎家家养狗，环海骑行时经常会遇到狗狗同行的队伍。</p>
+        <p class="fact-text en">Dali faces a <strong>"brain drain"</strong> paradox — talented young Bai people leave for bigger cities seeking career opportunities, while urban refugees from those same cities flock to Dali seeking meaning. The result is a cultural exchange that neither side fully anticipated.</p>
       </div>
     </div>
   </div>
@@ -665,43 +748,53 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">071</span>
-        <p class="fact-text">大理的<strong>"下关风"</strong>是出了名的大，冬春季节风力可达6-7级，当地人已经习以为常。</p>
+        <p class="fact-text cn">大理的<strong>"下关风"</strong>是出了名的大，冬春季节风力可达6-7级，当地人已经习以为常。</p>
+        <p class="fact-text en">Erhai's <strong>sunrise</strong> is Dali's most photographed daily event. From the eastern shore, watching the sun emerge between Cangshan's peaks and reflect across the still lake surface draws photographers and romantics alike.</p>
       </div>
       <div class="fact">
         <span class="fact-num">072</span>
-        <p class="fact-text">蝴蝶泉曾经每年有<strong>数万只蝴蝶</strong>聚集，如今因环境变化，蝴蝶数量大减，盛况已难再现。</p>
+        <p class="fact-text cn">蝴蝶泉曾经每年有<strong>数万只蝴蝶</strong>聚集，如今因环境变化，蝴蝶数量大减，盛况已难再现。</p>
+        <p class="fact-text en">The Dali municipal government has been promoting <strong>"slow tourism"</strong> — encouraging visitors to stay longer and spend more in local communities rather than rushing through on day trips. This contrasts with China's typical high-volume, fast-turnaround tourism model.</p>
       </div>
       <div class="fact">
         <span class="fact-num">073</span>
-        <p class="fact-text">大理有<strong>"本主崇拜"</strong>传统，每个村子都有自己的保护神（本主），有的是历史人物，有的是神话角色。</p>
+        <p class="fact-text cn">大理有<strong>"本主崇拜"</strong>传统，每个村子都有自己的保护神（本主），有的是历史人物，有的是神话角色。</p>
+        <p class="fact-text en">Dali's <strong>real estate</strong> has become contentious — outside investors buying up traditional Bai homes to convert into boutique inns has driven up property prices, pricing out local families. Some villages have seen their entire character transformed within a few years.</p>
       </div>
       <div class="fact">
         <span class="fact-num">074</span>
-        <p class="fact-text">大理的<strong>火把节</strong>是白族最隆重的节日之一，农历六月二十五前后，家家户户点燃火把，场面壮观。</p>
+        <p class="fact-text cn">大理的<strong>火把节</strong>是白族最隆重的节日之一，农历六月二十五前后，家家户户点燃火把，场面壮观。</p>
+        <p class="fact-text en">Dali is increasingly becoming a destination for <strong>yoga retreats and wellness tourism</strong> — the combination of mountain air, quiet temples, and natural beauty attracts health-conscious travelers from across Asia.</p>
       </div>
       <div class="fact">
         <span class="fact-num">075</span>
-        <p class="fact-text">大理古城的<strong>城门</strong>曾经夜间会关闭，直到2000年代才取消宵禁，现在24小时敞开。</p>
+        <p class="fact-text cn">大理古城的<strong>城门</strong>曾经夜间会关闭，直到2000年代才取消宵禁，现在24小时敞开。</p>
+        <p class="fact-text en">Dali's old town <strong>cat population</strong> is legendary — hundreds of semi-feral cats roam the streets, lounging on ancient walls and in coffee shop doorways. They've become unofficial ambassadors and frequent social media stars.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">076</span>
-        <p class="fact-text">大理有一个<strong>都市传说</strong>：在大理认识的人，不管是朋友还是恋人，离开大理后关系就会淡化甚至断裂。有人把这叫做"大理结界"——在这里建立的一切，似乎只属于这里。</p>
+        <p class="fact-text cn">大理有一个<strong>都市传说</strong>：在大理认识的人，不管是朋友还是恋人，离开大理后关系就会淡化甚至断裂。有人把这叫做"大理结界"——在这里建立的一切，似乎只属于这里。</p>
+        <p class="fact-text en">The proposed <strong>Dali-Ruili Railway</strong> will eventually connect Dali to the Myanmar border, furthering Yunnan's role as a land bridge to Southeast Asia. The engineering challenges through mountainous terrain are immense.</p>
       </div>
       <div class="fact">
         <span class="fact-num">077</span>
-        <p class="fact-text">大理的<strong>海菜花</strong>是洱海特有的水生植物，只能在清洁的水中生长，被视为洱海水质的"晴雨表"。</p>
+        <p class="fact-text cn">大理的<strong>海菜花</strong>是洱海特有的水生植物，只能在清洁的水中生长，被视为洱海水质的"晴雨表"。</p>
+        <p class="fact-text en">Dali's <strong>property bubble</strong> concerns are growing — many guesthouses and cafés built during the tourism boom sit empty during off-season months, and some investors have lost significant money on ill-timed purchases.</p>
       </div>
       <div class="fact">
         <span class="fact-num">078</span>
-        <p class="fact-text">大理曾有大量<strong>"义工旅行"</strong>机会，用劳动换取食宿，吸引了很多背包客，但近年来这种模式已大为减少。</p>
+        <p class="fact-text cn">大理曾有大量<strong>"义工旅行"</strong>机会，用劳动换取食宿，吸引了很多背包客，但近年来这种模式已大为减少。</p>
+        <p class="fact-text en">Environmental groups have warned that <strong>Erhai Lake's ecosystem</strong> is at a tipping point — algal blooms, declining fish populations, and shrinking wetlands signal that without sustained intervention, the lake that defines Dali could be irreversibly degraded.</p>
       </div>
       <div class="fact">
         <span class="fact-num">079</span>
-        <p class="fact-text">大理的<strong>房东</strong>很多是外地投资者，他们买下老房子改造后出租，形成了独特的"二房东"生态。</p>
+        <p class="fact-text cn">大理的<strong>房东</strong>很多是外地投资者，他们买下老房子改造后出租，形成了独特的"二房东"生态。</p>
+        <p class="fact-text en">Dali locals (especially the Bai people) can tell <strong>where you're from</strong> by your Bai dialect — each village around Erhai has subtle pronunciation differences that serve as geographic fingerprints.</p>
       </div>
       <div class="fact">
         <span class="fact-num">080</span>
-        <p class="fact-text">大理的<strong>星空</strong>曾经非常纯净，但随着城市灯光增多，光污染日益严重，如今只有苍山深处还能看到银河。</p>
+        <p class="fact-text cn">大理的<strong>星空</strong>曾经非常纯净，但随着城市灯光增多，光污染日益严重，如今只有苍山深处还能看到银河。</p>
+        <p class="fact-text en">Real Dali insiders know the best <strong>erkuai</strong> isn't sold in the old town — it's from roadside stalls in Xiaguan, the modern city center that tourists rarely visit. The aunties there have been making it the same way for decades.</p>
       </div>
     </div>
   </div>
@@ -716,27 +809,33 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">081</span>
-        <p class="fact-text">大理有活跃的<strong>独立音乐</strong>场景，很多音乐人选择在这里创作，麻园诗人、蓝调乐队等都曾驻扎大理。</p>
+        <p class="fact-text cn">大理有活跃的<strong>独立音乐</strong>场景，很多音乐人选择在这里创作，麻园诗人、蓝调乐队等都曾驻扎大理。</p>
+        <p class="fact-text en">Long-term Dali residents have an unwritten rule: <strong>don't ask someone why they came to Dali</strong>. Everyone has a story — a broken relationship, a career collapse, a spiritual quest — and the polite thing is to let them share in their own time.</p>
       </div>
       <div class="fact">
         <span class="fact-num">082</span>
-        <p class="fact-text">大理的<strong>手工艺</strong>文化丰富，扎染、银饰、木雕、陶艺都有专门的工作室和传承人。</p>
+        <p class="fact-text cn">大理的<strong>手工艺</strong>文化丰富，扎染、银饰、木雕、陶艺都有专门的工作室和传承人。</p>
+        <p class="fact-text en">The ultimate Dali wisdom, shared by locals and long-term transplants alike, is <strong>"发呆也是一种修行"</strong> (spacing out is also a form of practice). In a world obsessed with productivity, Dali insists that doing absolutely nothing — staring at Cangshan, listening to rain, watching clouds drift — is not laziness but a legitimate path to understanding.</p>
       </div>
       <div class="fact">
         <span class="fact-num">083</span>
-        <p class="fact-text">大理有多家<strong>独立书店</strong>，海豚阿德书店、大理书院等是文艺青年的聚集地。</p>
+        <p class="fact-text cn">大理有多家<strong>独立书店</strong>，海豚阿德书店、大理书院等是文艺青年的聚集地。</p>
+        <p class="fact-text en">Dali has several <strong>independent bookstores</strong> — Dolphin Ade Bookstore and Dali Academy are popular gathering spots for literary youth.</p>
       </div>
       <div class="fact">
         <span class="fact-num">084</span>
-        <p class="fact-text">大理的<strong>摄影师</strong>群体庞大，无论是风光摄影还是人像摄影，洱海和苍山提供了绝佳的创作素材。</p>
+        <p class="fact-text cn">大理的<strong>摄影师</strong>群体庞大，无论是风光摄影还是人像摄影，洱海和苍山提供了绝佳的创作素材。</p>
+        <p class="fact-text en">Dali has a large community of <strong>photographers</strong>. Whether landscape or portrait photography, Erhai and Cangshan provide exceptional creative backdrops.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">085</span>
-        <p class="fact-text">大理曾被称为<strong>"中国的乌托邦"</strong>——艺术家、作家、音乐人、理想主义者聚集于此，试图建立一种不同于主流的生活方式。但商业化的侵蚀让这个乌托邦逐渐褪色，很多早期移民已经离开，去寻找下一个"大理"。</p>
+        <p class="fact-text cn">大理曾被称为<strong>"中国的乌托邦"</strong>——艺术家、作家、音乐人、理想主义者聚集于此，试图建立一种不同于主流的生活方式。但商业化的侵蚀让这个乌托邦逐渐褪色，很多早期移民已经离开，去寻找下一个"大理"。</p>
+        <p class="fact-text en">Dali has been called <strong>"China's Utopia"</strong> — artists, writers, musicians, and idealists gather here, trying to build an alternative way of life outside mainstream society.</p>
       </div>
       <div class="fact">
         <span class="fact-num">086</span>
-        <p class="fact-text">大理的<strong>床车营地</strong>和户外社群非常活跃，很多人开着房车或改装车，过着半游牧式的生活。</p>
+        <p class="fact-text cn">大理的<strong>床车营地</strong>和户外社群非常活跃，很多人开着房车或改装车，过着半游牧式的生活。</p>
+        <p class="fact-text en">Dali's <strong>van life camps</strong> and outdoor communities are very active. Many people drive converted vans or RVs, living a semi-nomadic lifestyle.</p>
       </div>
     </div>
   </div>
@@ -751,19 +850,23 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">087</span>
-        <p class="fact-text">大理大学是当地唯一的本科院校，因校园<strong>紧邻洱海</strong>而被称为"中国最美大学"之一。</p>
+        <p class="fact-text cn">大理大学是当地唯一的本科院校，因校园<strong>紧邻洱海</strong>而被称为"中国最美大学"之一。</p>
+        <p class="fact-text en">Dali University is the only undergraduate institution in the area. Its campus <strong>right next to Erhai</strong> has earned it the title of "one of China's most beautiful universities."</p>
       </div>
       <div class="fact">
         <span class="fact-num">088</span>
-        <p class="fact-text">大理有多所<strong>国际学校</strong>和创新教育机构，吸引了追求"另类教育"的家庭定居。</p>
+        <p class="fact-text cn">大理有多所<strong>国际学校</strong>和创新教育机构，吸引了追求"另类教育"的家庭定居。</p>
+        <p class="fact-text en">Dali has several <strong>international schools</strong> and innovative education institutions, attracting families seeking "alternative education" to settle here.</p>
       </div>
       <div class="fact">
         <span class="fact-num">089</span>
-        <p class="fact-text">大理的<strong>教育资源</strong>相对有限，这也是很多新移民家庭犹豫是否长期定居的重要因素。</p>
+        <p class="fact-text cn">大理的<strong>教育资源</strong>相对有限，这也是很多新移民家庭犹豫是否长期定居的重要因素。</p>
+        <p class="fact-text en">Dali's <strong>educational resources</strong> are relatively limited — this is an important factor for many transplant families hesitating about whether to settle long-term.</p>
       </div>
       <div class="fact">
         <span class="fact-num">090</span>
-        <p class="fact-text">大理有不少<strong>自然教育</strong>项目，带孩子认识植物、观察鸟类、体验农耕生活。</p>
+        <p class="fact-text cn">大理有不少<strong>自然教育</strong>项目，带孩子认识植物、观察鸟类、体验农耕生活。</p>
+        <p class="fact-text en">Dali has numerous <strong>nature education</strong> programs that teach children to identify plants, observe birds, and experience farming life.</p>
       </div>
     </div>
   </div>
@@ -778,43 +881,53 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">091</span>
-        <p class="fact-text">在大理生活的人分为两类：<strong>"大理人"</strong>（本地白族）和<strong>"新大理人"</strong>（外来定居者），两个群体有不同的生活圈。</p>
+        <p class="fact-text cn">在大理生活的人分为两类：<strong>"大理人"</strong>（本地白族）和<strong>"新大理人"</strong>（外来定居者），两个群体有不同的生活圈。</p>
+        <p class="fact-text en">People living in Dali fall into two groups: <strong>"Dali locals"</strong> (native Bai people) and <strong>"New Dali people"</strong> (transplants from other cities). The relationship between these two communities is complex and evolving.</p>
       </div>
       <div class="fact">
         <span class="fact-num">092</span>
-        <p class="fact-text">新大理人选择来这里的原因各异：有人为了<strong>逃离内卷</strong>，有人为了创业，有人为了疗愈，有人只是想换一种活法。</p>
+        <p class="fact-text cn">新大理人选择来这里的原因各异：有人为了<strong>逃离内卷</strong>，有人为了创业，有人为了疗愈，有人只是想换一种活法。</p>
+        <p class="fact-text en">New Dali residents come for different reasons: some to <strong>escape the rat race</strong>, some to start businesses, some to heal, some simply because they fell in love with the scenery and couldn't leave.</p>
       </div>
       <div class="fact">
         <span class="fact-num">093</span>
-        <p class="fact-text">在大理待久了，很多人会发现自己的<strong>消费观</strong>变了——不再追求名牌，不再攀比，开始关注真正让自己快乐的事。</p>
+        <p class="fact-text cn">在大理待久了，很多人会发现自己的<strong>消费观</strong>变了——不再追求名牌，不再攀比，开始关注真正让自己快乐的事。</p>
+        <p class="fact-text en">After staying in Dali long enough, many people find their <strong>consumption habits</strong> change — no longer chasing brands or keeping up with the Joneses, starting to value quality of life over material displays.</p>
       </div>
       <div class="fact">
         <span class="fact-num">094</span>
-        <p class="fact-text">大理的<strong>社交圈</strong>相对固定，待久了会发现"圈子很小"，到处都能遇到认识的人。</p>
+        <p class="fact-text cn">大理的<strong>社交圈</strong>相对固定，待久了会发现"圈子很小"，到处都能遇到认识的人。</p>
+        <p class="fact-text en">Dali's <strong>social circles</strong> are relatively fixed. Stay long enough and you'll find it's a "small world" — familiar faces pop up everywhere.</p>
       </div>
       <div class="fact">
         <span class="fact-num">095</span>
-        <p class="fact-text">很多人来大理是为了<strong>"找自己"</strong>，但也有人发现，逃到这里并不能解决内心的问题。</p>
+        <p class="fact-text cn">很多人来大理是为了<strong>"找自己"</strong>，但也有人发现，逃到这里并不能解决内心的问题。</p>
+        <p class="fact-text en">Many people come to Dali to <strong>"find themselves,"</strong> but some discover that running away to a beautiful place doesn't resolve inner turmoil.</p>
       </div>
       <div class="fact">
         <span class="fact-num">096</span>
-        <p class="fact-text">大理的<strong>生活成本</strong>比想象中高，尤其是房租和餐饮，想要"隐居"也需要经济基础。</p>
+        <p class="fact-text cn">大理的<strong>生活成本</strong>比想象中高，尤其是房租和餐饮，想要"隐居"也需要经济基础。</p>
+        <p class="fact-text en">Dali's <strong>cost of living</strong> is higher than expected — especially rent and dining. Even "hiding away" here requires a financial foundation.</p>
       </div>
       <div class="fact">
         <span class="fact-num">097</span>
-        <p class="fact-text">大理让人<strong>慢下来</strong>，但慢下来之后做什么，是每个定居者都要面对的问题。</p>
+        <p class="fact-text cn">大理让人<strong>慢下来</strong>，但慢下来之后做什么，是每个定居者都要面对的问题。</p>
+        <p class="fact-text en">Dali makes you <strong>slow down</strong>, but what to do after slowing down is a question every settler must face.</p>
       </div>
       <div class="fact">
         <span class="fact-num">098</span>
-        <p class="fact-text">大理人常说的一句话是："<strong>来都来了</strong>"——既是对游客的调侃，也是对自己选择的接纳。</p>
+        <p class="fact-text cn">大理人常说的一句话是："<strong>来都来了</strong>"——既是对游客的调侃，也是对自己选择的接纳。</p>
+        <p class="fact-text en">A common Dali saying is: <strong>"lai dou lai le"</strong> (you're here already) — both a playful jab at tourists and an acceptance of one's own choices.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">099</span>
-        <p class="fact-text">大理是一面<strong>镜子</strong>——它会放大你内心的宁静，也会放大你的焦虑和迷茫。那些在大理找到归宿的人，往往不是逃避什么，而是清楚自己想要什么。</p>
+        <p class="fact-text cn">大理是一面<strong>镜子</strong>——它会放大你内心的宁静，也会放大你的焦虑和迷茫。那些在大理找到归宿的人，往往不是逃避什么，而是清楚自己想要什么。</p>
+        <p class="fact-text en">Dali is a <strong>mirror</strong> — it amplifies your inner peace, but also amplifies your anxiety and confusion. Those who find peace in Dali brought it with them; those who don't found that the problem was never about the place.</p>
       </div>
       <div class="fact">
         <span class="fact-num">100</span>
-        <p class="fact-text">无论大理如何变化，有一件事始终没变：每天早晨，苍山依旧云雾缭绕，洱海依旧波光粼粼，<strong>日子依旧在缓缓流淌</strong>。</p>
+        <p class="fact-text cn">无论大理如何变化，有一件事始终没变：每天早晨，苍山依旧云雾缭绕，洱海依旧波光粼粼，<strong>日子依旧在缓缓流淌</strong>。</p>
+        <p class="fact-text en">No matter how Dali changes, one thing remains constant: every morning, Cangshan is still shrouded in mist, Erhai still sparkles in the light, and <strong>life still flows gently onward</strong>. Perhaps that is Dali's truest gift — the reminder that the world keeps turning, beautifully and without hurry.</p>
       </div>
     </div>
   </div>
@@ -826,6 +939,11 @@
   <div class="footer-ornament">✦</div>
   <p>100 Things · 一百件小事</p>
 </footer>
+
+<script>
+(function(){var l=localStorage.getItem('citybits-lang')||'cn';document.body.classList.add('lang-'+l);})();
+function toggleLang(){var e=document.body.classList.contains('lang-en');document.body.classList.remove('lang-cn','lang-en');var n=e?'cn':'en';document.body.classList.add('lang-'+n);localStorage.setItem('citybits-lang',n);}
+</script>
 
 </body>
 </html>

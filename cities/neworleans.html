@@ -236,6 +236,17 @@
     color: var(--rust);
   }
 
+  
+  .lang-toggle { position: fixed; top: 20px; right: 20px; z-index: 100; }
+  .lang-btn { background: var(--paper); border: 1px solid var(--line); padding: 8px 14px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--steel); cursor: pointer; transition: all 0.2s; }
+  .lang-btn:hover { border-color: var(--rust); color: var(--rust); }
+  .en { display: none; }
+  body.lang-en .en { display: inline; }
+  body.lang-en .cn { display: none; }
+  body.lang-en p.en, body.lang-en div.en { display: block; }
+  body.lang-en p.cn, body.lang-en div.cn { display: none; }
+  body.lang-en span.en { display: inline; }
+
   @media (max-width: 600px) {
     .back-link { position: static; margin: 20px; display: inline-block; }
     header { padding: 60px 24px 40px; grid-template-columns: 1fr; }
@@ -248,14 +259,16 @@
 </head>
 <body>
 
-<a href="../index.html" class="back-link">← 返回城市列表</a>
+<div class="lang-toggle"><button class="lang-btn" onclick="toggleLang()"><span class="cn">EN</span><span class="en">CN</span></button></div>
+
+<a href="../index.html" class="back-link"><span class="cn">← 返回城市列表</span><span class="en">← Back to cities</span></a>
 
 <header>
   <div>
-    <div class="masthead-eyebrow">CityBits · 城市观察</div>
+    <div class="masthead-eyebrow">CityBits · <span class="cn">城市观察</span><span class="en">City Observer</span></div>
     <h1>New<br><em>Orleans</em></h1>
     <p style="margin-top:20px; font-family:'Noto Serif SC'; font-size:15px; font-weight:300; color:var(--steel); line-height:2;">
-      100件你可能不知道的小事<br>关于这座爵士乐的故乡
+      <span class="cn">100件你可能不知道的小事<br>关于这座爵士乐的故乡</span><span class="en">100 things you might not know<br>about the birthplace of jazz</span>
     </p>
   </div>
   <div style="text-align:right;">
@@ -270,41 +283,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">地理 &amp; 城市结构</div>
+      <div class="cat-name"><span class="cn">地理 &amp; 城市结构</span><span class="en">Geography &amp; Urban Structure</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">001</span>
-        <p class="fact-text">新奥尔良位于<strong>海平面以下</strong>，城市大部分区域比密西西比河水位还低，完全依赖堤坝和水泵系统维持干燥。</p>
+        <p class="fact-text cn">新奥尔良位于<strong>海平面以下</strong>，城市大部分区域比密西西比河水位还低，完全依赖堤坝和水泵系统维持干燥。</p>
+        <p class="fact-text en">New Orleans sits largely <strong>below sea level</strong> — the city is essentially a bowl surrounded by the Mississippi River, Lake Pontchartrain, and swamps. Some neighborhoods sit up to 3 meters below sea level.</p>
       </div>
       <div class="fact">
         <span class="fact-num">002</span>
-        <p class="fact-text">新奥尔良的形状像一个<strong>弯月</strong>，因此被称为"Crescent City"（新月之城），密西西比河在此拐弯入海。</p>
+        <p class="fact-text cn">新奥尔良的形状像一个<strong>弯月</strong>，因此被称为"Crescent City"（新月之城），密西西比河在此拐弯入海。</p>
+        <p class="fact-text en">The city is built on the <strong>Mississippi River delta</strong>, on land composed of river sediment that continues to sink. This subsidence, combined with rising sea levels, makes New Orleans one of the most vulnerable major cities in the US.</p>
       </div>
       <div class="fact">
         <span class="fact-num">003</span>
-        <p class="fact-text">法语区（French Quarter）是城市<strong>最古老的街区</strong>，但现存建筑大多是西班牙殖民时期的风格，而非法式。</p>
+        <p class="fact-text cn">法语区（French Quarter）是城市<strong>最古老的街区</strong>，但现存建筑大多是西班牙殖民时期的风格，而非法式。</p>
+        <p class="fact-text en">The <strong>French Quarter</strong> (Vieux Carré) is the oldest neighborhood in New Orleans, though most of its buildings are actually Spanish colonial in style — two devastating fires during Spain's rule led to a complete rebuilding.</p>
       </div>
       <div class="fact">
         <span class="fact-num">004</span>
-        <p class="fact-text">新奥尔良的<strong>花园区</strong>（Garden District）以19世纪美国富商的豪宅著称，橡树林荫道和铁艺围栏是标志景观。</p>
+        <p class="fact-text cn">新奥尔良的<strong>花园区</strong>（Garden District）以19世纪美国富商的豪宅著称，橡树林荫道和铁艺围栏是标志景观。</p>
+        <p class="fact-text en">New Orleans is shaped like a <strong>crescent</strong> hugging a bend in the Mississippi River, which earned it the nickname "Crescent City." The river's curve also means that "north" and "south" directions are virtually meaningless here — locals use "lakeside" and "riverside" instead.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">005</span>
-        <p class="fact-text">新奥尔良正在<strong>缓慢下沉</strong>——由于地下水抽取、沼泽地基压缩等原因，城市每年下沉约2-5厘米。加上海平面上升和飓风威胁，这座城市的长期存续面临根本性挑战。很多科学家预测，如果不采取激进措施，新奥尔良可能在本世纪末部分被淹没。</p>
+        <p class="fact-text cn">新奥尔良正在<strong>缓慢下沉</strong>——由于地下水抽取、沼泽地基压缩等原因，城市每年下沉约2-5厘米。加上海平面上升和飓风威胁，这座城市的长期存续面临根本性挑战。很多科学家预测，如果不采取激进措施，新奥尔良可能在本世纪末部分被淹没。</p>
+        <p class="fact-text en">New Orleans' geography is fundamentally defined by <strong>water management</strong> — the city relies on an elaborate system of levees, pumps, and canals to keep the Mississippi and Lake Pontchartrain from reclaiming the land. The pumping system can move over 30 billion gallons of water per day. Without constant human intervention, New Orleans would literally disappear underwater within weeks.</p>
       </div>
       <div class="fact">
         <span class="fact-num">006</span>
-        <p class="fact-text">新奥尔良被<strong>庞恰特雷恩湖</strong>（Lake Pontchartrain）环抱，这实际上是一个潟湖，与墨西哥湾相连。</p>
+        <p class="fact-text cn">新奥尔良被<strong>庞恰特雷恩湖</strong>（Lake Pontchartrain）环抱，这实际上是一个潟湖，与墨西哥湾相连。</p>
+        <p class="fact-text en">The <strong>Garden District</strong> features some of America's finest antebellum mansions, with live oaks draped in Spanish moss lining the streets. The neighborhood's name comes from the elaborate gardens that wealthy Americans cultivated to distinguish themselves from the Creole French Quarter residents.</p>
       </div>
       <div class="fact">
         <span class="fact-num">007</span>
-        <p class="fact-text">城市的<strong>街道名</strong>保留了大量法语和西班牙语遗迹：Bourbon（波旁）、Royal（皇家）、Chartres（沙特尔）等。</p>
+        <p class="fact-text cn">城市的<strong>街道名</strong>保留了大量法语和西班牙语遗迹：Bourbon（波旁）、Royal（皇家）、Chartres（沙特尔）等。</p>
+        <p class="fact-text en"><strong>Lake Pontchartrain</strong> is not actually a lake but a tidal lagoon connected to the Gulf of Mexico. Its causeway, at 38.6 km, is one of the longest bridges over water in the world.</p>
       </div>
       <div class="fact">
         <span class="fact-num">008</span>
-        <p class="fact-text">新奥尔良的<strong>墓地</strong>被称为"死亡之城"，由于地下水位高，棺材会浮起，所以全部采用地上墓葬。</p>
+        <p class="fact-text cn">新奥尔良的<strong>墓地</strong>被称为"死亡之城"，由于地下水位高，棺材会浮起，所以全部采用地上墓葬。</p>
+        <p class="fact-text en">The city's <strong>above-ground cemeteries</strong> earned New Orleans the nickname "City of the Dead." Because the high water table prevents traditional burial, the dead are interred in elaborate tombs that look like miniature houses.</p>
       </div>
     </div>
   </div>
@@ -324,35 +345,43 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">009</span>
-        <p class="fact-text">新奥尔良的<strong>有轨电车</strong>（Streetcar）是全美最古老的公共交通系统之一，圣查尔斯线自1835年运营至今。</p>
+        <p class="fact-text cn">新奥尔良的<strong>有轨电车</strong>（Streetcar）是全美最古老的公共交通系统之一，圣查尔斯线自1835年运营至今。</p>
+        <p class="fact-text en">New Orleans' <strong>streetcar</strong> system is one of the oldest continuously operating in the world. The St. Charles line has been running since 1835 — its olive-green cars are the city's most beloved form of transit.</p>
       </div>
       <div class="fact">
         <span class="fact-num">010</span>
-        <p class="fact-text">电车是<strong>田纳西·威廉斯</strong>名剧《欲望号街车》的灵感来源，"Desire"实际上是一条已停运的电车线路名。</p>
+        <p class="fact-text cn">电车是<strong>田纳西·威廉斯</strong>名剧《欲望号街车》的灵感来源，"Desire"实际上是一条已停运的电车线路名。</p>
+        <p class="fact-text en">The <strong>Pontchartrain Causeway</strong> stretches 38.6 km across Lake Pontchartrain. For much of the drive, no land is visible in any direction — a disorienting experience for first-time crossers.</p>
       </div>
       <div class="fact">
         <span class="fact-num">011</span>
-        <p class="fact-text">新奥尔良的<strong>公共交通</strong>整体落后，很多人依赖私家车，这也是卡特里娜飓风时很多穷人无法撤离的原因之一。</p>
+        <p class="fact-text cn">新奥尔良的<strong>公共交通</strong>整体落后，很多人依赖私家车，这也是卡特里娜飓风时很多穷人无法撤离的原因之一。</p>
+        <p class="fact-text en">New Orleans' streets are <strong>notoriously potholed</strong>. The combination of sinking soil, aging infrastructure, and frequent flooding means roads are in constant disrepair. Locals joke that driving in New Orleans is like an obstacle course.</p>
       </div>
       <div class="fact">
         <span class="fact-num">012</span>
-        <p class="fact-text">新奥尔良的<strong>道路状况</strong>极差，坑洼遍地，当地人戏称开车像在月球表面行驶。</p>
+        <p class="fact-text cn">新奥尔良的<strong>道路状况</strong>极差，坑洼遍地，当地人戏称开车像在月球表面行驶。</p>
+        <p class="fact-text en">New Orleans' unique relationship with water extends to its <strong>drainage system</strong> — the city depends on massive pumping stations to remove rainwater, since gravity alone can't drain water from a bowl-shaped city. When pumps fail during heavy rain, flooding is immediate and severe. This fragile infrastructure was catastrophically exposed during Hurricane Katrina.</p>
       </div>
       <div class="fact">
         <span class="fact-num">013</span>
-        <p class="fact-text">法语区是<strong>步行者天堂</strong>，大部分景点、酒吧、餐厅都在步行范围内，不需要开车。</p>
+        <p class="fact-text cn">法语区是<strong>步行者天堂</strong>，大部分景点、酒吧、餐厅都在步行范围内，不需要开车。</p>
+        <p class="fact-text en">The <strong>Mississippi River</strong> flows right through the city but sits higher than the surrounding neighborhoods. The levees that contain it are literally above the rooftops of nearby houses — an unnerving reality for residents.</p>
       </div>
       <div class="fact">
         <span class="fact-num">014</span>
-        <p class="fact-text">密西西比河上的<strong>渡轮</strong>免费运营，连接新奥尔良与西岸的阿尔及尔角，是欣赏城市天际线的好方式。</p>
+        <p class="fact-text cn">密西西比河上的<strong>渡轮</strong>免费运营，连接新奥尔良与西岸的阿尔及尔角，是欣赏城市天际线的好方式。</p>
+        <p class="fact-text en">Louis Armstrong <strong>International Airport</strong> was renamed in 2001 to honor New Orleans' most famous son. The new terminal, opened in 2019, is a dramatic improvement over the infamously decrepit old one.</p>
       </div>
       <div class="fact">
         <span class="fact-num">015</span>
-        <p class="fact-text">新奥尔良机场名为<strong>路易斯·阿姆斯特朗国际机场</strong>，以爵士乐传奇命名，是全美唯一以音乐家命名的主要机场。</p>
+        <p class="fact-text cn">新奥尔良机场名为<strong>路易斯·阿姆斯特朗国际机场</strong>，以爵士乐传奇命名，是全美唯一以音乐家命名的主要机场。</p>
+        <p class="fact-text en">New Orleans is one of the few US cities where <strong>walking and biking</strong> are genuinely viable transportation — the compact French Quarter and surrounding neighborhoods are easily navigable on foot.</p>
       </div>
       <div class="fact">
         <span class="fact-num">016</span>
-        <p class="fact-text">新奥尔良是美国少数几个<strong>允许在公共场所饮酒</strong>的城市之一，走在街上手拿鸡尾酒完全合法。</p>
+        <p class="fact-text cn">新奥尔良是美国少数几个<strong>允许在公共场所饮酒</strong>的城市之一，走在街上手拿鸡尾酒完全合法。</p>
+        <p class="fact-text en">New Orleans has the most <strong>festivals per capita</strong> of any American city — over 130 annually, including Mardi Gras, Jazz Fest, Essence Festival, and dozens of neighborhood celebrations.</p>
       </div>
     </div>
   </div>
@@ -361,41 +390,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">食物 &amp; 饮食文化</div>
+      <div class="cat-name"><span class="cn">食物 &amp; 饮食文化</span><span class="en">Food &amp; Dining Culture</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">017</span>
-        <p class="fact-text">新奥尔良菜融合了<strong>法国、西班牙、非洲、加勒比</strong>多元影响，形成独特的克里奥尔（Creole）和卡津（Cajun）风味。</p>
+        <p class="fact-text cn">新奥尔良菜融合了<strong>法国、西班牙、非洲、加勒比</strong>多元影响，形成独特的克里奥尔（Creole）和卡津（Cajun）风味。</p>
+        <p class="fact-text en"><strong>Gumbo</strong> is New Orleans' signature dish — a thick stew with African, French, and Native American influences. Every family has their own recipe, and the debate between okra-based and filé-based gumbo is one of the city's great culinary arguments.</p>
       </div>
       <div class="fact">
         <span class="fact-num">018</span>
-        <p class="fact-text">Gumbo是新奥尔良的<strong>招牌菜</strong>，一种浓稠的炖汤，用秋葵、香肠、海鲜或鸡肉熬制，配米饭食用。</p>
+        <p class="fact-text cn">Gumbo是新奥尔良的<strong>招牌菜</strong>，一种浓稠的炖汤，用秋葵、香肠、海鲜或鸡肉熬制，配米饭食用。</p>
+        <p class="fact-text en"><strong>Beignets</strong> from Café du Monde are perhaps New Orleans' most famous food item — square French-style doughnuts buried under a mountain of powdered sugar, served 24 hours a day alongside café au lait.</p>
       </div>
       <div class="fact">
         <span class="fact-num">019</span>
-        <p class="fact-text">Jambalaya是另一道<strong>经典料理</strong>，类似西班牙海鲜饭，混合了香肠、虾、蔬菜和米饭。</p>
+        <p class="fact-text cn">Jambalaya是另一道<strong>经典料理</strong>，类似西班牙海鲜饭，混合了香肠、虾、蔬菜和米饭。</p>
+        <p class="fact-text en">The <strong>po'boy</strong> sandwich was invented during a 1929 streetcar workers' strike. The owners of Martin Brothers' restaurant served free sandwiches to the "poor boys" on strike. The overstuffed sandwich — typically filled with fried shrimp, oysters, or roast beef — became New Orleans' iconic casual meal.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">020</span>
-        <p class="fact-text">新奥尔良的<strong>Po'boy三明治</strong>是城市灵魂美食——法式面包夹炸虾、炸牡蛎或其他海鲜，起源于1929年大罢工期间，当时有餐厅免费给罢工工人提供食物，称他们为"poor boys"，后简化为Po'boy。</p>
+        <p class="fact-text cn">新奥尔良的<strong>Po'boy三明治</strong>是城市灵魂美食——法式面包夹炸虾、炸牡蛎或其他海鲜，起源于1929年大罢工期间，当时有餐厅免费给罢工工人提供食物，称他们为"poor boys"，后简化为Po'boy。</p>
+        <p class="fact-text en">New Orleans' food culture is deeply rooted in <strong>Creole and Cajun</strong> traditions — Creole cooking is the city-based, refined style influenced by French, Spanish, African, and Caribbean cuisines, while Cajun cooking comes from the rural French-speaking Acadians of the bayou. Many dishes commonly attributed to one tradition actually draw from both. Jambalaya, crawfish étouffée, red beans and rice, and muffuletta sandwiches are all unique to this region and cannot be authentically replicated anywhere else.</p>
       </div>
       <div class="fact">
         <span class="fact-num">021</span>
-        <p class="fact-text">Beignet是新奥尔良的<strong>法式甜甜圈</strong>，撒上厚厚的糖粉，Café du Monde的beignet是游客必打卡项目。</p>
+        <p class="fact-text cn">Beignet是新奥尔良的<strong>法式甜甜圈</strong>，撒上厚厚的糖粉，Café du Monde的beignet是游客必打卡项目。</p>
+        <p class="fact-text en"><strong>Crawfish boil</strong> season (late winter through early summer) is a citywide celebration. Families and friends gather outdoors to boil pounds of crawfish with potatoes, corn, and heavy Cajun seasoning — it's as much social ritual as it is a meal.</p>
       </div>
       <div class="fact">
         <span class="fact-num">022</span>
-        <p class="fact-text">新奥尔良是<strong>小龙虾之都</strong>，每年消费的小龙虾数以百万磅计，Crawfish Boil（煮小龙虾派对）是当地社交活动。</p>
+        <p class="fact-text cn">新奥尔良是<strong>小龙虾之都</strong>，每年消费的小龙虾数以百万磅计，Crawfish Boil（煮小龙虾派对）是当地社交活动。</p>
+        <p class="fact-text en">New Orleans' <strong>cocktail culture</strong> is legendary — the city claims to have invented the cocktail itself. The Sazerac (rye, absinthe, bitters) is the official cocktail of New Orleans, and the Hurricane (rum, passion fruit) is the tourist favorite.</p>
       </div>
       <div class="fact">
         <span class="fact-num">023</span>
-        <p class="fact-text">新奥尔良的<strong>鸡尾酒文化</strong>举世闻名，Sazerac被认为是美国第一款鸡尾酒，Hurricane和Hand Grenade是当地特色。</p>
+        <p class="fact-text cn">新奥尔良的<strong>鸡尾酒文化</strong>举世闻名，Sazerac被认为是美国第一款鸡尾酒，Hurricane和Hand Grenade是当地特色。</p>
+        <p class="fact-text en"><strong>Red beans and rice</strong> is the traditional Monday dish — housewives would put beans on to simmer while doing laundry on Mondays (historically the busiest housework day). Louis Armstrong used to sign his letters "Red beans and ricely yours."</p>
       </div>
       <div class="fact">
         <span class="fact-num">024</span>
-        <p class="fact-text">新奥尔良每周五<strong>必吃海鲜</strong>，这是天主教斋戒传统的遗留，很多餐厅周五有特别的海鲜套餐。</p>
+        <p class="fact-text cn">新奥尔良每周五<strong>必吃海鲜</strong>，这是天主教斋戒传统的遗留，很多餐厅周五有特别的海鲜套餐。</p>
+        <p class="fact-text en">New Orleans' <strong>pralines</strong> (pecan candies) are a Creole creation adapted from the French original, substituting locally abundant pecans for almonds. They're sold at candy shops throughout the French Quarter.</p>
       </div>
     </div>
   </div>
@@ -404,41 +441,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">历史 &amp; 政治</div>
+      <div class="cat-name"><span class="cn">历史 &amp; 政治</span><span class="en">History &amp; Politics</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">025</span>
-        <p class="fact-text">新奥尔良由<strong>法国人</strong>建于1718年，以法国摄政王奥尔良公爵命名，后被转让给西班牙，再卖给美国。</p>
+        <p class="fact-text cn">新奥尔良由<strong>法国人</strong>建于1718年，以法国摄政王奥尔良公爵命名，后被转让给西班牙，再卖给美国。</p>
+        <p class="fact-text en"><strong>Jean Lafitte</strong>, the legendary pirate and privateer, operated out of the New Orleans bayous in the early 1800s. He helped Andrew Jackson defend the city during the Battle of New Orleans in 1815 and received a presidential pardon for his services.</p>
       </div>
       <div class="fact">
         <span class="fact-num">026</span>
-        <p class="fact-text">1803年的<strong>路易斯安那购地案</strong>是美国历史上最划算的交易——美国以1500万美元从拿破仑手中买下整个路易斯安那领地。</p>
+        <p class="fact-text cn">1803年的<strong>路易斯安那购地案</strong>是美国历史上最划算的交易——美国以1500万美元从拿破仑手中买下整个路易斯安那领地。</p>
+        <p class="fact-text en">The <strong>Louisiana Purchase</strong> of 1803 — in which the US bought New Orleans and 828,000 square miles of territory from Napoleon for $15 million — is considered the greatest real estate deal in history, effectively doubling the size of the United States.</p>
       </div>
       <div class="fact">
         <span class="fact-num">027</span>
-        <p class="fact-text">新奥尔良曾是美国最大的<strong>奴隶市场</strong>，成千上万的非洲奴隶在这里被买卖，这段历史深刻塑造了城市的文化和人口构成。</p>
+        <p class="fact-text cn">新奥尔良曾是美国最大的<strong>奴隶市场</strong>，成千上万的非洲奴隶在这里被买卖，这段历史深刻塑造了城市的文化和人口构成。</p>
+        <p class="fact-text en">New Orleans was the largest <strong>slave market</strong> in the antebellum South. The city's wealth was built on the labor of enslaved people, and this history profoundly shapes the city's culture, demographics, and ongoing racial dynamics to this day.</p>
       </div>
       <div class="fact">
         <span class="fact-num">028</span>
-        <p class="fact-text">新奥尔良有独特的<strong>"自由有色人"</strong>（Free People of Color）群体，他们在奴隶制时代就是自由身，形成了独特的克里奥尔文化。</p>
+        <p class="fact-text cn">新奥尔良有独特的<strong>"自由有色人"</strong>（Free People of Color）群体，他们在奴隶制时代就是自由身，形成了独特的克里奥尔文化。</p>
+        <p class="fact-text en">The <strong>Battle of New Orleans</strong> (January 1815) was the final major battle of the War of 1812 — and was actually fought two weeks after the peace treaty had been signed, because news traveled slowly. Andrew Jackson's decisive victory made him a national hero and eventually president.</p>
       </div>
       <div class="fact">
         <span class="fact-num">029</span>
-        <p class="fact-text">1815年的<strong>新奥尔良战役</strong>是英美战争的最后一战，安德鲁·杰克逊在此击败英军，成为战争英雄，后当选总统。</p>
+        <p class="fact-text cn">1815年的<strong>新奥尔良战役</strong>是英美战争的最后一战，安德鲁·杰克逊在此击败英军，成为战争英雄，后当选总统。</p>
+        <p class="fact-text en">New Orleans' <strong>Creole culture</strong> is unique in America — a complex blend of French, Spanish, African, Caribbean, and Catholic traditions that produced a distinct language (Louisiana Creole), cuisine, music, and social structure found nowhere else in the world.</p>
       </div>
       <div class="fact">
         <span class="fact-num">030</span>
-        <p class="fact-text">新奥尔良长期是<strong>腐败之城</strong>，政治机器、黑帮、贿赂是城市政治的常态，"路易斯安那政治"成为美国政治腐败的代名词。</p>
+        <p class="fact-text cn">新奥尔良长期是<strong>腐败之城</strong>，政治机器、黑帮、贿赂是城市政治的常态，"路易斯安那政治"成为美国政治腐败的代名词。</p>
+        <p class="fact-text en">The <strong>Storyville</strong> red-light district, legal from 1897 to 1917, was the birthplace of jazz. Musicians like Jelly Roll Morton and King Oliver played in the district's clubs and brothels, developing the improvisational style that would become America's greatest musical contribution to the world.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">031</span>
-        <p class="fact-text">2005年的<strong>卡特里娜飓风</strong>是新奥尔良历史上最惨痛的灾难——堤坝决口，80%的城市被淹，1800多人死亡，数十万人流离失所。联邦政府的救援失败暴露了美国体制的深层问题。至今，很多居民仍未返回，城市人口比飓风前减少了约20%。</p>
+        <p class="fact-text cn">2005年的<strong>卡特里娜飓风</strong>是新奥尔良历史上最惨痛的灾难——堤坝决口，80%的城市被淹，1800多人死亡，数十万人流离失所。联邦政府的救援失败暴露了美国体制的深层问题。至今，很多居民仍未返回，城市人口比飓风前减少了约20%。</p>
+        <p class="fact-text en"><strong>Mardi Gras</strong> has been celebrated in New Orleans since 1699. The two-week festival culminates on Fat Tuesday with elaborate parades, masked balls, and the famous throwing of beads, doubloons, and cups from floats.</p>
       </div>
       <div class="fact">
         <span class="fact-num">032</span>
-        <p class="fact-text">新奥尔良<strong>黑人人口</strong>占总人口约60%，是美国黑人文化最浓郁的城市之一，但种族隔离和不平等问题至今存在。</p>
+        <p class="fact-text cn">新奥尔良<strong>黑人人口</strong>占总人口约60%，是美国黑人文化最浓郁的城市之一，但种族隔离和不平等问题至今存在。</p>
+        <p class="fact-text en">The 2005 <strong>Hurricane Katrina</strong> and the subsequent levee failures killed over 1,800 people and displaced hundreds of thousands. It was the deadliest and costliest natural disaster in modern US history, exposing catastrophic failures in engineering, emergency response, and racial equity.</p>
       </div>
     </div>
   </div>
@@ -447,41 +492,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">建筑 &amp; 空间</div>
+      <div class="cat-name"><span class="cn">建筑 &amp; 空间</span><span class="en">Architecture &amp; Space</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">033</span>
-        <p class="fact-text">法语区的<strong>铁艺阳台</strong>是城市标志性景观，实际上是西班牙殖民时期引入的，法国人原本不用铁艺装饰。</p>
+        <p class="fact-text cn">法语区的<strong>铁艺阳台</strong>是城市标志性景观，实际上是西班牙殖民时期引入的，法国人原本不用铁艺装饰。</p>
+        <p class="fact-text en"><strong>Jackson Square</strong> in the French Quarter is named after Andrew Jackson and features the iconic St. Louis Cathedral — the oldest continuously active cathedral in the United States, consecrated in 1794.</p>
       </div>
       <div class="fact">
         <span class="fact-num">034</span>
-        <p class="fact-text">新奥尔良的房屋有独特的<strong>"Shotgun House"</strong>风格——狭长的单层木屋，据说从前门开枪可以直接穿过后门。</p>
+        <p class="fact-text cn">新奥尔良的房屋有独特的<strong>"Shotgun House"</strong>风格——狭长的单层木屋，据说从前门开枪可以直接穿过后门。</p>
+        <p class="fact-text en"><strong>St. Louis Cemetery No. 1</strong> is the city's oldest existing cemetery (1789) and home to the alleged tomb of voodoo queen Marie Laveau. Due to vandalism, it's now accessible only by guided tour.</p>
       </div>
       <div class="fact">
         <span class="fact-num">035</span>
-        <p class="fact-text">圣路易大教堂是美国<strong>最古老的天主教堂</strong>之一，建于1718年，是法语区杰克逊广场的地标。</p>
+        <p class="fact-text cn">圣路易大教堂是美国<strong>最古老的天主教堂</strong>之一，建于1718年，是法语区杰克逊广场的地标。</p>
+        <p class="fact-text en">The <strong>Superdome</strong> (now Caesars Superdome) is one of the largest domed structures in the world. During Katrina, it served as a shelter of last resort for over 20,000 people in horrific conditions — images that shocked the world.</p>
       </div>
       <div class="fact">
         <span class="fact-num">036</span>
-        <p class="fact-text">花园区的<strong>橡树林荫道</strong>（Oak Alley）是南方种植园建筑的经典代表，28棵300年橡树形成壮观的隧道。</p>
+        <p class="fact-text cn">花园区的<strong>橡树林荫道</strong>（Oak Alley）是南方种植园建筑的经典代表，28棵300年橡树形成壮观的隧道。</p>
+        <p class="fact-text en">New Orleans' <strong>shotgun houses</strong> are the city's most distinctive residential architecture — long, narrow houses with rooms arranged one behind another, without hallways. The name supposedly comes from the idea that you could fire a shotgun through the front door and the bullet would exit the back without hitting a wall.</p>
       </div>
       <div class="fact">
         <span class="fact-num">037</span>
-        <p class="fact-text">新奥尔良的<strong>超级穹顶体育馆</strong>在卡特里娜飓风期间成为避难所，但条件恶劣，数万人在此度过噩梦般的数天。</p>
+        <p class="fact-text cn">新奥尔良的<strong>超级穹顶体育馆</strong>在卡特里娜飓风期间成为避难所，但条件恶劣，数万人在此度过噩梦般的数天。</p>
+        <p class="fact-text en">The <strong>French Market</strong> in the French Quarter has operated continuously since 1791, making it the oldest public market in the United States. It now features a flea market, food stalls, and artisan vendors.</p>
       </div>
       <div class="fact">
         <span class="fact-num">038</span>
-        <p class="fact-text">保存大厅（Preservation Hall）是新奥尔良最著名的<strong>爵士乐酒吧</strong>，自1961年营业至今，没有空调、没有酒水，只有纯粹的音乐。</p>
+        <p class="fact-text cn">保存大厅（Preservation Hall）是新奥尔良最著名的<strong>爵士乐酒吧</strong>，自1961年营业至今，没有空调、没有酒水，只有纯粹的音乐。</p>
+        <p class="fact-text en"><strong>Magazine Street</strong> stretches 10 km through some of New Orleans' most charming neighborhoods, lined with antique shops, galleries, boutiques, and restaurants. It's the city's best shopping corridor.</p>
       </div>
       <div class="fact">
         <span class="fact-num">039</span>
-        <p class="fact-text">新奥尔良的<strong>拉斐特公墓</strong>是全美最上镜的墓地之一，出现在无数电影和电视剧中，是哥特式浪漫的象征。</p>
+        <p class="fact-text cn">新奥尔良的<strong>拉斐特公墓</strong>是全美最上镜的墓地之一，出现在无数电影和电视剧中，是哥特式浪漫的象征。</p>
+        <p class="fact-text en">The <strong>Preservation Hall</strong> is a cramped, no-frills music venue in the French Quarter dedicated exclusively to traditional New Orleans jazz. There are no drinks, no food, no air conditioning — just music so pure it brings audiences to tears nightly.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">040</span>
-        <p class="fact-text">卡特里娜后的<strong>重建</strong>是一个复杂的故事——一些街区得到修复甚至绅士化，房价飙升，原住民被迫迁出；另一些街区至今仍是废墟，杂草丛生。这种不均衡的复苏反映了美国社会的深层不平等。</p>
+        <p class="fact-text cn">卡特里娜后的<strong>重建</strong>是一个复杂的故事——一些街区得到修复甚至绅士化，房价飙升，原住民被迫迁出；另一些街区至今仍是废墟，杂草丛生。这种不均衡的复苏反映了美国社会的深层不平等。</p>
+        <p class="fact-text en">New Orleans' <strong>wrought-iron balconies</strong> in the French Quarter are actually Spanish, not French — they were built after the fires of 1788 and 1794 destroyed the original French colonial buildings. The elaborate ironwork has become the city's most photographed architectural feature.</p>
       </div>
     </div>
   </div>
@@ -490,49 +543,59 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">文化 &amp; 社会</div>
+      <div class="cat-name"><span class="cn">文化 &amp; 社会</span><span class="en">Culture &amp; Society</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">041</span>
-        <p class="fact-text">新奥尔良是<strong>爵士乐的诞生地</strong>，19世纪末20世纪初，非洲节奏、欧洲和声和蓝调在这里融合，创造了全新的音乐形式。</p>
+        <p class="fact-text cn">新奥尔良是<strong>爵士乐的诞生地</strong>，19世纪末20世纪初，非洲节奏、欧洲和声和蓝调在这里融合，创造了全新的音乐形式。</p>
+        <p class="fact-text en"><strong>Jazz</strong> was born in New Orleans in the early 1900s, emerging from the intersection of African rhythms, European harmonies, and Caribbean musical traditions. Louis Armstrong, born in a New Orleans slum in 1901, became the genre's greatest ambassador.</p>
       </div>
       <div class="fact">
         <span class="fact-num">042</span>
-        <p class="fact-text">路易斯·阿姆斯特朗是新奥尔良最伟大的<strong>音乐家</strong>，他从贫民区走出，成为全球爵士乐的象征。</p>
+        <p class="fact-text cn">路易斯·阿姆斯特朗是新奥尔良最伟大的<strong>音乐家</strong>，他从贫民区走出，成为全球爵士乐的象征。</p>
+        <p class="fact-text en"><strong>Mardi Gras Indians</strong> are African American neighborhood groups that create spectacular hand-sewn beaded suits (costing thousands of dollars and taking a full year to make) and parade on Mardi Gras and St. Joseph's Day. This tradition blends African, Caribbean, and Native American cultural elements.</p>
       </div>
       <div class="fact">
         <span class="fact-num">043</span>
-        <p class="fact-text">狂欢节（Mardi Gras）是新奥尔良最盛大的<strong>年度庆典</strong>，每年吸引数百万游客，持续数周的游行、派对和狂欢。</p>
+        <p class="fact-text cn">狂欢节（Mardi Gras）是新奥尔良最盛大的<strong>年度庆典</strong>，每年吸引数百万游客，持续数周的游行、派对和狂欢。</p>
+        <p class="fact-text en">New Orleans' <strong>second-line parades</strong> are spontaneous street celebrations where a brass band leads and the "second line" of dancers and revelers follows. They happen nearly every weekend and are the city's most authentic cultural expression.</p>
       </div>
       <div class="fact">
         <span class="fact-num">044</span>
-        <p class="fact-text">狂欢节的<strong>彩珠</strong>（beads）是标志性元素，游行队伍向人群抛撒彩珠，接到越多越幸运。</p>
+        <p class="fact-text cn">狂欢节的<strong>彩珠</strong>（beads）是标志性元素，游行队伍向人群抛撒彩珠，接到越多越幸运。</p>
+        <p class="fact-text en">New Orleans is the birthplace of <strong>brass band culture</strong> — the Rebirth Brass Band, Hot 8 Brass Band, and Preservation Hall Jazz Band keep the tradition alive. The sound of a brass band echoing through the streets is the sonic signature of the city.</p>
       </div>
       <div class="fact">
         <span class="fact-num">045</span>
-        <p class="fact-text">新奥尔良的<strong>葬礼游行</strong>（Second Line）是独特的文化传统——送葬队伍伴随铜管乐队前行，悲伤的哀乐逐渐转为欢快的爵士乐。</p>
+        <p class="fact-text cn">新奥尔良的<strong>葬礼游行</strong>（Second Line）是独特的文化传统——送葬队伍伴随铜管乐队前行，悲伤的哀乐逐渐转为欢快的爵士乐。</p>
+        <p class="fact-text en"><strong>Voodoo</strong> (more accurately, Vodou) is a genuine religious practice in New Orleans, blending West African spiritual traditions with Catholicism. Marie Laveau, the 19th-century "Voodoo Queen," remains the city's most legendary figure. The New Orleans Historic Voodoo Museum offers insight into a tradition that is far more complex and spiritual than Hollywood portrayals suggest.</p>
       </div>
       <div class="fact">
         <span class="fact-num">046</span>
-        <p class="fact-text">新奥尔良有浓厚的<strong>巫毒教</strong>（Voodoo）传统，融合了非洲宗教与天主教元素，玛丽·拉沃是最著名的巫毒女王。</p>
+        <p class="fact-text cn">新奥尔良有浓厚的<strong>巫毒教</strong>（Voodoo）传统，融合了非洲宗教与天主教元素，玛丽·拉沃是最著名的巫毒女王。</p>
+        <p class="fact-text en">New Orleans' <strong>literary tradition</strong> is extraordinary — Tennessee Williams wrote "A Streetcar Named Desire" here, William Faulkner lived in the French Quarter, and Anne Rice set her vampire novels in the city's Gothic landscape.</p>
       </div>
       <div class="fact">
         <span class="fact-num">047</span>
-        <p class="fact-text">新奥尔良人以<strong>"laissez les bons temps rouler"</strong>（让美好时光滚动起来）为座右铭，享乐主义是城市的核心价值。</p>
+        <p class="fact-text cn">新奥尔良人以<strong>"laissez les bons temps rouler"</strong>（让美好时光滚动起来）为座右铭，享乐主义是城市的核心价值。</p>
+        <p class="fact-text en">New Orleans' <strong>LGBTQ+ community</strong> is one of the most vibrant in the South. The annual Southern Decadence festival draws over 200,000 participants and is the largest LGBTQ+ event in the region.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">048</span>
-        <p class="fact-text">新奥尔良是美国<strong>LGBTQ文化</strong>最开放的南方城市，每年的Southern Decadence是全美最大的同志庆典之一。这种开放态度与天主教传统、南方保守主义并存，形成了新奥尔良独特的"矛盾共存"文化。</p>
+        <p class="fact-text cn">新奥尔良是美国<strong>LGBTQ文化</strong>最开放的南方城市，每年的Southern Decadence是全美最大的同志庆典之一。这种开放态度与天主教传统、南方保守主义并存，形成了新奥尔良独特的"矛盾共存"文化。</p>
+        <p class="fact-text en"><strong>Bourbon Street</strong> is simultaneously New Orleans' most famous and most despised street — tourists love its neon-lit bars and open-container policy, while locals avoid it entirely, viewing it as a debased caricature of the city's real culture.</p>
       </div>
       <div class="fact">
         <span class="fact-num">049</span>
-        <p class="fact-text">新奥尔良的<strong>社交俱乐部</strong>（Social Aid and Pleasure Clubs）是非裔社区的重要组织，负责葬礼、游行和社区互助。</p>
+        <p class="fact-text cn">新奥尔良的<strong>社交俱乐部</strong>（Social Aid and Pleasure Clubs）是非裔社区的重要组织，负责葬礼、游行和社区互助。</p>
+        <p class="fact-text en">New Orleans celebrates <strong>death differently</strong> — jazz funerals feature a brass band playing somber hymns on the way to the cemetery and upbeat, dancing music on the way back. The tradition transforms grief into celebration, reflecting the city's deeply ingrained philosophy that life should be celebrated at every turn.</p>
       </div>
       <div class="fact">
         <span class="fact-num">050</span>
-        <p class="fact-text">新奥尔良人对<strong>大学橄榄球</strong>的热情不亚于任何南方城市，LSU（路易斯安那州立大学）的比赛日全城沸腾。</p>
+        <p class="fact-text cn">新奥尔良人对<strong>大学橄榄球</strong>的热情不亚于任何南方城市，LSU（路易斯安那州立大学）的比赛日全城沸腾。</p>
+        <p class="fact-text en"><strong>Lundi Gras</strong> (the Monday before Mardi Gras) features the arrival of Rex, the King of Carnival, by riverboat — a tradition that dates back to 1874 and marks the beginning of the final 36 hours of Carnival.</p>
       </div>
     </div>
   </div>
@@ -552,27 +615,33 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">051</span>
-        <p class="fact-text">新奥尔良周边是<strong>密西西比河三角洲</strong>湿地，这片沼泽地是美国最重要的生态系统之一，但正在以惊人速度消失。</p>
+        <p class="fact-text cn">新奥尔良周边是<strong>密西西比河三角洲</strong>湿地，这片沼泽地是美国最重要的生态系统之一，但正在以惊人速度消失。</p>
+        <p class="fact-text en">The <strong>New Orleans Saints</strong> football team and the Superdome are central to the city's identity. The Saints' Super Bowl victory in 2010 — coming just years after Katrina — was seen as a moment of spiritual redemption for the entire city.</p>
       </div>
       <div class="fact">
         <span class="fact-num">052</span>
-        <p class="fact-text">路易斯安那州的<strong>鳄鱼</strong>数量超过200万只，在新奥尔良郊外的沼泽地很容易看到野生鳄鱼。</p>
+        <p class="fact-text cn">路易斯安那州的<strong>鳄鱼</strong>数量超过200万只，在新奥尔良郊外的沼泽地很容易看到野生鳄鱼。</p>
+        <p class="fact-text en"><strong>Bourbon Street's</strong> name has nothing to do with bourbon whiskey — it's named after the French royal House of Bourbon. However, the street has fully embraced the whiskey association for marketing purposes.</p>
       </div>
       <div class="fact">
         <span class="fact-num">053</span>
-        <p class="fact-text">新奥尔良的<strong>飓风季</strong>从6月持续到11月，每年都有多次热带风暴威胁，居民已经习惯了"撤离或硬扛"的生活。</p>
+        <p class="fact-text cn">新奥尔良的<strong>飓风季</strong>从6月持续到11月，每年都有多次热带风暴威胁，居民已经习惯了"撤离或硬扛"的生活。</p>
+        <p class="fact-text en">The <strong>tourism industry</strong> is New Orleans' largest employer, generating over $10 billion annually. The city hosts approximately 18 million visitors per year, with Mardi Gras alone bringing in over 1.4 million.</p>
       </div>
       <div class="fact">
         <span class="fact-num">054</span>
-        <p class="fact-text">新奥尔良的<strong>湿度</strong>极高，夏季闷热难耐，体感温度常常超过40°C，空调是生存必需品。</p>
+        <p class="fact-text cn">新奥尔良的<strong>湿度</strong>极高，夏季闷热难耐，体感温度常常超过40°C，空调是生存必需品。</p>
+        <p class="fact-text en">New Orleans' <strong>port</strong> is the sixth-largest in the US by tonnage. Its strategic position at the mouth of the Mississippi makes it a crucial gateway for agricultural exports from the entire Midwest.</p>
       </div>
       <div class="fact">
         <span class="fact-num">055</span>
-        <p class="fact-text">新奥尔良的<strong>蚊子</strong>堪称恐怖，尤其在雨后，户外活动需要大量驱蚊剂保护。</p>
+        <p class="fact-text cn">新奥尔良的<strong>蚊子</strong>堪称恐怖，尤其在雨后，户外活动需要大量驱蚊剂保护。</p>
+        <p class="fact-text en">The <strong>oil and gas industry</strong> has historically been a major employer, with many energy companies headquartered in New Orleans. The 2010 Deepwater Horizon disaster, just offshore, devastated the local fishing and tourism industries.</p>
       </div>
       <div class="fact">
         <span class="fact-num">056</span>
-        <p class="fact-text">路易斯安那的<strong>棕色鹈鹕</strong>是州鸟，也是NBA新奥尔良鹈鹕队的命名来源。</p>
+        <p class="fact-text cn">路易斯安那的<strong>棕色鹈鹕</strong>是州鸟，也是NBA新奥尔良鹈鹕队的命名来源。</p>
+        <p class="fact-text en">New Orleans' <strong>film industry</strong> has earned Louisiana the nickname "Hollywood South." Tax incentives have attracted major productions, and the city's atmospheric architecture provides ready-made sets for period dramas and thrillers.</p>
       </div>
     </div>
   </div>
@@ -587,27 +656,33 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">057</span>
-        <p class="fact-text">新奥尔良港是美国<strong>最繁忙的港口之一</strong>，处理大量石油、谷物和集装箱货物。</p>
+        <p class="fact-text cn">新奥尔良港是美国<strong>最繁忙的港口之一</strong>，处理大量石油、谷物和集装箱货物。</p>
+        <p class="fact-text en">New Orleans' economy is <strong>heavily dependent on tourism and hospitality</strong>, making it extremely vulnerable to disruptions. The COVID-19 pandemic devastated the city's economy — Bourbon Street stood empty, hotels closed, and tens of thousands of service workers lost their jobs overnight.</p>
       </div>
       <div class="fact">
         <span class="fact-num">058</span>
-        <p class="fact-text">旅游业是新奥尔良<strong>经济支柱</strong>，每年吸引超过1800万游客，贡献数十亿美元收入。</p>
+        <p class="fact-text cn">旅游业是新奥尔良<strong>经济支柱</strong>，每年吸引超过1800万游客，贡献数十亿美元收入。</p>
+        <p class="fact-text en">New Orleans' <strong>creative economy</strong> — music, art, food, and cultural tourism — generates billions but often fails to adequately compensate the Black artists and culture bearers who create and sustain these traditions. The tension between cultural celebration and economic exploitation is a defining issue.</p>
       </div>
       <div class="fact">
         <span class="fact-num">059</span>
-        <p class="fact-text">新奥尔良的<strong>石油和天然气</strong>产业曾是经济命脉，但随着能源转型，这一产业正在萎缩。</p>
+        <p class="fact-text cn">新奥尔良的<strong>石油和天然气</strong>产业曾是经济命脉，但随着能源转型，这一产业正在萎缩。</p>
+        <p class="fact-text en">New Orleans has one of the highest <strong>poverty rates</strong> among major US cities — approximately 25% of residents live below the poverty line, with rates even higher in predominantly Black neighborhoods.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">060</span>
-        <p class="fact-text">新奥尔良的<strong>贫困率</strong>在美国大城市中名列前茅，约25%的居民生活在贫困线以下。卡特里娜后的重建主要惠及了游客区和富人区，而贫困社区的改善有限。这座派对之城的背后是严峻的社会不平等。</p>
+        <p class="fact-text cn">新奥尔良的<strong>贫困率</strong>在美国大城市中名列前茅，约25%的居民生活在贫困线以下。卡特里娜后的重建主要惠及了游客区和富人区，而贫困社区的改善有限。这座派对之城的背后是严峻的社会不平等。</p>
+        <p class="fact-text en">The <strong>cost of living</strong> in New Orleans is lower than most major US cities, making it attractive to artists and young professionals. However, post-Katrina gentrification has rapidly driven up rents in historically affordable neighborhoods.</p>
       </div>
       <div class="fact">
         <span class="fact-num">061</span>
-        <p class="fact-text">新奥尔良的<strong>餐饮业</strong>是重要雇主，从高档餐厅到街边小摊，数万人靠食物谋生。</p>
+        <p class="fact-text cn">新奥尔良的<strong>餐饮业</strong>是重要雇主，从高档餐厅到街边小摊，数万人靠食物谋生。</p>
+        <p class="fact-text en">New Orleans' climate is <strong>subtropical</strong> — summers are brutally hot and humid (regularly exceeding 35°C with 90%+ humidity), while winters are mild with occasional cool snaps. The heat from June to September is genuinely oppressive.</p>
       </div>
       <div class="fact">
         <span class="fact-num">062</span>
-        <p class="fact-text">新奥尔良的<strong>房价</strong>在卡特里娜后经历了剧烈波动，如今热门街区的价格已超过飓风前，但很多区域仍是空地。</p>
+        <p class="fact-text cn">新奥尔良的<strong>房价</strong>在卡特里娜后经历了剧烈波动，如今热门街区的价格已超过飓风前，但很多区域仍是空地。</p>
+        <p class="fact-text en"><strong>Hurricane season</strong> runs from June 1 to November 30, and New Orleans lives in annual dread. Besides Katrina (2005), Hurricane Ida (2021) caused severe damage, and the city faces increasingly frequent and intense storms due to climate change.</p>
       </div>
     </div>
   </div>
@@ -622,35 +697,43 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">063</span>
-        <p class="fact-text">新奥尔良人以<strong>"慢"</strong>著称，一切都不着急，约会迟到30分钟被称为"新奥尔良时间"。</p>
+        <p class="fact-text cn">新奥尔良人以<strong>"慢"</strong>著称，一切都不着急，约会迟到30分钟被称为"新奥尔良时间"。</p>
+        <p class="fact-text en">New Orleans receives about <strong>1,600mm of rainfall</strong> annually — one of the wettest major cities in the US. Afternoon thunderstorms in summer are almost daily events, dropping torrential rain that overwhelms the drainage system within minutes.</p>
       </div>
       <div class="fact">
         <span class="fact-num">064</span>
-        <p class="fact-text">新奥尔良人的<strong>招呼语</strong>是"Where y'at?"，意思是"你好/怎么样？"，这也是当地人被称为"Yat"的原因。</p>
+        <p class="fact-text cn">新奥尔良人的<strong>招呼语</strong>是"Where y'at?"，意思是"你好/怎么样？"，这也是当地人被称为"Yat"的原因。</p>
+        <p class="fact-text en">New Orleans is <strong>sinking</strong> at an alarming rate — some areas are subsiding by up to 50mm per year. Combined with rising sea levels, this means the city's long-term survival is genuinely in question. Engineers and planners are racing to develop solutions, but the fundamental challenge of maintaining a city below sea level in an era of climate change may ultimately prove insurmountable.</p>
       </div>
       <div class="fact">
         <span class="fact-num">065</span>
-        <p class="fact-text">新奥尔良人<strong>爱喝酒</strong>，白天喝酒完全正常，很多人从brunch就开始，持续到深夜。</p>
+        <p class="fact-text cn">新奥尔良人<strong>爱喝酒</strong>，白天喝酒完全正常，很多人从brunch就开始，持续到深夜。</p>
+        <p class="fact-text en">The <strong>bayous and swamps</strong> surrounding New Orleans are home to alligators, nutria, and incredible bird diversity. Swamp tours departing from the city's outskirts are among the most popular non-urban attractions.</p>
       </div>
       <div class="fact">
         <span class="fact-num">066</span>
-        <p class="fact-text">新奥尔良的<strong>酒吧永不关门</strong>——城市没有强制酒吧打烊时间，很多酒吧24小时营业。</p>
+        <p class="fact-text cn">新奥尔良的<strong>酒吧永不关门</strong>——城市没有强制酒吧打烊时间，很多酒吧24小时营业。</p>
+        <p class="fact-text en">New Orleans' <strong>live oaks</strong> are natural monuments — some are over 500 years old, with sprawling canopies draped in Spanish moss. City Park's Singing Oak has wind chimes hung in its branches, creating natural music.</p>
       </div>
       <div class="fact">
         <span class="fact-num">067</span>
-        <p class="fact-text">新奥尔良人<strong>极其友善</strong>，陌生人之间打招呼、聊天是常态，与美国北方的冷漠形成鲜明对比。</p>
+        <p class="fact-text cn">新奥尔良人<strong>极其友善</strong>，陌生人之间打招呼、聊天是常态，与美国北方的冷漠形成鲜明对比。</p>
+        <p class="fact-text en"><strong>Audubon Park</strong> and Audubon Zoo, named after naturalist John James Audubon who lived in New Orleans, occupy 140 hectares along the Mississippi. The zoo specializes in Louisiana wildlife, including its famous white alligators.</p>
       </div>
       <div class="fact">
         <span class="fact-num">068</span>
-        <p class="fact-text">新奥尔良的<strong>周日</strong>通常从brunch开始，配上血腥玛丽或含羞草鸡尾酒，然后是爵士乐和闲逛。</p>
+        <p class="fact-text cn">新奥尔良的<strong>周日</strong>通常从brunch开始，配上血腥玛丽或含羞草鸡尾酒，然后是爵士乐和闲逛。</p>
+        <p class="fact-text en">The Mississippi River at New Orleans is approximately <strong>60 meters deep</strong> — deep enough for ocean-going container ships. Watching massive cargo vessels pass just meters from the French Quarter levee is a surreal New Orleans experience.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">069</span>
-        <p class="fact-text">新奥尔良人对<strong>"圣徒队"</strong>（NFL橄榄球队）的热爱近乎宗教——2009年圣徒队首次赢得超级碗时，整座城市陷入狂欢，那一刻被视为卡特里娜后城市复兴的象征。比赛日全城放假，教堂提前结束礼拜，一切为橄榄球让路。</p>
+        <p class="fact-text cn">新奥尔良人对<strong>"圣徒队"</strong>（NFL橄榄球队）的热爱近乎宗教——2009年圣徒队首次赢得超级碗时，整座城市陷入狂欢，那一刻被视为卡特里娜后城市复兴的象征。比赛日全城放假，教堂提前结束礼拜，一切为橄榄球让路。</p>
+        <p class="fact-text en">New Orleans is one of the <strong>most haunted cities</strong> in America — ghost tours are a major tourist industry, trading on stories of voodoo, yellow fever epidemics, and centuries of dramatic deaths in a city that has always had an intimate relationship with mortality.</p>
       </div>
       <div class="fact">
         <span class="fact-num">070</span>
-        <p class="fact-text">新奥尔良人有独特的<strong>"lagniappe"</strong>传统，意思是"多给一点"——商家常常会给顾客额外的小礼物或折扣。</p>
+        <p class="fact-text cn">新奥尔良人有独特的<strong>"lagniappe"</strong>传统，意思是"多给一点"——商家常常会给顾客额外的小礼物或折扣。</p>
+        <p class="fact-text en">The <strong>Krewe of Rex</strong>, founded in 1872, established many Mardi Gras traditions including the official colors (purple for justice, gold for power, green for faith) and the custom of throwing trinkets from floats.</p>
       </div>
     </div>
   </div>
@@ -665,43 +748,53 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">071</span>
-        <p class="fact-text">新奥尔良的<strong>波旁街</strong>（Bourbon Street）每天凌晨都会被水枪冲洗，洗掉前一夜的酒精和呕吐物。</p>
+        <p class="fact-text cn">新奥尔良的<strong>波旁街</strong>（Bourbon Street）每天凌晨都会被水枪冲洗，洗掉前一夜的酒精和呕吐物。</p>
+        <p class="fact-text en">The famous <strong>"Go cups"</strong> are unique to New Orleans — bars will pour your drink into a plastic cup when you leave so you can keep drinking on the street. Open-container laws barely exist here, giving the city a perpetual party atmosphere.</p>
       </div>
       <div class="fact">
         <span class="fact-num">072</span>
-        <p class="fact-text">狂欢节的<strong>国王蛋糕</strong>（King Cake）里藏着一个塑料婴儿，找到的人要负责买下一个蛋糕。</p>
+        <p class="fact-text cn">狂欢节的<strong>国王蛋糕</strong>（King Cake）里藏着一个塑料婴儿，找到的人要负责买下一个蛋糕。</p>
+        <p class="fact-text en">New Orleans' <strong>music clubs</strong> charge little or no cover — Frenchmen Street, not Bourbon Street, is where locals go for live music. On any given night, you can hear jazz, funk, brass band, zydeco, and blues within a three-block stretch.</p>
       </div>
       <div class="fact">
         <span class="fact-num">073</span>
-        <p class="fact-text">新奥尔良的<strong>驱魔仪式</strong>至今仍在进行，天主教会每年处理数十起"驱魔"请求。</p>
+        <p class="fact-text cn">新奥尔良的<strong>驱魔仪式</strong>至今仍在进行，天主教会每年处理数十起"驱魔"请求。</p>
+        <p class="fact-text en"><strong>Frenchmen Street</strong> in the Faubourg Marigny is the soul of New Orleans nightlife. While Bourbon Street caters to tourists with karaoke and frozen daiquiris, Frenchmen offers world-class live music in intimate, sweaty clubs where the musicians play for the love of it.</p>
       </div>
       <div class="fact">
         <span class="fact-num">074</span>
-        <p class="fact-text">新奥尔良的<strong>圣约翰前夜</strong>（St. John's Eve）是巫毒教的重要节日，信徒在庞恰特雷恩湖边举行仪式。</p>
+        <p class="fact-text cn">新奥尔良的<strong>圣约翰前夜</strong>（St. John's Eve）是巫毒教的重要节日，信徒在庞恰特雷恩湖边举行仪式。</p>
+        <p class="fact-text en">New Orleans' relationship with <strong>race</strong> is more complex than any other American city. The unique Creole category — neither simply Black nor White — created a three-tiered racial system that defied the rest of America's binary. Today, the city remains deeply segregated economically while being culturally integrated in ways that other Southern cities are not.</p>
       </div>
       <div class="fact">
         <span class="fact-num">075</span>
-        <p class="fact-text">新奥尔良的<strong>鬼故事</strong>极其丰富，几乎每栋老建筑都有自己的闹鬼传说，鬼魂之旅是热门旅游项目。</p>
+        <p class="fact-text cn">新奥尔良的<strong>鬼故事</strong>极其丰富，几乎每栋老建筑都有自己的闹鬼传说，鬼魂之旅是热门旅游项目。</p>
+        <p class="fact-text en">Post-Katrina <strong>gentrification</strong> has transformed neighborhoods like Bywater and the Marigny — areas that were working-class and predominantly Black are now home to coffee shops, galleries, and Airbnbs catering to a wealthier, whiter demographic. Long-term residents have been priced out of the neighborhoods their families built.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">076</span>
-        <p class="fact-text">新奥尔良有全美唯一的<strong>"吸血鬼酒吧"</strong>和"吸血鬼社群"——一群自称吸血鬼的人定期聚会、喝血（自愿捐献）。安妮·赖斯的《夜访吸血鬼》就以新奥尔良为背景，使这座城市成为吸血鬼文化的圣地。</p>
+        <p class="fact-text cn">新奥尔良有全美唯一的<strong>"吸血鬼酒吧"</strong>和"吸血鬼社群"——一群自称吸血鬼的人定期聚会、喝血（自愿捐献）。安妮·赖斯的《夜访吸血鬼》就以新奥尔良为背景，使这座城市成为吸血鬼文化的圣地。</p>
+        <p class="fact-text en">New Orleans' <strong>Airbnb explosion</strong> has been controversial — entire neighborhoods have been converted from residential to short-term rental properties, reducing housing stock and changing the character of historic communities.</p>
       </div>
       <div class="fact">
         <span class="fact-num">077</span>
-        <p class="fact-text">新奥尔良的<strong>Krewe</strong>（狂欢节社团）有严格的等级制度，加入顶级Krewe需要数代人的社会地位积累。</p>
+        <p class="fact-text cn">新奥尔良的<strong>Krewe</strong>（狂欢节社团）有严格的等级制度，加入顶级Krewe需要数代人的社会地位积累。</p>
+        <p class="fact-text en">New Orleans' <strong>public education</strong> system was almost entirely replaced by charter schools after Katrina — the most radical education reform experiment in US history. Results are mixed and heavily debated.</p>
       </div>
       <div class="fact">
         <span class="fact-num">078</span>
-        <p class="fact-text">新奥尔良<strong>没有"last call"</strong>——酒吧不会提前喊"最后一杯"，因为根本不需要关门。</p>
+        <p class="fact-text cn">新奥尔良<strong>没有"last call"</strong>——酒吧不会提前喊"最后一杯"，因为根本不需要关门。</p>
+        <p class="fact-text en">New Orleans' <strong>infrastructure</strong> is in perpetual crisis — water mains break daily, streets crumble, and the drainage system requires constant repair. The city estimates $10+ billion in deferred maintenance.</p>
       </div>
       <div class="fact">
         <span class="fact-num">079</span>
-        <p class="fact-text">新奥尔良的<strong>午夜大弥撒</strong>（Midnight Mass）在圣诞节凌晨举行，是天主教传统与狂欢文化的奇妙融合。</p>
+        <p class="fact-text cn">新奥尔良的<strong>午夜大弥撒</strong>（Midnight Mass）在圣诞节凌晨举行，是天主教传统与狂欢文化的奇妙融合。</p>
+        <p class="fact-text en">New Orleans' <strong>resilience</strong> is its defining quality. Through slavery, yellow fever epidemics, floods, and hurricanes, the city has refused to die. Every time it's knocked down, it gets back up, turns on the music, and pours another drink.</p>
       </div>
       <div class="fact">
         <span class="fact-num">080</span>
-        <p class="fact-text">新奥尔良人把<strong>"neutral ground"</strong>（马路中央的绿化带）当作聚会场所，野餐、喝酒、听音乐都在这里进行。</p>
+        <p class="fact-text cn">新奥尔良人把<strong>"neutral ground"</strong>（马路中央的绿化带）当作聚会场所，野餐、喝酒、听音乐都在这里进行。</p>
+        <p class="fact-text en">New Orleans locals never go to <strong>Bourbon Street</strong> — the real city lives on Frenchmen, Magazine, Oak Street, and in the neighborhood bars where everybody knows your name and the bartender pours heavy.</p>
       </div>
     </div>
   </div>
@@ -716,27 +809,33 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">081</span>
-        <p class="fact-text">新奥尔良是<strong>爵士乐、布鲁斯、放克、R&B</strong>的发源地或重镇，几乎影响了所有美国流行音乐。</p>
+        <p class="fact-text cn">新奥尔良是<strong>爵士乐、布鲁斯、放克、R&B</strong>的发源地或重镇，几乎影响了所有美国流行音乐。</p>
+        <p class="fact-text en">In New Orleans, the proper response to <strong>"Where y'at?"</strong> (the local greeting) is not a location but a state of being: "Alright!" This phrase is so central to local identity that lifelong residents are called "Yats."</p>
       </div>
       <div class="fact">
         <span class="fact-num">082</span>
-        <p class="fact-text">Fats Domino、Dr. John、Wynton Marsalis都是<strong>新奥尔良音乐传奇</strong>，他们的音乐定义了城市的声音。</p>
+        <p class="fact-text cn">Fats Domino、Dr. John、Wynton Marsalis都是<strong>新奥尔良音乐传奇</strong>，他们的音乐定义了城市的声音。</p>
+        <p class="fact-text en">New Orleanians will passionately debate the best <strong>snowball stand</strong> (shaved ice, not snow cones — there's a crucial difference). Hansen's Sno-Bliz, open since 1939, is the gold standard, and locals will drive 30 minutes across town for one.</p>
       </div>
       <div class="fact">
         <span class="fact-num">083</span>
-        <p class="fact-text">新奥尔良的<strong>爵士乐葬礼</strong>不是表演，而是真正的社区传统，至今仍在非裔社区中延续。</p>
+        <p class="fact-text cn">新奥尔良的<strong>爵士乐葬礼</strong>不是表演，而是真正的社区传统，至今仍在非裔社区中延续。</p>
+        <p class="fact-text en">The ultimate New Orleans wisdom: <strong>"Laissez les bons temps rouler"</strong> (Let the good times roll). It's not just a party slogan — it's a philosophy of life that says joy, music, food, and human connection aren't luxuries to be earned but rights to be exercised daily, especially in the face of adversity.</p>
       </div>
       <div class="fact">
         <span class="fact-num">084</span>
-        <p class="fact-text">田纳西·威廉斯在新奥尔良<strong>完成了《欲望号街车》</strong>，剧中的场景就是法语区的街道和公寓。</p>
+        <p class="fact-text cn">田纳西·威廉斯在新奥尔良<strong>完成了《欲望号街车》</strong>，剧中的场景就是法语区的街道和公寓。</p>
+        <p class="fact-text en">The <strong>New Orleans Jazz & Heritage Festival</strong> (Jazz Fest) is one of the world's premier music festivals, drawing over 400,000 attendees over two weekends each spring. It showcases not just jazz but blues, R&B, gospel, Cajun, zydeco, and rock.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">085</span>
-        <p class="fact-text">新奥尔良的<strong>Mardi Gras Indians</strong>是独特的文化现象——非裔美国人身着华丽的手工羽毛服装，在狂欢节游行。这一传统源于非洲奴隶对土著印第安人庇护的感恩，如今已成为城市最绚丽的文化表达，每套服装需要一整年手工制作。</p>
+        <p class="fact-text cn">新奥尔良的<strong>Mardi Gras Indians</strong>是独特的文化现象——非裔美国人身着华丽的手工羽毛服装，在狂欢节游行。这一传统源于非洲奴隶对土著印第安人庇护的感恩，如今已成为城市最绚丽的文化表达，每套服装需要一整年手工制作。</p>
+        <p class="fact-text en">New Orleans' <strong>Mardi Gras krewes</strong> are private social organizations that fund and organize the parades. Some, like Rex and Comus, date back to the 1850s. Membership in elite krewes is passed down through families like heirlooms.</p>
       </div>
       <div class="fact">
         <span class="fact-num">086</span>
-        <p class="fact-text">新奥尔良的<strong>街头艺人</strong>是城市景观的一部分，法语区的街头到处是铜管乐队、塔罗牌占卜师和人体雕塑。</p>
+        <p class="fact-text cn">新奥尔良的<strong>街头艺人</strong>是城市景观的一部分，法语区的街头到处是铜管乐队、塔罗牌占卜师和人体雕塑。</p>
+        <p class="fact-text en">The <strong>French Quarter Festival</strong> is considered by locals to be superior to Jazz Fest — it's free, less crowded, and features primarily local musicians. It's the largest free music festival in the South.</p>
       </div>
     </div>
   </div>
@@ -751,19 +850,23 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">087</span>
-        <p class="fact-text">杜兰大学是新奥尔良最著名的<strong>私立大学</strong>，以医学院和商学院闻名，是"南方常春藤"之一。</p>
+        <p class="fact-text cn">杜兰大学是新奥尔良最著名的<strong>私立大学</strong>，以医学院和商学院闻名，是"南方常春藤"之一。</p>
+        <p class="fact-text en">New Orleans has the highest per-capita number of <strong>musicians</strong> of any American city. Yet most working musicians struggle to make a living wage — the average New Orleans musician earns less than $20,000 annually from music.</p>
       </div>
       <div class="fact">
         <span class="fact-num">088</span>
-        <p class="fact-text">泽维尔大学是美国唯一的<strong>黑人天主教大学</strong>，培养的非裔医生数量全美第一。</p>
+        <p class="fact-text cn">泽维尔大学是美国唯一的<strong>黑人天主教大学</strong>，培养的非裔医生数量全美第一。</p>
+        <p class="fact-text en">New Orleans' <strong>Tremé</strong> neighborhood is the oldest African American neighborhood in the United States. It was the birthplace of jazz and remains a vibrant center of Black culture, though gentrification pressures are mounting.</p>
       </div>
       <div class="fact">
         <span class="fact-num">089</span>
-        <p class="fact-text">卡特里娜后，新奥尔良<strong>公立学校系统</strong>几乎完全转型为特许学校，成为美国教育改革的实验场，争议至今不断。</p>
+        <p class="fact-text cn">卡特里娜后，新奥尔良<strong>公立学校系统</strong>几乎完全转型为特许学校，成为美国教育改革的实验场，争议至今不断。</p>
+        <p class="fact-text en">The <strong>levee system</strong> was rebuilt after Katrina at a cost of $14.5 billion — the largest civil works project in US history. Whether it will hold against the next major hurricane remains the city's existential question.</p>
       </div>
       <div class="fact">
         <span class="fact-num">090</span>
-        <p class="fact-text">新奥尔良的<strong>国家二战博物馆</strong>被评为全美最佳博物馆之一，是了解二战历史的重要场所。</p>
+        <p class="fact-text cn">新奥尔良的<strong>国家二战博物馆</strong>被评为全美最佳博物馆之一，是了解二战历史的重要场所。</p>
+        <p class="fact-text en">New Orleans' <strong>coastal erosion</strong> crisis is dire — Louisiana loses approximately a football field of wetland every 100 minutes. These wetlands serve as natural hurricane buffers; as they disappear, the city becomes more vulnerable.</p>
       </div>
     </div>
   </div>
@@ -778,43 +881,53 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">091</span>
-        <p class="fact-text">新奥尔良人有一种<strong>独特的韧性</strong>——经历了飓风、洪水、疫情，他们总能在废墟上重建派对。</p>
+        <p class="fact-text cn">新奥尔良人有一种<strong>独特的韧性</strong>——经历了飓风、洪水、疫情，他们总能在废墟上重建派对。</p>
+        <p class="fact-text en">The <strong>Sewerage & Water Board</strong> of New Orleans is one of the most criticized agencies in the city — aging pumps, turbines from the 1910s, and chronic power failures have made drainage unreliable during the storms that matter most.</p>
       </div>
       <div class="fact">
         <span class="fact-num">092</span>
-        <p class="fact-text">新奥尔良人对<strong>音乐</strong>的热爱是骨子里的，几乎每个人都会某种乐器，或者至少能跳几步。</p>
+        <p class="fact-text cn">新奥尔良人对<strong>音乐</strong>的热爱是骨子里的，几乎每个人都会某种乐器，或者至少能跳几步。</p>
+        <p class="fact-text en">Post-Katrina New Orleans has become a laboratory for <strong>urban experimentation</strong> — charter schools, innovative housing designs, community land trusts, and cultural preservation programs have all been tested here, with mixed results.</p>
       </div>
       <div class="fact">
         <span class="fact-num">093</span>
-        <p class="fact-text">新奥尔良人把<strong>食物</strong>当作一种语言——聊天总是从"你吃了什么？"开始，食谱是家族传承的秘密。</p>
+        <p class="fact-text cn">新奥尔良人把<strong>食物</strong>当作一种语言——聊天总是从"你吃了什么？"开始，食谱是家族传承的秘密。</p>
+        <p class="fact-text en">New Orleans' <strong>short-term rental</strong> boom has hollowed out residential neighborhoods. In some blocks of the Marigny and Bywater, more than half the houses are Airbnbs, turning communities into de facto hotels.</p>
       </div>
       <div class="fact">
         <span class="fact-num">094</span>
-        <p class="fact-text">新奥尔良人对<strong>邻里关系</strong>极其重视，大家认识彼此的名字，社区意识比美国大多数城市都强。</p>
+        <p class="fact-text cn">新奥尔良人对<strong>邻里关系</strong>极其重视，大家认识彼此的名字，社区意识比美国大多数城市都强。</p>
+        <p class="fact-text en">The <strong>racial wealth gap</strong> in New Orleans is among the worst in the country. White households have, on average, 10 times the wealth of Black households — a legacy of slavery, segregation, and systematic disinvestment.</p>
       </div>
       <div class="fact">
         <span class="fact-num">095</span>
-        <p class="fact-text">新奥尔良人<strong>不喜欢连锁店</strong>，更愿意支持本地小店，这也是城市保持独特性的原因之一。</p>
+        <p class="fact-text cn">新奥尔良人<strong>不喜欢连锁店</strong>，更愿意支持本地小店，这也是城市保持独特性的原因之一。</p>
+        <p class="fact-text en">New Orleans' <strong>murder rate</strong> has historically been among the highest in the US, driven by poverty, gun accessibility, and inadequate social services. Yet violent crime is heavily concentrated in specific neighborhoods — the French Quarter and Garden District are among the safest areas in the city.</p>
       </div>
       <div class="fact">
         <span class="fact-num">096</span>
-        <p class="fact-text">新奥尔良人对<strong>卡特里娜</strong>有复杂的情感——它是创伤，也是身份的一部分，"你在哪里度过飓风？"是常见的对话开场白。</p>
+        <p class="fact-text cn">新奥尔良人对<strong>卡特里娜</strong>有复杂的情感——它是创伤，也是身份的一部分，"你在哪里度过飓风？"是常见的对话开场白。</p>
+        <p class="fact-text en">Despite everything, New Orleans continues to <strong>attract newcomers</strong> — the city's cultural richness, low cost of living (by big-city standards), and irresistible joie de vivre draw artists, musicians, chefs, and dreamers from around the world.</p>
       </div>
       <div class="fact">
         <span class="fact-num">097</span>
-        <p class="fact-text">新奥尔良人相信<strong>生活本身就是目的</strong>——不是为了工作、赚钱或成功，而是为了享受当下。</p>
+        <p class="fact-text cn">新奥尔良人相信<strong>生活本身就是目的</strong>——不是为了工作、赚钱或成功，而是为了享受当下。</p>
+        <p class="fact-text en">New Orleans locals know the best <strong>po'boys</strong> aren't in the French Quarter — they're at neighborhood joints like Parkway Bakery, Domilise's, or Guy's in Uptown, where the bread is fresh, the shrimp is fried to order, and the sandwiches are big enough to share (but you won't).</p>
       </div>
       <div class="fact">
         <span class="fact-num">098</span>
-        <p class="fact-text">新奥尔良人会告诉你：<strong>"我们不是美国的一部分，我们是加勒比海的一部分。"</strong></p>
+        <p class="fact-text cn">新奥尔良人会告诉你：<strong>"我们不是美国的一部分，我们是加勒比海的一部分。"</strong></p>
+        <p class="fact-text en">True New Orleanians measure someone's local credentials by how they pronounce street names: <strong>Burgundy</strong> (bur-GUN-dee, not BUR-gun-dee), Calliope (CAL-ee-ope, not cah-LIE-oh-pee), and Tchoupitoulas (chop-ih-TOO-lis). Getting these wrong marks you as a tourist instantly.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">099</span>
-        <p class="fact-text">新奥尔良是一座<strong>活在当下</strong>的城市——它可能明天就被淹没，可能永远贫穷，可能永远混乱，但它选择了唱歌、跳舞、喝酒、做爱，把每一天都当作最后一天来过。这种态度可能不负责任，但它让新奥尔良成为地球上最有生命力的地方之一。</p>
+        <p class="fact-text cn">新奥尔良是一座<strong>活在当下</strong>的城市——它可能明天就被淹没，可能永远贫穷，可能永远混乱，但它选择了唱歌、跳舞、喝酒、做爱，把每一天都当作最后一天来过。这种态度可能不负责任，但它让新奥尔良成为地球上最有生命力的地方之一。</p>
+        <p class="fact-text en">New Orleanians have a sacred daily ritual: <strong>the porch sit</strong>. Evening hours are spent on the front porch, waving at neighbors, nursing a drink, and watching the world go by. It's the original social network.</p>
       </div>
       <div class="fact">
         <span class="fact-num">100</span>
-        <p class="fact-text">最后，新奥尔良人会用一句话总结这座城市：<strong>"Laissez les bons temps rouler."</strong> 让美好时光滚动起来。</p>
+        <p class="fact-text cn">最后，新奥尔良人会用一句话总结这座城市：<strong>"Laissez les bons temps rouler."</strong> 让美好时光滚动起来。</p>
+        <p class="fact-text en">The essence of New Orleans can be captured in a single scene: <strong>a second-line parade</strong> turning the corner on a Sunday afternoon — a brass band blasting, umbrellas twirling, strangers dancing together, children on shoulders, old folks tapping their feet on porches. No tickets, no permission, no agenda. Just pure, defiant joy in a city that has every reason to weep but chooses, always, to dance.</p>
       </div>
     </div>
   </div>
@@ -826,6 +939,11 @@
   <div class="footer-ornament">✦</div>
   <p>100 Things · 一百件小事</p>
 </footer>
+
+<script>
+(function(){var l=localStorage.getItem('citybits-lang')||'cn';document.body.classList.add('lang-'+l);})();
+function toggleLang(){var e=document.body.classList.contains('lang-en');document.body.classList.remove('lang-cn','lang-en');var n=e?'cn':'en';document.body.classList.add('lang-'+n);localStorage.setItem('citybits-lang',n);}
+</script>
 
 </body>
 </html>

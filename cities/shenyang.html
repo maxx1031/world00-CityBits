@@ -39,24 +39,37 @@
   footer { border-top: 2px solid var(--ink); padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; }
   footer p { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--steel); text-transform: uppercase; }
   .footer-ornament { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--rust); }
+  
+  .lang-toggle { position: fixed; top: 20px; right: 20px; z-index: 100; }
+  .lang-btn { background: var(--paper); border: 1px solid var(--line); padding: 8px 14px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--steel); cursor: pointer; transition: all 0.2s; }
+  .lang-btn:hover { border-color: var(--rust); color: var(--rust); }
+  .en { display: none; }
+  body.lang-en .en { display: inline; }
+  body.lang-en .cn { display: none; }
+  body.lang-en p.en, body.lang-en div.en { display: block; }
+  body.lang-en p.cn, body.lang-en div.cn { display: none; }
+  body.lang-en span.en { display: inline; }
+
   @media (max-width: 600px) { .back-link { position: static; margin: 20px; display: inline-block; } header { padding: 60px 24px 40px; grid-template-columns: 1fr; } .masthead-number { display: none; } main { padding: 0 16px 60px; } .fact-grid { grid-template-columns: 1fr; } footer { padding: 24px; flex-direction: column; gap: 12px; } }
 </style>
 </head>
 <body>
 
-<a href="../index.html" class="back-link">← 返回城市列表</a>
+<div class="lang-toggle"><button class="lang-btn" onclick="toggleLang()"><span class="cn">EN</span><span class="en">CN</span></button></div>
+
+<a href="../index.html" class="back-link"><span class="cn">← 返回城市列表</span><span class="en">← Back to cities</span></a>
 
 <header>
   <div>
-    <div class="masthead-eyebrow">CityBits · 城市观察</div>
+    <div class="masthead-eyebrow">CityBits · <span class="cn">城市观察</span><span class="en">City Observer</span></div>
     <h1>Shen<em>yang</em></h1>
     <p style="margin-top:20px; font-family:'Noto Serif SC'; font-size:15px; font-weight:300; color:var(--steel); line-height:2;">
-      100件你可能不知道的小事<br>关于这座东北大地的工业之都
+      <span class="cn">100件你可能不知道的小事<br>关于这座东北大地的工业之都</span><span class="en">100 things you might not know<br>about this industrial capital of Northeast China</span>
     </p>
   </div>
   <div style="text-align:right;">
     <div class="masthead-number">100</div>
-    <div class="masthead-sub">共和国长子<br>一朝发祥地 两代帝王都<br>东北的心脏</div>
+    <div class="masthead-sub"><span class="cn">共和国长子<br>一朝发祥地 两代帝王都<br>东北的心脏</span><span class="en">Firstborn of the Republic<br>Birthplace of the Qing dynasty<br>Heart of the Northeast</span></div>
   </div>
 </header>
 
@@ -66,89 +79,106 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">地理 &amp; 城市结构</div>
+      <div class="cat-name"><span class="cn">地理 &amp; 城市结构</span><span class="en">Geography &amp; Urban Structure</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">001</span>
-        <p class="fact-text">沈阳位于<strong>辽河平原</strong>中部，地势平坦开阔，平均海拔仅约50米，是中国东北地区最大的城市。</p>
+        <p class="fact-text cn">沈阳位于<strong>辽河平原</strong>中部，地势平坦开阔，平均海拔仅约50米，是中国东北地区最大的城市。</p>
+        <p class="fact-text en">Shenyang sits in the center of the <strong>Liaohe Plain</strong>, with flat terrain at just about 50 meters above sea level, making it the largest city in Northeast China.</p>
       </div>
       <div class="fact">
         <span class="fact-num">002</span>
-        <p class="fact-text">沈阳老城区的核心是<strong>"方城"</strong>，即清代盛京城的范围，街道至今保留着棋盘式格局，以沈阳故宫为中心向四面延展。</p>
+        <p class="fact-text cn">沈阳老城区的核心是<strong>"方城"</strong>，即清代盛京城的范围，街道至今保留着棋盘式格局，以沈阳故宫为中心向四面延展。</p>
+        <p class="fact-text en">The core of Shenyang's old city is the <strong>"Square City" (Fangcheng)</strong>, the area of the Qing-era Shengjing, whose streets still retain a chessboard grid pattern centered on the Shenyang Imperial Palace.</p>
       </div>
       <div class="fact">
         <span class="fact-num">003</span>
-        <p class="fact-text"><strong>浑河</strong>穿城而过，全长415公里，是沈阳的母亲河，两岸建成了长达数十公里的滨河景观带。</p>
+        <p class="fact-text cn"><strong>浑河</strong>穿城而过，全长415公里，是沈阳的母亲河，两岸建成了长达数十公里的滨河景观带。</p>
+        <p class="fact-text en">The <strong>Hun River</strong> runs through the city, stretching 415 km in total. It is Shenyang's mother river, with scenic riverside parks spanning dozens of kilometers along both banks.</p>
       </div>
       <div class="fact">
         <span class="fact-num">004</span>
-        <p class="fact-text">沈阳的城市面积达<strong>12860平方公里</strong>，常住人口超过900万，是东北地区人口最多的城市。</p>
+        <p class="fact-text cn">沈阳的城市面积达<strong>12860平方公里</strong>，常住人口超过900万，是东北地区人口最多的城市。</p>
+        <p class="fact-text en">Shenyang covers an area of <strong>12,860 square kilometers</strong> with a permanent population exceeding 9 million, making it the most populous city in Northeast China.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">005</span>
-        <p class="fact-text">沈阳的城市格局极其特殊——它是中国少数拥有<strong>两条中轴线</strong>的城市：一条是清代方城的南北轴线，以沈阳故宫为中心；另一条是日据时期规划的中山路轴线，以中山广场为核心。两个时代的城市规划叠加在一起，形成了独特的双核心结构。</p>
+        <p class="fact-text cn">沈阳的城市格局极其特殊——它是中国少数拥有<strong>两条中轴线</strong>的城市：一条是清代方城的南北轴线，以沈阳故宫为中心；另一条是日据时期规划的中山路轴线，以中山广场为核心。两个时代的城市规划叠加在一起，形成了独特的双核心结构。</p>
+        <p class="fact-text en">Shenyang's urban layout is remarkably unusual — it is one of the few Chinese cities with <strong>two central axes</strong>: one is the north-south axis of the Qing-era Square City centered on the Imperial Palace; the other is the Zhongshan Road axis planned during the Japanese occupation, centered on Zhongshan Square. These two eras of urban planning overlap, creating a unique dual-core structure.</p>
       </div>
       <div class="fact">
         <span class="fact-num">006</span>
-        <p class="fact-text">沈阳的<strong>铁西区</strong>曾是亚洲最大的工业区之一，鼎盛时期聚集了上千家工厂，烟囱林立，被称为"东方鲁尔"。</p>
+        <p class="fact-text cn">沈阳的<strong>铁西区</strong>曾是亚洲最大的工业区之一，鼎盛时期聚集了上千家工厂，烟囱林立，被称为"东方鲁尔"。</p>
+        <p class="fact-text en">Shenyang's <strong>Tiexi District</strong> was once one of the largest industrial zones in Asia. At its peak, it housed over a thousand factories with chimneys lining the skyline, earning it the nickname "Ruhr of the East."</p>
       </div>
       <div class="fact">
         <span class="fact-num">007</span>
-        <p class="fact-text">沈阳拥有<strong>三环</strong>快速路体系，城市扩张速度极快，近20年城区面积扩大了近一倍。</p>
+        <p class="fact-text cn">沈阳拥有<strong>三环</strong>快速路体系，城市扩张速度极快，近20年城区面积扩大了近一倍。</p>
+        <p class="fact-text en">Shenyang has a <strong>three-ring</strong> expressway system. The city has expanded rapidly, nearly doubling its urban area over the past 20 years.</p>
       </div>
       <div class="fact">
         <span class="fact-num">008</span>
-        <p class="fact-text">沈阳是东北地区的<strong>交通枢纽</strong>，京哈、沈大、沈丹等多条铁路在此交汇，连接关内与东北各地。</p>
+        <p class="fact-text cn">沈阳是东北地区的<strong>交通枢纽</strong>，京哈、沈大、沈丹等多条铁路在此交汇，连接关内与东北各地。</p>
+        <p class="fact-text en">Shenyang is the <strong>transportation hub</strong> of Northeast China, where multiple railway lines including the Beijing-Harbin, Shenyang-Dalian, and Shenyang-Dandong lines converge, connecting inland China with the entire Northeast.</p>
       </div>
     </div>
   </div>
 
   <!-- PULLQUOTE -->
   <div class="pullquote">
-    <p>「沈阳是一座铸铁浇筑的城市，<br>骨子里全是钢铁般的硬气。」</p>
+    <p class="cn">「沈阳是一座铸铁浇筑的城市，<br>骨子里全是钢铁般的硬气。」</p>
+    <p class="en">"Shenyang is a city forged in iron,<br>with steel running through its veins."</p>
   </div>
 
   <!-- CATEGORY 2: 地铁 & 交通 -->
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">地铁 &amp; 交通</div>
+      <div class="cat-name"><span class="cn">地铁 &amp; 交通</span><span class="en">Transit &amp; Transport</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">009</span>
-        <p class="fact-text">沈阳地铁于<strong>2010年</strong>开通，是东北地区第一个开通地铁的城市，目前运营线路覆盖主城各区。</p>
+        <p class="fact-text cn">沈阳地铁于<strong>2010年</strong>开通，是东北地区第一个开通地铁的城市，目前运营线路覆盖主城各区。</p>
+        <p class="fact-text en">Shenyang Metro opened in <strong>2010</strong>, making it the first city in Northeast China to have a metro system. Its lines now cover all major districts.</p>
       </div>
       <div class="fact">
         <span class="fact-num">010</span>
-        <p class="fact-text">沈阳桃仙国际机场是东北地区最大的航空港之一，年旅客吞吐量超过<strong>2000万人次</strong>，航线覆盖国内外上百个城市。</p>
+        <p class="fact-text cn">沈阳桃仙国际机场是东北地区最大的航空港之一，年旅客吞吐量超过<strong>2000万人次</strong>，航线覆盖国内外上百个城市。</p>
+        <p class="fact-text en">Shenyang Taoxian International Airport is one of the largest air hubs in Northeast China, handling over <strong>20 million passengers</strong> annually with routes to over a hundred domestic and international cities.</p>
       </div>
       <div class="fact">
         <span class="fact-num">011</span>
-        <p class="fact-text">沈阳北站和沈阳站是城市的两大火车站，<strong>沈阳北站</strong>是东北地区最大的铁路客运站之一。</p>
+        <p class="fact-text cn">沈阳北站和沈阳站是城市的两大火车站，<strong>沈阳北站</strong>是东北地区最大的铁路客运站之一。</p>
+        <p class="fact-text en">Shenyang North Station and Shenyang Station are the city's two major railway stations. <strong>Shenyang North Station</strong> is one of the largest passenger rail stations in Northeast China.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">012</span>
-        <p class="fact-text">沈阳的<strong>有轨电车</strong>历史可追溯到1925年，是中国最早开通有轨电车的城市之一。日据时期建设的有轨电车线路曾是城市公共交通的骨干，后来逐渐被公交车取代，但近年沈阳又在浑南新区重新建设了现代有轨电车系统，形成历史的有趣呼应。</p>
+        <p class="fact-text cn">沈阳的<strong>有轨电车</strong>历史可追溯到1925年，是中国最早开通有轨电车的城市之一。日据时期建设的有轨电车线路曾是城市公共交通的骨干，后来逐渐被公交车取代，但近年沈阳又在浑南新区重新建设了现代有轨电车系统，形成历史的有趣呼应。</p>
+        <p class="fact-text en">Shenyang's <strong>streetcar (tram)</strong> history dates back to 1925, making it one of the earliest cities in China to operate trams. The tram lines built during the Japanese occupation were the backbone of public transit, later replaced by buses. In recent years, Shenyang has built a modern tram system in the Hunnan New District, creating an interesting historical echo.</p>
       </div>
       <div class="fact">
         <span class="fact-num">013</span>
-        <p class="fact-text">沈阳到大连的<strong>沈大高速公路</strong>是中国最早建成的高速公路之一，1990年全线通车，全长375公里。</p>
+        <p class="fact-text cn">沈阳到大连的<strong>沈大高速公路</strong>是中国最早建成的高速公路之一，1990年全线通车，全长375公里。</p>
+        <p class="fact-text en">The <strong>Shenyang-Dalian Expressway</strong> was one of the first highways built in China, completed in 1990 with a total length of 375 km.</p>
       </div>
       <div class="fact">
         <span class="fact-num">014</span>
-        <p class="fact-text">沈阳冬季路面结冰严重，当地人开车讲究<strong>"慢、稳、让"</strong>，雪天交通事故率是夏天的数倍。</p>
+        <p class="fact-text cn">沈阳冬季路面结冰严重，当地人开车讲究<strong>"慢、稳、让"</strong>，雪天交通事故率是夏天的数倍。</p>
+        <p class="fact-text en">Shenyang's winters make roads extremely icy. Locals drive by the principle of <strong>"slow, steady, yield."</strong> Traffic accident rates in snowy conditions are several times higher than in summer.</p>
       </div>
       <div class="fact">
         <span class="fact-num">015</span>
-        <p class="fact-text">哈大高铁经过沈阳，从沈阳到大连只需<strong>1.5小时</strong>，到哈尔滨约2小时，极大缩短了东北三省之间的距离。</p>
+        <p class="fact-text cn">哈大高铁经过沈阳，从沈阳到大连只需<strong>1.5小时</strong>，到哈尔滨约2小时，极大缩短了东北三省之间的距离。</p>
+        <p class="fact-text en">The Harbin-Dalian High-Speed Railway passes through Shenyang. It takes only <strong>1.5 hours</strong> from Shenyang to Dalian and about 2 hours to Harbin, greatly shortening travel between the three northeastern provinces.</p>
       </div>
       <div class="fact">
         <span class="fact-num">016</span>
-        <p class="fact-text">沈阳的<strong>共享单车</strong>在冬季几乎无人使用，零下二三十度的天气里骑车是一种"极限运动"。</p>
+        <p class="fact-text cn">沈阳的<strong>共享单车</strong>在冬季几乎无人使用，零下二三十度的天气里骑车是一种"极限运动"。</p>
+        <p class="fact-text en">Shenyang's <strong>bike-sharing</strong> systems go virtually unused in winter — riding in minus 20-30°C weather is practically an extreme sport.</p>
       </div>
     </div>
   </div>
@@ -157,41 +187,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">食物 &amp; 饮食文化</div>
+      <div class="cat-name"><span class="cn">食物 &amp; 饮食文化</span><span class="en">Food &amp; Dining Culture</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">017</span>
-        <p class="fact-text">沈阳人对<strong>鸡架</strong>的热爱令全国惊讶——这种去掉鸡肉后剩下的骨架，在沈阳被炸、烤、熏、拌，吃法多达十几种，是沈阳独有的美食符号。</p>
+        <p class="fact-text cn">沈阳人对<strong>鸡架</strong>的热爱令全国惊讶——这种去掉鸡肉后剩下的骨架，在沈阳被炸、烤、熏、拌，吃法多达十几种，是沈阳独有的美食符号。</p>
+        <p class="fact-text en">Shenyang locals' love for <strong>chicken frames (jijia)</strong> amazes the rest of China — these bony carcasses left after removing the meat are fried, grilled, smoked, and dressed in over a dozen ways, making them Shenyang's unique food icon.</p>
       </div>
       <div class="fact">
         <span class="fact-num">018</span>
-        <p class="fact-text">沈阳人喝啤酒首选<strong>老雪花</strong>（雪花啤酒勇闯天涯之前的经典款），一瓶老雪配一盘鸡架是沈阳夜生活的标配。</p>
+        <p class="fact-text cn">沈阳人喝啤酒首选<strong>老雪花</strong>（雪花啤酒勇闯天涯之前的经典款），一瓶老雪配一盘鸡架是沈阳夜生活的标配。</p>
+        <p class="fact-text en">Shenyang locals' go-to beer is <strong>Old Snow (Lao Xuehua)</strong>, the classic version before Snow Beer's Brave the World line. A bottle of Old Snow with a plate of chicken frames is the standard Shenyang nightlife combo.</p>
       </div>
       <div class="fact">
         <span class="fact-num">019</span>
-        <p class="fact-text"><strong>锅包肉</strong>是东北菜的代表，起源于哈尔滨但在沈阳发扬光大，外酥里嫩、酸甜可口，是每桌必点的硬菜。</p>
+        <p class="fact-text cn"><strong>锅包肉</strong>是东北菜的代表，起源于哈尔滨但在沈阳发扬光大，外酥里嫩、酸甜可口，是每桌必点的硬菜。</p>
+        <p class="fact-text en"><strong>Guobaorou</strong> (crispy sweet-and-sour pork) is the signature dish of Northeast cuisine. It originated in Harbin but was perfected in Shenyang — crispy outside, tender inside, sweet and tangy. It's a must-order at every table.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">020</span>
-        <p class="fact-text">沈阳的<strong>烧烤文化</strong>堪称全国之最——沈阳人一年四季都吃烧烤，即使零下30度也要在室外支起炉子撸串。烤肉、烤板筋、烤腰子、烤鸡架是标配，配上老雪花和毛豆，这就是沈阳人最质朴的快乐。据统计沈阳每万人拥有的烧烤店数量位居全国前列。</p>
+        <p class="fact-text cn">沈阳的<strong>烧烤文化</strong>堪称全国之最——沈阳人一年四季都吃烧烤，即使零下30度也要在室外支起炉子撸串。烤肉、烤板筋、烤腰子、烤鸡架是标配，配上老雪花和毛豆，这就是沈阳人最质朴的快乐。据统计沈阳每万人拥有的烧烤店数量位居全国前列。</p>
+        <p class="fact-text en">Shenyang's <strong>barbecue culture</strong> may be the most intense in all of China — locals grill year-round, even setting up outdoor grills in minus 30°C weather. Grilled meat, tendon, kidneys, and chicken frames are standard fare, paired with Old Snow beer and edamame. This is the simple joy of Shenyang life. Statistics show Shenyang has one of the highest numbers of BBQ joints per capita in the country.</p>
       </div>
       <div class="fact">
         <span class="fact-num">021</span>
-        <p class="fact-text">沈阳的<strong>东北大拌菜</strong>是一道看似简单却极受欢迎的凉菜，用干豆腐丝、黄瓜、香菜等拌成，几乎每家东北餐馆都有。</p>
+        <p class="fact-text cn">沈阳的<strong>东北大拌菜</strong>是一道看似简单却极受欢迎的凉菜，用干豆腐丝、黄瓜、香菜等拌成，几乎每家东北餐馆都有。</p>
+        <p class="fact-text en"><strong>Northeast big mixed salad (dabancai)</strong> is a deceptively simple cold dish that's hugely popular — made with dried tofu strips, cucumber, cilantro and more, it's found at virtually every Northeast restaurant.</p>
       </div>
       <div class="fact">
         <span class="fact-num">022</span>
-        <p class="fact-text">沈阳冬天家家户户<strong>腌酸菜</strong>，用大白菜腌制一个月以上，酸菜炖粉条、酸菜饺子是冬季的灵魂美食。</p>
+        <p class="fact-text cn">沈阳冬天家家户户<strong>腌酸菜</strong>，用大白菜腌制一个月以上，酸菜炖粉条、酸菜饺子是冬季的灵魂美食。</p>
+        <p class="fact-text en">Every Shenyang household <strong>pickles sauerkraut</strong> in winter, fermenting Napa cabbage for over a month. Sauerkraut stewed with vermicelli and sauerkraut dumplings are winter soul foods.</p>
       </div>
       <div class="fact">
         <span class="fact-num">023</span>
-        <p class="fact-text"><strong>老边饺子</strong>是沈阳的百年老字号，创立于1829年，以汤煸馅的独特工艺闻名，被列入国家级非物质文化遗产。</p>
+        <p class="fact-text cn"><strong>老边饺子</strong>是沈阳的百年老字号，创立于1829年，以汤煸馅的独特工艺闻名，被列入国家级非物质文化遗产。</p>
+        <p class="fact-text en"><strong>Laobian Dumplings</strong> is a century-old Shenyang institution, founded in 1829. Famous for its unique broth-simmered filling technique, it's been designated a national intangible cultural heritage.</p>
       </div>
       <div class="fact">
         <span class="fact-num">024</span>
-        <p class="fact-text">沈阳人冬天爱吃<strong>冻梨</strong>和冻柿子，买回来放在冷水里"缓"一下，外面结一层薄冰壳，咬开后里面是冰沙般的果肉，是天然的冬季甜品。</p>
+        <p class="fact-text cn">沈阳人冬天爱吃<strong>冻梨</strong>和冻柿子，买回来放在冷水里"缓"一下，外面结一层薄冰壳，咬开后里面是冰沙般的果肉，是天然的冬季甜品。</p>
+        <p class="fact-text en">In winter, Shenyang locals love eating <strong>frozen pears</strong> and frozen persimmons. They soak them in cold water to "thaw" them slightly — a thin ice shell forms on the outside, and biting through reveals icy, sorbet-like flesh inside. It's nature's own winter dessert.</p>
       </div>
     </div>
   </div>
@@ -200,41 +238,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">历史 &amp; 政治</div>
+      <div class="cat-name"><span class="cn">历史 &amp; 政治</span><span class="en">History &amp; Politics</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">025</span>
-        <p class="fact-text">沈阳古称<strong>"盛京"</strong>，是清朝的发祥地，努尔哈赤于1625年迁都于此，皇太极在此称帝建立大清。</p>
+        <p class="fact-text cn">沈阳古称<strong>"盛京"</strong>，是清朝的发祥地，努尔哈赤于1625年迁都于此，皇太极在此称帝建立大清。</p>
+        <p class="fact-text en">Shenyang was anciently called <strong>"Shengjing"</strong> — the birthplace of the Qing dynasty. Nurhaci moved his capital here in 1625, and Hong Taiji proclaimed the Great Qing empire from this city.</p>
       </div>
       <div class="fact">
         <span class="fact-num">026</span>
-        <p class="fact-text">1931年9月18日，日本关东军炸毁南满铁路柳条湖段，发动了<strong>"九一八事变"</strong>，沈阳成为中国十四年抗战的起点。</p>
+        <p class="fact-text cn">1931年9月18日，日本关东军炸毁南满铁路柳条湖段，发动了<strong>"九一八事变"</strong>，沈阳成为中国十四年抗战的起点。</p>
+        <p class="fact-text en">On September 18, 1931, the Japanese Kwantung Army bombed the South Manchuria Railway at Liutiao Lake, launching the <strong>"Mukden Incident" (September 18 Incident)</strong>. Shenyang became the starting point of China's 14-year War of Resistance Against Japan.</p>
       </div>
       <div class="fact">
         <span class="fact-num">027</span>
-        <p class="fact-text"><strong>张氏帅府</strong>是奉系军阀张作霖、张学良父子的官邸，占地3.6万平方米，是东北近代史最重要的历史遗迹之一。</p>
+        <p class="fact-text cn"><strong>张氏帅府</strong>是奉系军阀张作霖、张学良父子的官邸，占地3.6万平方米，是东北近代史最重要的历史遗迹之一。</p>
+        <p class="fact-text en"><strong>Zhang's Marshal Mansion (Zhangshi Shuaifu)</strong> is the official residence of warlords Zhang Zuolin and Zhang Xueliang, covering 36,000 square meters. It is one of the most important historical sites of modern Northeast Chinese history.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">028</span>
-        <p class="fact-text"><strong>九一八历史博物馆</strong>坐落在柳条湖事变原址旁，馆前的残历碑高18米、宽30米，巨大的台历永远定格在1931年9月18日。每年9月18日，沈阳全城鸣响防空警报，持续3分钟，提醒国人勿忘国耻。这是中国最大规模的城市警报纪念活动。</p>
+        <p class="fact-text cn"><strong>九一八历史博物馆</strong>坐落在柳条湖事变原址旁，馆前的残历碑高18米、宽30米，巨大的台历永远定格在1931年9月18日。每年9月18日，沈阳全城鸣响防空警报，持续3分钟，提醒国人勿忘国耻。这是中国最大规模的城市警报纪念活动。</p>
+        <p class="fact-text en">The <strong>September 18 History Museum</strong> stands near the original site of the Liutiao Lake Incident. Its façade features a massive broken-calendar monument, 18 meters high and 30 meters wide, forever frozen on September 18, 1931. Every year on this date, air raid sirens sound across Shenyang for 3 minutes, reminding the nation to never forget. It is China's largest city-wide siren memorial.</p>
       </div>
       <div class="fact">
         <span class="fact-num">029</span>
-        <p class="fact-text">1948年的<strong>辽沈战役</strong>是解放战争三大战役之首，沈阳的解放标志着东北全境回归，为新中国成立奠定了基础。</p>
+        <p class="fact-text cn">1948年的<strong>辽沈战役</strong>是解放战争三大战役之首，沈阳的解放标志着东北全境回归，为新中国成立奠定了基础。</p>
+        <p class="fact-text en">The <strong>Liaoshen Campaign</strong> of 1948 was the first of the three decisive campaigns of the Chinese Civil War. The liberation of Shenyang marked the return of all of Northeast China and laid the foundation for the founding of the People's Republic.</p>
       </div>
       <div class="fact">
         <span class="fact-num">030</span>
-        <p class="fact-text">新中国成立后，沈阳被誉为<strong>"共和国长子"</strong>，是国家第一个五年计划重点建设的工业城市，为全国提供了大量工业设备和技术人才。</p>
+        <p class="fact-text cn">新中国成立后，沈阳被誉为<strong>"共和国长子"</strong>，是国家第一个五年计划重点建设的工业城市，为全国提供了大量工业设备和技术人才。</p>
+        <p class="fact-text en">After the founding of the PRC, Shenyang was hailed as the <strong>"Firstborn of the Republic"</strong> — a key industrial city in the First Five-Year Plan, supplying the nation with vast amounts of industrial equipment and technical talent.</p>
       </div>
       <div class="fact">
         <span class="fact-num">031</span>
-        <p class="fact-text">张学良在沈阳发动<strong>"东北易帜"</strong>（1928年），宣布东北归附南京国民政府，结束了北洋军阀割据的局面。</p>
+        <p class="fact-text cn">张学良在沈阳发动<strong>"东北易帜"</strong>（1928年），宣布东北归附南京国民政府，结束了北洋军阀割据的局面。</p>
+        <p class="fact-text en">Zhang Xueliang carried out the <strong>"Northeast Flag Replacement"</strong> in Shenyang in 1928, declaring the Northeast's allegiance to the Nanjing government and ending the era of warlord fragmentation.</p>
       </div>
       <div class="fact">
         <span class="fact-num">032</span>
-        <p class="fact-text">沈阳的<strong>北大营</strong>是九一八事变中最先遭到攻击的中国军营，如今仅存部分遗址，成为爱国主义教育基地。</p>
+        <p class="fact-text cn">沈阳的<strong>北大营</strong>是九一八事变中最先遭到攻击的中国军营，如今仅存部分遗址，成为爱国主义教育基地。</p>
+        <p class="fact-text en">Shenyang's <strong>North Camp (Beidaying)</strong> was the first Chinese military barracks attacked during the September 18 Incident. Only partial ruins remain today, now serving as a patriotic education site.</p>
       </div>
     </div>
   </div>
@@ -243,41 +289,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">建筑 &amp; 空间</div>
+      <div class="cat-name"><span class="cn">建筑 &amp; 空间</span><span class="en">Architecture &amp; Space</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">033</span>
-        <p class="fact-text"><strong>沈阳故宫</strong>始建于1625年，是中国仅存的两座皇家宫殿之一，虽然规模远小于北京故宫，但其满族建筑风格独具特色。</p>
+        <p class="fact-text cn"><strong>沈阳故宫</strong>始建于1625年，是中国仅存的两座皇家宫殿之一，虽然规模远小于北京故宫，但其满族建筑风格独具特色。</p>
+        <p class="fact-text en">The <strong>Shenyang Imperial Palace</strong>, built in 1625, is one of only two imperial palace complexes surviving in China. Though far smaller than Beijing's Forbidden City, its Manchu architectural style is distinctly unique.</p>
       </div>
       <div class="fact">
         <span class="fact-num">034</span>
-        <p class="fact-text">中山广场周围保留着<strong>8栋日据时期</strong>的大型建筑，包括原大和旅馆、原朝鲜银行等，是沈阳近代建筑的集中展示区。</p>
+        <p class="fact-text cn">中山广场周围保留着<strong>8栋日据时期</strong>的大型建筑，包括原大和旅馆、原朝鲜银行等，是沈阳近代建筑的集中展示区。</p>
+        <p class="fact-text en">Zhongshan Square is surrounded by <strong>8 buildings from the Japanese occupation era</strong>, including the former Yamato Hotel and the former Korean Bank, forming a concentrated showcase of Shenyang's modern architecture.</p>
       </div>
       <div class="fact">
         <span class="fact-num">035</span>
-        <p class="fact-text"><strong>北陵</strong>（昭陵）是清太宗皇太极的陵寝，占地330万平方米，是沈阳最大的公园，松柏苍翠，气势恢宏。</p>
+        <p class="fact-text cn"><strong>北陵</strong>（昭陵）是清太宗皇太极的陵寝，占地330万平方米，是沈阳最大的公园，松柏苍翠，气势恢宏。</p>
+        <p class="fact-text en"><strong>Beiling (Zhaoling)</strong> is the mausoleum of Qing Emperor Hong Taiji, covering 3.3 million square meters. It is Shenyang's largest park, with majestic pines and cypresses.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">036</span>
-        <p class="fact-text">铁西区的<strong>工人村</strong>建于1952年，是新中国第一个大型工人住宅区，当年被视为"工人天堂"，三层红砖楼整齐排列。随着国企改革和大规模下岗潮，工人村一度成为贫困的代名词。如今部分建筑被改造为"工人村生活馆"，记录了中国工业化进程中工人阶级的兴衰。</p>
+        <p class="fact-text cn">铁西区的<strong>工人村</strong>建于1952年，是新中国第一个大型工人住宅区，当年被视为"工人天堂"，三层红砖楼整齐排列。随着国企改革和大规模下岗潮，工人村一度成为贫困的代名词。如今部分建筑被改造为"工人村生活馆"，记录了中国工业化进程中工人阶级的兴衰。</p>
+        <p class="fact-text en">The <strong>Workers' Village</strong> in Tiexi District was built in 1952 as China's first large-scale worker housing complex, once hailed as a "workers' paradise" with neat rows of three-story red brick buildings. With SOE reforms and mass layoffs, it became synonymous with poverty. Parts have been converted into the "Workers' Village Living Museum," documenting the rise and fall of the working class during China's industrialization.</p>
       </div>
       <div class="fact">
         <span class="fact-num">037</span>
-        <p class="fact-text"><strong>东陵</strong>（福陵）是清太祖努尔哈赤的陵寝，依山而建，108级台阶象征36天罡72地煞，建筑与自然融为一体。</p>
+        <p class="fact-text cn"><strong>东陵</strong>（福陵）是清太祖努尔哈赤的陵寝，依山而建，108级台阶象征36天罡72地煞，建筑与自然融为一体。</p>
+        <p class="fact-text en"><strong>Dongling (Fuling)</strong> is the mausoleum of Qing founder Nurhaci, built against a hillside. Its 108 steps symbolize the 36 Heavenly Spirits and 72 Earthly Fiends, blending architecture with nature.</p>
       </div>
       <div class="fact">
         <span class="fact-num">038</span>
-        <p class="fact-text">沈阳的<strong>中街</strong>始建于1625年，是中国最早的商业步行街之一，至今仍是沈阳最繁华的商业区。</p>
+        <p class="fact-text cn">沈阳的<strong>中街</strong>始建于1625年，是中国最早的商业步行街之一，至今仍是沈阳最繁华的商业区。</p>
+        <p class="fact-text en">Shenyang's <strong>Zhongjie (Middle Street)</strong> was established in 1625 and is one of the earliest commercial pedestrian streets in China. It remains Shenyang's busiest shopping district today.</p>
       </div>
       <div class="fact">
         <span class="fact-num">039</span>
-        <p class="fact-text"><strong>刘老根大舞台</strong>位于沈阳中街，是赵本山创办的二人转演出场所，几乎每晚场场爆满。</p>
+        <p class="fact-text cn"><strong>刘老根大舞台</strong>位于沈阳中街，是赵本山创办的二人转演出场所，几乎每晚场场爆满。</p>
+        <p class="fact-text en"><strong>Liu Laogen Grand Stage</strong>, located on Zhongjie, is a venue for errenzhuan performances founded by Zhao Benshan. Shows are packed nearly every night.</p>
       </div>
       <div class="fact">
         <span class="fact-num">040</span>
-        <p class="fact-text">沈阳的<strong>西塔</strong>地区是全国最大的朝鲜族聚居商业区之一，满街韩文招牌，烤肉店和KTV林立，有"小首尔"之称。</p>
+        <p class="fact-text cn">沈阳的<strong>西塔</strong>地区是全国最大的朝鲜族聚居商业区之一，满街韩文招牌，烤肉店和KTV林立，有"小首尔"之称。</p>
+        <p class="fact-text en">Shenyang's <strong>West Tower (Xita)</strong> area is one of the largest Korean ethnic commercial districts in China, with Korean signage everywhere, barbecue restaurants and KTVs lining the streets, earning it the nickname "Little Seoul."</p>
       </div>
     </div>
   </div>
@@ -286,57 +340,69 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">文化 &amp; 社会</div>
+      <div class="cat-name"><span class="cn">文化 &amp; 社会</span><span class="en">Culture &amp; Society</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">041</span>
-        <p class="fact-text">沈阳话属于<strong>东北官话</strong>，语调上扬，带有浓重的"大碴子味儿"，是全国辨识度最高的方言之一。</p>
+        <p class="fact-text cn">沈阳话属于<strong>东北官话</strong>，语调上扬，带有浓重的"大碴子味儿"，是全国辨识度最高的方言之一。</p>
+        <p class="fact-text en">Shenyang dialect belongs to <strong>Northeastern Mandarin</strong>, with rising intonations and a heavy "dachaziwei" (rough accent). It is one of the most recognizable dialects in all of China.</p>
       </div>
       <div class="fact">
         <span class="fact-num">042</span>
-        <p class="fact-text"><strong>二人转</strong>是东北最具代表性的民间艺术，沈阳是二人转的重要传播中心，赵本山将其推向了全国。</p>
+        <p class="fact-text cn"><strong>二人转</strong>是东北最具代表性的民间艺术，沈阳是二人转的重要传播中心，赵本山将其推向了全国。</p>
+        <p class="fact-text en"><strong>Errenzhuan</strong> is the most representative folk art of Northeast China. Shenyang is a major hub for errenzhuan, and Zhao Benshan brought it to national fame.</p>
       </div>
       <div class="fact">
         <span class="fact-num">043</span>
-        <p class="fact-text">沈阳人性格<strong>豪爽直率</strong>，说话嗓门大、办事讲义气，"老铁没毛病"这句网络流行语就来自东北方言。</p>
+        <p class="fact-text cn">沈阳人性格<strong>豪爽直率</strong>，说话嗓门大、办事讲义气，"老铁没毛病"这句网络流行语就来自东北方言。</p>
+        <p class="fact-text en">Shenyang locals are known for being <strong>bold and straightforward</strong> — loud voices, loyal to friends. The internet slang "Laotie mei maobing" (No problem, bro) originated from Northeastern dialect.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">044</span>
-        <p class="fact-text">沈阳的<strong>澡堂文化</strong>在全国独树一帜——沈阳的洗浴中心不只是洗澡的地方，而是集搓澡、汗蒸、自助餐、棋牌、KTV、住宿于一体的"综合娱乐中心"。一些高端洗浴中心占地数千平方米，沈阳人可以在里面待上整整一天，这种文化在南方人看来几乎不可思议。</p>
+        <p class="fact-text cn">沈阳的<strong>澡堂文化</strong>在全国独树一帜——沈阳的洗浴中心不只是洗澡的地方，而是集搓澡、汗蒸、自助餐、棋牌、KTV、住宿于一体的"综合娱乐中心"。一些高端洗浴中心占地数千平方米，沈阳人可以在里面待上整整一天，这种文化在南方人看来几乎不可思议。</p>
+        <p class="fact-text en">Shenyang's <strong>bathhouse culture</strong> is unique in China — Shenyang's bathing centers aren't just for bathing. They're all-in-one entertainment complexes with scrub-downs, saunas, buffets, card games, KTV, and overnight stays. Some high-end bathhouses span thousands of square meters. Shenyang locals can spend an entire day inside — a concept almost unimaginable to southerners.</p>
       </div>
       <div class="fact">
         <span class="fact-num">045</span>
-        <p class="fact-text">沈阳人管朋友叫<strong>"老铁"</strong>，管吃饭叫"整两口"，管喝酒叫"整一个"，这些词汇已经随着短视频传遍全国。</p>
+        <p class="fact-text cn">沈阳人管朋友叫<strong>"老铁"</strong>，管吃饭叫"整两口"，管喝酒叫"整一个"，这些词汇已经随着短视频传遍全国。</p>
+        <p class="fact-text en">Shenyang locals call friends <strong>"laotie"</strong> (old iron), call eating "zheng liang kou" (have a couple bites), and call drinking "zheng yige" (have one). These expressions have spread nationwide through short videos.</p>
       </div>
       <div class="fact">
         <span class="fact-num">046</span>
-        <p class="fact-text">沈阳是中国<strong>相声</strong>的重要阵地之一，相声大师侯宝林曾在沈阳演出多年，沈阳相声以"包袱密、节奏快"著称。</p>
+        <p class="fact-text cn">沈阳是中国<strong>相声</strong>的重要阵地之一，相声大师侯宝林曾在沈阳演出多年，沈阳相声以"包袱密、节奏快"著称。</p>
+        <p class="fact-text en">Shenyang is an important stronghold for Chinese <strong>xiangsheng</strong> (crosstalk comedy). Master performer Hou Baolin performed in Shenyang for many years. Shenyang crosstalk is known for its dense punchlines and fast pace.</p>
       </div>
       <div class="fact">
         <span class="fact-num">047</span>
-        <p class="fact-text">沈阳的<strong>广场舞</strong>规模堪称全国之最，夏天傍晚各大广场、公园里都是跳舞的大妈大爷，音箱震天响。</p>
+        <p class="fact-text cn">沈阳的<strong>广场舞</strong>规模堪称全国之最，夏天傍晚各大广场、公园里都是跳舞的大妈大爷，音箱震天响。</p>
+        <p class="fact-text en">Shenyang's <strong>square dancing</strong> scene may be the biggest in China. On summer evenings, every major square and park is filled with dancing aunties and uncles, speakers blasting at full volume.</p>
       </div>
       <div class="fact">
         <span class="fact-num">048</span>
-        <p class="fact-text">沈阳人有句口头禅叫<strong>"你瞅啥"</strong>，对视三秒可能就是一场社交的开始，也可能是一场误会的开端。</p>
+        <p class="fact-text cn">沈阳人有句口头禅叫<strong>"你瞅啥"</strong>，对视三秒可能就是一场社交的开始，也可能是一场误会的开端。</p>
+        <p class="fact-text en">Shenyang locals have a catchphrase: <strong>"Ni chou sha"</strong> (What are you looking at?) — three seconds of eye contact could be the start of a social encounter or the beginning of a misunderstanding.</p>
       </div>
       <div class="fact">
         <span class="fact-num">049</span>
-        <p class="fact-text">沈阳的<strong>鲁迅美术学院</strong>（鲁美）是中国八大美院之一，以雕塑和工业设计见长，培养了大量艺术人才。</p>
+        <p class="fact-text cn">沈阳的<strong>鲁迅美术学院</strong>（鲁美）是中国八大美院之一，以雕塑和工业设计见长，培养了大量艺术人才。</p>
+        <p class="fact-text en">Shenyang's <strong>Lu Xun Academy of Fine Arts (LuMei)</strong> is one of China's eight major art academies, renowned for sculpture and industrial design, having trained a large number of artistic talents.</p>
       </div>
       <div class="fact">
         <span class="fact-num">050</span>
-        <p class="fact-text">沈阳人过年必看<strong>春晚</strong>和赵本山的小品，大年三十的年夜饭标配是饺子，必须在午夜12点之前包好。</p>
+        <p class="fact-text cn">沈阳人过年必看<strong>春晚</strong>和赵本山的小品，大年三十的年夜饭标配是饺子，必须在午夜12点之前包好。</p>
+        <p class="fact-text en">Shenyang locals consider watching the <strong>Spring Festival Gala</strong> and Zhao Benshan's comedy sketches essential on New Year's Eve. The standard New Year's dinner is dumplings, which must be wrapped before midnight.</p>
       </div>
       <div class="fact">
         <span class="fact-num">051</span>
-        <p class="fact-text">沈阳是中国<strong>冰球</strong>运动的重镇，曾培养出大量国家队选手，冬季在室外冰场打冰球是当地少年的日常。</p>
+        <p class="fact-text cn">沈阳是中国<strong>冰球</strong>运动的重镇，曾培养出大量国家队选手，冬季在室外冰场打冰球是当地少年的日常。</p>
+        <p class="fact-text en">Shenyang is a powerhouse of Chinese <strong>ice hockey</strong>, having trained numerous national team players. Playing hockey on outdoor ice rinks in winter is a daily activity for local youth.</p>
       </div>
       <div class="fact">
         <span class="fact-num">052</span>
-        <p class="fact-text">沈阳<strong>东北大学</strong>（原东北工学院）是中国最早设立的理工科大学之一，张学良曾担任校长。</p>
+        <p class="fact-text cn">沈阳<strong>东北大学</strong>（原东北工学院）是中国最早设立的理工科大学之一，张学良曾担任校长。</p>
+        <p class="fact-text en">Shenyang's <strong>Northeastern University</strong> (formerly Northeastern Institute of Technology) is one of the earliest science and engineering universities established in China. Zhang Xueliang once served as its president.</p>
       </div>
     </div>
   </div>
@@ -345,57 +411,69 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">经济 &amp; 产业</div>
+      <div class="cat-name"><span class="cn">经济 &amp; 产业</span><span class="en">Economy &amp; Industry</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">053</span>
-        <p class="fact-text">沈阳曾是中国最大的<strong>重工业基地</strong>，生产了新中国第一架喷气式飞机、第一台机床、第一枚导弹用发动机。</p>
+        <p class="fact-text cn">沈阳曾是中国最大的<strong>重工业基地</strong>，生产了新中国第一架喷气式飞机、第一台机床、第一枚导弹用发动机。</p>
+        <p class="fact-text en">Shenyang was once China's largest <strong>heavy industrial base</strong>, producing the country's first jet aircraft, first machine tool, and first missile engine.</p>
       </div>
       <div class="fact">
         <span class="fact-num">054</span>
-        <p class="fact-text"><strong>沈飞</strong>（沈阳飞机工业集团）是中国最重要的战斗机制造商，歼-5、歼-6、歼-8、歼-11、歼-15等均出自沈飞。</p>
+        <p class="fact-text cn"><strong>沈飞</strong>（沈阳飞机工业集团）是中国最重要的战斗机制造商，歼-5、歼-6、歼-8、歼-11、歼-15等均出自沈飞。</p>
+        <p class="fact-text en"><strong>SAC (Shenyang Aircraft Corporation)</strong> is China's most important fighter jet manufacturer. The J-5, J-6, J-8, J-11, and J-15 were all produced at SAC.</p>
       </div>
       <div class="fact">
         <span class="fact-num">055</span>
-        <p class="fact-text">沈阳机床集团曾是<strong>世界第一大机床</strong>制造商（按产量计），但后来因经营不善陷入债务危机。</p>
+        <p class="fact-text cn">沈阳机床集团曾是<strong>世界第一大机床</strong>制造商（按产量计），但后来因经营不善陷入债务危机。</p>
+        <p class="fact-text en">Shenyang Machine Tool Group was once the <strong>world's largest machine tool manufacturer</strong> by output, but later fell into a debt crisis due to poor management.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">056</span>
-        <p class="fact-text">上世纪90年代国企改革中，沈阳经历了<strong>大规模下岗潮</strong>，铁西区数十万工人失去工作，一个家庭夫妻双双下岗是常事。这段历史深刻改变了沈阳的城市性格，也催生了东北人"闯关东"式的外出打工潮。导演王兵的纪录片《铁西区》忠实记录了这段阵痛。</p>
+        <p class="fact-text cn">上世纪90年代国企改革中，沈阳经历了<strong>大规模下岗潮</strong>，铁西区数十万工人失去工作，一个家庭夫妻双双下岗是常事。这段历史深刻改变了沈阳的城市性格，也催生了东北人"闯关东"式的外出打工潮。导演王兵的纪录片《铁西区》忠实记录了这段阵痛。</p>
+        <p class="fact-text en">During the SOE reforms of the 1990s, Shenyang experienced <strong>massive layoffs</strong>. Hundreds of thousands of workers in Tiexi District lost their jobs — it was common for both husband and wife to be laid off simultaneously. This period profoundly changed Shenyang's character and triggered waves of migration to southern cities. Director Wang Bing's documentary <em>West of the Tracks</em> faithfully captured this painful transition.</p>
       </div>
       <div class="fact">
         <span class="fact-num">057</span>
-        <p class="fact-text">沈阳的<strong>华晨宝马</strong>工厂是宝马在中国的主要生产基地，年产能超过80万辆，是沈阳现代工业的标杆。</p>
+        <p class="fact-text cn">沈阳的<strong>华晨宝马</strong>工厂是宝马在中国的主要生产基地，年产能超过80万辆，是沈阳现代工业的标杆。</p>
+        <p class="fact-text en">Shenyang's <strong>BMW Brilliance</strong> factory is BMW's primary production base in China, with annual capacity exceeding 800,000 vehicles. It is the benchmark of Shenyang's modern industry.</p>
       </div>
       <div class="fact">
         <span class="fact-num">058</span>
-        <p class="fact-text">沈阳是中国<strong>汽车产业</strong>的重要基地，除华晨宝马外，还有通用、华晨等多家整车厂和上千家零部件企业。</p>
+        <p class="fact-text cn">沈阳是中国<strong>汽车产业</strong>的重要基地，除华晨宝马外，还有通用、华晨等多家整车厂和上千家零部件企业。</p>
+        <p class="fact-text en">Shenyang is a major hub for China's <strong>automotive industry</strong>. Besides BMW Brilliance, it hosts GM, Brilliance, and numerous other automakers and over a thousand parts suppliers.</p>
       </div>
       <div class="fact">
         <span class="fact-num">059</span>
-        <p class="fact-text">铁西区经过<strong>"东搬西建"</strong>城市改造，将工厂搬迁至开发区，原址变成住宅和商业区，是中国最大规模的城市工业用地转型案例。</p>
+        <p class="fact-text cn">铁西区经过<strong>"东搬西建"</strong>城市改造，将工厂搬迁至开发区，原址变成住宅和商业区，是中国最大规模的城市工业用地转型案例。</p>
+        <p class="fact-text en">Tiexi District underwent the <strong>"Move East, Build West"</strong> urban transformation, relocating factories to development zones and converting original sites into residential and commercial areas — China's largest case of urban industrial land conversion.</p>
       </div>
       <div class="fact">
         <span class="fact-num">060</span>
-        <p class="fact-text">沈阳的房价在省会城市中相对<strong>较低</strong>，核心区均价约每平方米1万元左右，是同级别城市中性价比最高的之一。</p>
+        <p class="fact-text cn">沈阳的房价在省会城市中相对<strong>较低</strong>，核心区均价约每平方米1万元左右，是同级别城市中性价比最高的之一。</p>
+        <p class="fact-text en">Shenyang's housing prices are relatively <strong>low</strong> for a provincial capital, with core area averages around 10,000 yuan per square meter — making it one of the best value cities at its tier.</p>
       </div>
       <div class="fact">
         <span class="fact-num">061</span>
-        <p class="fact-text">沈阳的<strong>五爱市场</strong>是东北最大的批发市场之一，经营面积超过60万平方米，辐射整个东三省和内蒙古。</p>
+        <p class="fact-text cn">沈阳的<strong>五爱市场</strong>是东北最大的批发市场之一，经营面积超过60万平方米，辐射整个东三省和内蒙古。</p>
+        <p class="fact-text en">Shenyang's <strong>Wuai Market</strong> is one of the largest wholesale markets in Northeast China, with over 600,000 square meters of retail space, serving the three northeastern provinces and Inner Mongolia.</p>
       </div>
       <div class="fact">
         <span class="fact-num">062</span>
-        <p class="fact-text">沈阳近年大力发展<strong>IC装备制造</strong>和机器人产业，拥有中国科学院沈阳自动化研究所等顶尖科研机构。</p>
+        <p class="fact-text cn">沈阳近年大力发展<strong>IC装备制造</strong>和机器人产业，拥有中国科学院沈阳自动化研究所等顶尖科研机构。</p>
+        <p class="fact-text en">Shenyang has been aggressively developing <strong>IC equipment manufacturing</strong> and robotics industries, home to top research institutions like the Chinese Academy of Sciences' Shenyang Institute of Automation.</p>
       </div>
       <div class="fact">
         <span class="fact-num">063</span>
-        <p class="fact-text">沈阳曾是<strong>东北亚经济圈</strong>的核心节点城市，与日本、韩国、俄罗斯的经贸往来密切。</p>
+        <p class="fact-text cn">沈阳曾是<strong>东北亚经济圈</strong>的核心节点城市，与日本、韩国、俄罗斯的经贸往来密切。</p>
+        <p class="fact-text en">Shenyang was once a key node city in the <strong>Northeast Asian economic circle</strong>, with close trade ties to Japan, South Korea, and Russia.</p>
       </div>
       <div class="fact">
         <span class="fact-num">064</span>
-        <p class="fact-text">沈阳的<strong>人口外流</strong>问题持续多年，大量年轻人南下北京、上海、深圳求职，"振兴东北"政策至今仍是热门议题。</p>
+        <p class="fact-text cn">沈阳的<strong>人口外流</strong>问题持续多年，大量年轻人南下北京、上海、深圳求职，"振兴东北"政策至今仍是热门议题。</p>
+        <p class="fact-text en">Shenyang's <strong>population outflow</strong> has persisted for years, with large numbers of young people heading south to Beijing, Shanghai, and Shenzhen for work. "Revitalize the Northeast" policies remain a hot topic.</p>
       </div>
     </div>
   </div>
@@ -404,41 +482,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">自然 &amp; 气候</div>
+      <div class="cat-name"><span class="cn">自然 &amp; 气候</span><span class="en">Nature &amp; Climate</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">065</span>
-        <p class="fact-text">沈阳属<strong>温带季风气候</strong>，四季分明，夏天可达35°C以上，冬天最低可降至零下30°C，年温差超过60度。</p>
+        <p class="fact-text cn">沈阳属<strong>温带季风气候</strong>，四季分明，夏天可达35°C以上，冬天最低可降至零下30°C，年温差超过60度。</p>
+        <p class="fact-text en">Shenyang has a <strong>temperate monsoon climate</strong> with distinct seasons — summers can exceed 35°C, while winter lows can drop to minus 30°C, creating an annual temperature range of over 60 degrees.</p>
       </div>
       <div class="fact">
         <span class="fact-num">066</span>
-        <p class="fact-text">沈阳的冬天长达<strong>5个月</strong>（11月至次年3月），降雪频繁，积雪可达数十厘米，城市进入"白色模式"。</p>
+        <p class="fact-text cn">沈阳的冬天长达<strong>5个月</strong>（11月至次年3月），降雪频繁，积雪可达数十厘米，城市进入"白色模式"。</p>
+        <p class="fact-text en">Shenyang's winter lasts <strong>5 months</strong> (November to March), with frequent snowfall. Accumulated snow can reach dozens of centimeters, turning the city into "white mode."</p>
       </div>
       <div class="fact">
         <span class="fact-num">067</span>
-        <p class="fact-text">沈阳冬天实行<strong>集中供暖</strong>，每年10月下旬开始供暖至次年4月，供暖费是每户冬季最大的固定开支之一。</p>
+        <p class="fact-text cn">沈阳冬天实行<strong>集中供暖</strong>，每年10月下旬开始供暖至次年4月，供暖费是每户冬季最大的固定开支之一。</p>
+        <p class="fact-text en">Shenyang implements <strong>centralized heating</strong> in winter, running from late October through April. Heating fees are one of each household's largest fixed winter expenses.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">068</span>
-        <p class="fact-text">沈阳的极寒天气催生了独特的<strong>冬季生活方式</strong>：窗户必须装双层玻璃，室内暖气烧到25度以上，出门穿貂皮大衣成为东北人的标志。室外泼出去的热水瞬间变成冰雾，冻梨冻柿子直接放在窗外就是天然冰箱。沈阳人习惯说"猫冬"，意思是像猫一样窝在家里过冬。</p>
+        <p class="fact-text cn">沈阳的极寒天气催生了独特的<strong>冬季生活方式</strong>：窗户必须装双层玻璃，室内暖气烧到25度以上，出门穿貂皮大衣成为东北人的标志。室外泼出去的热水瞬间变成冰雾，冻梨冻柿子直接放在窗外就是天然冰箱。沈阳人习惯说"猫冬"，意思是像猫一样窝在家里过冬。</p>
+        <p class="fact-text en">Shenyang's extreme cold has spawned a unique <strong>winter lifestyle</strong>: windows must have double glazing, indoor heating is cranked above 25°C, and wearing fur coats became a Northeast trademark. Hot water thrown outside instantly turns to ice fog, frozen pears and persimmons are stored on windowsills as natural refrigerators. Shenyang locals say they "cat through winter" (maodong) — hibernating at home like cats.</p>
       </div>
       <div class="fact">
         <span class="fact-num">069</span>
-        <p class="fact-text">沈阳的<strong>棋盘山</strong>风景区位于城市东北部，是市民春游和冬季滑雪的热门去处。</p>
+        <p class="fact-text cn">沈阳的<strong>棋盘山</strong>风景区位于城市东北部，是市民春游和冬季滑雪的热门去处。</p>
+        <p class="fact-text en">Shenyang's <strong>Qipanshan</strong> scenic area is located northeast of the city and is a popular destination for spring outings and winter skiing.</p>
       </div>
       <div class="fact">
         <span class="fact-num">070</span>
-        <p class="fact-text">浑河冬天结冰后，河面上会出现<strong>天然冰场</strong>，市民在上面滑冰、打冰球、甚至开车，场面壮观。</p>
+        <p class="fact-text cn">浑河冬天结冰后，河面上会出现<strong>天然冰场</strong>，市民在上面滑冰、打冰球、甚至开车，场面壮观。</p>
+        <p class="fact-text en">When the Hun River freezes in winter, a <strong>natural ice rink</strong> appears on the river surface. Residents skate, play ice hockey, and even drive cars on it — a spectacular sight.</p>
       </div>
       <div class="fact">
         <span class="fact-num">071</span>
-        <p class="fact-text">沈阳的<strong>春天极短</strong>，常常从冬天直接跳到夏天，当地人开玩笑说"沈阳只有两个季节：冬季和施工季"。</p>
+        <p class="fact-text cn">沈阳的<strong>春天极短</strong>，常常从冬天直接跳到夏天，当地人开玩笑说"沈阳只有两个季节：冬季和施工季"。</p>
+        <p class="fact-text en">Shenyang's <strong>spring is extremely short</strong>, often jumping straight from winter to summer. Locals joke that "Shenyang only has two seasons: winter and construction season."</p>
       </div>
       <div class="fact">
         <span class="fact-num">072</span>
-        <p class="fact-text">沈阳<strong>秋天</strong>是最美的季节，银杏和枫树变色后满城金黄和火红，北陵公园的秋景尤为壮观。</p>
+        <p class="fact-text cn">沈阳<strong>秋天</strong>是最美的季节，银杏和枫树变色后满城金黄和火红，北陵公园的秋景尤为壮观。</p>
+        <p class="fact-text en">Shenyang's <strong>autumn</strong> is the most beautiful season. When ginkgo and maple trees change color, the entire city turns golden and fiery red. The autumn scenery at Beiling Park is especially stunning.</p>
       </div>
     </div>
   </div>
@@ -447,57 +533,69 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">隐藏细节 &amp; 冷知识</div>
+      <div class="cat-name"><span class="cn">隐藏细节 &amp; 冷知识</span><span class="en">Hidden Details &amp; Trivia</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">073</span>
-        <p class="fact-text">沈阳故宫的大政殿是<strong>八角形</strong>建筑，周围环绕十座亭子，象征满族八旗制度，这种布局在中国宫殿建筑中绝无仅有。</p>
+        <p class="fact-text cn">沈阳故宫的大政殿是<strong>八角形</strong>建筑，周围环绕十座亭子，象征满族八旗制度，这种布局在中国宫殿建筑中绝无仅有。</p>
+        <p class="fact-text en">The main hall (Dazhengdian) of the Shenyang Imperial Palace is an <strong>octagonal</strong> structure surrounded by ten pavilions, symbolizing the Manchu Eight Banner system. This layout is absolutely unique among Chinese palace architecture.</p>
       </div>
       <div class="fact">
         <span class="fact-num">074</span>
-        <p class="fact-text">沈阳的<strong>"老北市"</strong>曾是东北最大的民间杂耍和说书场，清末民初时这里聚集了各种江湖艺人，热闹程度不亚于北京天桥。</p>
+        <p class="fact-text cn">沈阳的<strong>"老北市"</strong>曾是东北最大的民间杂耍和说书场，清末民初时这里聚集了各种江湖艺人，热闹程度不亚于北京天桥。</p>
+        <p class="fact-text en">Shenyang's <strong>"Old North Market" (Lao Beishi)</strong> was once the largest folk performance and storytelling venue in Northeast China. In the late Qing and early Republic, it gathered all kinds of street performers, rivaling Beijing's Tianqiao in liveliness.</p>
       </div>
       <div class="fact">
         <span class="fact-num">075</span>
-        <p class="fact-text">沈阳地铁里的报站使用<strong>普通话、英语和沈阳话</strong>三种语言，沈阳话版本曾在网络上引发热议。</p>
+        <p class="fact-text cn">沈阳地铁里的报站使用<strong>普通话、英语和沈阳话</strong>三种语言，沈阳话版本曾在网络上引发热议。</p>
+        <p class="fact-text en">Shenyang metro announcements are made in <strong>Mandarin, English, and Shenyang dialect</strong> — the dialect version once went viral online.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">076</span>
-        <p class="fact-text">沈阳有一个鲜为人知的<strong>"地下城"</strong>——1969年中苏关系紧张时期，沈阳大规模修建防空洞，总长度达数百公里，可容纳上百万人。这些地下工程至今仍然存在，部分被改造为地下商场和仓库，部分则被封闭遗忘在城市地下。</p>
+        <p class="fact-text cn">沈阳有一个鲜为人知的<strong>"地下城"</strong>——1969年中苏关系紧张时期，沈阳大规模修建防空洞，总长度达数百公里，可容纳上百万人。这些地下工程至今仍然存在，部分被改造为地下商场和仓库，部分则被封闭遗忘在城市地下。</p>
+        <p class="fact-text en">Shenyang has a little-known <strong>"underground city"</strong> — during the Sino-Soviet tensions of 1969, Shenyang built extensive air raid shelters totaling hundreds of kilometers in length, capable of sheltering over a million people. These underground works still exist today; some have been converted into underground shopping malls and warehouses, while others remain sealed and forgotten beneath the city.</p>
       </div>
       <div class="fact">
         <span class="fact-num">077</span>
-        <p class="fact-text">沈阳人把厕所叫<strong>"茅楼"</strong>，这个词来自清代满语的音译，是沈阳方言中最具特色的词汇之一。</p>
+        <p class="fact-text cn">沈阳人把厕所叫<strong>"茅楼"</strong>，这个词来自清代满语的音译，是沈阳方言中最具特色的词汇之一。</p>
+        <p class="fact-text en">Shenyang locals call the toilet <strong>"maolou"</strong> — a transliteration from the Manchu language of the Qing dynasty, making it one of the most distinctive words in Shenyang dialect.</p>
       </div>
       <div class="fact">
         <span class="fact-num">078</span>
-        <p class="fact-text">沈阳的<strong>怪坡</strong>位于沈北新区，是一段看似上坡实为下坡的道路，车辆熄火后会"自动上坡"，至今众说纷纭。</p>
+        <p class="fact-text cn">沈阳的<strong>怪坡</strong>位于沈北新区，是一段看似上坡实为下坡的道路，车辆熄火后会"自动上坡"，至今众说纷纭。</p>
+        <p class="fact-text en">Shenyang's <strong>Mystery Slope (Guai Po)</strong> is located in Shenbei New District — a road that appears to go uphill but is actually downhill. Cars with engines off seem to "roll uphill" on their own. The phenomenon remains debated to this day.</p>
       </div>
       <div class="fact">
         <span class="fact-num">079</span>
-        <p class="fact-text">沈阳的<strong>皇姑区</strong>名字来源于传说中清代一位皇姑（公主）曾在此居住，但历史考证并无确切依据。</p>
+        <p class="fact-text cn">沈阳的<strong>皇姑区</strong>名字来源于传说中清代一位皇姑（公主）曾在此居住，但历史考证并无确切依据。</p>
+        <p class="fact-text en">Shenyang's <strong>Huanggu District</strong> gets its name from a legend about a Qing dynasty imperial aunt (huanggu/princess) who once lived there, though historical evidence remains inconclusive.</p>
       </div>
       <div class="fact">
         <span class="fact-num">080</span>
-        <p class="fact-text">沈阳是中国<strong>足球</strong>的重要城市，辽宁足球队曾获得"辽小虎"美誉，2001年世界杯预选赛出线的关键比赛就在沈阳五里河体育场举行。</p>
+        <p class="fact-text cn">沈阳是中国<strong>足球</strong>的重要城市，辽宁足球队曾获得"辽小虎"美誉，2001年世界杯预选赛出线的关键比赛就在沈阳五里河体育场举行。</p>
+        <p class="fact-text en">Shenyang is an important city for Chinese <strong>football</strong>. The Liaoning football team earned the nickname "Liao Xiaohu" (Liaoning Young Tigers). The decisive 2001 World Cup qualifier was held at Shenyang's Wulihe Stadium.</p>
       </div>
       <div class="fact">
         <span class="fact-num">081</span>
-        <p class="fact-text">沈阳的<strong>太原街</strong>在日据时期叫"春日町"，是当时满铁附属地的商业中心，至今仍是沈阳的核心商圈。</p>
+        <p class="fact-text cn">沈阳的<strong>太原街</strong>在日据时期叫"春日町"，是当时满铁附属地的商业中心，至今仍是沈阳的核心商圈。</p>
+        <p class="fact-text en">Shenyang's <strong>Taiyuan Street</strong> was called "Chunri-cho" (Spring Day Street) during the Japanese occupation and was the commercial center of the South Manchuria Railway zone. It remains one of Shenyang's core shopping districts today.</p>
       </div>
       <div class="fact">
         <span class="fact-num">082</span>
-        <p class="fact-text">沈阳曾有句老话<strong>"先有实胜寺，后有沈阳城"</strong>，实胜寺建于1636年，是清代皇家藏传佛教寺庙。</p>
+        <p class="fact-text cn">沈阳曾有句老话<strong>"先有实胜寺，后有沈阳城"</strong>，实胜寺建于1636年，是清代皇家藏传佛教寺庙。</p>
+        <p class="fact-text en">There's an old Shenyang saying: <strong>"First came Shisheng Temple, then came Shenyang city."</strong> Shisheng Temple was built in 1636 as a Qing imperial Tibetan Buddhist temple.</p>
       </div>
       <div class="fact">
         <span class="fact-num">083</span>
-        <p class="fact-text">沈阳的<strong>鸡架</strong>消费量大到全国鸡架供应链都受其影响——据说全国每年生产的鸡架有很大比例最终流向了沈阳。</p>
+        <p class="fact-text cn">沈阳的<strong>鸡架</strong>消费量大到全国鸡架供应链都受其影响——据说全国每年生产的鸡架有很大比例最终流向了沈阳。</p>
+        <p class="fact-text en">Shenyang's <strong>chicken frame</strong> consumption is so enormous that it affects the national supply chain — reportedly, a significant share of all chicken frames produced in China ends up in Shenyang.</p>
       </div>
       <div class="fact">
         <span class="fact-num">084</span>
-        <p class="fact-text">沈阳人冬天出门常戴<strong>雷锋帽</strong>（带护耳的棉帽），这个帽子因电影《雷锋》而得名，实际上是东北人的御寒必备品。</p>
+        <p class="fact-text cn">沈阳人冬天出门常戴<strong>雷锋帽</strong>（带护耳的棉帽），这个帽子因电影《雷锋》而得名，实际上是东北人的御寒必备品。</p>
+        <p class="fact-text en">In winter, Shenyang locals commonly wear the <strong>Lei Feng hat</strong> (a cotton hat with ear flaps). Named after the movie "Lei Feng," it's actually an essential cold-weather item for Northeasterners.</p>
       </div>
     </div>
   </div>
@@ -506,57 +604,69 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">未来 &amp; 争议</div>
+      <div class="cat-name"><span class="cn">未来 &amp; 争议</span><span class="en">Future &amp; Controversies</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">085</span>
-        <p class="fact-text"><strong>"振兴东北"</strong>政策自2003年提出至今已超过20年，但沈阳的经济增速始终低于全国平均水平，效果饱受争议。</p>
+        <p class="fact-text cn"><strong>"振兴东北"</strong>政策自2003年提出至今已超过20年，但沈阳的经济增速始终低于全国平均水平，效果饱受争议。</p>
+        <p class="fact-text en">The <strong>"Revitalize the Northeast"</strong> policy has been in place for over 20 years since 2003, yet Shenyang's economic growth has consistently lagged behind the national average, and its effectiveness remains controversial.</p>
       </div>
       <div class="fact">
         <span class="fact-num">086</span>
-        <p class="fact-text">沈阳的<strong>营商环境</strong>长期被诟病，"投资不过山海关"的说法曾广为流传，近年来政府大力推动"放管服"改革。</p>
+        <p class="fact-text cn">沈阳的<strong>营商环境</strong>长期被诟病，"投资不过山海关"的说法曾广为流传，近年来政府大力推动"放管服"改革。</p>
+        <p class="fact-text en">Shenyang's <strong>business environment</strong> has long been criticized. The saying "Don't invest beyond Shanhai Pass" was once widespread, though the government has pushed hard for "streamline administration" reforms in recent years.</p>
       </div>
       <div class="fact">
         <span class="fact-num">087</span>
-        <p class="fact-text">沈阳的<strong>人口老龄化</strong>问题严重，东北三省的生育率全国最低，年轻劳动力持续外流。</p>
+        <p class="fact-text cn">沈阳的<strong>人口老龄化</strong>问题严重，东北三省的生育率全国最低，年轻劳动力持续外流。</p>
+        <p class="fact-text en">Shenyang's <strong>population aging</strong> problem is severe. The three northeastern provinces have China's lowest birth rates, and young workers continue to migrate away.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">088</span>
-        <p class="fact-text">沈阳面临<strong>"收缩型城市"</strong>的挑战——人口减少、产业空心化、老城区衰落。但与此同时，沈阳也在尝试转型：浑南新区成为科技创新中心，文创产业在老工业区萌芽，华晨宝马持续扩产。沈阳的未来究竟是持续衰退还是触底反弹，是中国城市化进程中最值得关注的议题之一。</p>
+        <p class="fact-text cn">沈阳面临<strong>"收缩型城市"</strong>的挑战——人口减少、产业空心化、老城区衰落。但与此同时，沈阳也在尝试转型：浑南新区成为科技创新中心，文创产业在老工业区萌芽，华晨宝马持续扩产。沈阳的未来究竟是持续衰退还是触底反弹，是中国城市化进程中最值得关注的议题之一。</p>
+        <p class="fact-text en">Shenyang faces the challenge of being a <strong>"shrinking city"</strong> — population decline, industrial hollowing-out, and deteriorating old districts. Yet simultaneously, Shenyang is attempting transformation: Hunnan New District is becoming a tech innovation center, creative industries are sprouting in old industrial zones, and BMW Brilliance continues to expand. Whether Shenyang will continue to decline or bounce back is one of the most compelling questions in China's urbanization story.</p>
       </div>
       <div class="fact">
         <span class="fact-num">089</span>
-        <p class="fact-text">沈阳近年大力发展<strong>冰雪经济</strong>，利用漫长的冬季打造冰雪旅游和冬季体育产业。</p>
+        <p class="fact-text cn">沈阳近年大力发展<strong>冰雪经济</strong>，利用漫长的冬季打造冰雪旅游和冬季体育产业。</p>
+        <p class="fact-text en">Shenyang has been vigorously developing its <strong>ice and snow economy</strong> in recent years, leveraging its long winters to build winter tourism and sports industries.</p>
       </div>
       <div class="fact">
         <span class="fact-num">090</span>
-        <p class="fact-text">沈阳的<strong>直播电商</strong>产业异军突起，大量东北主播凭借幽默感和表现力在全国走红。</p>
+        <p class="fact-text cn">沈阳的<strong>直播电商</strong>产业异军突起，大量东北主播凭借幽默感和表现力在全国走红。</p>
+        <p class="fact-text en">Shenyang's <strong>live-streaming e-commerce</strong> industry has emerged as a surprise hit, with numerous Northeastern streamers going viral nationwide thanks to their humor and charisma.</p>
       </div>
       <div class="fact">
         <span class="fact-num">091</span>
-        <p class="fact-text">沈阳故宫和<strong>"一宫两陵"</strong>（故宫、北陵、东陵）被联合国列为世界文化遗产，文旅产业是沈阳转型的重要方向。</p>
+        <p class="fact-text cn">沈阳故宫和<strong>"一宫两陵"</strong>（故宫、北陵、东陵）被联合国列为世界文化遗产，文旅产业是沈阳转型的重要方向。</p>
+        <p class="fact-text en">The Shenyang Imperial Palace and <strong>"One Palace, Two Tombs"</strong> (Imperial Palace, Beiling, Dongling) are UNESCO World Heritage Sites. Cultural tourism is a key direction in Shenyang's economic transformation.</p>
       </div>
       <div class="fact">
         <span class="fact-num">092</span>
-        <p class="fact-text">沈阳的<strong>体制内就业</strong>偏好在全国城市中最为突出，考公务员和进国企是很多沈阳年轻人的首选。</p>
+        <p class="fact-text cn">沈阳的<strong>体制内就业</strong>偏好在全国城市中最为突出，考公务员和进国企是很多沈阳年轻人的首选。</p>
+        <p class="fact-text en">Shenyang's preference for <strong>government and state-enterprise jobs</strong> is the most pronounced among Chinese cities. Taking the civil service exam or joining a state-owned enterprise is the top choice for many young people in Shenyang.</p>
       </div>
       <div class="fact">
         <span class="fact-num">093</span>
-        <p class="fact-text">沈阳正在推进<strong>沈抚一体化</strong>，将沈阳和抚顺两个城市逐步融合，打造东北城市群的核心区域。</p>
+        <p class="fact-text cn">沈阳正在推进<strong>沈抚一体化</strong>，将沈阳和抚顺两个城市逐步融合，打造东北城市群的核心区域。</p>
+        <p class="fact-text en">Shenyang is advancing <strong>Shenyang-Fushun integration</strong>, gradually merging the two cities to create the core of a Northeast urban cluster.</p>
       </div>
       <div class="fact">
         <span class="fact-num">094</span>
-        <p class="fact-text">沈阳的<strong>烂尾楼</strong>问题曾十分突出，房地产过度开发导致大量楼盘烂尾，近年来政府逐步推动处置。</p>
+        <p class="fact-text cn">沈阳的<strong>烂尾楼</strong>问题曾十分突出，房地产过度开发导致大量楼盘烂尾，近年来政府逐步推动处置。</p>
+        <p class="fact-text en">Shenyang's <strong>unfinished building</strong> problem was once severe, with excessive real estate development leaving many projects abandoned. The government has been gradually addressing these in recent years.</p>
       </div>
       <div class="fact">
         <span class="fact-num">095</span>
-        <p class="fact-text">沈阳的<strong>地铁建设</strong>因资金问题多次推迟，部分规划线路至今未能开工，与南方城市的地铁建设速度形成鲜明对比。</p>
+        <p class="fact-text cn">沈阳的<strong>地铁建设</strong>因资金问题多次推迟，部分规划线路至今未能开工，与南方城市的地铁建设速度形成鲜明对比。</p>
+        <p class="fact-text en">Shenyang's <strong>metro expansion</strong> has been delayed multiple times due to funding issues. Some planned lines still haven't broken ground, in stark contrast to the rapid metro construction in southern cities.</p>
       </div>
       <div class="fact">
         <span class="fact-num">096</span>
-        <p class="fact-text">尽管面临诸多挑战，沈阳人的<strong>幽默感和乐观精神</strong>从未消失——"没有什么是一顿烧烤解决不了的，如果有，那就两顿"。</p>
+        <p class="fact-text cn">尽管面临诸多挑战，沈阳人的<strong>幽默感和乐观精神</strong>从未消失——"没有什么是一顿烧烤解决不了的，如果有，那就两顿"。</p>
+        <p class="fact-text en">Despite all its challenges, Shenyang locals' <strong>humor and optimism</strong> never fade — "There's nothing that a round of BBQ can't fix. If there is, make it two rounds."</p>
       </div>
     </div>
   </div>
@@ -565,25 +675,29 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">本地人才知道的事</div>
+      <div class="cat-name"><span class="cn">本地人才知道的事</span><span class="en">Only Locals Know</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">097</span>
-        <p class="fact-text">沈阳人买菜论<strong>"捆"</strong>不论"棵"——冬天囤大白菜是几百斤地买，整个阳台和楼道都堆满白菜，这是几代人的冬储记忆。</p>
+        <p class="fact-text cn">沈阳人买菜论<strong>"捆"</strong>不论"棵"——冬天囤大白菜是几百斤地买，整个阳台和楼道都堆满白菜，这是几代人的冬储记忆。</p>
+        <p class="fact-text en">Shenyang locals buy vegetables by the <strong>"bundle"</strong>, not by the stalk — in winter, they stock up on hundreds of jin of Napa cabbage, filling entire balconies and hallways. This winter stockpiling is a generational memory.</p>
       </div>
       <div class="fact">
         <span class="fact-num">098</span>
-        <p class="fact-text">真正的沈阳人吃鸡架一定要配<strong>"老雪"</strong>（雪花啤酒经典款），而且要用手撕着吃，用刀叉的一定是外地人。</p>
+        <p class="fact-text cn">真正的沈阳人吃鸡架一定要配<strong>"老雪"</strong>（雪花啤酒经典款），而且要用手撕着吃，用刀叉的一定是外地人。</p>
+        <p class="fact-text en">A true Shenyang local eats chicken frames paired with <strong>"Old Snow"</strong> (classic Snow Beer) and always tears the meat off by hand — anyone using a knife and fork is definitely an outsider.</p>
       </div>
       <div class="fact">
         <span class="fact-num">099</span>
-        <p class="fact-text">沈阳人冬天进屋第一件事是<strong>开窗通风</strong>——因为暖气太热，室内干燥到鼻子出血，加湿器是每家必备电器。</p>
+        <p class="fact-text cn">沈阳人冬天进屋第一件事是<strong>开窗通风</strong>——因为暖气太热，室内干燥到鼻子出血，加湿器是每家必备电器。</p>
+        <p class="fact-text en">The first thing Shenyang locals do when entering a heated room in winter is <strong>open the windows</strong> — because the heating is so intense that indoor air becomes dry enough to cause nosebleeds. A humidifier is an essential appliance in every home.</p>
       </div>
       <div class="fact">
         <span class="fact-num">100</span>
-        <p class="fact-text">沈阳人的终极社交场所不是酒吧也不是咖啡馆，而是<strong>洗浴中心</strong>——搓完澡、蒸完桑拿、穿上浴袍吃自助餐，然后在躺椅上聊到半夜，这才是沈阳人最地道的生活方式。</p>
+        <p class="fact-text cn">沈阳人的终极社交场所不是酒吧也不是咖啡馆，而是<strong>洗浴中心</strong>——搓完澡、蒸完桑拿、穿上浴袍吃自助餐，然后在躺椅上聊到半夜，这才是沈阳人最地道的生活方式。</p>
+        <p class="fact-text en">Shenyang locals' ultimate social venue isn't a bar or café — it's the <strong>bathhouse</strong>. After a scrub-down, a sauna, putting on a robe, hitting the buffet, and lounging in recliners chatting until midnight — that's the most authentic Shenyang lifestyle.</p>
       </div>
     </div>
   </div>
@@ -591,10 +705,15 @@
 </main>
 
 <footer>
-  <p>CityBits · 城市观察</p>
+  <p>CityBits · <span class="cn">城市观察</span><span class="en">City Observer</span></p>
   <div class="footer-ornament">✦</div>
-  <p>沈阳 · 100 City Notes</p>
+  <p><span class="cn">沈阳 · 100 City Notes</span><span class="en">沈阳 · 100 City Notes</span></p>
 </footer>
+
+<script>
+(function(){var l=localStorage.getItem('citybits-lang')||'cn';document.body.classList.add('lang-'+l);})();
+function toggleLang(){var e=document.body.classList.contains('lang-en');document.body.classList.remove('lang-cn','lang-en');var n=e?'cn':'en';document.body.classList.add('lang-'+n);localStorage.setItem('citybits-lang',n);}
+</script>
 
 </body>
 </html>

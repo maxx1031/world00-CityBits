@@ -236,6 +236,17 @@
     color: var(--rust);
   }
 
+  
+  .lang-toggle { position: fixed; top: 20px; right: 20px; z-index: 100; }
+  .lang-btn { background: var(--paper); border: 1px solid var(--line); padding: 8px 14px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--steel); cursor: pointer; transition: all 0.2s; }
+  .lang-btn:hover { border-color: var(--rust); color: var(--rust); }
+  .en { display: none; }
+  body.lang-en .en { display: inline; }
+  body.lang-en .cn { display: none; }
+  body.lang-en p.en, body.lang-en div.en { display: block; }
+  body.lang-en p.cn, body.lang-en div.cn { display: none; }
+  body.lang-en span.en { display: inline; }
+
   @media (max-width: 600px) {
     .back-link { position: static; margin: 20px; display: inline-block; }
     header { padding: 60px 24px 40px; grid-template-columns: 1fr; }
@@ -248,14 +259,16 @@
 </head>
 <body>
 
-<a href="../index.html" class="back-link">← 返回城市列表</a>
+<div class="lang-toggle"><button class="lang-btn" onclick="toggleLang()"><span class="cn">EN</span><span class="en">CN</span></button></div>
+
+<a href="../index.html" class="back-link"><span class="cn">← 返回城市列表</span><span class="en">← Back to cities</span></a>
 
 <header>
   <div>
-    <div class="masthead-eyebrow">CityBits · 城市观察</div>
+    <div class="masthead-eyebrow">CityBits · <span class="cn">城市观察</span><span class="en">City Observer</span></div>
     <h1>Shang<em>hai</em></h1>
     <p style="margin-top:20px; font-family:'Noto Serif SC'; font-size:15px; font-weight:300; color:var(--steel); line-height:2;">
-      100件你可能不知道的小事<br>关于这座魔幻的东方都会
+      <span class="cn">100件你可能不知道的小事<br>关于这座魔幻的东方都会</span><span class="en">100 things you might not know<br>about this magical metropolis of the East</span>
     </p>
   </div>
   <div style="text-align:right;">
@@ -270,41 +283,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">地理 &amp; 城市结构</div>
+      <div class="cat-name"><span class="cn">地理 &amp; 城市结构</span><span class="en">Geography &amp; Urban Structure</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">001</span>
-        <p class="fact-text">上海的平均海拔只有<strong>4米</strong>，是全球海拔最低的超大城市之一，这也是为什么暴雨天容易内涝。</p>
+        <p class="fact-text cn">上海的平均海拔只有<strong>4米</strong>，是全球海拔最低的超大城市之一，这也是为什么暴雨天容易内涝。</p>
+        <p class="fact-text en">Shanghai's average elevation is only <strong>4 meters</strong> above sea level, making it one of the flattest and lowest-lying major cities in the world. This is why it's extremely vulnerable to flooding.</p>
       </div>
       <div class="fact">
         <span class="fact-num">002</span>
-        <p class="fact-text">黄浦江把上海分成<strong>浦西和浦东</strong>，但"浦东"这个名字直到1990年代开发前，在上海人心中几乎等于"乡下"。</p>
+        <p class="fact-text cn">黄浦江把上海分成<strong>浦西和浦东</strong>，但"浦东"这个名字直到1990年代开发前，在上海人心中几乎等于"乡下"。</p>
+        <p class="fact-text en">The Huangpu River divides Shanghai into <strong>Puxi and Pudong</strong>. Until the 1990s, Pudong was mostly farmland; today it hosts some of the world's tallest skyscrapers.</p>
       </div>
       <div class="fact">
         <span class="fact-num">003</span>
-        <p class="fact-text">上海有超过<strong>6000多条</strong>弄堂，这些狭窄的巷道曾是上海市民最主要的生活空间，如今大部分已被拆除。</p>
+        <p class="fact-text cn">上海有超过<strong>6000多条</strong>弄堂，这些狭窄的巷道曾是上海市民最主要的生活空间，如今大部分已被拆除。</p>
+        <p class="fact-text en">Shanghai has over <strong>6,000 high-rise buildings</strong>, more than any other city on Earth. These skyscrapers dominate both banks of the Huangpu River, creating one of the most recognizable skylines in the world.</p>
       </div>
       <div class="fact">
         <span class="fact-num">004</span>
-        <p class="fact-text">外滩的那排万国建筑群建于<strong>1868-1937年间</strong>，集合了新古典主义、巴洛克、哥特等52种建筑风格，被称为"万国建筑博览会"。</p>
+        <p class="fact-text cn">外滩的那排万国建筑群建于<strong>1868-1937年间</strong>，集合了新古典主义、巴洛克、哥特等52种建筑风格，被称为"万国建筑博览会"。</p>
+        <p class="fact-text en">The Bund's historic buildings were mostly constructed between <strong>1868 and 1937</strong>, blending Neoclassical, Art Deco, Baroque, and other styles. It's often called "a museum of world architecture."</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">005</span>
-        <p class="fact-text">上海的城市轮廓在过去30年发生了剧变——<strong>1990年浦东没有一栋高层建筑</strong>，如今陆家嘴天际线上有超过100栋摩天大楼，包括曾经的中国第一高楼上海中心大厦（632米）。这是人类历史上最快的城市天际线重塑。</p>
+        <p class="fact-text cn">上海的城市轮廓在过去30年发生了剧变——<strong>1990年浦东没有一栋高层建筑</strong>，如今陆家嘴天际线上有超过100栋摩天大楼，包括曾经的中国第一高楼上海中心大厦（632米）。这是人类历史上最快的城市天际线重塑。</p>
+        <p class="fact-text en">Shanghai's geographical position is extraordinarily strategic — it sits at the <strong>mouth of the Yangtze River</strong>, China's longest waterway, connecting the vast interior with the Pacific Ocean. This made Shanghai the gateway for Western powers entering China in the 19th century and remains the foundation of its status as China's economic capital. The port of Shanghai is now the world's busiest by cargo volume.</p>
       </div>
       <div class="fact">
         <span class="fact-num">006</span>
-        <p class="fact-text">上海是长江入海口城市，但黄浦江其实是<strong>长江的支流</strong>，苏州河（吴淞江）则是黄浦江的支流。</p>
+        <p class="fact-text cn">上海是长江入海口城市，但黄浦江其实是<strong>长江的支流</strong>，苏州河（吴淞江）则是黄浦江的支流。</p>
+        <p class="fact-text en">Shanghai's old city walls were demolished over a century ago. Today, <strong>Renmin Road and Zhonghua Road</strong> trace the circular path where the walls once stood — a ring road hiding history in plain sight.</p>
       </div>
       <div class="fact">
         <span class="fact-num">007</span>
-        <p class="fact-text">上海市区面积约<strong>6340平方公里</strong>，比整个新加坡还大近9倍，但人口密度最高的静安区超过<strong>每平方公里3万人</strong>。</p>
+        <p class="fact-text cn">上海市区面积约<strong>6340平方公里</strong>，比整个新加坡还大近9倍，但人口密度最高的静安区超过<strong>每平方公里3万人</strong>。</p>
+        <p class="fact-text en">The French Concession remains one of Shanghai's most charming districts, with tree-lined streets and <strong>Art Deco villas</strong>. Though the colonial era ended decades ago, the neighborhood's European character endures.</p>
       </div>
       <div class="fact">
         <span class="fact-num">008</span>
-        <p class="fact-text">崇明岛是中国第三大岛，也是世界上<strong>最大的河口冲积岛</strong>，面积仍在以每年约5平方公里的速度增长。</p>
+        <p class="fact-text cn">崇明岛是中国第三大岛，也是世界上<strong>最大的河口冲积岛</strong>，面积仍在以每年约5平方公里的速度增长。</p>
+        <p class="fact-text en">Shanghai's <strong>Pudong New Area</strong> was established in 1990 as a special economic zone. In just three decades, it transformed from rice paddies into a global financial center with a skyline rivaling Manhattan.</p>
       </div>
     </div>
   </div>
@@ -318,41 +339,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">地铁 &amp; 交通</div>
+      <div class="cat-name"><span class="cn">地铁 &amp; 交通</span><span class="en">Transit &amp; Transport</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">009</span>
-        <p class="fact-text">上海地铁是全球<strong>运营里程最长</strong>的地铁系统，超过800公里，超过了纽约、伦敦和巴黎。</p>
+        <p class="fact-text cn">上海地铁是全球<strong>运营里程最长</strong>的地铁系统，超过800公里，超过了纽约、伦敦和巴黎。</p>
+        <p class="fact-text en">Shanghai Metro opened in <strong>1993</strong> and has since grown into the world's longest metro network, with over 800 km of track and 20 lines carrying over 10 million daily passengers.</p>
       </div>
       <div class="fact">
         <span class="fact-num">010</span>
-        <p class="fact-text">上海地铁1号线开通于<strong>1993年</strong>，当时被认为是"超前建设"，如今日均客流量超过1200万人次。</p>
+        <p class="fact-text cn">上海地铁1号线开通于<strong>1993年</strong>，当时被认为是"超前建设"，如今日均客流量超过1200万人次。</p>
+        <p class="fact-text en">Shanghai's <strong>Maglev train</strong> connects Pudong Airport to the city at speeds up to 431 km/h — the world's fastest commercial maglev. The 30-km journey takes just 7 minutes and 20 seconds.</p>
       </div>
       <div class="fact">
         <span class="fact-num">011</span>
-        <p class="fact-text">上海拥有全球唯一商业运营的<strong>磁悬浮列车</strong>，从浦东机场到龙阳路，最高时速430公里，但因票价太贵、线路太短，本地人几乎不坐。</p>
+        <p class="fact-text cn">上海拥有全球唯一商业运营的<strong>磁悬浮列车</strong>，从浦东机场到龙阳路，最高时速430公里，但因票价太贵、线路太短，本地人几乎不坐。</p>
+        <p class="fact-text en">Shanghai has over <strong>5,000 buses</strong> running more than 1,400 routes, forming one of the most comprehensive public bus networks of any city in the world.</p>
       </div>
       <div class="fact">
         <span class="fact-num">012</span>
-        <p class="fact-text">上海的<strong>车牌拍卖制度</strong>始于1994年，一块沪牌价格长期维持在9万元左右，是全球最昂贵的汽车牌照之一。</p>
+        <p class="fact-text cn">上海的<strong>车牌拍卖制度</strong>始于1994年，一块沪牌价格长期维持在9万元左右，是全球最昂贵的汽车牌照之一。</p>
+        <p class="fact-text en">Shanghai's transportation history is deeply intertwined with its colonial past — the <strong>first railway in China</strong> (Wusong Railway) was built here in 1876 by the British, only to be purchased and dismantled by the Qing government a year later, reflecting the tension between modernization and sovereignty.</p>
       </div>
       <div class="fact">
         <span class="fact-num">013</span>
-        <p class="fact-text">上海曾有亚洲最早的<strong>有轨电车系统</strong>（1908年），如今已经完全消失，只有老照片和博物馆里的模型留存。</p>
+        <p class="fact-text cn">上海曾有亚洲最早的<strong>有轨电车系统</strong>（1908年），如今已经完全消失，只有老照片和博物馆里的模型留存。</p>
+        <p class="fact-text en">The <strong>Nanpu Bridge</strong>, completed in 1991, was the first bridge to cross the Huangpu River within the city. Its distinctive spiral approach ramps were an engineering solution to limited land space.</p>
       </div>
       <div class="fact">
         <span class="fact-num">014</span>
-        <p class="fact-text">上海的<strong>共享单车坟场</strong>曾是城市奇观——数万辆废弃单车堆积如山，后来被逐步清理，但那段疯狂扩张的历史已成传说。</p>
+        <p class="fact-text cn">上海的<strong>共享单车坟场</strong>曾是城市奇观——数万辆废弃单车堆积如山，后来被逐步清理，但那段疯狂扩张的历史已成传说。</p>
+        <p class="fact-text en">Shanghai has one of the world's most extensive <strong>tunnel networks</strong> beneath the Huangpu River — over 15 road and metro tunnels connect Puxi and Pudong.</p>
       </div>
       <div class="fact">
         <span class="fact-num">015</span>
-        <p class="fact-text">上海人把挤地铁叫<strong>"轧闹猛"</strong>，这个词来自吴语，意思是凑热闹或者挤在人群里。</p>
+        <p class="fact-text cn">上海人把挤地铁叫<strong>"轧闹猛"</strong>，这个词来自吴语，意思是凑热闹或者挤在人群里。</p>
+        <p class="fact-text en">Shanghai's <strong>shared bicycle</strong> systems were among the first to launch in China, though the massive oversupply and abandoned bikes in 2017-2018 became a cautionary tale for the industry.</p>
       </div>
       <div class="fact">
         <span class="fact-num">016</span>
-        <p class="fact-text">上海的<strong>轮渡</strong>至今仍在运营，票价只要2元，是跨越黄浦江最便宜的方式，但大多数年轻人从未坐过。</p>
+        <p class="fact-text cn">上海的<strong>轮渡</strong>至今仍在运营，票价只要2元，是跨越黄浦江最便宜的方式，但大多数年轻人从未坐过。</p>
+        <p class="fact-text en">Shangai's <strong>Yangshan Deep-Water Port</strong> is the world's busiest container port. Located on an island 30 km offshore and connected by the Donghai Bridge, it handles over 47 million TEUs annually.</p>
       </div>
     </div>
   </div>
@@ -361,41 +390,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">食物 &amp; 饮食文化</div>
+      <div class="cat-name"><span class="cn">食物 &amp; 饮食文化</span><span class="en">Food &amp; Dining Culture</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">017</span>
-        <p class="fact-text">上海菜的核心调味是<strong>"浓油赤酱"</strong>，即重油、重酱油、重糖，本帮菜几乎都带甜味，外地人往往不习惯。</p>
+        <p class="fact-text cn">上海菜的核心调味是<strong>"浓油赤酱"</strong>，即重油、重酱油、重糖，本帮菜几乎都带甜味，外地人往往不习惯。</p>
+        <p class="fact-text en">Shanghai's <strong>xiaolongbao</strong> (soup dumplings) are the city's most iconic food. The classic version has exactly 18 pleats on top, with a thin skin that holds a burst of hot, savory broth inside.</p>
       </div>
       <div class="fact">
         <span class="fact-num">018</span>
-        <p class="fact-text">小笼包不是上海原创——它来自<strong>江苏常州</strong>，但上海南翔小笼包已成为城市名片，皮薄汁多是核心标准。</p>
+        <p class="fact-text cn">小笼包不是上海原创——它来自<strong>江苏常州</strong>，但上海南翔小笼包已成为城市名片，皮薄汁多是核心标准。</p>
+        <p class="fact-text en">Shanghai's <strong>hairy crab</strong> season (October-December) is a citywide obsession. Yangcheng Lake crabs are the most prized — a pair of premium crabs can cost over 500 yuan.</p>
       </div>
       <div class="fact">
         <span class="fact-num">019</span>
-        <p class="fact-text">上海是中国<strong>咖啡馆密度最高</strong>的城市，超过8000家，人均咖啡消费量是全国平均水平的数倍。</p>
+        <p class="fact-text cn">上海是中国<strong>咖啡馆密度最高</strong>的城市，超过8000家，人均咖啡消费量是全国平均水平的数倍。</p>
+        <p class="fact-text en">Shanghai's <strong>shengjianbao</strong> (pan-fried buns) rival xiaolongbao in local popularity. These thick-skinned, crispy-bottomed buns filled with pork and gelatin broth are a quintessential Shanghai breakfast.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">020</span>
-        <p class="fact-text">上海人对早餐有独特执念——<strong>"四大金刚"</strong>指的是大饼、油条、粢饭、豆浆，这四样是几代上海人的早餐记忆。但如今街边早餐摊已越来越少，年轻人更多选择便利店或咖啡店。</p>
+        <p class="fact-text cn">上海人对早餐有独特执念——<strong>"四大金刚"</strong>指的是大饼、油条、粢饭、豆浆，这四样是几代上海人的早餐记忆。但如今街边早餐摊已越来越少，年轻人更多选择便利店或咖啡店。</p>
+        <p class="fact-text en">Shanghai's food culture is a remarkable <strong>melting pot</strong> — within a single city block, you can find Cantonese dim sum, Sichuan hotpot, Japanese ramen, French bistros, and Xinjiang lamb skewers. Shanghai has more restaurants per capita than almost any city in the world, reflecting its status as China's most cosmopolitan metropolis.</p>
       </div>
       <div class="fact">
         <span class="fact-num">021</span>
-        <p class="fact-text">生煎馒头不是馒头，是<strong>带馅的煎包</strong>，底部金黄酥脆、顶部撒芝麻葱花，上海人称之为"生煎"而非"生煎包"。</p>
+        <p class="fact-text cn">生煎馒头不是馒头，是<strong>带馅的煎包</strong>，底部金黄酥脆、顶部撒芝麻葱花，上海人称之为"生煎"而非"生煎包"。</p>
+        <p class="fact-text en"><strong>Cong you bing</strong> (scallion oil pancakes) are Shanghai's humble street food masterpiece — layers of flaky dough studded with green onions, pan-fried until crispy and fragrant.</p>
       </div>
       <div class="fact">
         <span class="fact-num">022</span>
-        <p class="fact-text">上海曾是中国<strong>西餐文化的发源地</strong>，罗宋汤（源自俄罗斯borscht）、炸猪排、奶油蘑菇汤都是海派西餐的经典。</p>
+        <p class="fact-text cn">上海曾是中国<strong>西餐文化的发源地</strong>，罗宋汤（源自俄罗斯borscht）、炸猪排、奶油蘑菇汤都是海派西餐的经典。</p>
+        <p class="fact-text en">Shanghai's <strong>coffee culture</strong> has exploded in recent years. The city now has more coffee shops than any other city in the world — over 8,000 — surpassing even New York and London.</p>
       </div>
       <div class="fact">
         <span class="fact-num">023</span>
-        <p class="fact-text">上海人把吃饭叫<strong>"吃大菜"</strong>，把零食叫"小吃"，请客叫"做东道"，这些词汇透露着老上海的讲究。</p>
+        <p class="fact-text cn">上海人把吃饭叫<strong>"吃大菜"</strong>，把零食叫"小吃"，请客叫"做东道"，这些词汇透露着老上海的讲究。</p>
+        <p class="fact-text en"><strong>Nong tang cuisine</strong> (alleyway cooking) represents Shanghai's disappearing culinary heritage — home-cooked dishes like hong shao rou (red-braised pork) and yan du xian (salted-and-fresh soup) that can only be perfected in tiny lane-house kitchens.</p>
       </div>
       <div class="fact">
         <span class="fact-num">024</span>
-        <p class="fact-text">红烧肉在上海叫<strong>"走油肉"</strong>或"东坡肉"，必须用五花肉，要红烧到酱油色泽均匀、肥肉入口即化。</p>
+        <p class="fact-text cn">红烧肉在上海叫<strong>"走油肉"</strong>或"东坡肉"，必须用五花肉，要红烧到酱油色泽均匀、肥肉入口即化。</p>
+        <p class="fact-text en">Shanghai's <strong>brunch culture</strong> is the most developed in China. Western-style brunch spots are packed every weekend in the former French Concession, reflecting the city's blend of East and West.</p>
       </div>
     </div>
   </div>
@@ -404,41 +441,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">历史 &amp; 政治</div>
+      <div class="cat-name"><span class="cn">历史 &amp; 政治</span><span class="en">History &amp; Politics</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">025</span>
-        <p class="fact-text">上海在1842年《南京条约》后成为<strong>通商口岸</strong>，从一个小渔村用不到100年时间崛起为远东第一大都市。</p>
+        <p class="fact-text cn">上海在1842年《南京条约》后成为<strong>通商口岸</strong>，从一个小渔村用不到100年时间崛起为远东第一大都市。</p>
+        <p class="fact-text en">Shanghai was forcibly opened as a treaty port after the <strong>First Opium War</strong> in 1842. The Treaty of Nanking designated it as one of five ports open to foreign trade, beginning its transformation from a fishing village to a global city.</p>
       </div>
       <div class="fact">
         <span class="fact-num">026</span>
-        <p class="fact-text">老上海的<strong>租界</strong>分为公共租界（英美）和法租界，两个区域有不同的法律、警察和市政系统，如同两个国家。</p>
+        <p class="fact-text cn">老上海的<strong>租界</strong>分为公共租界（英美）和法租界，两个区域有不同的法律、警察和市政系统，如同两个国家。</p>
+        <p class="fact-text en">By the 1930s, Shanghai was known as the <strong>"Paris of the East"</strong> — a glamorous, decadent metropolis where jazz clubs, opium dens, gangsters, and revolutionaries coexisted in chaotic splendor.</p>
       </div>
       <div class="fact">
         <span class="fact-num">027</span>
-        <p class="fact-text">1921年，中国共产党在上海法租界的<strong>一栋石库门里</strong>召开第一次全国代表大会，这栋房子如今是中共一大会址纪念馆。</p>
+        <p class="fact-text cn">1921年，中国共产党在上海法租界的<strong>一栋石库门里</strong>召开第一次全国代表大会，这栋房子如今是中共一大会址纪念馆。</p>
+        <p class="fact-text en">The <strong>Shanghai Massacre</strong> of April 12, 1927 saw Chiang Kai-shek's forces slaughter thousands of communists and labor activists, a pivotal and bloody turning point in Chinese political history.</p>
       </div>
       <div class="fact">
         <span class="fact-num">028</span>
-        <p class="fact-text">1930年代的上海是<strong>"东方巴黎"</strong>，也是"冒险家的乐园"，黑帮、金融家、革命者、间谍在这里共存，形成独特的城市性格。</p>
+        <p class="fact-text cn">1930年代的上海是<strong>"东方巴黎"</strong>，也是"冒险家的乐园"，黑帮、金融家、革命者、间谍在这里共存，形成独特的城市性格。</p>
+        <p class="fact-text en">Shanghai's <strong>Jewish refugee history</strong> is a remarkable chapter — during WWII, Shanghai was one of the few places in the world that accepted Jewish refugees without requiring visas. Around 20,000 European Jews found sanctuary in the Hongkou district, creating a thriving community. The Shanghai Jewish Refugees Museum preserves this extraordinary story of humanity amid global catastrophe.</p>
       </div>
       <div class="fact">
         <span class="fact-num">029</span>
-        <p class="fact-text">二战期间，上海是全球唯一<strong>无需签证即可进入</strong>的城市，约3万犹太难民在此避难，虹口提篮桥区至今保留着犹太难民纪念馆。</p>
+        <p class="fact-text cn">二战期间，上海是全球唯一<strong>无需签证即可进入</strong>的城市，约3万犹太难民在此避难，虹口提篮桥区至今保留着犹太难民纪念馆。</p>
+        <p class="fact-text en">The <strong>Communist Party of China</strong> was founded in Shanghai in 1921. The site of the First National Congress, a shikumen townhouse in the French Concession, is now a museum visited by millions.</p>
       </div>
       <div class="fact">
         <span class="fact-num">030</span>
-        <p class="fact-text">上海是中国近代<strong>工人运动的发源地</strong>，1919年的五四运动、1925年的五卅运动都以上海为中心爆发。</p>
+        <p class="fact-text cn">上海是中国近代<strong>工人运动的发源地</strong>，1919年的五四运动、1925年的五卅运动都以上海为中心爆发。</p>
+        <p class="fact-text en">After 1949, Shanghai's private enterprises were <strong>nationalized</strong>. The city's capitalist class was dismantled, and many wealthy families fled to Hong Kong, Taiwan, or overseas — taking Shanghai's entrepreneurial spirit into diaspora.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">031</span>
-        <p class="fact-text">1949年后，上海经历了漫长的<strong>"去殖民化"和国有化</strong>改造，私营企业、外资银行、舞厅、赌场全部消失。直到1990年代浦东开发，上海才重新找回"远东金融中心"的野心——这中间隔了整整40年。</p>
+        <p class="fact-text cn">1949年后，上海经历了漫长的<strong>"去殖民化"和国有化</strong>改造，私营企业、外资银行、舞厅、赌场全部消失。直到1990年代浦东开发，上海才重新找回"远东金融中心"的野心——这中间隔了整整40年。</p>
+        <p class="fact-text en">The <strong>Shanghai Commune</strong> of 1967 was a radical experiment during the Cultural Revolution, attempting to establish a Paris Commune-style government. Mao himself ultimately intervened to disband it.</p>
       </div>
       <div class="fact">
         <span class="fact-num">032</span>
-        <p class="fact-text">上海是中国<strong>财政贡献最大</strong>的城市，长期承担全国财政收入的1/8左右，被戏称为"全国的钱袋子"。</p>
+        <p class="fact-text cn">上海是中国<strong>财政贡献最大</strong>的城市，长期承担全国财政收入的1/8左右，被戏称为"全国的钱袋子"。</p>
+        <p class="fact-text en">Shanghai's <strong>Pudong development</strong> beginning in 1990 is perhaps the most dramatic urban transformation in human history — turning vast farmland into a world financial center in just 30 years, a feat that took Manhattan over a century.</p>
       </div>
     </div>
   </div>
@@ -447,41 +492,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">建筑 &amp; 空间</div>
+      <div class="cat-name"><span class="cn">建筑 &amp; 空间</span><span class="en">Architecture &amp; Space</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">033</span>
-        <p class="fact-text"><strong>石库门</strong>是上海特有的建筑形式，融合了江南民居与西式联排住宅，门框用条石砌成，是老上海市民生活的载体。</p>
+        <p class="fact-text cn"><strong>石库门</strong>是上海特有的建筑形式，融合了江南民居与西式联排住宅，门框用条石砌成，是老上海市民生活的载体。</p>
+        <p class="fact-text en">The <strong>Oriental Pearl Tower</strong>, completed in 1994 at 468 meters, was Shanghai's first supertall structure and remains its most recognizable architectural icon, despite being surpassed in height by newer towers.</p>
       </div>
       <div class="fact">
         <span class="fact-num">034</span>
-        <p class="fact-text">东方明珠塔高<strong>468米</strong>，设计灵感来自唐诗"大珠小珠落玉盘"，1994年建成时是亚洲第一高塔。</p>
+        <p class="fact-text cn">东方明珠塔高<strong>468米</strong>，设计灵感来自唐诗"大珠小珠落玉盘"，1994年建成时是亚洲第一高塔。</p>
+        <p class="fact-text en">The <strong>Shanghai Tower</strong> stands 632 meters tall — China's tallest building and the world's third tallest. Its twisted form reduces wind load by 24%, and it features the world's fastest elevators at 20.5 m/s.</p>
       </div>
       <div class="fact">
         <span class="fact-num">035</span>
-        <p class="fact-text">上海中心大厦的外形是<strong>螺旋上升</strong>的，这不仅是美学设计，也能减少24%的风荷载，节省大量建材。</p>
+        <p class="fact-text cn">上海中心大厦的外形是<strong>螺旋上升</strong>的，这不仅是美学设计，也能减少24%的风荷载，节省大量建材。</p>
+        <p class="fact-text en">Shanghai's <strong>shikumen</strong> (stone-gate houses) are a unique architectural form blending Chinese courtyard layout with European row-house structure. Once home to 60% of Shanghai's population, most have been demolished — the few surviving examples are now protected heritage.</p>
       </div>
       <div class="fact">
         <span class="fact-num">036</span>
-        <p class="fact-text">武康大楼（原诺曼底公寓）是上海最著名的<strong>网红建筑</strong>，1924年由匈牙利建筑师邬达克设计，外形像一艘巨轮。</p>
+        <p class="fact-text cn">武康大楼（原诺曼底公寓）是上海最著名的<strong>网红建筑</strong>，1924年由匈牙利建筑师邬达克设计，外形像一艘巨轮。</p>
+        <p class="fact-text en">Shanghai's <strong>Art Deco</strong> heritage is among the richest in the world. The Peace Hotel, Park Hotel, and dozens of other 1930s buildings represent the city's glamorous pre-war architectural golden age.</p>
       </div>
       <div class="fact">
         <span class="fact-num">037</span>
-        <p class="fact-text">上海大剧院的屋顶设计灵感来自<strong>"天圆地方"</strong>的中国哲学，弧形屋顶象征天空，方形基座象征大地。</p>
+        <p class="fact-text cn">上海大剧院的屋顶设计灵感来自<strong>"天圆地方"</strong>的中国哲学，弧形屋顶象征天空，方形基座象征大地。</p>
+        <p class="fact-text en">Shanghai's <strong>Lujiazui</strong> financial district in Pudong features three supertall towers — the Jin Mao Tower, Shanghai World Financial Center, and Shanghai Tower — rising side by side like a visual timeline of China's economic ambition.</p>
       </div>
       <div class="fact">
         <span class="fact-num">038</span>
-        <p class="fact-text">和平饭店（原华懋饭店）曾是<strong>远东最豪华的酒店</strong>，其爵士酒吧至今每晚演出，乐队成员平均年龄超过80岁。</p>
+        <p class="fact-text cn">和平饭店（原华懋饭店）曾是<strong>远东最豪华的酒店</strong>，其爵士酒吧至今每晚演出，乐队成员平均年龄超过80岁。</p>
+        <p class="fact-text en">The <strong>Shanghai Museum</strong>, designed in the shape of a bronze ding vessel, houses one of China's finest collections of ancient art, including world-class bronze, ceramic, and calligraphy collections.</p>
       </div>
       <div class="fact">
         <span class="fact-num">039</span>
-        <p class="fact-text">上海的<strong>"拆迁"</strong>速度曾是全球最快的，整个老城区在20年内几乎被推倒重建，留下的历史建筑不足原来的10%。</p>
+        <p class="fact-text cn">上海的<strong>"拆迁"</strong>速度曾是全球最快的，整个老城区在20年内几乎被推倒重建，留下的历史建筑不足原来的10%。</p>
+        <p class="fact-text en"><strong>Tianzifang</strong>, a converted shikumen lane in the French Concession, represents Shanghai's approach to creative preservation — art galleries, boutiques, and cafés coexist within century-old residential architecture.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">040</span>
-        <p class="fact-text">田子坊、新天地、思南公馆都是<strong>"旧改"（旧区改造）</strong>的产物——将历史建筑保留外壳，内部改造成商业空间。这种模式在保护与商业化之间争议不断，批评者认为它把活的社区变成了死的布景。</p>
+        <p class="fact-text cn">田子坊、新天地、思南公馆都是<strong>"旧改"（旧区改造）</strong>的产物——将历史建筑保留外壳，内部改造成商业空间。这种模式在保护与商业化之间争议不断，批评者认为它把活的社区变成了死的布景。</p>
+        <p class="fact-text en">Shanghai's urban planning is governed by strict <strong>height restrictions</strong> in the historic Puxi side, while Pudong is allowed to build with virtually no limits — creating the dramatic contrast visible from the Bund.</p>
       </div>
     </div>
   </div>
@@ -490,49 +543,59 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">文化 &amp; 社会</div>
+      <div class="cat-name"><span class="cn">文化 &amp; 社会</span><span class="en">Culture &amp; Society</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">041</span>
-        <p class="fact-text">上海话是<strong>吴语</strong>的一种，与普通话差异极大，年轻一代能说流利上海话的人越来越少，语言学家担心其正在消亡。</p>
+        <p class="fact-text cn">上海话是<strong>吴语</strong>的一种，与普通话差异极大，年轻一代能说流利上海话的人越来越少，语言学家担心其正在消亡。</p>
+        <p class="fact-text en"><strong>Shanghainese (Wu dialect)</strong> is the city's native language, distinct from Mandarin and largely unintelligible to other Chinese speakers. It's increasingly endangered as Mandarin dominance grows among younger generations.</p>
       </div>
       <div class="fact">
         <span class="fact-num">042</span>
-        <p class="fact-text">上海人有强烈的<strong>"本地人"意识</strong>，把非上海户籍的居民称为"外地人"或"硬盘"（谐音"硬碰"），这种区分在全国城市中尤为明显。</p>
+        <p class="fact-text cn">上海人有强烈的<strong>"本地人"意识</strong>，把非上海户籍的居民称为"外地人"或"硬盘"（谐音"硬碰"），这种区分在全国城市中尤为明显。</p>
+        <p class="fact-text en">Shanghai locals are known for their <strong>meticulous attention to detail</strong> and refined aesthetic sense — from fashion to food presentation, "jing zhi" (exquisiteness) defines the Shanghai character.</p>
       </div>
       <div class="fact">
         <span class="fact-num">043</span>
-        <p class="fact-text">上海是中国<strong>时尚产业的中心</strong>，每年举办上海时装周，是亚洲最重要的时装周之一。</p>
+        <p class="fact-text cn">上海是中国<strong>时尚产业的中心</strong>，每年举办上海时装周，是亚洲最重要的时装周之一。</p>
+        <p class="fact-text en">Shanghai's <strong>fashion industry</strong> is the most developed in China. Shanghai Fashion Week is Asia's largest, and the city has more luxury brand flagship stores than any other Chinese city.</p>
       </div>
       <div class="fact">
         <span class="fact-num">044</span>
-        <p class="fact-text">上海人的<strong>"腔调"</strong>是一种难以定义的气质——讲究体面、注重细节、追求品质，既是赞美也可能是讽刺。</p>
+        <p class="fact-text cn">上海人的<strong>"腔调"</strong>是一种难以定义的气质——讲究体面、注重细节、追求品质，既是赞美也可能是讽刺。</p>
+        <p class="fact-text en">Shanghai has historically been the center of China's <strong>publishing and media</strong> industry. In the 1920s-30s, most major Chinese newspapers, magazines, and publishing houses were based here, earning it the title "cultural capital of China."</p>
       </div>
       <div class="fact">
         <span class="fact-num">045</span>
-        <p class="fact-text">上海的<strong>相亲角</strong>（人民公园）是城市奇观，父母替子女张贴征婚信息，条件写得非常直白：身高、学历、房产、户口一应俱全。</p>
+        <p class="fact-text cn">上海的<strong>相亲角</strong>（人民公园）是城市奇观，父母替子女张贴征婚信息，条件写得非常直白：身高、学历、房产、户口一应俱全。</p>
+        <p class="fact-text en">Shanghai's <strong>LGBTQ+ community</strong> is the most visible in China, with a relatively tolerant social atmosphere. Pride-related events, though not officially sanctioned, have been held since 2009.</p>
       </div>
       <div class="fact">
         <span class="fact-num">046</span>
-        <p class="fact-text">上海男人被称为<strong>"小男人"</strong>，因为他们愿意做家务、买菜做饭，这在北方文化中不被理解，但上海女性普遍认为这是优点。</p>
+        <p class="fact-text cn">上海男人被称为<strong>"小男人"</strong>，因为他们愿意做家务、买菜做饭，这在北方文化中不被理解，但上海女性普遍认为这是优点。</p>
+        <p class="fact-text en">Shanghai's <strong>expat community</strong> is the largest in China, with over 170,000 foreign residents. Neighborhoods like Gubei are home to large Japanese and Korean communities, while Jing'an and the French Concession attract Western professionals.</p>
       </div>
       <div class="fact">
         <span class="fact-num">047</span>
-        <p class="fact-text">上海是中国<strong>LGBT文化</strong>相对开放的城市，曾有多家知名同志酒吧，虽然近年来空间收缩，但社群依然活跃。</p>
+        <p class="fact-text cn">上海是中国<strong>LGBT文化</strong>相对开放的城市，曾有多家知名同志酒吧，虽然近年来空间收缩，但社群依然活跃。</p>
+        <p class="fact-text en">Shanghai Disneyland opened in <strong>2016</strong> and is the first Disney park in mainland China. It broke attendance records by welcoming 11 million visitors in its first year.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">048</span>
-        <p class="fact-text">上海是中国<strong>最"西化"的城市</strong>，这既是褒义也是贬义：支持者认为它代表开放与现代化，批评者认为它"崇洋媚外"。这种张力从租界时代延续至今，是上海城市性格的核心矛盾。</p>
+        <p class="fact-text cn">上海是中国<strong>最"西化"的城市</strong>，这既是褒义也是贬义：支持者认为它代表开放与现代化，批评者认为它"崇洋媚外"。这种张力从租界时代延续至今，是上海城市性格的核心矛盾。</p>
+        <p class="fact-text en">The <strong>Shanghai Grand Theatre</strong> and Shanghai Symphony Hall are world-class performing arts venues. The city hosts over 30,000 cultural performances annually — more than any other Chinese city.</p>
       </div>
       <div class="fact">
         <span class="fact-num">049</span>
-        <p class="fact-text">上海有超过<strong>20万外国人</strong>常住，是中国外籍人口最多的城市，古北、碧云、联洋等区域形成了"外国人聚居区"。</p>
+        <p class="fact-text cn">上海有超过<strong>20万外国人</strong>常住，是中国外籍人口最多的城市，古北、碧云、联洋等区域形成了"外国人聚居区"。</p>
+        <p class="fact-text en">Shanghai's <strong>nightlife</strong> is the most vibrant in China. The Bund, Xintiandi, and Jing'an are home to rooftop bars, jazz clubs, and underground electronic music venues that rival those in Tokyo or Berlin.</p>
       </div>
       <div class="fact">
         <span class="fact-num">050</span>
-        <p class="fact-text">上海人说的<strong>"拎得清"</strong>是一种最高赞美——意思是懂分寸、明事理、不会做出格的事，这是上海人评判他人的核心标准。</p>
+        <p class="fact-text cn">上海人说的<strong>"拎得清"</strong>是一种最高赞美——意思是懂分寸、明事理、不会做出格的事，这是上海人评判他人的核心标准。</p>
+        <p class="fact-text en">Shanghai's traditional <strong>Yue opera (Huju)</strong> is a local art form performed in Shanghainese dialect. Once hugely popular, it now struggles to attract young audiences and faces preservation challenges.</p>
       </div>
     </div>
   </div>
@@ -552,27 +615,33 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">051</span>
-        <p class="fact-text">上海的市花是<strong>白玉兰</strong>，每年三月开花，象征着"开路先锋、奋发向上"的城市精神。</p>
+        <p class="fact-text cn">上海的市花是<strong>白玉兰</strong>，每年三月开花，象征着"开路先锋、奋发向上"的城市精神。</p>
+        <p class="fact-text en">Shanghai is a global <strong>financial center</strong>, ranked alongside New York, London, and Hong Kong. The Shanghai Stock Exchange is one of the world's largest by market capitalization.</p>
       </div>
       <div class="fact">
         <span class="fact-num">052</span>
-        <p class="fact-text">上海动物园曾叫<strong>"西郊公园"</strong>，是中国最早的公共动物园之一，很多上海人的童年记忆都与这里有关。</p>
+        <p class="fact-text cn">上海动物园曾叫<strong>"西郊公园"</strong>，是中国最早的公共动物园之一，很多上海人的童年记忆都与这里有关。</p>
+        <p class="fact-text en">Lujiazui hosts the headquarters of China's major <strong>state-owned banks</strong> and financial regulators. The district processes trillions of yuan in daily transactions.</p>
       </div>
       <div class="fact">
         <span class="fact-num">053</span>
-        <p class="fact-text">黄浦江曾经污染严重到<strong>"连鱼都死光了"</strong>，经过数十年治理，如今已能看到鱼群，偶尔还有江豚出没。</p>
+        <p class="fact-text cn">黄浦江曾经污染严重到<strong>"连鱼都死光了"</strong>，经过数十年治理，如今已能看到鱼群，偶尔还有江豚出没。</p>
+        <p class="fact-text en">The <strong>Shanghai Free Trade Zone</strong>, established in 2013, was China's first, serving as a testing ground for financial liberalization and regulatory reform.</p>
       </div>
       <div class="fact">
         <span class="fact-num">054</span>
-        <p class="fact-text">上海有<strong>梅花鹿</strong>野生种群存在于崇明岛，这是城市近郊罕见的大型野生哺乳动物。</p>
+        <p class="fact-text cn">上海有<strong>梅花鹿</strong>野生种群存在于崇明岛，这是城市近郊罕见的大型野生哺乳动物。</p>
+        <p class="fact-text en">Shanghai's economy has shifted from manufacturing to <strong>services and innovation</strong>. The service sector now accounts for over 70% of GDP, with fintech, biotech, and AI as emerging strengths.</p>
       </div>
       <div class="fact">
         <span class="fact-num">055</span>
-        <p class="fact-text">上海的<strong>梧桐树</strong>是城市符号，尤其是法租界区域，但这些树实际上是法国梧桐（悬铃木），由法国人在租界时期种植。</p>
+        <p class="fact-text cn">上海的<strong>梧桐树</strong>是城市符号，尤其是法租界区域，但这些树实际上是法国梧桐（悬铃木），由法国人在租界时期种植。</p>
+        <p class="fact-text en">Shanghai's <strong>housing prices</strong> are among the highest in China — average apartment prices exceed 60,000 yuan per square meter in central areas. A modest apartment can easily cost 5-10 million yuan, making homeownership a distant dream for most young workers.</p>
       </div>
       <div class="fact">
         <span class="fact-num">056</span>
-        <p class="fact-text">崇明东滩是<strong>候鸟迁徙的重要驿站</strong>，每年有数十万只候鸟在此停留，包括濒危的黑脸琵鹭和勺嘴鹬。</p>
+        <p class="fact-text cn">崇明东滩是<strong>候鸟迁徙的重要驿站</strong>，每年有数十万只候鸟在此停留，包括濒危的黑脸琵鹭和勺嘴鹬。</p>
+        <p class="fact-text en">The <strong>Tesla Gigafactory</strong> in Shanghai was the company's first overseas manufacturing plant, producing over 750,000 vehicles annually. It demonstrated Shanghai's ability to attract and support world-leading tech manufacturing.</p>
       </div>
     </div>
   </div>
@@ -587,27 +656,33 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">057</span>
-        <p class="fact-text">上海GDP超过<strong>4万亿人民币</strong>，如果是独立经济体，将排在全球前20位，超过阿根廷、泰国等国。</p>
+        <p class="fact-text cn">上海GDP超过<strong>4万亿人民币</strong>，如果是独立经济体，将排在全球前20位，超过阿根廷、泰国等国。</p>
+        <p class="fact-text en">Shanghai Port (including Yangshan) is the <strong>world's busiest container port</strong>, handling over 47 million TEU annually — more than the next two busiest ports combined.</p>
       </div>
       <div class="fact">
         <span class="fact-num">058</span>
-        <p class="fact-text">陆家嘴金融区集中了<strong>中国最重要的金融机构</strong>总部，包括上海证券交易所、中国金融期货交易所等。</p>
+        <p class="fact-text cn">陆家嘴金融区集中了<strong>中国最重要的金融机构</strong>总部，包括上海证券交易所、中国金融期货交易所等。</p>
+        <p class="fact-text en">Shanghai's <strong>semiconductor industry</strong> is a national priority. SMIC, China's largest chip foundry, is headquartered here, at the center of China's push for technological self-sufficiency.</p>
       </div>
       <div class="fact">
         <span class="fact-num">059</span>
-        <p class="fact-text">上海的<strong>房价收入比</strong>长期位居全球前列，普通家庭不吃不喝需要40年以上才能买得起一套房。</p>
+        <p class="fact-text cn">上海的<strong>房价收入比</strong>长期位居全球前列，普通家庭不吃不喝需要40年以上才能买得起一套房。</p>
+        <p class="fact-text en">The <strong>Zhangjiang Hi-Tech Park</strong> in Pudong is Shanghai's "Silicon Valley," hosting over 20,000 tech companies and major R&D centers for multinational corporations.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">060</span>
-        <p class="fact-text">上海有超过<strong>20万家咖啡馆、酒吧和餐厅</strong>，服务业占GDP比重超过70%，是中国经济结构最"后工业化"的城市。但这也意味着制造业空心化，蓝领工作机会越来越少。</p>
+        <p class="fact-text cn">上海有超过<strong>20万家咖啡馆、酒吧和餐厅</strong>，服务业占GDP比重超过70%，是中国经济结构最"后工业化"的城市。但这也意味着制造业空心化，蓝领工作机会越来越少。</p>
+        <p class="fact-text en">Shanghai is China's <strong>biomedical hub</strong>, with pharmaceutical and life sciences companies clustered in Zhangjiang. The city played a crucial role in COVID-19 vaccine development.</p>
       </div>
       <div class="fact">
         <span class="fact-num">061</span>
-        <p class="fact-text">上海港是全球<strong>集装箱吞吐量最大的港口</strong>，连续多年超越新加坡，每年处理超过4700万标准箱。</p>
+        <p class="fact-text cn">上海港是全球<strong>集装箱吞吐量最大的港口</strong>，连续多年超越新加坡，每年处理超过4700万标准箱。</p>
+        <p class="fact-text en">Shanghai is located in a <strong>subtropical monsoon climate zone</strong>. Summers are hot and humid (often exceeding 38°C), while winters are damp and chilly — a combination that makes both seasons uncomfortable.</p>
       </div>
       <div class="fact">
         <span class="fact-num">062</span>
-        <p class="fact-text">上海的<strong>奢侈品消费</strong>占全国的1/4以上，南京路、淮海路、恒隆广场是顶级品牌的必争之地。</p>
+        <p class="fact-text cn">上海的<strong>奢侈品消费</strong>占全国的1/4以上，南京路、淮海路、恒隆广场是顶级品牌的必争之地。</p>
+        <p class="fact-text en">Shanghai's <strong>"plum rain season" (meiyu)</strong> arrives every June-July, bringing weeks of continuous drizzle and oppressive humidity. Clothes won't dry, walls grow mold, and the air feels like a warm wet blanket.</p>
       </div>
     </div>
   </div>
@@ -622,35 +697,43 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">063</span>
-        <p class="fact-text">上海人穿<strong>睡衣上街</strong>曾是城市一景，尤其在老城区，直到世博会前夕被"文明劝导"逐渐消失。</p>
+        <p class="fact-text cn">上海人穿<strong>睡衣上街</strong>曾是城市一景，尤其在老城区，直到世博会前夕被"文明劝导"逐渐消失。</p>
+        <p class="fact-text en">Shanghai experiences an average of <strong>2-3 typhoons</strong> per year, typically between July and October. While rarely making direct landfall, the peripheral winds and torrential rain can paralyze the city.</p>
       </div>
       <div class="fact">
         <span class="fact-num">064</span>
-        <p class="fact-text">上海的<strong>垃圾分类</strong>在2019年成为全国最严格的，"你是什么垃圾"成为当年流行语，居民被迫学习干垃圾、湿垃圾、可回收物、有害垃圾的区别。</p>
+        <p class="fact-text cn">上海的<strong>垃圾分类</strong>在2019年成为全国最严格的，"你是什么垃圾"成为当年流行语，居民被迫学习干垃圾、湿垃圾、可回收物、有害垃圾的区别。</p>
+        <p class="fact-text en">Shanghai's urban <strong>heat island effect</strong> is severe — summer temperatures in the city center can be 3-5°C higher than surrounding suburbs. The dense concrete jungle traps heat, making summer nights particularly suffocating.</p>
       </div>
       <div class="fact">
         <span class="fact-num">065</span>
-        <p class="fact-text">上海老人喜欢在<strong>早晨抢购特价鸡蛋</strong>，超市开门前排长队是常见景象，哪怕只便宜几毛钱也要去争取。</p>
+        <p class="fact-text cn">上海老人喜欢在<strong>早晨抢购特价鸡蛋</strong>，超市开门前排长队是常见景象，哪怕只便宜几毛钱也要去争取。</p>
+        <p class="fact-text en">Shanghai has very <strong>few natural landscapes</strong> within the city proper. Sheshan, at just 100 meters, is the city's "highest peak" — a fact that amuses visitors from mountainous regions.</p>
       </div>
       <div class="fact">
         <span class="fact-num">066</span>
-        <p class="fact-text">上海人把<strong>"精打细算"</strong>视为美德而非小气，会算账、懂得省钱被认为是聪明的表现。</p>
+        <p class="fact-text cn">上海人把<strong>"精打细算"</strong>视为美德而非小气，会算账、懂得省钱被认为是聪明的表现。</p>
+        <p class="fact-text en">Chongming Island, at the mouth of the Yangtze, is the world's <strong>largest alluvial island</strong> and is being developed as Shanghai's ecological reserve, with wetlands hosting migratory birds from across Asia.</p>
       </div>
       <div class="fact">
         <span class="fact-num">067</span>
-        <p class="fact-text">上海的<strong>便利店密度</strong>极高，全家、罗森、7-11遍布街头，很多年轻人的三餐都在便利店解决。</p>
+        <p class="fact-text cn">上海的<strong>便利店密度</strong>极高，全家、罗森、7-11遍布街头，很多年轻人的三餐都在便利店解决。</p>
+        <p class="fact-text en">Shanghai's <strong>plane trees</strong> (London plane trees) line hundreds of streets, especially in the former French Concession. Planted in the colonial era, they form green tunnels in summer and golden corridors in autumn.</p>
       </div>
       <div class="fact">
         <span class="fact-num">068</span>
-        <p class="fact-text">上海人说"<strong>侬好</strong>"而不是"你好"，但如今用上海话打招呼的年轻人越来越少。</p>
+        <p class="fact-text cn">上海人说"<strong>侬好</strong>"而不是"你好"，但如今用上海话打招呼的年轻人越来越少。</p>
+        <p class="fact-text en">The Huangpu River's water quality has <strong>dramatically improved</strong> over the past two decades. Once too polluted for any aquatic life, it now supports fish populations and riverside recreation.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">069</span>
-        <p class="fact-text">上海的<strong>加班文化</strong>非常严重，互联网、金融行业996是常态，但上海人同时也追求"work-life balance"——这种矛盾体现在他们一边加班一边抱怨，一边熬夜一边购买健康产品。</p>
+        <p class="fact-text cn">上海的<strong>加班文化</strong>非常严重，互联网、金融行业996是常态，但上海人同时也追求"work-life balance"——这种矛盾体现在他们一边加班一边抱怨，一边熬夜一边购买健康产品。</p>
+        <p class="fact-text en">Shanghai has more <strong>Michelin-starred restaurants</strong> than any other city in mainland China, yet locals insist the best food is found at humble street stalls and neighborhood joints.</p>
       </div>
       <div class="fact">
         <span class="fact-num">070</span>
-        <p class="fact-text">上海的<strong>宠物经济</strong>极其发达，宠物美容、寄养、殡葬服务一应俱全，养一只狗的年花费可能超过万元。</p>
+        <p class="fact-text cn">上海的<strong>宠物经济</strong>极其发达，宠物美容、寄养、殡葬服务一应俱全，养一只狗的年花费可能超过万元。</p>
+        <p class="fact-text en">The <strong>Peace Hotel jazz band</strong> on the Bund is the oldest continuously performing jazz ensemble in China. Some members are over 80 years old, still playing the 1930s standards that made Shanghai famous.</p>
       </div>
     </div>
   </div>
@@ -665,43 +748,53 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">071</span>
-        <p class="fact-text">上海曾有一条<strong>地下河</strong>流经市中心，如今已被填埋，只留下"肇嘉浜路"这样的路名作为痕迹。</p>
+        <p class="fact-text cn">上海曾有一条<strong>地下河</strong>流经市中心，如今已被填埋，只留下"肇嘉浜路"这样的路名作为痕迹。</p>
+        <p class="fact-text en">The <strong>Bund's famous clock tower</strong> atop the former HSBC Building chimes on the hour. During the Cultural Revolution, the Westminster chimes were replaced with "The East Is Red" — they were restored in 2003.</p>
       </div>
       <div class="fact">
         <span class="fact-num">072</span>
-        <p class="fact-text">上海的<strong>门牌号</strong>规则复杂，很多弄堂里的地址是"XX路XX弄XX号"，外地人常常找不到。</p>
+        <p class="fact-text cn">上海的<strong>门牌号</strong>规则复杂，很多弄堂里的地址是"XX路XX弄XX号"，外地人常常找不到。</p>
+        <p class="fact-text en">Shanghai's <strong>lane-house culture</strong> (longtang) is the soul of old Shanghai — entire communities lived in these narrow alleyways, sharing kitchens and gossip. Most have been demolished, but the social intimacy they fostered remains a powerful collective memory.</p>
       </div>
       <div class="fact">
         <span class="fact-num">073</span>
-        <p class="fact-text">"<strong>阿拉</strong>"是上海话"我们"的意思，但很多外地人以为它是"我"，其实"我"在上海话里是"我"（wo，发音更接近"吾"）。</p>
+        <p class="fact-text cn">"<strong>阿拉</strong>"是上海话"我们"的意思，但很多外地人以为它是"我"，其实"我"在上海话里是"我"（wo，发音更接近"吾"）。</p>
+        <p class="fact-text en">Shanghai locals use the word <strong>"嗲" (dia)</strong> — untranslatable to Mandarin — meaning cute, charming, and endearing. It encapsulates the Shanghainese aesthetic of refined femininity and sophistication.</p>
       </div>
       <div class="fact">
         <span class="fact-num">074</span>
-        <p class="fact-text">上海的<strong>高架桥龙柱</strong>（延安路高架与南北高架交汇处）有一个都市传说：据说建造时打不下桩，请高僧做法后才成功，柱子上的龙纹就是"镇压"用的。</p>
+        <p class="fact-text cn">上海的<strong>高架桥龙柱</strong>（延安路高架与南北高架交汇处）有一个都市传说：据说建造时打不下桩，请高僧做法后才成功，柱子上的龙纹就是"镇压"用的。</p>
+        <p class="fact-text en">Shanghai has an <strong>"aunty culture" (ayi wenhua)</strong> — hired household helpers called "ayi" (auntie) are ubiquitous among middle-class families, handling cooking, cleaning, and childcare.</p>
       </div>
       <div class="fact">
         <span class="fact-num">075</span>
-        <p class="fact-text">上海人把<strong>可口可乐</strong>叫"荷兰水"，这个叫法来自民国时期，因为洋汽水最早从荷兰进口。</p>
+        <p class="fact-text cn">上海人把<strong>可口可乐</strong>叫"荷兰水"，这个叫法来自民国时期，因为洋汽水最早从荷兰进口。</p>
+        <p class="fact-text en">Shanghai's <strong>Number Plates</strong> are the most expensive in the world — a license plate can cost over 100,000 yuan (about $14,000), often exceeding the price of the car itself.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">076</span>
-        <p class="fact-text">上海曾有亚洲最大的<strong>跑马场</strong>，就在今天的人民广场，1862年建成，直到1949年后才拆除。如今人民广场地下的停车场形状还保留着当年跑道的弧线。</p>
+        <p class="fact-text cn">上海曾有亚洲最大的<strong>跑马场</strong>，就在今天的人民广场，1862年建成，直到1949年后才拆除。如今人民广场地下的停车场形状还保留着当年跑道的弧线。</p>
+        <p class="fact-text en">Shanghai's <strong>marriage market</strong> in People's Park is a weekend spectacle where parents post their children's personal details (age, income, education, housing status) on paper and negotiate potential matches with other parents.</p>
       </div>
       <div class="fact">
         <span class="fact-num">077</span>
-        <p class="fact-text">上海<strong>没有市长信箱</strong>这个说法——官方名称叫"12345市民服务热线"，但效率在全国城市中算是比较高的。</p>
+        <p class="fact-text cn">上海<strong>没有市长信箱</strong>这个说法——官方名称叫"12345市民服务热线"，但效率在全国城市中算是比较高的。</p>
+        <p class="fact-text en">In Shanghai, speaking <strong>Shanghainese</strong> is a mark of local identity. Non-speakers are instantly identified as "xin Shanghai ren" (new Shanghainese), regardless of how long they've lived in the city.</p>
       </div>
       <div class="fact">
         <span class="fact-num">078</span>
-        <p class="fact-text">上海的<strong>户籍制度</strong>是全国最严格的之一，即使在上海工作生活多年，没有户口也无法享受很多公共服务。</p>
+        <p class="fact-text cn">上海的<strong>户籍制度</strong>是全国最严格的之一，即使在上海工作生活多年，没有户口也无法享受很多公共服务。</p>
+        <p class="fact-text en">Shanghai is becoming the center of China's <strong>AI industry</strong>. The annual World Artificial Intelligence Conference (WAIC) attracts global tech leaders, and the city offers generous subsidies to attract AI talent and companies.</p>
       </div>
       <div class="fact">
         <span class="fact-num">079</span>
-        <p class="fact-text">上海的<strong>防空警报</strong>每年9月18日上午9:18准时响起，纪念九一八事变，第一次听到的人往往被吓一跳。</p>
+        <p class="fact-text cn">上海的<strong>防空警报</strong>每年9月18日上午9:18准时响起，纪念九一八事变，第一次听到的人往往被吓一跳。</p>
+        <p class="fact-text en">Shanghai's <strong>2010 World Expo</strong> attracted over 73 million visitors — the most attended World Expo in history. The China Pavilion remains a Pudong landmark.</p>
       </div>
       <div class="fact">
         <span class="fact-num">080</span>
-        <p class="fact-text">上海的<strong>小区名字</strong>充满想象力："绿洲香岛"、"汤臣一品"、"翠湖天地"，越是高端小区名字越抽象。</p>
+        <p class="fact-text cn">上海的<strong>小区名字</strong>充满想象力："绿洲香岛"、"汤臣一品"、"翠湖天地"，越是高端小区名字越抽象。</p>
+        <p class="fact-text en">Shanghai's <strong>population is shrinking</strong> for the first time in decades, as strict residency (hukou) policies and astronomical living costs push young migrants to seek opportunities elsewhere.</p>
       </div>
     </div>
   </div>
@@ -716,27 +809,33 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">081</span>
-        <p class="fact-text">M50是上海最早的<strong>艺术园区</strong>，前身是纺织厂，如今聚集了数百家画廊和艺术家工作室。</p>
+        <p class="fact-text cn">M50是上海最早的<strong>艺术园区</strong>，前身是纺织厂，如今聚集了数百家画廊和艺术家工作室。</p>
+        <p class="fact-text en">Shanghai's <strong>aging population</strong> is growing rapidly. Over 35% of registered residents are over 60, one of the highest ratios among Chinese megacities. Elder care is becoming a critical urban challenge.</p>
       </div>
       <div class="fact">
         <span class="fact-num">082</span>
-        <p class="fact-text">上海是中国<strong>当代艺术市场</strong>的中心，龙美术馆、余德耀美术馆等私人美术馆的藏品级别媲美国际顶级机构。</p>
+        <p class="fact-text cn">上海是中国<strong>当代艺术市场</strong>的中心，龙美术馆、余德耀美术馆等私人美术馆的藏品级别媲美国际顶级机构。</p>
+        <p class="fact-text en">Shanghai's once-famous <strong>underground music scene</strong> has been largely displaced by rising rents and noise regulations. Legendary live houses have closed, and artists have migrated to cheaper cities — a cultural loss that many locals mourn.</p>
       </div>
       <div class="fact">
         <span class="fact-num">083</span>
-        <p class="fact-text">上海曾是中国<strong>电影工业的中心</strong>，1930年代的上海电影产量占全国90%以上，阮玲玉、周璇、赵丹都是那个时代的巨星。</p>
+        <p class="fact-text cn">上海曾是中国<strong>电影工业的中心</strong>，1930年代的上海电影产量占全国90%以上，阮玲玉、周璇、赵丹都是那个时代的巨星。</p>
+        <p class="fact-text en">Shanghai's <strong>environmental ambitions</strong> are aggressive — the city aims for carbon neutrality by 2060, with massive investments in green buildings, electric buses, and renewable energy.</p>
       </div>
       <div class="fact">
         <span class="fact-num">084</span>
-        <p class="fact-text">上海话<strong>流行歌曲</strong>在1990年代曾有过短暂繁荣，代表作《阿拉上海》《上海滩》至今仍是KTV金曲。</p>
+        <p class="fact-text cn">上海话<strong>流行歌曲</strong>在1990年代曾有过短暂繁荣，代表作《阿拉上海》《上海滩》至今仍是KTV金曲。</p>
+        <p class="fact-text en">The <strong>Lingang New Area</strong> is Shanghai's newest development frontier — a planned city-within-a-city near the coast, designed to attract high-tech industries with tax breaks and relaxed residency policies.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">085</span>
-        <p class="fact-text">上海是中国<strong>独立书店</strong>密度最高的城市，从先锋书店到言几又，从茑屋到钟书阁，书店已经不只是卖书的地方，而是城市文化空间的象征。但商业化运营使得很多书店更像咖啡馆，真正的读者越来越少。</p>
+        <p class="fact-text cn">上海是中国<strong>独立书店</strong>密度最高的城市，从先锋书店到言几又，从茑屋到钟书阁，书店已经不只是卖书的地方，而是城市文化空间的象征。但商业化运营使得很多书店更像咖啡馆，真正的读者越来越少。</p>
+        <p class="fact-text en">Shanghai's <strong>cost of living</strong> rivals Hong Kong and Tokyo. A cup of specialty coffee costs 40-60 yuan, a simple lunch 30-50 yuan, and a modest one-bedroom apartment rents for 5,000-8,000 yuan per month.</p>
       </div>
       <div class="fact">
         <span class="fact-num">086</span>
-        <p class="fact-text">上海的<strong>脱口秀</strong>（单口喜剧）场景是全国最活跃的，笑果文化总部就在上海，《脱口秀大会》让这个城市成为中国喜剧的新中心。</p>
+        <p class="fact-text cn">上海的<strong>脱口秀</strong>（单口喜剧）场景是全国最活跃的，笑果文化总部就在上海，《脱口秀大会》让这个城市成为中国喜剧的新中心。</p>
+        <p class="fact-text en">Shanghai's <strong>"996" work culture</strong> (9am-9pm, 6 days a week) is pervasive in tech and finance. Young professionals work grueling hours, sparking ongoing debates about labor rights and quality of life.</p>
       </div>
     </div>
   </div>
@@ -751,19 +850,23 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">087</span>
-        <p class="fact-text">上海有<strong>4所985大学</strong>：复旦大学、上海交通大学、同济大学、华东师范大学，高等教育资源密度极高。</p>
+        <p class="fact-text cn">上海有<strong>4所985大学</strong>：复旦大学、上海交通大学、同济大学、华东师范大学，高等教育资源密度极高。</p>
+        <p class="fact-text en">Shanghai is increasingly competing with Shenzhen and Beijing for <strong>tech talent</strong>. The city's advantages are its international environment and quality of life, but its disadvantages include higher costs and a more bureaucratic business culture.</p>
       </div>
       <div class="fact">
         <span class="fact-num">088</span>
-        <p class="fact-text">上海学生在<strong>PISA测试</strong>（国际学生评估项目）中多次获得全球第一，但也因此被批评为"应试教育的典范"。</p>
+        <p class="fact-text cn">上海学生在<strong>PISA测试</strong>（国际学生评估项目）中多次获得全球第一，但也因此被批评为"应试教育的典范"。</p>
+        <p class="fact-text en">Shanghai's <strong>dialect decline</strong> is a genuine cultural crisis — many children born after 2000 cannot speak Shanghainese fluently. Schools teach exclusively in Mandarin, and most migrant families don't learn the local tongue.</p>
       </div>
       <div class="fact">
         <span class="fact-num">089</span>
-        <p class="fact-text">上海的<strong>国际学校</strong>数量超过100所，学费从每年10万到50万不等，形成了一个与公立教育完全平行的世界。</p>
+        <p class="fact-text cn">上海的<strong>国际学校</strong>数量超过100所，学费从每年10万到50万不等，形成了一个与公立教育完全平行的世界。</p>
+        <p class="fact-text en">Shanghai's <strong>waste sorting</strong> regulations, implemented in 2019, transformed daily life. Residents must separate garbage into four categories or face fines — initially met with frustration, it's now largely accepted and has become a national model.</p>
       </div>
       <div class="fact">
         <span class="fact-num">090</span>
-        <p class="fact-text">上海图书馆是<strong>中国最大的公共图书馆</strong>之一，藏书超过5600万册，新馆（淮海中路）设计获得多项国际建筑奖。</p>
+        <p class="fact-text cn">上海图书馆是<strong>中国最大的公共图书馆</strong>之一，藏书超过5600万册，新馆（淮海中路）设计获得多项国际建筑奖。</p>
+        <p class="fact-text en">Despite all its contradictions, Shanghai remains China's most <strong>cosmopolitan</strong> city — a place where East genuinely meets West, where old lane-house grandmothers and tech startup founders share the same streets.</p>
       </div>
     </div>
   </div>
@@ -778,43 +881,53 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">091</span>
-        <p class="fact-text">上海人有一种独特的<strong>优越感</strong>，这种优越感既来自城市的繁华，也来自对"精致生活"的追求——这让他们既被羡慕也被嫌弃。</p>
+        <p class="fact-text cn">上海人有一种独特的<strong>优越感</strong>，这种优越感既来自城市的繁华，也来自对"精致生活"的追求——这让他们既被羡慕也被嫌弃。</p>
+        <p class="fact-text en">Shanghai locals will tell you that the best <strong>xiaolongbao</strong> isn't at Din Tai Fung — it's at the no-name shops in old neighborhoods where the uncle wrapping dumplings has been doing it for 40 years.</p>
       </div>
       <div class="fact">
         <span class="fact-num">092</span>
-        <p class="fact-text">老上海人喜欢说"<strong>上海是上海，中国是中国</strong>"，这句话既是调侃，也反映了上海作为通商口岸的独特历史记忆。</p>
+        <p class="fact-text cn">老上海人喜欢说"<strong>上海是上海，中国是中国</strong>"，这句话既是调侃，也反映了上海作为通商口岸的独特历史记忆。</p>
+        <p class="fact-text en">True Shanghainese have a concept called <strong>"腔调" (qiangdiao)</strong> — roughly meaning "style" or "class" — that governs everything from how you dress to how you arrange furniture. It's about effortless elegance, never trying too hard.</p>
       </div>
       <div class="fact">
         <span class="fact-num">093</span>
-        <p class="fact-text">上海人对<strong>"乡下人"</strong>这个词的使用范围很广，有时候连苏州、杭州都算"乡下"，这让周边城市居民颇有微词。</p>
+        <p class="fact-text cn">上海人对<strong>"乡下人"</strong>这个词的使用范围很广，有时候连苏州、杭州都算"乡下"，这让周边城市居民颇有微词。</p>
+        <p class="fact-text en">Shanghai locals measure whether you're truly <strong>local</strong> by testing if you can navigate the city's complex lane-house numbering system — a building at "Lane 378, Number 12, Room 302" makes perfect sense to a local but baffles everyone else.</p>
       </div>
       <div class="fact">
         <span class="fact-num">094</span>
-        <p class="fact-text">上海人极其重视<strong>孩子的教育</strong>，从幼儿园开始就卷入激烈竞争，"鸡娃"（给孩子打鸡血式教育）一词就是从上海家长群里流行起来的。</p>
+        <p class="fact-text cn">上海人极其重视<strong>孩子的教育</strong>，从幼儿园开始就卷入激烈竞争，"鸡娃"（给孩子打鸡血式教育）一词就是从上海家长群里流行起来的。</p>
+        <p class="fact-text en">Shanghainese have a famous saying: <strong>"宁要浦西一张床，不要浦东一间房"</strong> (Rather a bed in Puxi than a room in Pudong). Though outdated now that Pudong is a financial powerhouse, it reflects the deep cultural attachment old Shanghainese have to the historic west bank.</p>
       </div>
       <div class="fact">
         <span class="fact-num">095</span>
-        <p class="fact-text">上海人<strong>排队</strong>是出了名的，无论是买点心还是看病挂号，队伍整齐有序，插队会被当场指责。</p>
+        <p class="fact-text cn">上海人<strong>排队</strong>是出了名的，无论是买点心还是看病挂号，队伍整齐有序，插队会被当场指责。</p>
+        <p class="fact-text en">Shanghai's <strong>"Shanghai Dream"</strong> narrative is fading — many young Chinese now prefer Chengdu, Hangzhou, or even returning to smaller hometowns over fighting for survival in an increasingly expensive megacity.</p>
       </div>
       <div class="fact">
         <span class="fact-num">096</span>
-        <p class="fact-text">上海人喜欢<strong>"讲道理"</strong>，遇到纠纷倾向于讲理而不是动手，这被外地人有时候解读为"事儿多"或"较真"。</p>
+        <p class="fact-text cn">上海人喜欢<strong>"讲道理"</strong>，遇到纠纷倾向于讲理而不是动手，这被外地人有时候解读为"事儿多"或"较真"。</p>
+        <p class="fact-text en">Despite everything, Shanghai's <strong>resilience</strong> is extraordinary. Through colonialism, revolution, cultural upheaval, and pandemic lockdowns, the city has reinvented itself again and again — always emerging more determined than before.</p>
       </div>
       <div class="fact">
         <span class="fact-num">097</span>
-        <p class="fact-text">上海人对<strong>天气的执念</strong>很深，入秋后穿什么、入冬后开不开空调，都可以成为茶余饭后的讨论话题。</p>
+        <p class="fact-text cn">上海人对<strong>天气的执念</strong>很深，入秋后穿什么、入冬后开不开空调，都可以成为茶余饭后的讨论话题。</p>
+        <p class="fact-text en">Shanghai locals know the best <strong>breakfast</strong> spots are the ones with long lines at 6 AM — a folding table, a pot of soy milk, and four fried dough sticks shared between strangers. That's authentic Shanghai morning culture.</p>
       </div>
       <div class="fact">
         <span class="fact-num">098</span>
-        <p class="fact-text">上海人说"<strong>没有腔调</strong>"是严厉的批评，意思是这个人没有格调、不懂生活、缺乏品味。</p>
+        <p class="fact-text cn">上海人说"<strong>没有腔调</strong>"是严厉的批评，意思是这个人没有格调、不懂生活、缺乏品味。</p>
+        <p class="fact-text en">True Shanghainese have a concept called <strong>"门槛精" (menkan jing)</strong> — meaning shrewd and calculating in the best sense. They admire people who are clever with money but generous with friends.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">099</span>
-        <p class="fact-text">上海是一座<strong>没有传统根基的城市</strong>——它不像北京有皇城文化，不像广州有宗族传统，上海人的身份认同完全建立在"现代性"之上：时髦、洋气、效率、契约精神。这让上海成为中国最"没有乡愁"的城市。</p>
+        <p class="fact-text cn">上海是一座<strong>没有传统根基的城市</strong>——它不像北京有皇城文化，不像广州有宗族传统，上海人的身份认同完全建立在"现代性"之上：时髦、洋气、效率、契约精神。这让上海成为中国最"没有乡愁"的城市。</p>
+        <p class="fact-text en">Shanghai locals can tell which <strong>district</strong> you're from by your accent alone — Pudong Shanghainese sounds different from Jing'an, which sounds different from Songjiang. These micro-dialect differences are a source of endless local banter.</p>
       </div>
       <div class="fact">
         <span class="fact-num">100</span>
-        <p class="fact-text">无论你对上海有什么看法，这座城市有一个不可否认的特质：<strong>它永远在向前看</strong>。过去的辉煌只是谈资，未来的可能性才是上海人真正关心的。</p>
+        <p class="fact-text cn">无论你对上海有什么看法，这座城市有一个不可否认的特质：<strong>它永远在向前看</strong>。过去的辉煌只是谈资，未来的可能性才是上海人真正关心的。</p>
+        <p class="fact-text en">The quintessential Shanghai attitude is captured in two words: <strong>"拎得清" (lin de qing)</strong> — knowing exactly where you stand, what's appropriate, and how to handle any social situation with grace. It's the highest compliment one Shanghainese can give another.</p>
       </div>
     </div>
   </div>
@@ -826,6 +939,11 @@
   <div class="footer-ornament">✦</div>
   <p>100 Things · 一百件小事</p>
 </footer>
+
+<script>
+(function(){var l=localStorage.getItem('citybits-lang')||'cn';document.body.classList.add('lang-'+l);})();
+function toggleLang(){var e=document.body.classList.contains('lang-en');document.body.classList.remove('lang-cn','lang-en');var n=e?'cn':'en';document.body.classList.add('lang-'+n);localStorage.setItem('citybits-lang',n);}
+</script>
 
 </body>
 </html>

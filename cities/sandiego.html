@@ -39,24 +39,37 @@
   footer { border-top: 2px solid var(--ink); padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; }
   footer p { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--steel); text-transform: uppercase; }
   .footer-ornament { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--rust); }
+  
+  .lang-toggle { position: fixed; top: 20px; right: 20px; z-index: 100; }
+  .lang-btn { background: var(--paper); border: 1px solid var(--line); padding: 8px 14px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--steel); cursor: pointer; transition: all 0.2s; }
+  .lang-btn:hover { border-color: var(--rust); color: var(--rust); }
+  .en { display: none; }
+  body.lang-en .en { display: inline; }
+  body.lang-en .cn { display: none; }
+  body.lang-en p.en, body.lang-en div.en { display: block; }
+  body.lang-en p.cn, body.lang-en div.cn { display: none; }
+  body.lang-en span.en { display: inline; }
+
   @media (max-width: 600px) { .back-link { position: static; margin: 20px; display: inline-block; } header { padding: 60px 24px 40px; grid-template-columns: 1fr; } .masthead-number { display: none; } main { padding: 0 16px 60px; } .fact-grid { grid-template-columns: 1fr; } footer { padding: 24px; flex-direction: column; gap: 12px; } }
 </style>
 </head>
 <body>
 
-<a href="../index.html" class="back-link">← 返回城市列表</a>
+<div class="lang-toggle"><button class="lang-btn" onclick="toggleLang()"><span class="cn">EN</span><span class="en">CN</span></button></div>
+
+<a href="../index.html" class="back-link"><span class="cn">← 返回城市列表</span><span class="en">← Back to cities</span></a>
 
 <header>
   <div>
-    <div class="masthead-eyebrow">CityBits · 城市观察</div>
+    <div class="masthead-eyebrow">CityBits · <span class="cn">城市观察</span><span class="en">City Observer</span></div>
     <h1>San Di<em>ego</em></h1>
     <p style="margin-top:20px; font-family:'Noto Serif SC'; font-size:15px; font-weight:300; color:var(--steel); line-height:2;">
-      100件你可能不知道的小事<br>关于这座阳光海岸的加州明珠
+      <span class="cn">100件你可能不知道的小事<br>关于这座阳光海岸的加州明珠</span><span class="en">100 things you might not know<br>about this sunny jewel of the California coast</span>
     </p>
   </div>
   <div style="text-align:right;">
     <div class="masthead-number">100</div>
-    <div class="masthead-sub">加州的诞生地<br>阳光与海浪的国度<br>美墨边境的交汇点</div>
+    <div class="masthead-sub"><span class="cn">加州的诞生地<br>阳光与海浪的国度<br>美墨边境的交汇点</span><span class="en">Where California began<br>Land of sun and surf<br>At the US-Mexico border</span></div>
   </div>
 </header>
 
@@ -66,89 +79,106 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">地理 &amp; 城市结构</div>
+      <div class="cat-name"><span class="cn">地理 &amp; 城市结构</span><span class="en">Geography &amp; Urban Structure</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">001</span>
-        <p class="fact-text">圣地亚哥位于加州最南端，距墨西哥蒂华纳仅<strong>25公里</strong>，是美国大陆最靠近墨西哥的大城市。</p>
+        <p class="fact-text cn">圣地亚哥位于加州最南端，距墨西哥蒂华纳仅<strong>25公里</strong>，是美国大陆最靠近墨西哥的大城市。</p>
+        <p class="fact-text en">San Diego is located at the southernmost tip of California, just <strong>25 km</strong> from Tijuana, Mexico — the closest major US city to the Mexican border.</p>
       </div>
       <div class="fact">
         <span class="fact-num">002</span>
-        <p class="fact-text">圣地亚哥面积约<strong>964平方公里</strong>，是加州面积第二大城市，拥有超过110公里的海岸线。</p>
+        <p class="fact-text cn">圣地亚哥面积约<strong>964平方公里</strong>，是加州面积第二大城市，拥有超过110公里的海岸线。</p>
+        <p class="fact-text en">San Diego covers approximately <strong>964 square kilometers</strong>, making it the second-largest city in California by area, with over 110 km of coastline.</p>
       </div>
       <div class="fact">
         <span class="fact-num">003</span>
-        <p class="fact-text">圣地亚哥的天然深水港<strong>San Diego Bay</strong>是美国太平洋海岸最优良的天然港湾之一，也是美国海军太平洋舰队的主要基地。</p>
+        <p class="fact-text cn">圣地亚哥的天然深水港<strong>San Diego Bay</strong>是美国太平洋海岸最优良的天然港湾之一，也是美国海军太平洋舰队的主要基地。</p>
+        <p class="fact-text en">San Diego's natural deep-water harbor, <strong>San Diego Bay</strong>, is one of the finest natural harbors on the US Pacific coast and the primary base of the US Navy's Pacific Fleet.</p>
       </div>
       <div class="fact">
         <span class="fact-num">004</span>
-        <p class="fact-text"><strong>科罗纳多岛</strong>（Coronado）并非真正的岛，而是一个半岛，通过一座弧形大桥与市区相连，桥高60米，全长3.4公里。</p>
+        <p class="fact-text cn"><strong>科罗纳多岛</strong>（Coronado）并非真正的岛，而是一个半岛，通过一座弧形大桥与市区相连，桥高60米，全长3.4公里。</p>
+        <p class="fact-text en"><strong>Coronado Island</strong> is not actually an island but a peninsula, connected to downtown by a sweeping arc bridge that stands 60 meters high and stretches 3.4 km.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">005</span>
-        <p class="fact-text">圣地亚哥与蒂华纳构成了世界上最繁忙的<strong>国际边境口岸</strong>之一——San Ysidro口岸每天约有7万人和2万辆车通过。两座城市在文化、经济和日常生活上深度交融，许多人每天跨境通勤上班，墨西哥居民来圣地亚哥购物，美国居民去蒂华纳看牙医和享受低价餐饮。</p>
+        <p class="fact-text cn">圣地亚哥与蒂华纳构成了世界上最繁忙的<strong>国际边境口岸</strong>之一——San Ysidro口岸每天约有7万人和2万辆车通过。两座城市在文化、经济和日常生活上深度交融，许多人每天跨境通勤上班，墨西哥居民来圣地亚哥购物，美国居民去蒂华纳看牙医和享受低价餐饮。</p>
+        <p class="fact-text en">San Diego and Tijuana form one of the world's busiest <strong>international border crossings</strong> — approximately 70,000 people and 20,000 vehicles pass through the San Ysidro port of entry daily. The two cities are deeply intertwined culturally, economically, and in daily life. Many people commute across the border for work, Mexican residents shop in San Diego, and Americans visit Tijuana for affordable dental care and dining.</p>
       </div>
       <div class="fact">
         <span class="fact-num">006</span>
-        <p class="fact-text">圣地亚哥的地形起伏较大，城市建在<strong>多个台地和峡谷</strong>之上，峡谷将城市分割成不同的社区。</p>
+        <p class="fact-text cn">圣地亚哥的地形起伏较大，城市建在<strong>多个台地和峡谷</strong>之上，峡谷将城市分割成不同的社区。</p>
+        <p class="fact-text en">San Diego's terrain is quite hilly, with the city built on <strong>multiple mesas and canyons</strong> that divide the urban area into distinct neighborhoods.</p>
       </div>
       <div class="fact">
         <span class="fact-num">007</span>
-        <p class="fact-text"><strong>La Jolla</strong>（拉霍亚）是圣地亚哥最富裕的海滨社区，名字来自西班牙语"la joya"（宝石），海岸悬崖景色壮丽。</p>
+        <p class="fact-text cn"><strong>La Jolla</strong>（拉霍亚）是圣地亚哥最富裕的海滨社区，名字来自西班牙语"la joya"（宝石），海岸悬崖景色壮丽。</p>
+        <p class="fact-text en"><strong>La Jolla</strong> is San Diego's most affluent coastal community. The name comes from the Spanish "la joya" (the jewel), and its coastal cliffs offer stunning views.</p>
       </div>
       <div class="fact">
         <span class="fact-num">008</span>
-        <p class="fact-text">圣地亚哥的<strong>Mission Valley</strong>是城市的商业中心，建在一条古老河谷上，两侧是大型购物中心和体育场馆。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>Mission Valley</strong>是城市的商业中心，建在一条古老河谷上，两侧是大型购物中心和体育场馆。</p>
+        <p class="fact-text en">San Diego's <strong>Mission Valley</strong> is the city's commercial center, built along an ancient river valley flanked by large shopping centers and sports venues.</p>
       </div>
     </div>
   </div>
 
   <!-- PULLQUOTE -->
   <div class="pullquote">
-    <p>「圣地亚哥是美国最完美的气候，<br>一年365天都是晴天的错觉。」</p>
+    <p class="cn">「圣地亚哥是美国最完美的气候，<br>一年365天都是晴天的错觉。」</p>
+    <p class="en">"San Diego has America's most perfect climate —<br>the illusion of 365 sunny days a year."</p>
   </div>
 
   <!-- CATEGORY 2: 地铁 & 交通 -->
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">地铁 &amp; 交通</div>
+      <div class="cat-name"><span class="cn">地铁 &amp; 交通</span><span class="en">Transit &amp; Transport</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">009</span>
-        <p class="fact-text">圣地亚哥的<strong>Trolley</strong>轻轨系统连接市中心、东部郊区和美墨边境，蓝线终点站就在San Ysidro口岸旁。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>Trolley</strong>轻轨系统连接市中心、东部郊区和美墨边境，蓝线终点站就在San Ysidro口岸旁。</p>
+        <p class="fact-text en">San Diego's <strong>Trolley</strong> light rail system connects downtown, eastern suburbs, and the US-Mexico border. The Blue Line terminates right next to the San Ysidro border crossing.</p>
       </div>
       <div class="fact">
         <span class="fact-num">010</span>
-        <p class="fact-text">圣地亚哥是一座典型的<strong>汽车城市</strong>，公共交通覆盖率远不及旧金山或纽约，大多数居民依赖私家车出行。</p>
+        <p class="fact-text cn">圣地亚哥是一座典型的<strong>汽车城市</strong>，公共交通覆盖率远不及旧金山或纽约，大多数居民依赖私家车出行。</p>
+        <p class="fact-text en">San Diego is a quintessential <strong>car city</strong>. Public transit coverage falls far short of San Francisco or New York, and most residents depend on personal vehicles.</p>
       </div>
       <div class="fact">
         <span class="fact-num">011</span>
-        <p class="fact-text">圣地亚哥国际机场（SAN）距市中心仅<strong>5公里</strong>，飞机起降时紧贴市区高楼飞过，景象壮观。</p>
+        <p class="fact-text cn">圣地亚哥国际机场（SAN）距市中心仅<strong>5公里</strong>，飞机起降时紧贴市区高楼飞过，景象壮观。</p>
+        <p class="fact-text en">San Diego International Airport (SAN) is only <strong>5 km</strong> from downtown. Planes taking off and landing fly remarkably close to city buildings — a spectacular sight.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">012</span>
-        <p class="fact-text">圣地亚哥机场的跑道布局极其独特——它只有<strong>一条跑道</strong>，却是全美最繁忙的单跑道机场，年旅客量超过2500万人次。飞机降落时几乎擦着市中心的建筑物飞过，Laurel Street上方的飞机低空掠过是圣地亚哥最经典的城市景观之一。</p>
+        <p class="fact-text cn">圣地亚哥机场的跑道布局极其独特——它只有<strong>一条跑道</strong>，却是全美最繁忙的单跑道机场，年旅客量超过2500万人次。飞机降落时几乎擦着市中心的建筑物飞过，Laurel Street上方的飞机低空掠过是圣地亚哥最经典的城市景观之一。</p>
+        <p class="fact-text en">San Diego's airport runway layout is remarkably unusual — it has just <strong>one runway</strong>, yet it's the busiest single-runway airport in the US, handling over 25 million passengers annually. Planes on approach practically skim the rooftops of downtown buildings, and the low flyovers above Laurel Street are one of San Diego's most iconic urban scenes.</p>
       </div>
       <div class="fact">
         <span class="fact-num">013</span>
-        <p class="fact-text">科罗纳多大桥建于<strong>1969年</strong>，桥面呈优美的弧形曲线，是圣地亚哥最上镜的地标之一。</p>
+        <p class="fact-text cn">科罗纳多大桥建于<strong>1969年</strong>，桥面呈优美的弧形曲线，是圣地亚哥最上镜的地标之一。</p>
+        <p class="fact-text en">The Coronado Bridge was built in <strong>1969</strong>. Its elegant curved design makes it one of San Diego's most photographed landmarks.</p>
       </div>
       <div class="fact">
         <span class="fact-num">014</span>
-        <p class="fact-text">圣地亚哥的<strong>Pacific Coast Highway</strong>（1号公路）沿海岸线延伸，是加州最美的自驾线路之一。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>Pacific Coast Highway</strong>（1号公路）沿海岸线延伸，是加州最美的自驾线路之一。</p>
+        <p class="fact-text en">San Diego's <strong>Pacific Coast Highway</strong> (Highway 1) runs along the coastline and is one of California's most beautiful driving routes.</p>
       </div>
       <div class="fact">
         <span class="fact-num">015</span>
-        <p class="fact-text">圣地亚哥到洛杉矶的<strong>I-5高速公路</strong>全程约190公里，不堵车时仅需2小时，但周五下午这段路可能要开4小时。</p>
+        <p class="fact-text cn">圣地亚哥到洛杉矶的<strong>I-5高速公路</strong>全程约190公里，不堵车时仅需2小时，但周五下午这段路可能要开4小时。</p>
+        <p class="fact-text en">The <strong>I-5 freeway</strong> from San Diego to Los Angeles covers about 190 km. Without traffic it takes just 2 hours, but on Friday afternoons it can take 4.</p>
       </div>
       <div class="fact">
         <span class="fact-num">016</span>
-        <p class="fact-text">圣地亚哥的<strong>自行车</strong>文化日益兴盛，海滨步道和专用自行车道覆盖全市，骑车通勤人数逐年增加。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>自行车</strong>文化日益兴盛，海滨步道和专用自行车道覆盖全市，骑车通勤人数逐年增加。</p>
+        <p class="fact-text en">San Diego's <strong>cycling</strong> culture is growing rapidly, with waterfront paths and dedicated bike lanes spanning the city. The number of bike commuters increases year after year.</p>
       </div>
     </div>
   </div>
@@ -157,41 +187,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">食物 &amp; 饮食文化</div>
+      <div class="cat-name"><span class="cn">食物 &amp; 饮食文化</span><span class="en">Food &amp; Dining Culture</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">017</span>
-        <p class="fact-text">圣地亚哥的<strong>Fish Taco</strong>（鱼肉玉米饼）是城市美食名片，用炸鱼、卷心菜和白酱装在玉米饼里，简单却令人上瘾。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>Fish Taco</strong>（鱼肉玉米饼）是城市美食名片，用炸鱼、卷心菜和白酱装在玉米饼里，简单却令人上瘾。</p>
+        <p class="fact-text en">San Diego's <strong>fish taco</strong> is the city's culinary calling card — battered fried fish, shredded cabbage, and white sauce in a corn tortilla. Simple yet addictive.</p>
       </div>
       <div class="fact">
         <span class="fact-num">018</span>
-        <p class="fact-text">圣地亚哥是美国<strong>精酿啤酒之都</strong>，拥有超过150家精酿啤酒厂，数量和密度均位居全美前列。</p>
+        <p class="fact-text cn">圣地亚哥是美国<strong>精酿啤酒之都</strong>，拥有超过150家精酿啤酒厂，数量和密度均位居全美前列。</p>
+        <p class="fact-text en">San Diego is America's <strong>craft beer capital</strong>, home to over 150 craft breweries. Both the number and density rank among the highest in the nation.</p>
       </div>
       <div class="fact">
         <span class="fact-num">019</span>
-        <p class="fact-text"><strong>Stone Brewing</strong>是圣地亚哥最著名的精酿啤酒品牌之一，其Arrogant Bastard Ale以"傲慢"的营销风格闻名全美。</p>
+        <p class="fact-text cn"><strong>Stone Brewing</strong>是圣地亚哥最著名的精酿啤酒品牌之一，其Arrogant Bastard Ale以"傲慢"的营销风格闻名全美。</p>
+        <p class="fact-text en"><strong>Stone Brewing</strong> is one of San Diego's most famous craft breweries. Its Arrogant Bastard Ale is known nationwide for its boldly "arrogant" marketing.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">020</span>
-        <p class="fact-text">圣地亚哥的<strong>墨西哥美食</strong>水平堪称全美最高——距离蒂华纳仅25公里的地理优势，让这里的墨西哥菜比美国其他城市更正宗。Birria tacos、Carne asada fries、California burrito（加了薯条的墨西哥卷饼）都是本地发明，后来传遍全美。很多美食博主认为，想吃正宗墨西哥菜不必去墨西哥，来圣地亚哥就够了。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>墨西哥美食</strong>水平堪称全美最高——距离蒂华纳仅25公里的地理优势，让这里的墨西哥菜比美国其他城市更正宗。Birria tacos、Carne asada fries、California burrito（加了薯条的墨西哥卷饼）都是本地发明，后来传遍全美。很多美食博主认为，想吃正宗墨西哥菜不必去墨西哥，来圣地亚哥就够了。</p>
+        <p class="fact-text en">San Diego's <strong>Mexican food</strong> may be the best in the US — its 25-km proximity to Tijuana gives the local Mexican cuisine a level of authenticity unmatched elsewhere. Birria tacos, carne asada fries, and the California burrito (a burrito stuffed with french fries) were all invented here and later spread nationwide. Many food bloggers say you don't need to go to Mexico for authentic Mexican food — San Diego is enough.</p>
       </div>
       <div class="fact">
         <span class="fact-num">021</span>
-        <p class="fact-text"><strong>California Burrito</strong>是圣地亚哥的独特发明——在标准墨西哥卷饼里加入炸薯条，碳水叠加碳水，是本地人的深夜最爱。</p>
+        <p class="fact-text cn"><strong>California Burrito</strong>是圣地亚哥的独特发明——在标准墨西哥卷饼里加入炸薯条，碳水叠加碳水，是本地人的深夜最爱。</p>
+        <p class="fact-text en">The <strong>California Burrito</strong> is a uniquely San Diegan invention — a standard Mexican burrito loaded with french fries. Carbs on carbs, it's the ultimate late-night local favorite.</p>
       </div>
       <div class="fact">
         <span class="fact-num">022</span>
-        <p class="fact-text">圣地亚哥的<strong>海鲜</strong>极为新鲜，Tuna Harbor周边的渔船每天清晨捕捞黄鳍金枪鱼，直供港口边的寿司店。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>海鲜</strong>极为新鲜，Tuna Harbor周边的渔船每天清晨捕捞黄鳍金枪鱼，直供港口边的寿司店。</p>
+        <p class="fact-text en">San Diego's <strong>seafood</strong> is exceptionally fresh. Fishing boats at Tuna Harbor bring in yellowfin tuna every morning, supplying sushi restaurants right at the dock.</p>
       </div>
       <div class="fact">
         <span class="fact-num">023</span>
-        <p class="fact-text">圣地亚哥的<strong>Convoy Street</strong>是亚洲美食一条街，聚集了大量韩国、日本、中国、越南餐厅，是本地亚裔社区的美食中心。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>Convoy Street</strong>是亚洲美食一条街，聚集了大量韩国、日本、中国、越南餐厅，是本地亚裔社区的美食中心。</p>
+        <p class="fact-text en">San Diego's <strong>Convoy Street</strong> is an Asian food corridor, packed with Korean, Japanese, Chinese, and Vietnamese restaurants — the culinary heart of the local Asian community.</p>
       </div>
       <div class="fact">
         <span class="fact-num">024</span>
-        <p class="fact-text">圣地亚哥的<strong>牛油果（Avocado）</strong>消费量全美领先，本地农场种植大量哈斯牛油果，几乎每家餐厅都有牛油果菜品。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>牛油果（Avocado）</strong>消费量全美领先，本地农场种植大量哈斯牛油果，几乎每家餐厅都有牛油果菜品。</p>
+        <p class="fact-text en">San Diego's <strong>avocado</strong> consumption leads the nation. Local farms grow abundant Hass avocados, and nearly every restaurant features avocado dishes.</p>
       </div>
     </div>
   </div>
@@ -200,41 +238,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">历史 &amp; 政治</div>
+      <div class="cat-name"><span class="cn">历史 &amp; 政治</span><span class="en">History &amp; Politics</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">025</span>
-        <p class="fact-text">圣地亚哥是<strong>加州的诞生地</strong>——1769年西班牙传教士在此建立了加州第一个永久定居点Mission San Diego de Alcalá。</p>
+        <p class="fact-text cn">圣地亚哥是<strong>加州的诞生地</strong>——1769年西班牙传教士在此建立了加州第一个永久定居点Mission San Diego de Alcalá。</p>
+        <p class="fact-text en">San Diego is <strong>California's birthplace</strong> — in 1769, Spanish missionaries established California's first permanent settlement here: Mission San Diego de Alcalá.</p>
       </div>
       <div class="fact">
         <span class="fact-num">026</span>
-        <p class="fact-text">城市名"San Diego"来自<strong>西班牙探险家</strong>Sebastián Vizcaíno，他于1602年到达此地并以圣迭戈（Saint Didacus）命名。</p>
+        <p class="fact-text cn">城市名"San Diego"来自<strong>西班牙探险家</strong>Sebastián Vizcaíno，他于1602年到达此地并以圣迭戈（Saint Didacus）命名。</p>
+        <p class="fact-text en">The city name "San Diego" comes from <strong>Spanish explorer</strong> Sebastián Vizcaíno, who arrived in 1602 and named it after Saint Didacus.</p>
       </div>
       <div class="fact">
         <span class="fact-num">027</span>
-        <p class="fact-text">圣地亚哥在1848年<strong>美墨战争</strong>后从墨西哥割让给美国，此前这里已经是墨西哥领土超过25年。</p>
+        <p class="fact-text cn">圣地亚哥在1848年<strong>美墨战争</strong>后从墨西哥割让给美国，此前这里已经是墨西哥领土超过25年。</p>
+        <p class="fact-text en">San Diego was ceded to the United States after the <strong>Mexican-American War</strong> of 1848. Before that, it had been Mexican territory for over 25 years.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">028</span>
-        <p class="fact-text">圣地亚哥与<strong>美国海军</strong>的关系可以追溯到1901年，如今是美国太平洋舰队的主要母港。圣地亚哥湾停靠着航空母舰、驱逐舰和核潜艇，海军基地占据了城市大量沿海土地。全市约有超过10万名现役军人和退伍军人，军事经济每年为城市贡献超过250亿美元。</p>
+        <p class="fact-text cn">圣地亚哥与<strong>美国海军</strong>的关系可以追溯到1901年，如今是美国太平洋舰队的主要母港。圣地亚哥湾停靠着航空母舰、驱逐舰和核潜艇，海军基地占据了城市大量沿海土地。全市约有超过10万名现役军人和退伍军人，军事经济每年为城市贡献超过250亿美元。</p>
+        <p class="fact-text en">San Diego's relationship with the <strong>US Navy</strong> dates back to 1901. Today it serves as the primary home port of the Pacific Fleet. Aircraft carriers, destroyers, and nuclear submarines are docked in San Diego Bay, and naval bases occupy vast stretches of coastal land. The city has over 100,000 active-duty and veteran military personnel, with the military economy contributing over $25 billion annually.</p>
       </div>
       <div class="fact">
         <span class="fact-num">029</span>
-        <p class="fact-text"><strong>USS Midway</strong>（中途岛号航空母舰）退役后停泊在圣地亚哥港口，改造为博物馆，是全美最受欢迎的军事博物馆之一。</p>
+        <p class="fact-text cn"><strong>USS Midway</strong>（中途岛号航空母舰）退役后停泊在圣地亚哥港口，改造为博物馆，是全美最受欢迎的军事博物馆之一。</p>
+        <p class="fact-text en"><strong>USS Midway</strong>, a retired aircraft carrier, is now moored in San Diego harbor as a museum — one of the most popular military museums in the US.</p>
       </div>
       <div class="fact">
         <span class="fact-num">030</span>
-        <p class="fact-text">圣地亚哥港口的<strong>"无条件投降"雕像</strong>高7.6米，再现了二战胜利日水手亲吻护士的经典照片。</p>
+        <p class="fact-text cn">圣地亚哥港口的<strong>"无条件投降"雕像</strong>高7.6米，再现了二战胜利日水手亲吻护士的经典照片。</p>
+        <p class="fact-text en">The <strong>"Unconditional Surrender" statue</strong> at San Diego's harbor stands 7.6 meters tall, recreating the iconic VJ Day photo of a sailor kissing a nurse.</p>
       </div>
       <div class="fact">
         <span class="fact-num">031</span>
-        <p class="fact-text">1915年的<strong>巴拿马-加利福尼亚博览会</strong>在巴尔博亚公园举行，奠定了公园内西班牙殖民复兴式建筑群的格局。</p>
+        <p class="fact-text cn">1915年的<strong>巴拿马-加利福尼亚博览会</strong>在巴尔博亚公园举行，奠定了公园内西班牙殖民复兴式建筑群的格局。</p>
+        <p class="fact-text en">The <strong>1915 Panama-California Exposition</strong> in Balboa Park established the park's Spanish Colonial Revival architectural ensemble.</p>
       </div>
       <div class="fact">
         <span class="fact-num">032</span>
-        <p class="fact-text">圣地亚哥的政治倾向相比加州其他大城市更加<strong>温和偏保守</strong>，军事文化和郊区化生活方式对政治取向影响显著。</p>
+        <p class="fact-text cn">圣地亚哥的政治倾向相比加州其他大城市更加<strong>温和偏保守</strong>，军事文化和郊区化生活方式对政治取向影响显著。</p>
+        <p class="fact-text en">San Diego's political orientation is more <strong>moderate-conservative</strong> compared to other major California cities. Military culture and suburban lifestyles significantly influence political leanings.</p>
       </div>
     </div>
   </div>
@@ -243,41 +289,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">建筑 &amp; 空间</div>
+      <div class="cat-name"><span class="cn">建筑 &amp; 空间</span><span class="en">Architecture &amp; Space</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">033</span>
-        <p class="fact-text"><strong>巴尔博亚公园（Balboa Park）</strong>面积486公顷，是全美最大的城市文化公园之一，拥有17座博物馆、多个花园和表演艺术场馆。</p>
+        <p class="fact-text cn"><strong>巴尔博亚公园（Balboa Park）</strong>面积486公顷，是全美最大的城市文化公园之一，拥有17座博物馆、多个花园和表演艺术场馆。</p>
+        <p class="fact-text en"><strong>Balboa Park</strong> covers 486 hectares, making it one of the largest urban cultural parks in the US, with 17 museums, multiple gardens, and performing arts venues.</p>
       </div>
       <div class="fact">
         <span class="fact-num">034</span>
-        <p class="fact-text"><strong>科罗纳多酒店（Hotel del Coronado）</strong>建于1888年，是全美现存最大的木结构建筑之一，玛丽莲·梦露曾在此拍摄《热情似火》。</p>
+        <p class="fact-text cn"><strong>科罗纳多酒店（Hotel del Coronado）</strong>建于1888年，是全美现存最大的木结构建筑之一，玛丽莲·梦露曾在此拍摄《热情似火》。</p>
+        <p class="fact-text en">The <strong>Hotel del Coronado</strong>, built in 1888, is one of the largest surviving wooden structures in the US. Marilyn Monroe filmed "Some Like It Hot" here.</p>
       </div>
       <div class="fact">
         <span class="fact-num">035</span>
-        <p class="fact-text"><strong>Gaslamp Quarter</strong>是圣地亚哥的历史街区和夜生活中心，16个街区内保存着大量维多利亚时代的建筑。</p>
+        <p class="fact-text cn"><strong>Gaslamp Quarter</strong>是圣地亚哥的历史街区和夜生活中心，16个街区内保存着大量维多利亚时代的建筑。</p>
+        <p class="fact-text en">The <strong>Gaslamp Quarter</strong> is San Diego's historic district and nightlife hub, with 16 blocks of well-preserved Victorian-era architecture.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">036</span>
-        <p class="fact-text"><strong>Salk Institute</strong>（索尔克研究所）由建筑大师路易·康设计，被誉为20世纪最伟大的建筑之一。两排对称的混凝土实验楼之间是一条窄窄的水渠，正对着太平洋的方向，每年两次春分和秋分时夕阳会精确地沿水渠中轴线落下，建筑与自然达成了完美的对话。</p>
+        <p class="fact-text cn"><strong>Salk Institute</strong>（索尔克研究所）由建筑大师路易·康设计，被誉为20世纪最伟大的建筑之一。两排对称的混凝土实验楼之间是一条窄窄的水渠，正对着太平洋的方向，每年两次春分和秋分时夕阳会精确地沿水渠中轴线落下，建筑与自然达成了完美的对话。</p>
+        <p class="fact-text en">The <strong>Salk Institute</strong>, designed by master architect Louis Kahn, is considered one of the greatest buildings of the 20th century. Two symmetrical rows of concrete labs frame a narrow water channel aimed at the Pacific. Twice a year, at the spring and autumn equinoxes, the setting sun aligns precisely along the channel's central axis — a perfect dialogue between architecture and nature.</p>
       </div>
       <div class="fact">
         <span class="fact-num">037</span>
-        <p class="fact-text">巴尔博亚公园的<strong>California Tower</strong>高61米，以西班牙殖民复兴风格建造，是圣地亚哥最具标志性的建筑剪影。</p>
+        <p class="fact-text cn">巴尔博亚公园的<strong>California Tower</strong>高61米，以西班牙殖民复兴风格建造，是圣地亚哥最具标志性的建筑剪影。</p>
+        <p class="fact-text en">Balboa Park's <strong>California Tower</strong> rises 61 meters in Spanish Colonial Revival style, creating San Diego's most iconic architectural silhouette.</p>
       </div>
       <div class="fact">
         <span class="fact-num">038</span>
-        <p class="fact-text">圣地亚哥的<strong>Old Town</strong>保留了19世纪墨西哥时期的土坯建筑，是加州早期历史的活化石。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>Old Town</strong>保留了19世纪墨西哥时期的土坯建筑，是加州早期历史的活化石。</p>
+        <p class="fact-text en">San Diego's <strong>Old Town</strong> preserves 19th-century Mexican-era adobe buildings — living fossils of early California history.</p>
       </div>
       <div class="fact">
         <span class="fact-num">039</span>
-        <p class="fact-text"><strong>Petco Park</strong>棒球场巧妙地融入了一栋1909年的历史建筑Western Metal Supply Co.，将其改造为球场的左外野看台。</p>
+        <p class="fact-text cn"><strong>Petco Park</strong>棒球场巧妙地融入了一栋1909年的历史建筑Western Metal Supply Co.，将其改造为球场的左外野看台。</p>
+        <p class="fact-text en"><strong>Petco Park</strong> baseball stadium cleverly incorporated a 1909 historical building, Western Metal Supply Co., converting it into the left-field stands.</p>
       </div>
       <div class="fact">
         <span class="fact-num">040</span>
-        <p class="fact-text">圣地亚哥的<strong>UCSD</strong>（加州大学圣地亚哥分校）校园散布着大量公共艺术作品，其中Stuart Collection包含20多件大型装置艺术。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>UCSD</strong>（加州大学圣地亚哥分校）校园散布着大量公共艺术作品，其中Stuart Collection包含20多件大型装置艺术。</p>
+        <p class="fact-text en">San Diego's <strong>UCSD</strong> (University of California, San Diego) campus features numerous public art installations, with the Stuart Collection containing over 20 large-scale works.</p>
       </div>
     </div>
   </div>
@@ -286,57 +340,69 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">文化 &amp; 社会</div>
+      <div class="cat-name"><span class="cn">文化 &amp; 社会</span><span class="en">Culture &amp; Society</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">041</span>
-        <p class="fact-text"><strong>Comic-Con</strong>（圣地亚哥国际动漫展）每年7月举行，是全球最大的流行文化展会，吸引超过13万参与者。</p>
+        <p class="fact-text cn"><strong>Comic-Con</strong>（圣地亚哥国际动漫展）每年7月举行，是全球最大的流行文化展会，吸引超过13万参与者。</p>
+        <p class="fact-text en"><strong>Comic-Con</strong> (San Diego International Comic Convention) takes place every July and is the world's largest pop culture event, attracting over 130,000 attendees.</p>
       </div>
       <div class="fact">
         <span class="fact-num">042</span>
-        <p class="fact-text">圣地亚哥动物园（San Diego Zoo）是全球最著名的动物园之一，占地<strong>40公顷</strong>，拥有超过3700只动物。</p>
+        <p class="fact-text cn">圣地亚哥动物园（San Diego Zoo）是全球最著名的动物园之一，占地<strong>40公顷</strong>，拥有超过3700只动物。</p>
+        <p class="fact-text en">The San Diego Zoo is one of the most famous zoos in the world, covering <strong>40 hectares</strong> and housing over 3,700 animals.</p>
       </div>
       <div class="fact">
         <span class="fact-num">043</span>
-        <p class="fact-text"><strong>San Diego Zoo Safari Park</strong>（野生动物园）距市区约50公里，面积超过700公顷，动物在开放环境中自由漫步。</p>
+        <p class="fact-text cn"><strong>San Diego Zoo Safari Park</strong>（野生动物园）距市区约50公里，面积超过700公顷，动物在开放环境中自由漫步。</p>
+        <p class="fact-text en"><strong>San Diego Zoo Safari Park</strong> is about 50 km from downtown, spanning over 700 hectares where animals roam freely in an open environment.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">044</span>
-        <p class="fact-text">圣地亚哥的<strong>冲浪文化</strong>深入骨髓——从La Jolla到Pacific Beach再到Ocean Beach，每天清晨和黄昏都有大量冲浪者在海浪中起伏。这里是加州冲浪运动的发源地之一，很多居民从小就学冲浪，冲浪板和车顶架是本地人的标准装备。即使穿西装上班的白领，也可能在午休时抽空冲一个浪。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>冲浪文化</strong>深入骨髓——从La Jolla到Pacific Beach再到Ocean Beach，每天清晨和黄昏都有大量冲浪者在海浪中起伏。这里是加州冲浪运动的发源地之一，很多居民从小就学冲浪，冲浪板和车顶架是本地人的标准装备。即使穿西装上班的白领，也可能在午休时抽空冲一个浪。</p>
+        <p class="fact-text en">San Diego's <strong>surf culture</strong> runs deep — from La Jolla to Pacific Beach to Ocean Beach, surfers fill the waves at dawn and dusk. This is one of the birthplaces of California surf culture. Many residents learn to surf as kids, and a surfboard with a roof rack is standard local equipment. Even suit-wearing professionals might sneak in a wave during their lunch break.</p>
       </div>
       <div class="fact">
         <span class="fact-num">045</span>
-        <p class="fact-text">圣地亚哥的<strong>拉丁裔</strong>人口占总人口约30%，西班牙语在日常生活中随处可闻，双语标识遍布全市。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>拉丁裔</strong>人口占总人口约30%，西班牙语在日常生活中随处可闻，双语标识遍布全市。</p>
+        <p class="fact-text en">San Diego's <strong>Latino</strong> population makes up about 30% of the total. Spanish is heard everywhere in daily life, and bilingual signage is ubiquitous.</p>
       </div>
       <div class="fact">
         <span class="fact-num">046</span>
-        <p class="fact-text">圣地亚哥的<strong>户外运动</strong>文化极其丰富，冲浪、帆船、皮划艇、攀岩、徒步在本地人中非常普及。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>户外运动</strong>文化极其丰富，冲浪、帆船、皮划艇、攀岩、徒步在本地人中非常普及。</p>
+        <p class="fact-text en">San Diego's <strong>outdoor sports</strong> culture is incredibly rich — surfing, sailing, kayaking, rock climbing, and hiking are all extremely popular among locals.</p>
       </div>
       <div class="fact">
         <span class="fact-num">047</span>
-        <p class="fact-text"><strong>Pacific Beach</strong>（PB）是圣地亚哥最年轻化的海滨社区，酒吧和餐厅林立，是大学毕业生和冲浪爱好者的聚集地。</p>
+        <p class="fact-text cn"><strong>Pacific Beach</strong>（PB）是圣地亚哥最年轻化的海滨社区，酒吧和餐厅林立，是大学毕业生和冲浪爱好者的聚集地。</p>
+        <p class="fact-text en"><strong>Pacific Beach (PB)</strong> is San Diego's youngest beachside community, lined with bars and restaurants — a magnet for recent graduates and surf enthusiasts.</p>
       </div>
       <div class="fact">
         <span class="fact-num">048</span>
-        <p class="fact-text">圣地亚哥每年12月举办<strong>Bay Parade of Lights</strong>，数十艘装饰灯光的船只在港湾中巡游，是南加州最美的冬季活动之一。</p>
+        <p class="fact-text cn">圣地亚哥每年12月举办<strong>Bay Parade of Lights</strong>，数十艘装饰灯光的船只在港湾中巡游，是南加州最美的冬季活动之一。</p>
+        <p class="fact-text en">San Diego hosts the <strong>Bay Parade of Lights</strong> every December, with dozens of illuminated boats cruising the harbor — one of Southern California's most beautiful winter events.</p>
       </div>
       <div class="fact">
         <span class="fact-num">049</span>
-        <p class="fact-text">圣地亚哥拥有<strong>70多个高尔夫球场</strong>，全年温暖的气候让高尔夫成为本地最受欢迎的运动之一。</p>
+        <p class="fact-text cn">圣地亚哥拥有<strong>70多个高尔夫球场</strong>，全年温暖的气候让高尔夫成为本地最受欢迎的运动之一。</p>
+        <p class="fact-text en">San Diego has over <strong>70 golf courses</strong>. Year-round warm weather makes golf one of the most popular local sports.</p>
       </div>
       <div class="fact">
         <span class="fact-num">050</span>
-        <p class="fact-text">圣地亚哥的<strong>Padres</strong>棒球队是MLB国联西区的球队，Petco Park球场可以一边看球一边眺望市中心天际线。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>Padres</strong>棒球队是MLB国联西区的球队，Petco Park球场可以一边看球一边眺望市中心天际线。</p>
+        <p class="fact-text en">San Diego's <strong>Padres</strong> are an NL West MLB team. Petco Park offers views of the downtown skyline while watching the game.</p>
       </div>
       <div class="fact">
         <span class="fact-num">051</span>
-        <p class="fact-text"><strong>Chicano Park</strong>位于科罗纳多大桥下方，桥墩上覆盖着大量墨西哥裔美国人的壁画，是美国最大的户外壁画群之一。</p>
+        <p class="fact-text cn"><strong>Chicano Park</strong>位于科罗纳多大桥下方，桥墩上覆盖着大量墨西哥裔美国人的壁画，是美国最大的户外壁画群之一。</p>
+        <p class="fact-text en"><strong>Chicano Park</strong> sits beneath the Coronado Bridge, with bridge pillars covered in Mexican American murals — one of the largest outdoor mural collections in the US.</p>
       </div>
       <div class="fact">
         <span class="fact-num">052</span>
-        <p class="fact-text">圣地亚哥的<strong>SeaWorld</strong>曾以虎鲸表演闻名全球，纪录片《黑鲸》引发争议后逐步取消了虎鲸表演项目。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>SeaWorld</strong>曾以虎鲸表演闻名全球，纪录片《黑鲸》引发争议后逐步取消了虎鲸表演项目。</p>
+        <p class="fact-text en">San Diego's <strong>SeaWorld</strong> was once world-famous for its orca shows. After the controversial documentary "Blackfish," the park gradually phased out orca performances.</p>
       </div>
     </div>
   </div>
@@ -345,57 +411,69 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">经济 &amp; 产业</div>
+      <div class="cat-name"><span class="cn">经济 &amp; 产业</span><span class="en">Economy &amp; Industry</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">053</span>
-        <p class="fact-text">圣地亚哥是美国最重要的<strong>军事城市</strong>之一，军事及相关产业是城市最大的经济支柱。</p>
+        <p class="fact-text cn">圣地亚哥是美国最重要的<strong>军事城市</strong>之一，军事及相关产业是城市最大的经济支柱。</p>
+        <p class="fact-text en">San Diego is one of the most important <strong>military cities</strong> in the US. The military and related industries form the city's largest economic pillar.</p>
       </div>
       <div class="fact">
         <span class="fact-num">054</span>
-        <p class="fact-text">圣地亚哥的<strong>生物技术产业</strong>全美排名第三，仅次于波士顿和旧金山湾区，拥有超过1100家生物科技公司。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>生物技术产业</strong>全美排名第三，仅次于波士顿和旧金山湾区，拥有超过1100家生物科技公司。</p>
+        <p class="fact-text en">San Diego's <strong>biotech industry</strong> ranks third nationally, behind only Boston and the San Francisco Bay Area, with over 1,100 biotech companies.</p>
       </div>
       <div class="fact">
         <span class="fact-num">055</span>
-        <p class="fact-text"><strong>Qualcomm（高通）</strong>总部位于圣地亚哥，是全球最大的移动芯片设计公司，也是圣地亚哥最重要的科技企业。</p>
+        <p class="fact-text cn"><strong>Qualcomm（高通）</strong>总部位于圣地亚哥，是全球最大的移动芯片设计公司，也是圣地亚哥最重要的科技企业。</p>
+        <p class="fact-text en"><strong>Qualcomm</strong> is headquartered in San Diego — the world's largest mobile chip designer and San Diego's most important tech company.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">056</span>
-        <p class="fact-text">圣地亚哥的<strong>精酿啤酒</strong>产业已经从爱好者文化发展为重要经济引擎——全市超过150家啤酒厂每年创造超过10亿美元的经济产值，雇用数千名员工。Karl Strauss、Stone Brewing、Ballast Point等品牌从圣地亚哥走向全美，这座城市被《美食网络》评为"美国精酿啤酒之都"。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>精酿啤酒</strong>产业已经从爱好者文化发展为重要经济引擎——全市超过150家啤酒厂每年创造超过10亿美元的经济产值，雇用数千名员工。Karl Strauss、Stone Brewing、Ballast Point等品牌从圣地亚哥走向全美，这座城市被《美食网络》评为"美国精酿啤酒之都"。</p>
+        <p class="fact-text en">San Diego's <strong>craft beer</strong> industry has evolved from hobbyist culture into a major economic engine — the city's 150+ breweries generate over $1 billion in annual economic output and employ thousands. Karl Strauss, Stone Brewing, and Ballast Point went from San Diego to nationwide recognition. The city has been named "America's Craft Beer Capital" by the Food Network.</p>
       </div>
       <div class="fact">
         <span class="fact-num">057</span>
-        <p class="fact-text">圣地亚哥的<strong>旅游业</strong>每年吸引超过3500万游客，贡献约130亿美元的经济收入。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>旅游业</strong>每年吸引超过3500万游客，贡献约130亿美元的经济收入。</p>
+        <p class="fact-text en">San Diego's <strong>tourism</strong> attracts over 35 million visitors annually, contributing approximately $13 billion in economic revenue.</p>
       </div>
       <div class="fact">
         <span class="fact-num">058</span>
-        <p class="fact-text"><strong>UCSD</strong>不仅是顶尖研究型大学，还是城市重要的经济引擎，每年科研经费超过15亿美元。</p>
+        <p class="fact-text cn"><strong>UCSD</strong>不仅是顶尖研究型大学，还是城市重要的经济引擎，每年科研经费超过15亿美元。</p>
+        <p class="fact-text en"><strong>UCSD</strong> is not only a top research university but also a major economic engine, with annual research funding exceeding $1.5 billion.</p>
       </div>
       <div class="fact">
         <span class="fact-num">059</span>
-        <p class="fact-text">圣地亚哥的<strong>跨境贸易</strong>总额每年超过数十亿美元，与蒂华纳的制造业供应链紧密相连。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>跨境贸易</strong>总额每年超过数十亿美元，与蒂华纳的制造业供应链紧密相连。</p>
+        <p class="fact-text en">San Diego's <strong>cross-border trade</strong> totals billions of dollars annually, closely linked to Tijuana's manufacturing supply chains.</p>
       </div>
       <div class="fact">
         <span class="fact-num">060</span>
-        <p class="fact-text">圣地亚哥的<strong>房价中位数</strong>约为90万美元，虽然高于全美平均水平，但比旧金山和洛杉矶更具性价比。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>房价中位数</strong>约为90万美元，虽然高于全美平均水平，但比旧金山和洛杉矶更具性价比。</p>
+        <p class="fact-text en">San Diego's <strong>median home price</strong> is approximately $900,000 — above the national average but more affordable than San Francisco or Los Angeles.</p>
       </div>
       <div class="fact">
         <span class="fact-num">061</span>
-        <p class="fact-text">圣地亚哥是<strong>无人机和航空航天</strong>产业的重要基地，General Atomics等公司在此研发生产军用和商用无人机。</p>
+        <p class="fact-text cn">圣地亚哥是<strong>无人机和航空航天</strong>产业的重要基地，General Atomics等公司在此研发生产军用和商用无人机。</p>
+        <p class="fact-text en">San Diego is an important base for <strong>drones and aerospace</strong>. Companies like General Atomics research and manufacture military and commercial drones here.</p>
       </div>
       <div class="fact">
         <span class="fact-num">062</span>
-        <p class="fact-text">圣地亚哥的<strong>太阳能</strong>利用率全美领先，充足的阳光使其成为分布式光伏发电的最佳城市之一。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>太阳能</strong>利用率全美领先，充足的阳光使其成为分布式光伏发电的最佳城市之一。</p>
+        <p class="fact-text en">San Diego's <strong>solar energy</strong> adoption leads the nation. Abundant sunshine makes it one of the best cities for distributed photovoltaic generation.</p>
       </div>
       <div class="fact">
         <span class="fact-num">063</span>
-        <p class="fact-text">圣地亚哥的<strong>海洋科学</strong>研究世界一流，Scripps海洋研究所（隶属UCSD）是全球海洋学研究的先驱机构。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>海洋科学</strong>研究世界一流，Scripps海洋研究所（隶属UCSD）是全球海洋学研究的先驱机构。</p>
+        <p class="fact-text en">San Diego's <strong>marine science</strong> research is world-class. The Scripps Institution of Oceanography (part of UCSD) is a pioneering institution in global oceanographic research.</p>
       </div>
       <div class="fact">
         <span class="fact-num">064</span>
-        <p class="fact-text">圣地亚哥的<strong>农业</strong>也颇具规模，东部和北部的乡村地区种植牛油果、柑橘和草莓，是加州重要的农产品产区。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>农业</strong>也颇具规模，东部和北部的乡村地区种植牛油果、柑橘和草莓，是加州重要的农产品产区。</p>
+        <p class="fact-text en">San Diego's <strong>agriculture</strong> is also significant. Eastern and northern rural areas grow avocados, citrus, and strawberries, making it an important agricultural region of California.</p>
       </div>
     </div>
   </div>
@@ -404,41 +482,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">自然 &amp; 气候</div>
+      <div class="cat-name"><span class="cn">自然 &amp; 气候</span><span class="en">Nature &amp; Climate</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">065</span>
-        <p class="fact-text">圣地亚哥的年均气温约<strong>21°C</strong>，年降雨量仅约250毫米，是美国气候最宜人的大城市之一。</p>
+        <p class="fact-text cn">圣地亚哥的年均气温约<strong>21°C</strong>，年降雨量仅约250毫米，是美国气候最宜人的大城市之一。</p>
+        <p class="fact-text en">San Diego's average annual temperature is about <strong>21°C</strong>, with only 250mm of rainfall per year — making it one of the most pleasant climates among major US cities.</p>
       </div>
       <div class="fact">
         <span class="fact-num">066</span>
-        <p class="fact-text">圣地亚哥每年有<strong>约266个晴天</strong>，阳光充足程度在美国大城市中名列前茅。</p>
+        <p class="fact-text cn">圣地亚哥每年有<strong>约266个晴天</strong>，阳光充足程度在美国大城市中名列前茅。</p>
+        <p class="fact-text en">San Diego enjoys approximately <strong>266 sunny days</strong> per year, ranking among the sunniest major cities in the US.</p>
       </div>
       <div class="fact">
         <span class="fact-num">067</span>
-        <p class="fact-text">La Jolla海岸的<strong>海豹</strong>和海狮常年栖息在Children's Pool海滩，游客可以在几米之内近距离观察。</p>
+        <p class="fact-text cn">La Jolla海岸的<strong>海豹</strong>和海狮常年栖息在Children's Pool海滩，游客可以在几米之内近距离观察。</p>
+        <p class="fact-text en"><strong>Seals</strong> and sea lions inhabit the La Jolla coast year-round at Children's Pool beach, where visitors can observe them from just a few meters away.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">068</span>
-        <p class="fact-text">圣地亚哥虽然以阳光著称，但也面临严峻的<strong>水资源挑战</strong>——城市80%以上的饮用水需要从数百公里外的科罗拉多河和北加州调水。为了应对干旱，圣地亚哥建设了全美最大的海水淡化厂Carlsbad Desalination Plant，每天可生产约2亿升淡水。</p>
+        <p class="fact-text cn">圣地亚哥虽然以阳光著称，但也面临严峻的<strong>水资源挑战</strong>——城市80%以上的饮用水需要从数百公里外的科罗拉多河和北加州调水。为了应对干旱，圣地亚哥建设了全美最大的海水淡化厂Carlsbad Desalination Plant，每天可生产约2亿升淡水。</p>
+        <p class="fact-text en">Although San Diego is known for sunshine, it faces severe <strong>water resource challenges</strong> — over 80% of the city's drinking water must be imported from the Colorado River and Northern California, hundreds of kilometers away. To combat drought, San Diego built the nation's largest seawater desalination plant, the Carlsbad Desalination Plant, producing about 200 million liters of freshwater daily.</p>
       </div>
       <div class="fact">
         <span class="fact-num">069</span>
-        <p class="fact-text"><strong>Torrey Pines</strong>自然保护区保存着世界上最珍稀的松树品种之一——Torrey Pine，全球仅存约3000棵。</p>
+        <p class="fact-text cn"><strong>Torrey Pines</strong>自然保护区保存着世界上最珍稀的松树品种之一——Torrey Pine，全球仅存约3000棵。</p>
+        <p class="fact-text en"><strong>Torrey Pines</strong> Nature Reserve protects one of the world's rarest pine species — the Torrey Pine, with only about 3,000 trees surviving globally.</p>
       </div>
       <div class="fact">
         <span class="fact-num">070</span>
-        <p class="fact-text">每年冬季（12月至4月），<strong>灰鲸</strong>沿圣地亚哥海岸迁徙，从Point Loma可以直接用肉眼观赏鲸鱼。</p>
+        <p class="fact-text cn">每年冬季（12月至4月），<strong>灰鲸</strong>沿圣地亚哥海岸迁徙，从Point Loma可以直接用肉眼观赏鲸鱼。</p>
+        <p class="fact-text en">Every winter (December through April), <strong>gray whales</strong> migrate along the San Diego coast. They can be spotted with the naked eye from Point Loma.</p>
       </div>
       <div class="fact">
         <span class="fact-num">071</span>
-        <p class="fact-text">圣地亚哥东部的<strong>Anza-Borrego沙漠</strong>州立公园面积超过2400平方公里，是加州最大的州立公园，春天野花盛开时景色震撼。</p>
+        <p class="fact-text cn">圣地亚哥东部的<strong>Anza-Borrego沙漠</strong>州立公园面积超过2400平方公里，是加州最大的州立公园，春天野花盛开时景色震撼。</p>
+        <p class="fact-text en">San Diego's eastern <strong>Anza-Borrego Desert</strong> State Park covers over 2,400 square kilometers — California's largest state park. The spring wildflower bloom is a breathtaking sight.</p>
       </div>
       <div class="fact">
         <span class="fact-num">072</span>
-        <p class="fact-text">圣地亚哥沿海经常出现<strong>"June Gloom"</strong>现象——6月份早晨大雾弥漫，午后才放晴，与人们对阳光城市的印象形成反差。</p>
+        <p class="fact-text cn">圣地亚哥沿海经常出现<strong>"June Gloom"</strong>现象——6月份早晨大雾弥漫，午后才放晴，与人们对阳光城市的印象形成反差。</p>
+        <p class="fact-text en">San Diego's coast frequently experiences the <strong>"June Gloom"</strong> phenomenon — foggy mornings in June that don't clear until afternoon, contrasting with people's expectations of a sunny city.</p>
       </div>
     </div>
   </div>
@@ -447,57 +533,69 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">隐藏细节 &amp; 冷知识</div>
+      <div class="cat-name"><span class="cn">隐藏细节 &amp; 冷知识</span><span class="en">Hidden Details &amp; Trivia</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">073</span>
-        <p class="fact-text">圣地亚哥的<strong>中文名</strong>"圣地亚哥"是西班牙语"San Diego"的音译，与智利首都圣地亚哥（Santiago）经常被人混淆。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>中文名</strong>"圣地亚哥"是西班牙语"San Diego"的音译，与智利首都圣地亚哥（Santiago）经常被人混淆。</p>
+        <p class="fact-text en">San Diego's <strong>Chinese name</strong> "圣地亚哥" is a transliteration of the Spanish "San Diego" and is often confused with Santiago, the capital of Chile.</p>
       </div>
       <div class="fact">
         <span class="fact-num">074</span>
-        <p class="fact-text">电影<strong>《王牌播音员》（Anchorman）</strong>就设定在圣地亚哥，片中那句"Stay classy, San Diego"成为城市的非官方口号。</p>
+        <p class="fact-text cn">电影<strong>《王牌播音员》（Anchorman）</strong>就设定在圣地亚哥，片中那句"Stay classy, San Diego"成为城市的非官方口号。</p>
+        <p class="fact-text en">The movie <strong>"Anchorman"</strong> is set in San Diego. The line "Stay classy, San Diego" has become the city's unofficial motto.</p>
       </div>
       <div class="fact">
         <span class="fact-num">075</span>
-        <p class="fact-text">科罗纳多酒店被传为<strong>闹鬼</strong>之地——据说1892年一位名叫Kate Morgan的女客人在酒店神秘死亡，至今仍有人声称看到她的鬼魂。</p>
+        <p class="fact-text cn">科罗纳多酒店被传为<strong>闹鬼</strong>之地——据说1892年一位名叫Kate Morgan的女客人在酒店神秘死亡，至今仍有人声称看到她的鬼魂。</p>
+        <p class="fact-text en">The Hotel del Coronado is rumored to be <strong>haunted</strong> — legend has it that a guest named Kate Morgan died mysteriously at the hotel in 1892, and people still claim to see her ghost today.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">076</span>
-        <p class="fact-text">圣地亚哥有一个鲜为人知的<strong>"海军海豹突击队"训练场</strong>——在科罗纳多的海滩上，经常可以看到穿着迷彩服的SEAL候选学员在沙滩上做极限训练。著名的BUD/S训练（基本水下爆破/海豹训练）淘汰率高达75-80%，这片海滩见证了无数精英战士的诞生。</p>
+        <p class="fact-text cn">圣地亚哥有一个鲜为人知的<strong>"海军海豹突击队"训练场</strong>——在科罗纳多的海滩上，经常可以看到穿着迷彩服的SEAL候选学员在沙滩上做极限训练。著名的BUD/S训练（基本水下爆破/海豹训练）淘汰率高达75-80%，这片海滩见证了无数精英战士的诞生。</p>
+        <p class="fact-text en">San Diego has a little-known <strong>Navy SEAL training beach</strong> — on Coronado's shores, you can often spot SEAL candidates in camouflage doing extreme training. The famous BUD/S (Basic Underwater Demolition/SEAL) training has a washout rate of 75-80%. This beach has witnessed the forging of countless elite warriors.</p>
       </div>
       <div class="fact">
         <span class="fact-num">077</span>
-        <p class="fact-text">圣地亚哥的<strong>Sunset Cliffs</strong>是本地人的秘密观日落圣地，游客大多不知道这个比La Jolla更美的海崖。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>Sunset Cliffs</strong>是本地人的秘密观日落圣地，游客大多不知道这个比La Jolla更美的海崖。</p>
+        <p class="fact-text en">San Diego's <strong>Sunset Cliffs</strong> is the locals' secret sunset-watching spot. Most tourists don't know about this sea cliff that's even more beautiful than La Jolla.</p>
       </div>
       <div class="fact">
         <span class="fact-num">078</span>
-        <p class="fact-text">圣地亚哥动物园曾饲养过世界上最后一只<strong>北白犀牛</strong>（Nola），2015年去世时引发全球关注。</p>
+        <p class="fact-text cn">圣地亚哥动物园曾饲养过世界上最后一只<strong>北白犀牛</strong>（Nola），2015年去世时引发全球关注。</p>
+        <p class="fact-text en">The San Diego Zoo once housed the world's last <strong>northern white rhino</strong> (Nola), whose death in 2015 drew global attention.</p>
       </div>
       <div class="fact">
         <span class="fact-num">079</span>
-        <p class="fact-text">圣地亚哥的<strong>Potato Chip Rock</strong>是一块悬崖边的薄片岩石，因形似薯片而得名，是Instagram上最热门的圣地亚哥打卡点。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>Potato Chip Rock</strong>是一块悬崖边的薄片岩石，因形似薯片而得名，是Instagram上最热门的圣地亚哥打卡点。</p>
+        <p class="fact-text en">San Diego's <strong>Potato Chip Rock</strong> is a thin slab of rock perched on a cliff edge that resembles a potato chip — it's the most popular San Diego Instagram spot.</p>
       </div>
       <div class="fact">
         <span class="fact-num">080</span>
-        <p class="fact-text">圣地亚哥的<strong>Ocean Beach</strong>社区是城市最具嬉皮气质的地方，至今保留着反主流文化的氛围，拒绝连锁商店入驻。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>Ocean Beach</strong>社区是城市最具嬉皮气质的地方，至今保留着反主流文化的氛围，拒绝连锁商店入驻。</p>
+        <p class="fact-text en">San Diego's <strong>Ocean Beach</strong> community is the city's most hippie-spirited neighborhood. It still maintains a countercultural vibe and has resisted chain stores from moving in.</p>
       </div>
       <div class="fact">
         <span class="fact-num">081</span>
-        <p class="fact-text">圣地亚哥的<strong>Cabrillo National Monument</strong>纪念葡萄牙探险家Juan Rodríguez Cabrillo，他是第一个到达美国西海岸的欧洲人。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>Cabrillo National Monument</strong>纪念葡萄牙探险家Juan Rodríguez Cabrillo，他是第一个到达美国西海岸的欧洲人。</p>
+        <p class="fact-text en"><strong>Cabrillo National Monument</strong> commemorates Portuguese explorer Juan Rodríguez Cabrillo, the first European to reach the US West Coast.</p>
       </div>
       <div class="fact">
         <span class="fact-num">082</span>
-        <p class="fact-text">圣地亚哥有一条<strong>地下隧道</strong>连接着Gaslamp Quarter的多个老建筑，据说19世纪曾用于走私和鸦片交易。</p>
+        <p class="fact-text cn">圣地亚哥有一条<strong>地下隧道</strong>连接着Gaslamp Quarter的多个老建筑，据说19世纪曾用于走私和鸦片交易。</p>
+        <p class="fact-text en">San Diego has <strong>underground tunnels</strong> connecting several old buildings in the Gaslamp Quarter. They were reportedly used for smuggling and opium trade in the 19th century.</p>
       </div>
       <div class="fact">
         <span class="fact-num">083</span>
-        <p class="fact-text">圣地亚哥的<strong>Balboa Park</strong>免费开放，17座博物馆中大部分在每月第一个周二免费，是全美最慷慨的文化公园之一。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>Balboa Park</strong>免费开放，17座博物馆中大部分在每月第一个周二免费，是全美最慷慨的文化公园之一。</p>
+        <p class="fact-text en">San Diego's <strong>Balboa Park</strong> is free to enter. Most of its 17 museums offer free admission on the first Tuesday of each month — one of the most generous cultural parks in the US.</p>
       </div>
       <div class="fact">
         <span class="fact-num">084</span>
-        <p class="fact-text">圣地亚哥是<strong>Top Gun</strong>（壮志凌云）的取景地——电影中的"Fighter Weapons School"（战斗机武器学校）原型就在圣地亚哥的Miramar海军航空站。</p>
+        <p class="fact-text cn">圣地亚哥是<strong>Top Gun</strong>（壮志凌云）的取景地——电影中的"Fighter Weapons School"（战斗机武器学校）原型就在圣地亚哥的Miramar海军航空站。</p>
+        <p class="fact-text en">San Diego is the filming location for <strong>Top Gun</strong> — the "Fighter Weapons School" in the movie was based on the real facility at San Diego's Miramar Naval Air Station.</p>
       </div>
     </div>
   </div>
@@ -506,57 +604,69 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">未来 &amp; 争议</div>
+      <div class="cat-name"><span class="cn">未来 &amp; 争议</span><span class="en">Future &amp; Controversies</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">085</span>
-        <p class="fact-text">圣地亚哥的<strong>住房危机</strong>日益严重，房价中位数已超过90万美元，很多中产家庭不得不搬往更远的内陆地区。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>住房危机</strong>日益严重，房价中位数已超过90万美元，很多中产家庭不得不搬往更远的内陆地区。</p>
+        <p class="fact-text en">San Diego's <strong>housing crisis</strong> is worsening. The median home price now exceeds $900,000, forcing many middle-class families to move to more distant inland areas.</p>
       </div>
       <div class="fact">
         <span class="fact-num">086</span>
-        <p class="fact-text">圣地亚哥的<strong>无家可归者</strong>人数近年大幅增加，帐篷营地在市中心和河谷地带蔓延。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>无家可归者</strong>人数近年大幅增加，帐篷营地在市中心和河谷地带蔓延。</p>
+        <p class="fact-text en">San Diego's <strong>homeless</strong> population has surged in recent years, with tent camps spreading through downtown and river valleys.</p>
       </div>
       <div class="fact">
         <span class="fact-num">087</span>
-        <p class="fact-text">圣地亚哥正在规划<strong>新的公共交通</strong>线路，试图减少对私家车的依赖，但进展缓慢，争议不断。</p>
+        <p class="fact-text cn">圣地亚哥正在规划<strong>新的公共交通</strong>线路，试图减少对私家车的依赖，但进展缓慢，争议不断。</p>
+        <p class="fact-text en">San Diego is planning <strong>new public transit</strong> lines to reduce car dependency, but progress is slow and debates continue.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">088</span>
-        <p class="fact-text">圣地亚哥面临独特的<strong>跨境环境挑战</strong>——蒂华纳河的污水经常越境流入圣地亚哥的海滩，导致Imperial Beach等南部社区的海滩频繁因污染而关闭。这个问题涉及两个国家的政治和资金协调，数十年来始终未能彻底解决，是美墨边境地区最棘手的环境议题之一。</p>
+        <p class="fact-text cn">圣地亚哥面临独特的<strong>跨境环境挑战</strong>——蒂华纳河的污水经常越境流入圣地亚哥的海滩，导致Imperial Beach等南部社区的海滩频繁因污染而关闭。这个问题涉及两个国家的政治和资金协调，数十年来始终未能彻底解决，是美墨边境地区最棘手的环境议题之一。</p>
+        <p class="fact-text en">San Diego faces a unique <strong>cross-border environmental challenge</strong> — sewage from the Tijuana River frequently flows across the border into San Diego's beaches, causing Imperial Beach and other southern communities to close frequently due to pollution. This problem involves coordination between two countries' politics and funding and has remained unresolved for decades — one of the thorniest environmental issues along the US-Mexico border.</p>
       </div>
       <div class="fact">
         <span class="fact-num">089</span>
-        <p class="fact-text">圣地亚哥计划到2035年实现<strong>100%清洁能源</strong>供电，利用充沛的阳光发展太阳能是关键策略。</p>
+        <p class="fact-text cn">圣地亚哥计划到2035年实现<strong>100%清洁能源</strong>供电，利用充沛的阳光发展太阳能是关键策略。</p>
+        <p class="fact-text en">San Diego plans to achieve <strong>100% clean energy</strong> by 2035, with solar power as a key strategy leveraging its abundant sunshine.</p>
       </div>
       <div class="fact">
         <span class="fact-num">090</span>
-        <p class="fact-text">圣地亚哥的<strong>野火风险</strong>逐年增加，东部和北部的干燥丘陵地带是高风险区，2003年和2007年的大火造成了巨大损失。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>野火风险</strong>逐年增加，东部和北部的干燥丘陵地带是高风险区，2003年和2007年的大火造成了巨大损失。</p>
+        <p class="fact-text en">San Diego's <strong>wildfire risk</strong> increases each year. Dry hills to the east and north are high-risk zones — the 2003 and 2007 fires caused devastating damage.</p>
       </div>
       <div class="fact">
         <span class="fact-num">091</span>
-        <p class="fact-text">圣地亚哥正在讨论是否应该<strong>扩建机场</strong>或建设新机场，单跑道的容量限制已成为城市发展的瓶颈。</p>
+        <p class="fact-text cn">圣地亚哥正在讨论是否应该<strong>扩建机场</strong>或建设新机场，单跑道的容量限制已成为城市发展的瓶颈。</p>
+        <p class="fact-text en">San Diego is debating whether to <strong>expand its airport</strong> or build a new one. The single-runway capacity constraint has become a bottleneck for city growth.</p>
       </div>
       <div class="fact">
         <span class="fact-num">092</span>
-        <p class="fact-text">圣地亚哥的<strong>海平面上升</strong>威胁着沿海社区，Del Mar等地区的悬崖侵蚀问题日益严重。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>海平面上升</strong>威胁着沿海社区，Del Mar等地区的悬崖侵蚀问题日益严重。</p>
+        <p class="fact-text en">San Diego's <strong>sea level rise</strong> threatens coastal communities. Cliff erosion in areas like Del Mar is becoming increasingly severe.</p>
       </div>
       <div class="fact">
         <span class="fact-num">093</span>
-        <p class="fact-text">圣地亚哥与蒂华纳之间的<strong>Cross-Border Xpress</strong>（跨境快线）让美国旅客可以直接步行穿越边境使用蒂华纳机场，是全球独一无二的跨境航空设施。</p>
+        <p class="fact-text cn">圣地亚哥与蒂华纳之间的<strong>Cross-Border Xpress</strong>（跨境快线）让美国旅客可以直接步行穿越边境使用蒂华纳机场，是全球独一无二的跨境航空设施。</p>
+        <p class="fact-text en">The <strong>Cross-Border Xpress (CBX)</strong> between San Diego and Tijuana lets US travelers walk directly across the border to use Tijuana's airport — a globally unique cross-border aviation facility.</p>
       </div>
       <div class="fact">
         <span class="fact-num">094</span>
-        <p class="fact-text">圣地亚哥的<strong>生物技术走廊</strong>正在扩张，Torrey Pines地区的生物科技园区吸引了大量制药和基因编辑公司。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>生物技术走廊</strong>正在扩张，Torrey Pines地区的生物科技园区吸引了大量制药和基因编辑公司。</p>
+        <p class="fact-text en">San Diego's <strong>biotech corridor</strong> is expanding, with the Torrey Pines biotech park attracting numerous pharmaceutical and gene-editing companies.</p>
       </div>
       <div class="fact">
         <span class="fact-num">095</span>
-        <p class="fact-text">圣地亚哥的<strong>短租管制</strong>引发激烈争议，Airbnb在海滨社区的泛滥推高了租金，但也带来了旅游收入。</p>
+        <p class="fact-text cn">圣地亚哥的<strong>短租管制</strong>引发激烈争议，Airbnb在海滨社区的泛滥推高了租金，但也带来了旅游收入。</p>
+        <p class="fact-text en">San Diego's <strong>short-term rental regulations</strong> have sparked fierce debate. Airbnb proliferation in beach communities drives up rents but also brings tourism revenue.</p>
       </div>
       <div class="fact">
         <span class="fact-num">096</span>
-        <p class="fact-text">尽管面临各种挑战，圣地亚哥始终被评为全美<strong>最宜居城市</strong>之一——阳光、海滩和慢节奏的生活方式是它永恒的魅力。</p>
+        <p class="fact-text cn">尽管面临各种挑战，圣地亚哥始终被评为全美<strong>最宜居城市</strong>之一——阳光、海滩和慢节奏的生活方式是它永恒的魅力。</p>
+        <p class="fact-text en">Despite all its challenges, San Diego consistently ranks as one of America's <strong>most livable cities</strong> — sunshine, beaches, and a laid-back lifestyle are its eternal appeal.</p>
       </div>
     </div>
   </div>
@@ -565,25 +675,29 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">本地人才知道的事</div>
+      <div class="cat-name"><span class="cn">本地人才知道的事</span><span class="en">Only Locals Know</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">097</span>
-        <p class="fact-text">圣地亚哥本地人把高速公路加冠词<strong>"the"</strong>——说"the 5"而不是"I-5"，这是加州人和外地人的经典区分方式。</p>
+        <p class="fact-text cn">圣地亚哥本地人把高速公路加冠词<strong>"the"</strong>——说"the 5"而不是"I-5"，这是加州人和外地人的经典区分方式。</p>
+        <p class="fact-text en">San Diego locals put <strong>"the"</strong> before freeway numbers — saying "the 5" instead of "I-5." It's a classic way to tell Californians from outsiders.</p>
       </div>
       <div class="fact">
         <span class="fact-num">098</span>
-        <p class="fact-text">真正的圣地亚哥人从不穿<strong>wetsuit（潜水衣）</strong>冲浪——至少在夏天不穿，这是一种本地人的骄傲。</p>
+        <p class="fact-text cn">真正的圣地亚哥人从不穿<strong>wetsuit（潜水衣）</strong>冲浪——至少在夏天不穿，这是一种本地人的骄傲。</p>
+        <p class="fact-text en">True San Diegans never wear a <strong>wetsuit</strong> when surfing — at least not in summer. It's a point of local pride.</p>
       </div>
       <div class="fact">
         <span class="fact-num">099</span>
-        <p class="fact-text">圣地亚哥人会告诉你最好的Fish Taco不在旅游区，而是在<strong>South Bay</strong>靠近边境的小店里——那里最便宜也最正宗。</p>
+        <p class="fact-text cn">圣地亚哥人会告诉你最好的Fish Taco不在旅游区，而是在<strong>South Bay</strong>靠近边境的小店里——那里最便宜也最正宗。</p>
+        <p class="fact-text en">San Diego locals will tell you the best fish tacos aren't in the tourist areas but at tiny shops in <strong>South Bay</strong> near the border — cheapest and most authentic.</p>
       </div>
       <div class="fact">
         <span class="fact-num">100</span>
-        <p class="fact-text">圣地亚哥人有一种独特的<strong>"chill"生活态度</strong>——不着急、不焦虑、穿着人字拖和短裤过一年，这种松弛感才是圣地亚哥最核心的城市性格。</p>
+        <p class="fact-text cn">圣地亚哥人有一种独特的<strong>"chill"生活态度</strong>——不着急、不焦虑、穿着人字拖和短裤过一年，这种松弛感才是圣地亚哥最核心的城市性格。</p>
+        <p class="fact-text en">San Diegans have a uniquely <strong>"chill" lifestyle attitude</strong> — unhurried, unstressed, wearing flip-flops and shorts year-round. This laid-back vibe is San Diego's core personality.</p>
       </div>
     </div>
   </div>
@@ -591,10 +705,15 @@
 </main>
 
 <footer>
-  <p>CityBits · 城市观察</p>
+  <p>CityBits · <span class="cn">城市观察</span><span class="en">City Observer</span></p>
   <div class="footer-ornament">✦</div>
-  <p>圣地亚哥 · 100 City Notes</p>
+  <p><span class="cn">圣地亚哥 · 100 City Notes</span><span class="en">圣地亚哥 · 100 City Notes</span></p>
 </footer>
+
+<script>
+(function(){var l=localStorage.getItem('citybits-lang')||'cn';document.body.classList.add('lang-'+l);})();
+function toggleLang(){var e=document.body.classList.contains('lang-en');document.body.classList.remove('lang-cn','lang-en');var n=e?'cn':'en';document.body.classList.add('lang-'+n);localStorage.setItem('citybits-lang',n);}
+</script>
 
 </body>
 </html>

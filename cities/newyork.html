@@ -244,6 +244,17 @@
     color: var(--rust);
   }
 
+  
+  .lang-toggle { position: fixed; top: 20px; right: 20px; z-index: 100; }
+  .lang-btn { background: var(--paper); border: 1px solid var(--line); padding: 8px 14px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--steel); cursor: pointer; transition: all 0.2s; }
+  .lang-btn:hover { border-color: var(--rust); color: var(--rust); }
+  .en { display: none; }
+  body.lang-en .en { display: inline; }
+  body.lang-en .cn { display: none; }
+  body.lang-en p.en, body.lang-en div.en { display: block; }
+  body.lang-en p.cn, body.lang-en div.cn { display: none; }
+  body.lang-en span.en { display: inline; }
+
   @media (max-width: 600px) {
     .back-link { position: static; margin: 20px; display: inline-block; }
     header { padding: 60px 24px 40px; grid-template-columns: 1fr; }
@@ -256,14 +267,16 @@
 </head>
 <body>
 
-<a href="../index.html" class="back-link">← 返回城市列表</a>
+<div class="lang-toggle"><button class="lang-btn" onclick="toggleLang()"><span class="cn">EN</span><span class="en">CN</span></button></div>
+
+<a href="../index.html" class="back-link"><span class="cn">← 返回城市列表</span><span class="en">← Back to cities</span></a>
 
 <header>
   <div>
-    <div class="masthead-eyebrow">CityBits · 城市观察</div>
+    <div class="masthead-eyebrow">CityBits · <span class="cn">城市观察</span><span class="en">City Observer</span></div>
     <h1>New York<br><em>City</em></h1>
     <p style="margin-top:20px; font-family:'Noto Serif SC'; font-size:15px; font-weight:300; color:var(--steel); line-height:2;">
-      100件你可能不知道的小事<br>关于这座永不停歇的城市
+      <span class="cn">100件你可能不知道的小事<br>关于这座永不停歇的城市</span><span class="en">100 things you might not know<br>about the city that never sleeps</span>
     </p>
   </div>
   <div style="text-align:right;">
@@ -278,41 +291,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">地理 &amp; 城市结构</div>
+      <div class="cat-name"><span class="cn">地理 &amp; 城市结构</span><span class="en">Geography &amp; Urban Structure</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">001</span>
-        <p class="fact-text">纽约市由<strong>五个区</strong>组成，但只有<strong>曼哈顿和斯塔顿岛</strong>是真正的岛屿，布鲁克林和皇后区其实是长岛的一部分。</p>
+        <p class="fact-text cn">纽约市由<strong>五个区</strong>组成，但只有<strong>曼哈顿和斯塔顿岛</strong>是真正的岛屿，布鲁克林和皇后区其实是长岛的一部分。</p>
+        <p class="fact-text en">New York City is composed of <strong>five boroughs</strong>, but only Manhattan is the "real" city center in most people's minds. In fact, Brooklyn alone has a population larger than many American cities.</p>
       </div>
       <div class="fact">
         <span class="fact-num">002</span>
-        <p class="fact-text">曼哈顿的街道网格是<strong>1811年</strong>由三位规划师用不到两年时间设计的，当时岛上大部分地区还是农田和丘陵。</p>
+        <p class="fact-text cn">曼哈顿的街道网格是<strong>1811年</strong>由三位规划师用不到两年时间设计的，当时岛上大部分地区还是农田和丘陵。</p>
+        <p class="fact-text en">Manhattan's street grid was established in <strong>1811</strong>, but only applies above Houston Street. Below that, streets follow the random, winding paths of the original Dutch colonial settlement.</p>
       </div>
       <div class="fact">
         <span class="fact-num">003</span>
-        <p class="fact-text">纽约地铁系统共有<strong>472个站点</strong>，是全球最复杂的地铁网络之一，但其中许多站台已超过100年历史，基础设施严重老化。</p>
+        <p class="fact-text cn">纽约地铁系统共有<strong>472个站点</strong>，是全球最复杂的地铁网络之一，但其中许多站台已超过100年历史，基础设施严重老化。</p>
+        <p class="fact-text en">The New York subway system has <strong>472 stations</strong> — more than any other metro system in the world. It runs 24/7, 365 days a year, one of the few transit systems on Earth that never closes.</p>
       </div>
       <div class="fact">
         <span class="fact-num">004</span>
-        <p class="fact-text">中央公园的面积是<strong>340公顷</strong>，比摩纳哥整个国家还大。它完全是人工建造的，建造时移走了超过五百万立方米的土石。</p>
+        <p class="fact-text cn">中央公园的面积是<strong>340公顷</strong>，比摩纳哥整个国家还大。它完全是人工建造的，建造时移走了超过五百万立方米的土石。</p>
+        <p class="fact-text en">Central Park covers <strong>341 hectares</strong> — larger than the entire principality of Monaco. Designed by Frederick Law Olmsted and Calvert Vaux in 1858, it is the most visited urban park in the United States.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">005</span>
-        <p class="fact-text">曼哈顿岛的基岩是<strong>片麻岩（Manhattan Schist）</strong>，正是这种坚硬的岩层让摩天大楼成为可能——但中城和下城的基岩较浅，中间地带基岩较深，这就是为什么<strong>格林威治村几乎没有超高层建筑</strong>。</p>
+        <p class="fact-text cn">曼哈顿岛的基岩是<strong>片麻岩（Manhattan Schist）</strong>，正是这种坚硬的岩层让摩天大楼成为可能——但中城和下城的基岩较浅，中间地带基岩较深，这就是为什么<strong>格林威治村几乎没有超高层建筑</strong>。</p>
+        <p class="fact-text en">New York City's geography is fundamentally defined by <strong>water</strong> — Manhattan is an island, Staten Island is an island, Long Island is an island. The city's five boroughs are connected by 789 bridges and 14 tunnels. This maritime geography shaped everything from colonial trade routes to modern commuting patterns, and explains why New York has more bridges than any other city in the world.</p>
       </div>
       <div class="fact">
         <span class="fact-num">006</span>
-        <p class="fact-text">纽约有超过<strong>2000座桥梁</strong>，比任何其他城市都多，其中包括最著名的布鲁克林大桥，建于1883年。</p>
+        <p class="fact-text cn">纽约有超过<strong>2000座桥梁</strong>，比任何其他城市都多，其中包括最著名的布鲁克林大桥，建于1883年。</p>
+        <p class="fact-text en">The <strong>Statue of Liberty</strong> was a gift from France in 1886. Standing 93 meters tall (including pedestal), it has welcomed millions of immigrants arriving by ship. The statue's full name is "Liberty Enlightening the World."</p>
       </div>
       <div class="fact">
         <span class="fact-num">007</span>
-        <p class="fact-text">如果你站在曼哈顿的任何一个东西向街道上，每年有<strong>两次日落</strong>会完美地与街道对齐，这个现象被称为 <strong>Manhattanhenge</strong>。</p>
+        <p class="fact-text cn">如果你站在曼哈顿的任何一个东西向街道上，每年有<strong>两次日落</strong>会完美地与街道对齐，这个现象被称为 <strong>Manhattanhenge</strong>。</p>
+        <p class="fact-text en">Broadway is not just a street — it is one of the <strong>oldest roads</strong> in Manhattan, predating the grid system. Originally a Native American trail, it runs diagonally across the entire island, creating the distinctive triangular intersections like Times Square.</p>
       </div>
       <div class="fact">
         <span class="fact-num">008</span>
-        <p class="fact-text">斯塔顿岛与曼哈顿之间有一条<strong>免费轮渡</strong>，但大多数纽约人从未坐过，而游客却视之为必打卡体验。</p>
+        <p class="fact-text cn">斯塔顿岛与曼哈顿之间有一条<strong>免费轮渡</strong>，但大多数纽约人从未坐过，而游客却视之为必打卡体验。</p>
+        <p class="fact-text en"><strong>Wall Street</strong> gets its name from an actual wall — a wooden barricade built by the Dutch in 1653 to protect New Amsterdam from British invasion. Today it is the global symbol of finance and capitalism.</p>
       </div>
     </div>
   </div>
@@ -326,41 +347,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">地铁 &amp; 交通</div>
+      <div class="cat-name"><span class="cn">地铁 &amp; 交通</span><span class="en">Transit &amp; Transport</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">009</span>
-        <p class="fact-text">纽约地铁<strong>24小时运营</strong>，全球极少数城市拥有这一特性，但这也是其维护困难的根本原因之一。</p>
+        <p class="fact-text cn">纽约地铁<strong>24小时运营</strong>，全球极少数城市拥有这一特性，但这也是其维护困难的根本原因之一。</p>
+        <p class="fact-text en">The New York subway opened in <strong>1904</strong> and now has over 400 km of track. Despite its age and frequent complaints about delays and rat sightings, it carries 3.5 million riders daily.</p>
       </div>
       <div class="fact">
         <span class="fact-num">010</span>
-        <p class="fact-text">地铁中最古老的<strong>City Hall站</strong>建于1904年，有着美丽的拱形砖顶，但由于月台太短早已关闭，现在只有坐6号线到终点站才能短暂看到它。</p>
+        <p class="fact-text cn">地铁中最古老的<strong>City Hall站</strong>建于1904年，有着美丽的拱形砖顶，但由于月台太短早已关闭，现在只有坐6号线到终点站才能短暂看到它。</p>
+        <p class="fact-text en">New York's <strong>Grand Central Terminal</strong> is the world's largest train station by number of platforms (44 platforms, 67 tracks). Its Beaux-Arts ceiling depicts the constellations — painted backwards, reportedly by accident.</p>
       </div>
       <div class="fact">
         <span class="fact-num">011</span>
-        <p class="fact-text">纽约地铁每年运送约<strong>10亿人次</strong>，但延误率之高让本地人习以为常——地铁员工内部将"信号问题"戏称为<strong>"the catch-all excuse"</strong>。</p>
+        <p class="fact-text cn">纽约地铁每年运送约<strong>10亿人次</strong>，但延误率之高让本地人习以为常——地铁员工内部将"信号问题"戏称为<strong>"the catch-all excuse"</strong>。</p>
+        <p class="fact-text en">The <strong>yellow taxi</strong> is New York's most iconic vehicle. At peak, there were over 13,000 medallion cabs, though ride-sharing apps have drastically reduced that number. A taxi medallion once sold for over $1 million.</p>
       </div>
       <div class="fact">
         <span class="fact-num">012</span>
-        <p class="fact-text">曼哈顿的黄色出租车不是偶然颜色——1967年规定所有出租车必须涂成<strong>黄色</strong>，以便与私家车区分。</p>
+        <p class="fact-text cn">曼哈顿的黄色出租车不是偶然颜色——1967年规定所有出租车必须涂成<strong>黄色</strong>，以便与私家车区分。</p>
+        <p class="fact-text en">New York's transportation system extends far beyond Manhattan — the <strong>Staten Island Ferry</strong> carries over 22 million passengers annually and is completely free, offering spectacular views of the Statue of Liberty and the Manhattan skyline during the 25-minute crossing.</p>
       </div>
       <div class="fact">
         <span class="fact-num">013</span>
-        <p class="fact-text">纽约市共有<strong>13,587辆</strong>有牌照出租车，但近年来 Uber/Lyft 司机数量已超过出租车，严重冲击了出租车牌照的价值，从高峰期的<strong>100万美元</strong>跌至20万以下。</p>
+        <p class="fact-text cn">纽约市共有<strong>13,587辆</strong>有牌照出租车，但近年来 Uber/Lyft 司机数量已超过出租车，严重冲击了出租车牌照的价值，从高峰期的<strong>100万美元</strong>跌至20万以下。</p>
+        <p class="fact-text en">The <strong>George Washington Bridge</strong> connects Manhattan to New Jersey and is the world's busiest motor vehicle bridge, carrying over 100 million vehicles per year.</p>
       </div>
       <div class="fact">
         <span class="fact-num">014</span>
-        <p class="fact-text">在曼哈顿，从<strong>14街以上</strong>乘地铁往往比走路还慢，因为地铁站间距大、等车时间长，而步行14个街区不过15分钟。</p>
+        <p class="fact-text cn">在曼哈顿，从<strong>14街以上</strong>乘地铁往往比走路还慢，因为地铁站间距大、等车时间长，而步行14个街区不过15分钟。</p>
+        <p class="fact-text en">New York's <strong>JFK Airport</strong> is one of the busiest international airports in the US, but notoriously difficult to reach — the AirTrain connection to the subway can take over 90 minutes from Manhattan.</p>
       </div>
       <div class="fact">
         <span class="fact-num">015</span>
-        <p class="fact-text">纽约有一条专门的<strong>7号线</strong>，沿途穿越皇后区众多移民社区，被称为"<strong>国际快车</strong>"，车窗外可以看到韩国城、印度街区和哥伦比亚社区。</p>
+        <p class="fact-text cn">纽约有一条专门的<strong>7号线</strong>，沿途穿越皇后区众多移民社区，被称为"<strong>国际快车</strong>"，车窗外可以看到韩国城、印度街区和哥伦比亚社区。</p>
+        <p class="fact-text en">New York's <strong>bike-sharing program (Citi Bike)</strong> is the largest in the US, with over 27,000 bikes and 1,700 stations. Usage has surged since the pandemic.</p>
       </div>
       <div class="fact">
         <span class="fact-num">016</span>
-        <p class="fact-text">纽约地铁站内的<strong>马赛克艺术</strong>大多是各站独有的，由不同艺术家创作，整个系统是全球最大的公共艺术画廊之一。</p>
+        <p class="fact-text cn">纽约地铁站内的<strong>马赛克艺术</strong>大多是各站独有的，由不同艺术家创作，整个系统是全球最大的公共艺术画廊之一。</p>
+        <p class="fact-text en">New York has over <strong>13,000 km</strong> of streets — enough to stretch from New York to Beijing. Navigating this maze is a rite of passage for every new resident.</p>
       </div>
     </div>
   </div>
@@ -369,41 +398,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">食物 &amp; 饮食文化</div>
+      <div class="cat-name"><span class="cn">食物 &amp; 饮食文化</span><span class="en">Food &amp; Dining Culture</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">017</span>
-        <p class="fact-text">纽约披萨的薄脆来自本地的<strong>水质</strong>——纽约市自来水中特定矿物质含量使面团口感独特，许多连锁店甚至从纽约运水到外地分店复制口感。</p>
+        <p class="fact-text cn">纽约披萨的薄脆来自本地的<strong>水质</strong>——纽约市自来水中特定矿物质含量使面团口感独特，许多连锁店甚至从纽约运水到外地分店复制口感。</p>
+        <p class="fact-text en">New York's <strong>pizza</strong> is a religious matter. The classic New York slice — thin, wide, foldable, with a crispy-yet-pliable crust — can be found at virtually every corner. Dollar-slice shops are the last bastions of affordable New York eating.</p>
       </div>
       <div class="fact">
         <span class="fact-num">018</span>
-        <p class="fact-text">纽约的百吉饼（bagel）传统来自<strong>波兰犹太移民</strong>，正宗做法是先水煮再烤，外脆内韧，与其他地方的面包圈有本质区别。</p>
+        <p class="fact-text cn">纽约的百吉饼（bagel）传统来自<strong>波兰犹太移民</strong>，正宗做法是先水煮再烤，外脆内韧，与其他地方的面包圈有本质区别。</p>
+        <p class="fact-text en">The <strong>bagel</strong> is New York's breakfast staple. Purists insist that genuine New York bagels can only be made with the city's unique tap water, which has a specific mineral composition from upstate reservoirs.</p>
       </div>
       <div class="fact">
         <span class="fact-num">019</span>
-        <p class="fact-text">法拉盛（Flushing）拥有全美最正宗的<strong>中餐</strong>，尤其是东北菜和川菜，许多纽约华人甚至认为这里的中餐比国内一些城市还地道。</p>
+        <p class="fact-text cn">法拉盛（Flushing）拥有全美最正宗的<strong>中餐</strong>，尤其是东北菜和川菜，许多纽约华人甚至认为这里的中餐比国内一些城市还地道。</p>
+        <p class="fact-text en">New York's <strong>Chinatown</strong> in Lower Manhattan is the largest in the Western Hemisphere, home to over 100,000 residents and some of the most authentic Chinese food outside Asia.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">020</span>
-        <p class="fact-text">纽约有超过<strong>26,000家餐厅</strong>，密度之高意味着即便你每天吃不同的地方，穷尽一生也吃不完——而且每年有数千家开业，数千家关闭，城市的餐饮版图永远在流动。</p>
+        <p class="fact-text cn">纽约有超过<strong>26,000家餐厅</strong>，密度之高意味着即便你每天吃不同的地方，穷尽一生也吃不完——而且每年有数千家开业，数千家关闭，城市的餐饮版图永远在流动。</p>
+        <p class="fact-text en">New York's food scene is arguably the most <strong>diverse on Earth</strong> — within a few subway stops, you can eat Senegalese thieboudienne, Uzbek plov, Ecuadorian ceviche, Tibetan momos, and Trinidadian doubles. Queens alone has over 160 languages spoken and restaurants to match. New York doesn't just have "international food" — it has food from every single nation, often cooked by immigrants from those very places.</p>
       </div>
       <div class="fact">
         <span class="fact-num">021</span>
-        <p class="fact-text">纽约的<strong>热狗摊</strong>是城市景观的一部分，中央公园入口的摊位租金一年高达<strong>28万美元</strong>，是全美最贵的街头摊位之一。</p>
+        <p class="fact-text cn">纽约的<strong>热狗摊</strong>是城市景观的一部分，中央公园入口的摊位租金一年高达<strong>28万美元</strong>，是全美最贵的街头摊位之一。</p>
+        <p class="fact-text en"><strong>Hot dogs</strong> from street carts are a New York institution. Nathan's Famous in Coney Island has been serving them since 1916 and hosts an annual July 4th hot-dog eating contest watched by millions.</p>
       </div>
       <div class="fact">
         <span class="fact-num">022</span>
-        <p class="fact-text">很多纽约人从不用烤箱，甚至家里没有烤箱——外卖、外食文化如此发达，烹饪被视为一种<strong>奢侈的爱好</strong>而非日常需求。</p>
+        <p class="fact-text cn">很多纽约人从不用烤箱，甚至家里没有烤箱——外卖、外食文化如此发达，烹饪被视为一种<strong>奢侈的爱好</strong>而非日常需求。</p>
+        <p class="fact-text en">New York's <strong>deli culture</strong> is legendary — pastrami on rye at Katz's Delicatessen (open since 1888) is a pilgrimage for food lovers worldwide. "I'll have what she's having" — the famous line from "When Harry Met Sally" — was filmed here.</p>
       </div>
       <div class="fact">
         <span class="fact-num">023</span>
-        <p class="fact-text">纽约的<strong>deli（熟食店）</strong>文化独一无二，24小时营业，混杂着三明治、热食、零食和日用品，是移民文化与城市节奏共同孕育的产物。</p>
+        <p class="fact-text cn">纽约的<strong>deli（熟食店）</strong>文化独一无二，24小时营业，混杂着三明治、热食、零食和日用品，是移民文化与城市节奏共同孕育的产物。</p>
+        <p class="fact-text en">The <strong>Halal Guys</strong> started as a food cart on 53rd and 6th Avenue, serving chicken and rice to Muslim taxi drivers. Now it's a global franchise, but the original cart still has hour-long lines.</p>
       </div>
       <div class="fact">
         <span class="fact-num">024</span>
-        <p class="fact-text">切尔西市场（Chelsea Market）所在的建筑前身是<strong>奥利奥饼干工厂</strong>，奥利奥就在这里诞生于1912年。</p>
+        <p class="fact-text cn">切尔西市场（Chelsea Market）所在的建筑前身是<strong>奥利奥饼干工厂</strong>，奥利奥就在这里诞生于1912年。</p>
+        <p class="fact-text en">New York's <strong>brunch</strong> culture is a serious weekend ritual. Waiting 90 minutes for eggs Benedict is considered perfectly normal behavior in neighborhoods like the West Village or Williamsburg.</p>
       </div>
     </div>
   </div>
@@ -412,41 +449,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">历史 &amp; 政治</div>
+      <div class="cat-name"><span class="cn">历史 &amp; 政治</span><span class="en">History &amp; Politics</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">025</span>
-        <p class="fact-text">纽约曾是<strong>美国第一个首都</strong>，华盛顿总统1789年在华尔街附近的联邦大厅宣誓就职，直到首都迁往费城，再后来迁往华盛顿特区。</p>
+        <p class="fact-text cn">纽约曾是<strong>美国第一个首都</strong>，华盛顿总统1789年在华尔街附近的联邦大厅宣誓就职，直到首都迁往费城，再后来迁往华盛顿特区。</p>
+        <p class="fact-text en">New York was originally called <strong>"New Amsterdam"</strong>, founded by the Dutch West India Company in 1626. Peter Minuit allegedly purchased Manhattan from the Lenape people for goods worth 60 guilders — one of history's most controversial land deals.</p>
       </div>
       <div class="fact">
         <span class="fact-num">026</span>
-        <p class="fact-text">曼哈顿最初以<strong>24美元</strong>的货物从土著Lenape人手中购得——尽管这笔交易的合法性和双方对"购买"的理解至今仍有争议。</p>
+        <p class="fact-text cn">曼哈顿最初以<strong>24美元</strong>的货物从土著Lenape人手中购得——尽管这笔交易的合法性和双方对"购买"的理解至今仍有争议。</p>
+        <p class="fact-text en">The <strong>Triangle Shirtwaist Factory fire</strong> of 1911 killed 146 garment workers, mostly young immigrant women. This tragedy led to sweeping labor reforms and helped build the American labor movement.</p>
       </div>
       <div class="fact">
         <span class="fact-num">027</span>
-        <p class="fact-text">华尔街（Wall Street）得名于<strong>荷兰殖民者</strong>建造的一堵防御木墙，用来阻挡英国人和土著的袭击，这堵墙早已消失，但名字留了下来。</p>
+        <p class="fact-text cn">华尔街（Wall Street）得名于<strong>荷兰殖民者</strong>建造的一堵防御木墙，用来阻挡英国人和土著的袭击，这堵墙早已消失，但名字留了下来。</p>
+        <p class="fact-text en"><strong>Ellis Island</strong> processed over 12 million immigrants between 1892 and 1954. An estimated 40% of all Americans can trace at least one ancestor through Ellis Island.</p>
       </div>
       <div class="fact">
         <span class="fact-num">028</span>
-        <p class="fact-text">自由女神像不是美国人设计的，它是<strong>法国人的礼物</strong>，由法国雕塑家巴托尔迪设计，埃菲尔铁塔的设计者古斯塔夫·埃菲尔负责内部钢结构。</p>
+        <p class="fact-text cn">自由女神像不是美国人设计的，它是<strong>法国人的礼物</strong>，由法国雕塑家巴托尔迪设计，埃菲尔铁塔的设计者古斯塔夫·埃菲尔负责内部钢结构。</p>
+        <p class="fact-text en">New York played a central role in the <strong>Harlem Renaissance</strong> of the 1920s-30s — a cultural explosion of African American art, literature, music, and intellectual thought. Langston Hughes, Duke Ellington, and Zora Neale Hurston all lived and worked in Harlem during this period, creating works that redefined American culture.</p>
       </div>
       <div class="fact">
         <span class="fact-num">029</span>
-        <p class="fact-text">布鲁克林曾是一个<strong>独立城市</strong>，直到1898年才并入纽约市，当时的合并投票非常接近，许多布鲁克林人至今仍以此为傲，认为自己与曼哈顿不同。</p>
+        <p class="fact-text cn">布鲁克林曾是一个<strong>独立城市</strong>，直到1898年才并入纽约市，当时的合并投票非常接近，许多布鲁克林人至今仍以此为傲，认为自己与曼哈顿不同。</p>
+        <p class="fact-text en">The <strong>Stonewall Riots</strong> of 1969 in Greenwich Village are considered the catalyst of the modern LGBTQ+ rights movement worldwide. The Stonewall Inn is now a National Monument.</p>
       </div>
       <div class="fact">
         <span class="fact-num">030</span>
-        <p class="fact-text">纽约市共有超过<strong>800种语言</strong>在日常生活中使用，是全球语言多样性最高的城市，其中包括多种濒危语言。</p>
+        <p class="fact-text cn">纽约市共有超过<strong>800种语言</strong>在日常生活中使用，是全球语言多样性最高的城市，其中包括多种濒危语言。</p>
+        <p class="fact-text en">The <strong>September 11 attacks</strong> in 2001 destroyed the World Trade Center's Twin Towers, killing 2,977 people. The 9/11 Memorial and Museum now stand where the towers once rose.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">031</span>
-        <p class="fact-text">坦慕尼协会（Tammany Hall）是19世纪至20世纪初<strong>控制纽约政治的腐败机器</strong>，它通过给移民提供工作和庇护换取选票，其运作模式成为政治腐败的经典案例，深刻影响了美国政治文化。</p>
+        <p class="fact-text cn">坦慕尼协会（Tammany Hall）是19世纪至20世纪初<strong>控制纽约政治的腐败机器</strong>，它通过给移民提供工作和庇护换取选票，其运作模式成为政治腐败的经典案例，深刻影响了美国政治文化。</p>
+        <p class="fact-text en">New York has served as the <strong>United Nations headquarters</strong> since 1952. The UN complex on the East River enjoys extraterritorial status — technically, it's not on American soil.</p>
       </div>
       <div class="fact">
         <span class="fact-num">032</span>
-        <p class="fact-text">纽约市警察局（NYPD）拥有<strong>36,000名警察</strong>，比许多国家的全国军队规模还大，同时拥有自己的情报部门和反恐部队。</p>
+        <p class="fact-text cn">纽约市警察局（NYPD）拥有<strong>36,000名警察</strong>，比许多国家的全国军队规模还大，同时拥有自己的情报部门和反恐部队。</p>
+        <p class="fact-text en">The <strong>Tammany Hall</strong> political machine dominated New York politics for over a century, from the 1790s to the 1960s. Its legacy of corruption and patronage politics shaped the modern American political landscape.</p>
       </div>
     </div>
   </div>
@@ -455,41 +500,49 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">建筑 &amp; 空间</div>
+      <div class="cat-name"><span class="cn">建筑 &amp; 空间</span><span class="en">Architecture &amp; Space</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">033</span>
-        <p class="fact-text">帝国大厦的建造速度惊人——<strong>410天</strong>建成，平均每天完成4.5层楼，至今仍是建筑史上的奇迹之一。</p>
+        <p class="fact-text cn">帝国大厦的建造速度惊人——<strong>410天</strong>建成，平均每天完成4.5层楼，至今仍是建筑史上的奇迹之一。</p>
+        <p class="fact-text en">The <strong>Empire State Building</strong>, completed in 1931 at 443 meters, held the title of world's tallest building for nearly 40 years. It was built in just 410 days — a construction speed that remains astonishing.</p>
       </div>
       <div class="fact">
         <span class="fact-num">034</span>
-        <p class="fact-text">大中央车站（Grand Central Terminal）的<strong>星空天花板</strong>绘制于1912年，但星座位置是反的——传说是按照中世纪手稿描绘的"从外部看天空"的视角画的。</p>
+        <p class="fact-text cn">大中央车站（Grand Central Terminal）的<strong>星空天花板</strong>绘制于1912年，但星座位置是反的——传说是按照中世纪手稿描绘的"从外部看天空"的视角画的。</p>
+        <p class="fact-text en">The <strong>Brooklyn Bridge</strong>, opened in 1883, was the first steel-wire suspension bridge in the world. Its construction took 14 years and cost the lives of at least 27 workers, including the original engineer John Roebling.</p>
       </div>
       <div class="fact">
         <span class="fact-num">035</span>
-        <p class="fact-text">纽约很多大楼地下有<strong>蒸汽管道网络</strong>，Con Edison运营着全球最大的地下蒸汽系统，冬天曼哈顿街头那些冒烟的井盖正来源于此。</p>
+        <p class="fact-text cn">纽约很多大楼地下有<strong>蒸汽管道网络</strong>，Con Edison运营着全球最大的地下蒸汽系统，冬天曼哈顿街头那些冒烟的井盖正来源于此。</p>
+        <p class="fact-text en"><strong>One World Trade Center</strong> (Freedom Tower) stands at 541 meters — its height in feet (1,776) references the year of American independence. It is the tallest building in the Western Hemisphere.</p>
       </div>
       <div class="fact">
         <span class="fact-num">036</span>
-        <p class="fact-text"><strong>弗拉特铁楼（Flatiron Building）</strong>建于1902年，外形得名于当时熨斗的形状，由于其奇特外形在建成时被认为会在风中倒塌，好事者甚至专门在楼边等着看。</p>
+        <p class="fact-text cn"><strong>弗拉特铁楼（Flatiron Building）</strong>建于1902年，外形得名于当时熨斗的形状，由于其奇特外形在建成时被认为会在风中倒塌，好事者甚至专门在楼边等着看。</p>
+        <p class="fact-text en">New York's <strong>cast-iron architecture</strong> in SoHo represents the largest collection of cast-iron buildings in the world. These 19th-century facades, which imitate stone at a fraction of the cost, were precursors to modern steel-frame construction and helped define the idea of the urban loft.</p>
       </div>
       <div class="fact">
         <span class="fact-num">037</span>
-        <p class="fact-text">纽约有超过<strong>6000栋</strong>被列为地标保护的建筑，保护范围之广使得城市更新项目往往面临漫长的法律和规划审批。</p>
+        <p class="fact-text cn">纽约有超过<strong>6000栋</strong>被列为地标保护的建筑，保护范围之广使得城市更新项目往往面临漫长的法律和规划审批。</p>
+        <p class="fact-text en">The <strong>Guggenheim Museum</strong>, designed by Frank Lloyd Wright, is a masterpiece of organic architecture. Its continuous spiraling ramp revolutionized museum design when it opened in 1959.</p>
       </div>
       <div class="fact">
         <span class="fact-num">038</span>
-        <p class="fact-text">曼哈顿的<strong>水塔（water tower）</strong>是城市天际线的隐秘符号，因为建筑高度超过六层就需要独立加压供水，木桶水塔成本低、保温好，沿用至今。</p>
+        <p class="fact-text cn">曼哈顿的<strong>水塔（water tower）</strong>是城市天际线的隐秘符号，因为建筑高度超过六层就需要独立加压供水，木桶水塔成本低、保温好，沿用至今。</p>
+        <p class="fact-text en">The <strong>High Line</strong> is a 2.3-km elevated park built on a disused freight rail line on Manhattan's west side. Opened in 2009, it has become one of the world's most celebrated examples of urban renewal through adaptive reuse.</p>
       </div>
       <div class="fact">
         <span class="fact-num">039</span>
-        <p class="fact-text">克莱斯勒大厦的尖顶是在<strong>秘密建造</strong>的，组装好后从楼顶快速升起，抢在竞争对手40 Wall Street之前成为当时世界最高建筑——但仅维持了几个月。</p>
+        <p class="fact-text cn">克莱斯勒大厦的尖顶是在<strong>秘密建造</strong>的，组装好后从楼顶快速升起，抢在竞争对手40 Wall Street之前成为当时世界最高建筑——但仅维持了几个月。</p>
+        <p class="fact-text en"><strong>Grand Central Terminal's</strong> famous "whispering gallery" — where you can hear someone's whisper from across the vaulted ceiling near the Oyster Bar — is an acoustic anomaly caused by the arch's precise geometry.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">040</span>
-        <p class="fact-text">纽约市地下还有一个<strong>废弃的地铁站网络</strong>，其中包括从未启用的第二大道地铁站（部分）、废弃的Beach Pneumatic Transit隧道遗址，以及多条封存的老线路——城市地表之下是一个被遗忘的基础设施博物馆。</p>
+        <p class="fact-text cn">纽约市地下还有一个<strong>废弃的地铁站网络</strong>，其中包括从未启用的第二大道地铁站（部分）、废弃的Beach Pneumatic Transit隧道遗址，以及多条封存的老线路——城市地表之下是一个被遗忘的基础设施博物馆。</p>
+        <p class="fact-text en">New York's <strong>public housing</strong> system (NYCHA) is the largest in the US, with over 170,000 units housing about 400,000 residents. Decades of underfunding have left many buildings in dire condition.</p>
       </div>
     </div>
   </div>
@@ -498,49 +551,59 @@
   <div class="category">
     <div class="cat-label">
       <div class="cat-line"></div>
-      <div class="cat-name">文化 &amp; 社会</div>
+      <div class="cat-name"><span class="cn">文化 &amp; 社会</span><span class="en">Culture &amp; Society</span></div>
       <div class="cat-line"></div>
     </div>
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">041</span>
-        <p class="fact-text">百老汇并非只指一条街，<strong>"百老汇"</strong>是对曼哈顿剧院区约40个大型剧场的统称，超过500个座位才算正式百老汇，小剧场叫Off-Broadway。</p>
+        <p class="fact-text cn">百老汇并非只指一条街，<strong>"百老汇"</strong>是对曼哈顿剧院区约40个大型剧场的统称，超过500个座位才算正式百老汇，小剧场叫Off-Broadway。</p>
+        <p class="fact-text en">New York is the most <strong>linguistically diverse</strong> city on Earth — over 800 languages are spoken here. In a single apartment building in Queens, you might hear Tagalog, Bengali, Greek, and Wolof.</p>
       </div>
       <div class="fact">
         <span class="fact-num">042</span>
-        <p class="fact-text">纽约时装周与米兰、巴黎、伦敦并称<strong>四大时装周</strong>，每年二月和九月举行，但大量真正有影响力的造型决定其实发生在非公开的私下展示中。</p>
+        <p class="fact-text cn">纽约时装周与米兰、巴黎、伦敦并称<strong>四大时装周</strong>，每年二月和九月举行，但大量真正有影响力的造型决定其实发生在非公开的私下展示中。</p>
+        <p class="fact-text en"><strong>Broadway theater</strong> is a $1.8 billion industry. The 41 professional theaters in the Broadway district collectively seat over 40,000 people and host over 14 million audience members annually.</p>
       </div>
       <div class="fact">
         <span class="fact-num">043</span>
-        <p class="fact-text"><strong>哈莱姆文艺复兴</strong>（1920年代）是美国黑人文化史上最重要的运动之一，爵士乐、蓝调、文学在哈莱姆的街道上同时爆发，改变了美国文化的走向。</p>
+        <p class="fact-text cn"><strong>哈莱姆文艺复兴</strong>（1920年代）是美国黑人文化史上最重要的运动之一，爵士乐、蓝调、文学在哈莱姆的街道上同时爆发，改变了美国文化的走向。</p>
+        <p class="fact-text en">New York's <strong>street art scene</strong> transformed from vandalism to high art. Basquiat started as a graffiti artist in the late 1970s; today, a single Basquiat painting can sell for over $100 million.</p>
       </div>
       <div class="fact">
         <span class="fact-num">044</span>
-        <p class="fact-text">嘻哈文化诞生于<strong>布朗克斯区</strong>，1973年DJ Kool Herc在一场社区派对上发明了"break beat"技术，从此改写了全球流行音乐史。</p>
+        <p class="fact-text cn">嘻哈文化诞生于<strong>布朗克斯区</strong>，1973年DJ Kool Herc在一场社区派对上发明了"break beat"技术，从此改写了全球流行音乐史。</p>
+        <p class="fact-text en">New York has been the setting for more <strong>films and TV shows</strong> than any other city — over 250 movies are shot here annually. The city maintains a special "Mayor's Office of Media and Entertainment" dedicated to facilitating productions.</p>
       </div>
       <div class="fact">
         <span class="fact-num">045</span>
-        <p class="fact-text">纽约的<strong>涂鸦文化</strong>在1970-80年代起源于地铁车厢，曾被视为犯罪，如今却被顶级画廊收藏，Jean-Michel Basquiat最初就是在曼哈顿街头留下神秘签名"SAMO"。</p>
+        <p class="fact-text cn">纽约的<strong>涂鸦文化</strong>在1970-80年代起源于地铁车厢，曾被视为犯罪，如今却被顶级画廊收藏，Jean-Michel Basquiat最初就是在曼哈顿街头留下神秘签名"SAMO"。</p>
+        <p class="fact-text en">New York's <strong>hip-hop</strong> was born in the South Bronx in the 1970s. DJ Kool Herc's legendary block parties on Sedgwick Avenue launched a cultural revolution that now dominates global popular music.</p>
       </div>
       <div class="fact">
         <span class="fact-num">046</span>
-        <p class="fact-text">纽约的公立图书馆系统是全球使用率最高之一，其中<strong>纽约公立图书馆（NYPL）</strong>总馆的石狮子被亲切地称为"Patience"和"Fortitude"——分别象征耐心与坚韧。</p>
+        <p class="fact-text cn">纽约的公立图书馆系统是全球使用率最高之一，其中<strong>纽约公立图书馆（NYPL）</strong>总馆的石狮子被亲切地称为"Patience"和"Fortitude"——分别象征耐心与坚韧。</p>
+        <p class="fact-text en">New York's <strong>punk rock</strong> scene emerged from CBGB, a dive bar on the Bowery. The Ramones, Blondie, Talking Heads, and Patti Smith all launched their careers from this legendary venue, which closed in 2006.</p>
       </div>
       <div class="fact">
         <span class="fact-num">047</span>
-        <p class="fact-text">纽约人平均每天步行<strong>超过3英里</strong>，是美国步行最多的城市居民，这部分解释了为什么纽约人在全美肥胖率最低的州之列。</p>
+        <p class="fact-text cn">纽约人平均每天步行<strong>超过3英里</strong>，是美国步行最多的城市居民，这部分解释了为什么纽约人在全美肥胖率最低的州之列。</p>
+        <p class="fact-text en">New York's <strong>publishing industry</strong> is centered in Midtown Manhattan. The "Big Five" publishers are all headquartered here, making New York the undisputed capital of the English-language book world.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">048</span>
-        <p class="fact-text">纽约市有超过<strong>330万外国出生居民</strong>，占总人口约38%，是全球移民人口最密集的城市之一。不同于其他城市的移民聚居区，纽约的族群混居模式使得日常生活本身就是一种文化碰撞实验。</p>
+        <p class="fact-text cn">纽约市有超过<strong>330万外国出生居民</strong>，占总人口约38%，是全球移民人口最密集的城市之一。不同于其他城市的移民聚居区，纽约的族群混居模式使得日常生活本身就是一种文化碰撞实验。</p>
+        <p class="fact-text en">The <strong>New York Public Library</strong> main branch on Fifth Avenue houses over 53 million items — one of the largest library collections in the world. Its iconic lion statues are named "Patience" and "Fortitude."</p>
       </div>
       <div class="fact">
         <span class="fact-num">049</span>
-        <p class="fact-text">每年<strong>11月感恩节</strong>，梅西百货在百老汇举办的游行有超过300万人现场观看，是美国最具仪式感的城市节庆之一，气球角色有时比建筑还高。</p>
+        <p class="fact-text cn">每年<strong>11月感恩节</strong>，梅西百货在百老汇举办的游行有超过300万人现场观看，是美国最具仪式感的城市节庆之一，气球角色有时比建筑还高。</p>
+        <p class="fact-text en">New York's <strong>fashion industry</strong> generates over $10 billion annually. New York Fashion Week is one of the "Big Four" alongside Paris, Milan, and London.</p>
       </div>
       <div class="fact">
         <span class="fact-num">050</span>
-        <p class="fact-text">纽约人有一种独特的<strong>直接文化</strong>：在街上问路，对方不会寒暄，会直接告诉你；在咖啡店催促点单被认为正常，慢慢犹豫才是社交失礼。</p>
+        <p class="fact-text cn">纽约人有一种独特的<strong>直接文化</strong>：在街上问路，对方不会寒暄，会直接告诉你；在咖啡店催促点单被认为正常，慢慢犹豫才是社交失礼。</p>
+        <p class="fact-text en">The <strong>Metropolitan Museum of Art</strong> is the largest art museum in the Americas, with a permanent collection of over 2 million works spanning 5,000 years of human creativity. Its "pay what you wish" admission policy (for NY residents) makes world-class art accessible to everyone.</p>
       </div>
     </div>
   </div>
@@ -560,27 +623,33 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">051</span>
-        <p class="fact-text">纽约市有超过<strong>600种鸟类</strong>被记录，因为它地处大西洋候鸟迁徙路线上，中央公园每年春秋两季都会变成观鸟圣地，吸引全球鸟类爱好者。</p>
+        <p class="fact-text cn">纽约市有超过<strong>600种鸟类</strong>被记录，因为它地处大西洋候鸟迁徙路线上，中央公园每年春秋两季都会变成观鸟圣地，吸引全球鸟类爱好者。</p>
+        <p class="fact-text en"><strong>Wall Street and the NYSE</strong> together represent the world's largest financial market by capitalization. The daily trading volume on the New York Stock Exchange alone regularly exceeds $20 billion.</p>
       </div>
       <div class="fact">
         <span class="fact-num">052</span>
-        <p class="fact-text">纽约市的<strong>浣熊</strong>极为聪明，已适应城市生活，甚至学会了开垃圾桶盖和打开橱柜——有研究表明城市浣熊的解题能力明显高于农村同类。</p>
+        <p class="fact-text cn">纽约市的<strong>浣熊</strong>极为聪明，已适应城市生活，甚至学会了开垃圾桶盖和打开橱柜——有研究表明城市浣熊的解题能力明显高于农村同类。</p>
+        <p class="fact-text en">New York's <strong>tech industry</strong> (often called "Silicon Alley") has grown explosively since 2010. The city is now the second-largest tech hub in the US after San Francisco, with strengths in fintech, media-tech, and health-tech.</p>
       </div>
       <div class="fact">
         <span class="fact-num">053</span>
-        <p class="fact-text">哈德逊河和东河经过数十年治理，现在<strong>可以游泳</strong>了——每年夏天都有官方批准的河边游泳活动，这在1970年代污染严重的时期是不可想象的。</p>
+        <p class="fact-text cn">哈德逊河和东河经过数十年治理，现在<strong>可以游泳</strong>了——每年夏天都有官方批准的河边游泳活动，这在1970年代污染严重的时期是不可想象的。</p>
+        <p class="fact-text en">New York's <strong>GDP</strong> — if it were a country — would rank among the world's top 15 economies. The city alone generates over $800 billion in annual economic output.</p>
       </div>
       <div class="fact">
         <span class="fact-num">054</span>
-        <p class="fact-text">纽约市有超过<strong>700英里的海岸线</strong>，比洛杉矶、迈阿密和旧金山加起来还长，这一事实常常令人惊讶，因为大多数人想到纽约，想到的是摩天大楼而非海岸。</p>
+        <p class="fact-text cn">纽约市有超过<strong>700英里的海岸线</strong>，比洛杉矶、迈阿密和旧金山加起来还长，这一事实常常令人惊讶，因为大多数人想到纽约，想到的是摩天大楼而非海岸。</p>
+        <p class="fact-text en">New York's <strong>income inequality</strong> is among the most extreme of any American city. The top 1% earn over 100 times the bottom 20%. Billionaires and homeless people share the same subway platforms daily — a jarring visual that defines the city's contradictions.</p>
       </div>
       <div class="fact">
         <span class="fact-num">055</span>
-        <p class="fact-text">关于纽约下水道里有<strong>鳄鱼</strong>的都市传说由来已久，实际上偶有宠物鳄鱼被遗弃在下水道，但并无大型繁殖群体，这个谣言从1930年代流传至今。</p>
+        <p class="fact-text cn">关于纽约下水道里有<strong>鳄鱼</strong>的都市传说由来已久，实际上偶有宠物鳄鱼被遗弃在下水道，但并无大型繁殖群体，这个谣言从1930年代流传至今。</p>
+        <p class="fact-text en">New York's <strong>real estate</strong> market is legendarily expensive. The average Manhattan apartment costs over $1 million, and median rent for a one-bedroom exceeds $3,500/month. Yet the city keeps attracting newcomers — because for many, the opportunity is worth the price.</p>
       </div>
       <div class="fact">
         <span class="fact-num">056</span>
-        <p class="fact-text">纽约市内有超过<strong>30,000英亩</strong>的公共绿地，包括约500个公园，布朗克斯动物园是全球最大的城市动物园之一，面积超过265公顷。</p>
+        <p class="fact-text cn">纽约市内有超过<strong>30,000英亩</strong>的公共绿地，包括约500个公园，布朗克斯动物园是全球最大的城市动物园之一，面积超过265公顷。</p>
+        <p class="fact-text en">The <strong>garment industry</strong> in New York's Fashion District once employed hundreds of thousands of workers. Though manufacturing has largely moved overseas, the district remains the design and business hub of American fashion.</p>
       </div>
     </div>
   </div>
@@ -595,27 +664,33 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">057</span>
-        <p class="fact-text">如果纽约市是一个独立国家，其GDP将排在<strong>全球前15</strong>，约1.7万亿美元，超过澳大利亚、荷兰等国。</p>
+        <p class="fact-text cn">如果纽约市是一个独立国家，其GDP将排在<strong>全球前15</strong>，约1.7万亿美元，超过澳大利亚、荷兰等国。</p>
+        <p class="fact-text en">New York has over <strong>27,000 restaurants</strong>, more than any other US city. Roughly 80% of them fail within the first five years — the most Darwinian dining ecosystem in the world.</p>
       </div>
       <div class="fact">
         <span class="fact-num">058</span>
-        <p class="fact-text">曼哈顿的<strong>超级豪宅市场</strong>中，有大量公寓常年空置，被富豪作为资产配置工具，整个楼层或整栋楼可能只有零星居民，形成鬼城般的高层空间。</p>
+        <p class="fact-text cn">曼哈顿的<strong>超级豪宅市场</strong>中，有大量公寓常年空置，被富豪作为资产配置工具，整个楼层或整栋楼可能只有零星居民，形成鬼城般的高层空间。</p>
+        <p class="fact-text en">New York is a major center for <strong>advertising</strong> ("Madison Avenue"), <strong>media</strong> (NYT, CNN, NBC), and <strong>legal services</strong>, employing hundreds of thousands in white-collar professional services.</p>
       </div>
       <div class="fact">
         <span class="fact-num">059</span>
-        <p class="fact-text">纽约的<strong>小费文化</strong>已蔓延至几乎所有服务业，从餐厅到咖啡馆，从出租车到发廊，不给或给少了被视为严重失礼，小费比例从15%攀升至20%甚至25%。</p>
+        <p class="fact-text cn">纽约的<strong>小费文化</strong>已蔓延至几乎所有服务业，从餐厅到咖啡馆，从出租车到发廊，不给或给少了被视为严重失礼，小费比例从15%攀升至20%甚至25%。</p>
+        <p class="fact-text en">New York's <strong>startup ecosystem</strong> raised over $30 billion in venture capital in recent years, making it the world's second-largest startup hub after the San Francisco Bay Area.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">060</span>
-        <p class="fact-text">纽约市的<strong>贫富差距</strong>在全美城市中名列前茅：全球顶级金融精英与地铁站外无家可归者之间的距离有时不超过20米。2023年，全市约有<strong>7万人</strong>无家可归，创历史新高，这一数字与城市的全球金融中心地位形成尖锐对比。</p>
+        <p class="fact-text cn">纽约市的<strong>贫富差距</strong>在全美城市中名列前茅：全球顶级金融精英与地铁站外无家可归者之间的距离有时不超过20米。2023年，全市约有<strong>7万人</strong>无家可归，创历史新高，这一数字与城市的全球金融中心地位形成尖锐对比。</p>
+        <p class="fact-text en">New York is home to the <strong>world's largest urban park</strong> — but it's not Central Park. Pelham Bay Park in the Bronx covers 1,122 hectares, more than three times Central Park's size.</p>
       </div>
       <div class="fact">
         <span class="fact-num">061</span>
-        <p class="fact-text">纽约的<strong>房租中位数</strong>长期高居全美首位，一间普通一居室月租可超过3,500美元，许多本地居民花40%以上的收入在住房上。</p>
+        <p class="fact-text cn">纽约的<strong>房租中位数</strong>长期高居全美首位，一间普通一居室月租可超过3,500美元，许多本地居民花40%以上的收入在住房上。</p>
+        <p class="fact-text en">Central Park's <strong>Bethesda Fountain</strong> is the only sculpture in the park that was part of the original design. The angel atop the fountain is named "Angel of the Waters."</p>
       </div>
       <div class="fact">
         <span class="fact-num">062</span>
-        <p class="fact-text">华尔街的<strong>"铜牛"</strong>（Charging Bull）并非官方委托，而是艺术家亚托托尼亚奥·莫达卡（Arturo Di Modica）1989年在没有任何许可的情况下私自放置的游击艺术装置，之后被保留至今。</p>
+        <p class="fact-text cn">华尔街的<strong>"铜牛"</strong>（Charging Bull）并非官方委托，而是艺术家亚托托尼亚奥·莫达卡（Arturo Di Modica）1989年在没有任何许可的情况下私自放置的游击艺术装置，之后被保留至今。</p>
+        <p class="fact-text en">The <strong>Roosevelt Island Tramway</strong> is one of only two commuter aerial tramways in the US. It runs parallel to the Queensboro Bridge and offers stunning views of the Manhattan skyline.</p>
       </div>
     </div>
   </div>
@@ -630,35 +705,43 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">063</span>
-        <p class="fact-text">纽约人在电梯里<strong>不说话</strong>，这是默认的社交规则——直视对方或主动攀谈会被认为奇怪，人们通常盯着手机或者门缝。</p>
+        <p class="fact-text cn">纽约人在电梯里<strong>不说话</strong>，这是默认的社交规则——直视对方或主动攀谈会被认为奇怪，人们通常盯着手机或者门缝。</p>
+        <p class="fact-text en">New York's steam system is one of the <strong>largest in the world</strong> — over 170 km of underground pipes deliver steam for heating and cooling to buildings across Manhattan. The occasional steam vents rising from manhole covers have become an iconic New York image.</p>
       </div>
       <div class="fact">
         <span class="fact-num">064</span>
-        <p class="fact-text">在曼哈顿，人行道有一套<strong>非成文的走路规则</strong>：靠右、别停、不要拖行李箱占满道，否则会立刻遭遇纽约式的无声白眼。</p>
+        <p class="fact-text cn">在曼哈顿，人行道有一套<strong>非成文的走路规则</strong>：靠右、别停、不要拖行李箱占满道，否则会立刻遭遇纽约式的无声白眼。</p>
+        <p class="fact-text en">The <strong>Croton Aqueduct</strong>, built in 1842, first brought fresh water to Manhattan from 60 km upstate. Today, New York's water supply comes from reservoirs up to 200 km away — and is considered among the purest tap water of any major city.</p>
       </div>
       <div class="fact">
         <span class="fact-num">065</span>
-        <p class="fact-text">纽约的<strong>垃圾处理</strong>没有地下垃圾桶，垃圾袋直接堆在人行道边，每天深夜被卡车清走，夏天气味明显——这是城市基础设施中最被外地游客惊讶的细节。</p>
+        <p class="fact-text cn">纽约的<strong>垃圾处理</strong>没有地下垃圾桶，垃圾袋直接堆在人行道边，每天深夜被卡车清走，夏天气味明显——这是城市基础设施中最被外地游客惊讶的细节。</p>
+        <p class="fact-text en">New York's <strong>rats</strong> are legendary — estimated at about 2 million, roughly one for every four residents. The city's "rat czar" (officially, Director of Rodent Mitigation) was appointed in 2023 to combat the problem.</p>
       </div>
       <div class="fact">
         <span class="fact-num">066</span>
-        <p class="fact-text">很多纽约人终其一生<strong>没有驾照</strong>，公共交通和步行足以满足日常所需，拥有私家车反而是一种不实用的负担。</p>
+        <p class="fact-text cn">很多纽约人终其一生<strong>没有驾照</strong>，公共交通和步行足以满足日常所需，拥有私家车反而是一种不实用的负担。</p>
+        <p class="fact-text en">The <strong>Flatiron Building</strong> (1902) isn't actually the city's first skyscraper, but its dramatic triangular shape at the intersection of Broadway and Fifth Avenue made it one of the most photographed buildings in history.</p>
       </div>
       <div class="fact">
         <span class="fact-num">067</span>
-        <p class="fact-text">纽约的<strong>超市文化</strong>与其他城市不同，很多人每隔两三天步行去街角的杂货店小量购物，而非一周一次大采购，因为公寓储物空间极其有限。</p>
+        <p class="fact-text cn">纽约的<strong>超市文化</strong>与其他城市不同，很多人每隔两三天步行去街角的杂货店小量购物，而非一周一次大采购，因为公寓储物空间极其有限。</p>
+        <p class="fact-text en">New York's <strong>subway musicians</strong> perform through an official audition program called "Music Under New York" (MUNY). Over 350 approved acts play in stations across the system.</p>
       </div>
       <div class="fact">
         <span class="fact-num">068</span>
-        <p class="fact-text">纽约市的<strong>停电预警</strong>是真实的，夏季高温时段Con Edison会主动限制某些区域的电力供应，以防止电网崩溃，这在全球顶级城市中颇为罕见。</p>
+        <p class="fact-text cn">纽约市的<strong>停电预警</strong>是真实的，夏季高温时段Con Edison会主动限制某些区域的电力供应，以防止电网崩溃，这在全球顶级城市中颇为罕见。</p>
+        <p class="fact-text en"><strong>Times Square</strong> was originally called "Longacre Square" until the New York Times moved its headquarters there in 1904. The annual New Year's Eve ball drop has been a tradition since 1907.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">069</span>
-        <p class="fact-text">纽约的公寓通常没有<strong>中央空调</strong>，大多数老式楼用窗式空调，每到夏天数百万台窗机从高楼向外伸出，形成独特的城市景观。冬天则是另一个极端：许多楼的暖气无法控制温度，要么冷要么热，<strong>开着窗睡觉过冬</strong>并不罕见。</p>
+        <p class="fact-text cn">纽约的公寓通常没有<strong>中央空调</strong>，大多数老式楼用窗式空调，每到夏天数百万台窗机从高楼向外伸出，形成独特的城市景观。冬天则是另一个极端：许多楼的暖气无法控制温度，要么冷要么热，<strong>开着窗睡觉过冬</strong>并不罕见。</p>
+        <p class="fact-text en">New York's <strong>tap water</strong> is famously excellent — piped from pristine upstate reservoirs, it's one of only five major US city water supplies pure enough to be unfiltered. Locals and pizza makers credit it for the city's superior bagels and pizza dough.</p>
       </div>
       <div class="fact">
         <span class="fact-num">070</span>
-        <p class="fact-text">纽约人普遍认为自己住的区比其他区好，<strong>布鲁克林人</strong>尤甚，他们通常不会说"我住在纽约"，而是说"我住在布鲁克林"，这是身份认同的一部分。</p>
+        <p class="fact-text cn">纽约人普遍认为自己住的区比其他区好，<strong>布鲁克林人</strong>尤甚，他们通常不会说"我住在纽约"，而是说"我住在布鲁克林"，这是身份认同的一部分。</p>
+        <p class="fact-text en">New York's <strong>homelessness crisis</strong> has worsened dramatically. Over 100,000 people cycle through the shelter system annually, and tent encampments have appeared in parks and subway stations across the city.</p>
       </div>
     </div>
   </div>
@@ -673,43 +756,53 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">071</span>
-        <p class="fact-text">纽约地铁里的<strong>老鼠</strong>有约200万只（估计），与人口比例接近1:4，它们是城市生态系统的组成部分，偶尔出现在地铁轨道上衔着披萨片跑已成为网红视频素材。</p>
+        <p class="fact-text cn">纽约地铁里的<strong>老鼠</strong>有约200万只（估计），与人口比例接近1:4，它们是城市生态系统的组成部分，偶尔出现在地铁轨道上衔着披萨片跑已成为网红视频素材。</p>
+        <p class="fact-text en">The city's <strong>housing shortage</strong> is chronic — vacancy rates hover below 1%, among the lowest in the nation. Rent-stabilized apartments are fiercely guarded family heirlooms.</p>
       </div>
       <div class="fact">
         <span class="fact-num">072</span>
-        <p class="fact-text">纽约有一个<strong>"宇宙唯一"的地址</strong>：1 World Trade Center，它的高度被设计为<strong>1,776英尺</strong>，对应美国独立年份1776年。</p>
+        <p class="fact-text cn">纽约有一个<strong>"宇宙唯一"的地址</strong>：1 World Trade Center，它的高度被设计为<strong>1,776英尺</strong>，对应美国独立年份1776年。</p>
+        <p class="fact-text en">New York's <strong>subway system</strong> is crumbling under decades of deferred maintenance. The MTA faces a $40+ billion backlog in needed repairs, yet ridership is recovering strongly after the pandemic.</p>
       </div>
       <div class="fact">
         <span class="fact-num">073</span>
-        <p class="fact-text">纽约市在美国禁酒令期间（1920-1933）拥有估计<strong>3万个地下酒吧</strong>（Speakeasy），密度远超禁酒令执行能力，许多警察直接收贿放行。</p>
+        <p class="fact-text cn">纽约市在美国禁酒令期间（1920-1933）拥有估计<strong>3万个地下酒吧</strong>（Speakeasy），密度远超禁酒令执行能力，许多警察直接收贿放行。</p>
+        <p class="fact-text en">The <strong>congestion pricing</strong> plan, first proposed decades ago, was finally approved to charge vehicles entering Manhattan below 60th Street — making New York the first American city to implement such a policy.</p>
       </div>
       <div class="fact">
         <span class="fact-num">074</span>
-        <p class="fact-text">时代广场的<strong>跨年球降落</strong>传统始于1907年，每年有超过10亿人通过电视观看，但纽约本地人几乎从不去，因为现场人山人海且无法如厕。</p>
+        <p class="fact-text cn">时代广场的<strong>跨年球降落</strong>传统始于1907年，每年有超过10亿人通过电视观看，但纽约本地人几乎从不去，因为现场人山人海且无法如厕。</p>
+        <p class="fact-text en">New York's <strong>climate change</strong> vulnerability is severe. Hurricane Sandy in 2012 caused $19 billion in damage and exposed the city's inadequate flood defenses. Sea level rise threatens low-lying areas across all five boroughs.</p>
       </div>
       <div class="fact">
         <span class="fact-num">075</span>
-        <p class="fact-text">帝国大厦顶端的<strong>天线塔</strong>最初设计为飞艇停靠站，但由于风太大、逻辑荒谬从未真正使用，这一设计现在只是一段被遗忘的工程奇想。</p>
+        <p class="fact-text cn">帝国大厦顶端的<strong>天线塔</strong>最初设计为飞艇停靠站，但由于风太大、逻辑荒谬从未真正使用，这一设计现在只是一段被遗忘的工程奇想。</p>
+        <p class="fact-text en">New York's <strong>public schools</strong> system is the largest in the US, educating over 1 million students. The intense competition for spots at specialized high schools like Stuyvesant and Bronx Science mirrors the city's broader culture of relentless striving.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">076</span>
-        <p class="fact-text">纽约发生过多次被遗忘的<strong>气候灾难</strong>：1888年的大暴风雪（Great Blizzard）造成400余人死亡，促成地铁修建；2012年的飓风桑迪淹没了半个曼哈顿下城和多条地铁线，损失超过190亿美元，至今仍影响着城市基础设施规划。</p>
+        <p class="fact-text cn">纽约发生过多次被遗忘的<strong>气候灾难</strong>：1888年的大暴风雪（Great Blizzard）造成400余人死亡，促成地铁修建；2012年的飓风桑迪淹没了半个曼哈顿下城和多条地铁线，损失超过190亿美元，至今仍影响着城市基础设施规划。</p>
+        <p class="fact-text en">Amazon famously <strong>cancelled</strong> its planned HQ2 in Long Island City in 2019 after fierce local opposition — a rare case of a community rejecting billions in corporate investment over concerns about gentrification and corporate welfare.</p>
       </div>
       <div class="fact">
         <span class="fact-num">077</span>
-        <p class="fact-text">纽约某些建筑拥有<strong>幻影地址</strong>：因为某些楼的门牌号太不吉利（尤其针对中国买家），开发商会直接在门牌上跳过4、14等数字。</p>
+        <p class="fact-text cn">纽约某些建筑拥有<strong>幻影地址</strong>：因为某些楼的门牌号太不吉利（尤其针对中国买家），开发商会直接在门牌上跳过4、14等数字。</p>
+        <p class="fact-text en">The <strong>MTA's</strong> second phase of the Second Avenue Subway — first proposed in 1929 — is still under construction nearly a century later. The first phase opened in 2017 at a cost of $4.5 billion for just three stations, making it one of the most expensive infrastructure projects per mile in history.</p>
       </div>
       <div class="fact">
         <span class="fact-num">078</span>
-        <p class="fact-text">布鲁克林桥每天有约<strong>10万辆车</strong>通过，但由于建造于130年前，其最大设计承重实际上是马车，现代工程师不断用新技术加固这座桥。</p>
+        <p class="fact-text cn">布鲁克林桥每天有约<strong>10万辆车</strong>通过，但由于建造于130年前，其最大设计承重实际上是马车，现代工程师不断用新技术加固这座桥。</p>
+        <p class="fact-text en">The ongoing debate over New York's <strong>future</strong> centers on a fundamental question: can the city remain a place of opportunity for ordinary people, or is it becoming an exclusive playground for the wealthy? The answer will define not just New York, but the idea of the American city itself.</p>
       </div>
       <div class="fact">
         <span class="fact-num">079</span>
-        <p class="fact-text">联合国总部在法律上是<strong>国际领土</strong>，不受纽约市或美国法律管辖，警察无权进入，理论上联合国大楼内可以做许多在美国境内违法的事情。</p>
+        <p class="fact-text cn">联合国总部在法律上是<strong>国际领土</strong>，不受纽约市或美国法律管辖，警察无权进入，理论上联合国大楼内可以做许多在美国境内违法的事情。</p>
+        <p class="fact-text en">New York's post-pandemic <strong>recovery</strong> has been uneven — office districts remain partially empty while neighborhoods like Williamsburg and Astoria boom. The city is being reshaped in real-time, with the balance of power shifting from Manhattan to the outer boroughs.</p>
       </div>
       <div class="fact">
         <span class="fact-num">080</span>
-        <p class="fact-text">在纽约持有<strong>弹弹球枪</strong>（Marble gun）是合法的，但持有防身喷雾需要年满18岁且不能超过2.5盎司——纽约的武器法律有时令人困惑。</p>
+        <p class="fact-text cn">在纽约持有<strong>弹弹球枪</strong>（Marble gun）是合法的，但持有防身喷雾需要年满18岁且不能超过2.5盎司——纽约的武器法律有时令人困惑。</p>
+        <p class="fact-text en">New York's <strong>cultural dominance</strong> in media, finance, fashion, and art ensures it will remain the city the world watches. Love it or hate it, ignore it you cannot.</p>
       </div>
     </div>
   </div>
@@ -724,27 +817,33 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">081</span>
-        <p class="fact-text">纽约的<strong>艺术家公寓</strong>（loft）文化起源于1960-70年代，当时大批艺术家占据工业区废弃仓库，孵化了纽约艺术界的黄金时代，如今同类空间的租金早已令普通艺术家望而却步。</p>
+        <p class="fact-text cn">纽约的<strong>艺术家公寓</strong>（loft）文化起源于1960-70年代，当时大批艺术家占据工业区废弃仓库，孵化了纽约艺术界的黄金时代，如今同类空间的租金早已令普通艺术家望而却步。</p>
+        <p class="fact-text en">New Yorkers walk <strong>fast</strong>. The average walking speed is 4.6 mph — 10% faster than any other American city. Standing on the left side of an escalator will earn you genuine hostility.</p>
       </div>
       <div class="fact">
         <span class="fact-num">082</span>
-        <p class="fact-text">大都会艺术博物馆（MET）拥有超过<strong>150万件藏品</strong>，但展出的不足1%，其余都在库房中沉睡，仅库房面积就超过大多数博物馆的全部面积。</p>
+        <p class="fact-text cn">大都会艺术博物馆（MET）拥有超过<strong>150万件藏品</strong>，但展出的不足1%，其余都在库房中沉睡，仅库房面积就超过大多数博物馆的全部面积。</p>
+        <p class="fact-text en">True New Yorkers know the best <strong>dollar pizza</strong> isn't at the famous spots — it's at the unmarked corner shops where the owner has been hand-tossing dough for 30 years and doesn't need a Yelp rating.</p>
       </div>
       <div class="fact">
         <span class="fact-num">083</span>
-        <p class="fact-text">纽约有约<strong>300家画廊</strong>主要集中在切尔西区，这里是全球当代艺术市场的神经中枢，每周四是私人开幕夜，整个社群的交际在葡萄酒和白墙之间完成。</p>
+        <p class="fact-text cn">纽约有约<strong>300家画廊</strong>主要集中在切尔西区，这里是全球当代艺术市场的神经中枢，每周四是私人开幕夜，整个社群的交际在葡萄酒和白墙之间完成。</p>
+        <p class="fact-text en">New Yorkers have a sacred rule: <strong>never make eye contact on the subway</strong>. Look at your phone, stare at an ad, study your shoes — anything but acknowledge the stranger six inches from your face.</p>
       </div>
       <div class="fact">
         <span class="fact-num">084</span>
-        <p class="fact-text">纽约的<strong>独立书店</strong>数量近年来逆势增长，Strand书店的书架绵延总计超过18英里，是城市文化抵抗亚马逊化的象征。</p>
+        <p class="fact-text cn">纽约的<strong>独立书店</strong>数量近年来逆势增长，Strand书店的书架绵延总计超过18英里，是城市文化抵抗亚马逊化的象征。</p>
+        <p class="fact-text en">The ultimate New York paradox: residents <strong>complain constantly</strong> about the noise, the rats, the rent, and the weather — but suggest they move anywhere else and they'll look at you like you've lost your mind. "Where else would I go?" is the city's unofficial anthem.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">085</span>
-        <p class="fact-text">纽约曾是<strong>爵士乐的全球首都</strong>：52街上密密麻麻的俱乐部孕育了Miles Davis、Charlie Parker、Thelonious Monk，Village Vanguard至今仍在演出，从1935年运营至今，是全球历史最悠久的爵士俱乐部之一，这里是真正的活着的历史遗址。</p>
+        <p class="fact-text cn">纽约曾是<strong>爵士乐的全球首都</strong>：52街上密密麻麻的俱乐部孕育了Miles Davis、Charlie Parker、Thelonious Monk，Village Vanguard至今仍在演出，从1935年运营至今，是全球历史最悠久的爵士俱乐部之一，这里是真正的活着的历史遗址。</p>
+        <p class="fact-text en">New York's <strong>Chinatown</strong> has been steadily shrinking due to gentrification. Rising rents have pushed many businesses and residents to Flushing, Queens and Sunset Park, Brooklyn — the new centers of Chinese American life.</p>
       </div>
       <div class="fact">
         <span class="fact-num">086</span>
-        <p class="fact-text">纽约人每年消费的<strong>现场演出票</strong>总金额超过15亿美元，百老汇、Off-Broadway、音乐厅、即兴喜剧等构成全球密度最高的现场表演生态。</p>
+        <p class="fact-text cn">纽约人每年消费的<strong>现场演出票</strong>总金额超过15亿美元，百老汇、Off-Broadway、音乐厅、即兴喜剧等构成全球密度最高的现场表演生态。</p>
+        <p class="fact-text en">The <strong>Hudson Yards</strong> development on Manhattan's west side cost $25 billion, making it the most expensive private real estate project in US history. Its centerpiece, The Vessel, was closed to the public after multiple suicides.</p>
       </div>
     </div>
   </div>
@@ -759,19 +858,23 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">087</span>
-        <p class="fact-text">纽约市公立学校系统是全美最大的，共有约<strong>100万学生</strong>，使用70多种语言，光是教育部的年度预算就超过300亿美元。</p>
+        <p class="fact-text cn">纽约市公立学校系统是全美最大的，共有约<strong>100万学生</strong>，使用70多种语言，光是教育部的年度预算就超过300亿美元。</p>
+        <p class="fact-text en">New York's <strong>street vendors</strong> face a byzantine permitting system — only about 5,100 food vendor permits exist for a city of 8 million. Some permits are sublet on the black market for over $25,000 per year.</p>
       </div>
       <div class="fact">
         <span class="fact-num">088</span>
-        <p class="fact-text">纽约市有超过<strong>120所大学和学院</strong>，包括哥伦比亚大学、纽约大学、福特汉姆大学等，学生总数超过百万，是全球大学密度最高的城市之一。</p>
+        <p class="fact-text cn">纽约市有超过<strong>120所大学和学院</strong>，包括哥伦比亚大学、纽约大学、福特汉姆大学等，学生总数超过百万，是全球大学密度最高的城市之一。</p>
+        <p class="fact-text en">The <strong>Bronx</strong> was devastated by arson and abandonment in the 1970s-80s — over 40% of buildings in the South Bronx were destroyed. Today, rapid gentrification is transforming the borough, sparking fears of displacement among long-term residents.</p>
       </div>
       <div class="fact">
         <span class="fact-num">089</span>
-        <p class="fact-text">纽约公立图书馆开放<strong>WiFi和电脑</strong>给所有人免费使用，每年接待约1700万访客，是城市平等主义精神的体现之一。</p>
+        <p class="fact-text cn">纽约公立图书馆开放<strong>WiFi和电脑</strong>给所有人免费使用，每年接待约1700万访客，是城市平等主义精神的体现之一。</p>
+        <p class="fact-text en">New York's <strong>rent regulation</strong> system covers about 1 million apartments. These rent-stabilized units are passed down through families like heirlooms — losing one means entering the brutal open market.</p>
       </div>
       <div class="fact">
         <span class="fact-num">090</span>
-        <p class="fact-text">纽约高中存在一批<strong>顶尖公立特招学校</strong>（Specialized High Schools），如Stuyvesant和Bronx Science，每年数万人竞争，录取率极低，这些学校的校友包括多位诺贝尔奖得主。</p>
+        <p class="fact-text cn">纽约高中存在一批<strong>顶尖公立特招学校</strong>（Specialized High Schools），如Stuyvesant和Bronx Science，每年数万人竞争，录取率极低，这些学校的校友包括多位诺贝尔奖得主。</p>
+        <p class="fact-text en">The <strong>Williamsburg</strong> neighborhood in Brooklyn was an Orthodox Jewish and Latino working-class area until the 2000s, when it became the epicenter of hipster culture. Today, luxury condos have replaced most of the original character.</p>
       </div>
     </div>
   </div>
@@ -786,19 +889,23 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">091</span>
-        <p class="fact-text">纽约的<strong>华埠（Chinatown）</strong>是北美最大的华人社区之一，居住人口超过10万，其中曼哈顿华埠从20世纪初延续至今，是最古老的华人聚居地之一。</p>
+        <p class="fact-text cn">纽约的<strong>华埠（Chinatown）</strong>是北美最大的华人社区之一，居住人口超过10万，其中曼哈顿华埠从20世纪初延续至今，是最古老的华人聚居地之一。</p>
+        <p class="fact-text en">New York City spends over <strong>$3 billion annually</strong> on its homeless shelter system — more than the entire budget of many small cities. Yet the problem continues to worsen, raising fundamental questions about urban governance.</p>
       </div>
       <div class="fact">
         <span class="fact-num">092</span>
-        <p class="fact-text">法拉盛（Flushing）的<strong>第二代华人</strong>大多是福建移民后代，而曼哈顿唐人街的原住民则以广东籍为主，两个社群的文化差异相当显著。</p>
+        <p class="fact-text cn">法拉盛（Flushing）的<strong>第二代华人</strong>大多是福建移民后代，而曼哈顿唐人街的原住民则以广东籍为主，两个社群的文化差异相当显著。</p>
+        <p class="fact-text en">The debate over <strong>congestion pricing</strong> in Manhattan reflects a deeper New York tension: how to fund crumbling infrastructure without punishing working-class outer-borough commuters who have no viable transit alternatives.</p>
       </div>
       <div class="fact">
         <span class="fact-num">093</span>
-        <p class="fact-text">纽约市有约<strong>60万华裔居民</strong>（官方统计），实际数字可能更高，是除大陆港澳台和东南亚以外，华人海外聚居最密集的城市之一。</p>
+        <p class="fact-text cn">纽约市有约<strong>60万华裔居民</strong>（官方统计），实际数字可能更高，是除大陆港澳台和东南亚以外，华人海外聚居最密集的城市之一。</p>
+        <p class="fact-text en">New York's <strong>public library system</strong> (three separate systems across the boroughs) serves as informal community centers, job training facilities, and warming/cooling shelters — far exceeding their original mandate of lending books.</p>
       </div>
       <div class="fact">
         <span class="fact-num">094</span>
-        <p class="fact-text">每逢农历新年，纽约华埠的<strong>舞龙舞狮</strong>吸引大量游客，爆竹声在整个下曼哈顿回响，是非华人社区少数能真实感受中国节日氛围的地方之一。</p>
+        <p class="fact-text cn">每逢农历新年，纽约华埠的<strong>舞龙舞狮</strong>吸引大量游客，爆竹声在整个下曼哈顿回响，是非华人社区少数能真实感受中国节日氛围的地方之一。</p>
+        <p class="fact-text en">The <strong>gentrification</strong> of historically Black neighborhoods like Harlem and Bed-Stuy has been one of New York's most contentious social issues. Longtime residents watching their communities transform beyond recognition is a recurring tragedy of American urban life.</p>
       </div>
     </div>
   </div>
@@ -813,27 +920,33 @@
     <div class="fact-grid">
       <div class="fact">
         <span class="fact-num">095</span>
-        <p class="fact-text">真正的纽约人<strong>不去时代广场</strong>，不看自由女神像，不去帝国大厦，这些地方是给游客的——本地人的纽约存在于某条不知名的小街、某个街角咖啡馆、某个只有老街坊才知道的公园角落。</p>
+        <p class="fact-text cn">真正的纽约人<strong>不去时代广场</strong>，不看自由女神像，不去帝国大厦，这些地方是给游客的——本地人的纽约存在于某条不知名的小街、某个街角咖啡馆、某个只有老街坊才知道的公园角落。</p>
+        <p class="fact-text en">New York's <strong>immigrant communities</strong> continue to reshape the city. The latest wave includes large numbers from Central America, West Africa, and South Asia — each group creating new neighborhoods and food cultures that will define the city's next chapter.</p>
       </div>
       <div class="fact">
         <span class="fact-num">096</span>
-        <p class="fact-text">纽约人对<strong>外地来的新居民</strong>有复杂情绪：一方面欢迎多元文化，另一方面痛恨被涌入的新人抬高了房租，驱逐了老邻居，稀释了社区的独特性。</p>
+        <p class="fact-text cn">纽约人对<strong>外地来的新居民</strong>有复杂情绪：一方面欢迎多元文化，另一方面痛恨被涌入的新人抬高了房租，驱逐了老邻居，稀释了社区的独特性。</p>
+        <p class="fact-text en">Despite its problems, New York remains the city where <strong>more dreams</strong> are pursued per square mile than anywhere else on Earth. The energy is real, the ambition is contagious, and the possibility — however slim — keeps people coming.</p>
       </div>
       <div class="fact">
         <span class="fact-num">097</span>
-        <p class="fact-text">在纽约生活几年后，很多人会有一种特殊的<strong>骄傲感</strong>：我在这里活下来了。纽约的高压、昂贵、嘈杂和激烈的竞争，让"留下来"本身成为一种成就叙事。</p>
+        <p class="fact-text cn">在纽约生活几年后，很多人会有一种特殊的<strong>骄傲感</strong>：我在这里活下来了。纽约的高压、昂贵、嘈杂和激烈的竞争，让"留下来"本身成为一种成就叙事。</p>
+        <p class="fact-text en">New Yorkers judge newcomers by whether they can <strong>navigate the subway</strong> without checking their phone. Knowing that the "downtown 6" runs express after 7 PM on weekends is a badge of true local knowledge.</p>
       </div>
       <div class="fact">
         <span class="fact-num">098</span>
-        <p class="fact-text">纽约让人感到渺小，也让人感到<strong>可能性无限</strong>——因为这里每天都有数百万人与你一样，拖着梦想和行李箱刚刚抵达，开始一段新的剧情。</p>
+        <p class="fact-text cn">纽约让人感到渺小，也让人感到<strong>可能性无限</strong>——因为这里每天都有数百万人与你一样，拖着梦想和行李箱刚刚抵达，开始一段新的剧情。</p>
+        <p class="fact-text en">Real New Yorkers know the <strong>best food</strong> is in the outer boroughs — Flushing for Chinese, Jackson Heights for Indian, Arthur Avenue for Italian, and Brighton Beach for Russian. Manhattan is for tourists.</p>
       </div>
       <div class="fact wide fact-wide">
         <span class="fact-num">099</span>
-        <p class="fact-text">纽约没有义务对任何人友善，它只是存在在那里，<strong>巨大、嘈杂、无情、也无比慷慨</strong>。它不在乎你是否喜欢它；真正爱上纽约的人，往往是被它拒绝过、折磨过之后，仍然选择留下来的那些人。</p>
+        <p class="fact-text cn">纽约没有义务对任何人友善，它只是存在在那里，<strong>巨大、嘈杂、无情、也无比慷慨</strong>。它不在乎你是否喜欢它；真正爱上纽约的人，往往是被它拒绝过、折磨过之后，仍然选择留下来的那些人。</p>
+        <p class="fact-text en">New Yorkers maintain a paradoxical relationship with <strong>personal space</strong> — they live in tiny apartments, ride packed trains, and wait in long lines, yet fiercely guard their emotional boundaries. A smile at a stranger is suspicious; a nod is excessive.</p>
       </div>
       <div class="fact">
         <span class="fact-num">100</span>
-        <p class="fact-text">每一个曾在纽约生活过的人都会告诉你：<strong>离开纽约比爱上纽约更难</strong>。这座城市会在你身上留下某种不可撤销的印记，让你此后在任何其他城市，都会不自觉地拿它对比。</p>
+        <p class="fact-text cn">每一个曾在纽约生活过的人都会告诉你：<strong>离开纽约比爱上纽约更难</strong>。这座城市会在你身上留下某种不可撤销的印记，让你此后在任何其他城市，都会不自觉地拿它对比。</p>
+        <p class="fact-text en">The quintessential New York experience is standing on a <strong>subway platform at 2 AM</strong>, exhausted but buzzing, knowing that this chaotic, maddening, beautiful city is the only place that could contain your ambitions and your contradictions at the same time.</p>
       </div>
     </div>
   </div>
@@ -845,6 +958,11 @@
   <div class="footer-ornament">✦</div>
   <p>100 Things · 一百件小事</p>
 </footer>
+
+<script>
+(function(){var l=localStorage.getItem('citybits-lang')||'cn';document.body.classList.add('lang-'+l);})();
+function toggleLang(){var e=document.body.classList.contains('lang-en');document.body.classList.remove('lang-cn','lang-en');var n=e?'cn':'en';document.body.classList.add('lang-'+n);localStorage.setItem('citybits-lang',n);}
+</script>
 
 </body>
 </html>
